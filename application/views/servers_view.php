@@ -29,6 +29,8 @@
  <th>Site</th>
  <th>About</th>
  <th>Status</th>
+ <th>VIP</th>
+ <th>TOP</th>
 </thead>
 <tfoot>
  <th>Servername</th>
@@ -44,6 +46,8 @@
  <th>Site</th>
  <th>About</th>
  <th>Status</th>
+ <th>VIP</th>
+ <th>TOP</th>
 </tfoot>
 <tbody>
 <?php
@@ -70,6 +74,8 @@
    <td>$row->site</td>
    <td>$row->about</td>
    <td>$row->status</td>
+   <td>$row->vip</td>
+   <td>$row->top</td>
   </tr>
 EOT;
  }

@@ -7,7 +7,7 @@
 class Server extends DatabaseObject {
  protected static $table_name = "servers";
  protected static $db_fields = array('serverid', 'servername', 'addr', 'status', 'regdate', 'game', 'mode', 'map',
-  'players', 'maxplayers', 'location', 'steam', 'new', 'site', 'about');
+  'players', 'maxplayers', 'location', 'steam', 'new', 'site', 'about', 'vip', 'top');
 
  public $serverid;
  public $addr;
@@ -24,6 +24,8 @@ class Server extends DatabaseObject {
  protected $new;
  public $site;
  public $about;
+ protected $vip;
+ protected $top;
 
  public static function add(array $item) {
   $new = new static;
@@ -41,6 +43,8 @@ class Server extends DatabaseObject {
   $new->new = 1;
   $new->site = empty($item['site']) ? NULL : trim($item['site']);
   $new->about = empty($item['about']) ? NULL : trim($item['about']);
+  $new->vip = NULL;
+  $new->top = NULL;
   return $new;
  }
 }
