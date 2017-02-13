@@ -35,6 +35,7 @@ class Server extends DatabaseObject {
   $new->status = NULL;
   $new->new = NULL;
   $new->players = NULL;
+  $new->map = NULL;
   $new->site = empty($item['site']) ? NULL : trim($item['site']);
   $new->about = empty($item['about']) ? NULL : trim($item['about']);
   return $new;
