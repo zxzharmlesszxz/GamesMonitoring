@@ -19,7 +19,7 @@ class Server extends DatabaseObject {
   $new->addr = empty($item['addr']) ? NULL : trim($item['addr']);
   $new->servername = empty($item['servername']) ? NULL : trim($item['servername']);
   $new->status =  NULL;
-  $new->regdate = NULL;
+  $new->regdate = date("Y-m-d H:i:s");
   return $new;
  }
 }
