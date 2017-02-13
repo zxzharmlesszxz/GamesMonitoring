@@ -8,52 +8,13 @@ $(document).ready(function(){
   if(table.columns().eq(0)){table.columns().each(function(colIdx){$('input', table.column(colIdx).footer()).on('keyup change', function(){table.column(colIdx).search(this.value).draw();});});}
 
   // Autocheck checkbox if value = 1
-  $('input[type="checkbox"].status').each(function(){ ($(this).val() == 1) ? $(this).prop('checked', true) : $(this).prop('checked', false); });
-  // Autocheck checkbox if value = true
-  $('input[type="checkbox"][name="quotalimit[per_session]"]').each(function(){ ($(this).val() == 'true') ? $(this).prop('checked', true) : $(this).prop('checked', false); });
+  $('input[type="checkbox"]').each(function(){ ($(this).val() == 1) ? $(this).prop('checked', true) : $(this).prop('checked', false); });
 
   // Colored nav menu
   $('nav#menu').children('menu').children('li').each(function(){
     if ($(this).children('a').attr('href') == location.pathname){
       $(this).toggleClass('active');
     }
-  });
-
-  // Group functions
-  $(document).on('click','button.addMember', function(event){
-    var el = $('select#users'),
-     els = $('select#users option:selected'),
-     id = $('select#members').data('id');
-     els.each(function(){
-      var user = $(this),
-        username = user.val();
-      $.ajax({
-       url: '/groups/addMember/',
-       data: "groupid="+id+"&member="+username,
-       type: 'post',
-       success: function(){
-        user.remove().appendTo($('select#members'));
-       }
-      });
-    });
-  });
-
-  $(document).on('click','button.removeMember', function(event){
-    var el = $('select#members'), 
-     els = $('select#members option:selected'),
-     id = el.data('id');
-     els.each(function(){
-      var user = $(this),
-        username = user.val();
-      $.ajax({
-       url: '/groups/removeMember/',
-       data: "groupid="+id+"&member="+username,
-       type: 'post',
-       success: function(){
-        user.remove().appendTo($('select#users'));
-       }
-      });
-    });
   });
 
   // Change status checkbox functions
@@ -76,15 +37,6 @@ $(document).ready(function(){
     });
   });
 
-  $(document).on('change','input[type="checkbox"][name="quotalimit[per_session]"]', function(event){
-    var el = $(this);
-    if(el.is(':checked')){
-        el.attr('value','true');
-    }else{
-        el.attr('value','false');
-    }
-  });
-
   $(document).on('click','button#show', function(event){
     $('p.form').toggleClass('hide');
   });
@@ -96,11 +48,7 @@ $(document).ready(function(){
      id = el.data('id'),
      type = el.data('type'),
      result = type + " #" + id + " has been removed.";
-     if (type == 'quotatally') {
-      link = '/quotatallies/delete/';
-     } else {
-      link = '/'+type+'s/delete/';
-     }
+     link = '/'+type+'s/delete/';
 
     $.ajax({
      url: link,
