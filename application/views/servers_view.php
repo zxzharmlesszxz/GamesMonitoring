@@ -25,7 +25,7 @@
  <th>Game</th>
  <th>Mode</th>
  <th>Location</th>
- <th>Registrotion date</th>
+ <th>Registration date</th>
  <th>Site</th>
  <th>About</th>
  <th>Status</th>
@@ -40,7 +40,7 @@
  <th>Game</th>
  <th>Mode</th>
  <th>Location</th>
- <th>Registrotion date</th>
+ <th>Registration date</th>
  <th>Site</th>
  <th>About</th>
  <th>Status</th>
