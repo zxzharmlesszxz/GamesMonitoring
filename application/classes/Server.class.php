@@ -31,6 +31,10 @@ class Server extends DatabaseObject {
   $new->maxplayers = empty($item['maxplayers']) ? NULL : intval(trim($item['maxplayers']));
   $new->location = empty($item['location']) ? NULL : trim($item['location']);
   $new->steam = empty($item['steam']) ? NULL : intval(trim($item['steam']));
+  $new->regdate = NULL;
+  $new->status = NULL;
+  $new->new = NULL;
+  $new->players = NULL;
   $new->site = empty($item['site']) ? NULL : trim($item['site']);
   $new->about = empty($item['about']) ? NULL : trim($item['about']);
   return $new;
