@@ -22,7 +22,7 @@ class Server extends DatabaseObject {
  public $site;
  public $about;
 
- public static function add($addr, $servername, $game, $mode = NULL, $maxplayers = 0, $location, $steam = 0, $site = NULL, $about = NULL) {
+ public static function add($addr, $servername, $game, $mode = NULL, $maxplayers = 0, $location = NULL, $steam = 0, $site = NULL, $about = NULL) {
   $new = new static;
   $new->addr = empty($addr) ? NULL : trim($addr);
   $new->servername = empty($servername) ? NULL : trim($servername);
