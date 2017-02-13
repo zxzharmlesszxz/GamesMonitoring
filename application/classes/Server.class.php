@@ -12,16 +12,16 @@ class Server extends DatabaseObject {
  public $serverid;
  public $addr;
  public $servername;
- public $status;
- public $regdate;
+ protected $status;
+ protected $regdate;
  public $game;
  public $mode;
- public $map;
- public $players;
+ protected $map;
+ protected $players;
  public $maxplayers;
  public $location;
  public $steam;
- public $new;
+ protected $new;
  public $site;
  public $about;
 
