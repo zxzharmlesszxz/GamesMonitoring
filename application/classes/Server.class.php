@@ -9,7 +9,7 @@ class Server extends DatabaseObject {
  protected static $db_fields = array('serverid', 'servername', 'addr', 'status', 'regdate', 'game', 'mode', 'map',
   'players', 'maxplayers', 'location', 'steam', 'new', 'site', 'about', 'vip', 'top');
 
- public $serverid;
+ protected $serverid;
  public $addr;
  public $servername;
  protected $status;
