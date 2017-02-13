@@ -6,8 +6,8 @@
 
 class Server extends DatabaseObject {
  protected static $table_name = "servers";
- protected static $db_fields = array('serverid', 'addr', 'servername', 'game', 'mode', 'map' ,'players', 'maxplayers',
-  'status', 'location', 'steam', 'regdate', 'new', 'site' ,'about');
+ protected static $db_fields = array('serverid', 'addr', 'servername', 'game', 'mode', 'maxplayers', 'location',
+  'steam', 'regdate', 'new', 'site' ,'about');
 
  public $serverid;
  public $addr;
@@ -32,10 +32,7 @@ class Server extends DatabaseObject {
   $new->location = empty($item['location']) ? NULL : trim($item['location']);
   $new->steam = empty($item['steam']) ? NULL : intval(trim($item['steam']));
   $new->regdate = NULL;
-  $new->status = NULL;
   $new->new = NULL;
-  $new->players = NULL;
-  $new->map = NULL;
   $new->site = empty($item['site']) ? NULL : trim($item['site']);
   $new->about = empty($item['about']) ? NULL : trim($item['about']);
   return $new;
