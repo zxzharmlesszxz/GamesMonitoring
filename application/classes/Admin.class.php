@@ -8,12 +8,12 @@ class Admin extends DatabaseObject {
  protected static $table_name = "admins";
  protected static $db_fields = array('adminid', 'login', 'password', 'username', 'email', 'status');
 
- public $adminid;
+ protected $adminid;
  public $login;
- public $password;
+ protected $password;
  public $username;
  public $email;
- public $status;
+ protected $status;
 
  public static function add($login, $password, $username, $email) {
   $new = new static;
