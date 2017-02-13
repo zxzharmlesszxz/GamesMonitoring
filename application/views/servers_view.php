@@ -52,13 +52,13 @@
   $row = $data->getItem($item);
   echo <<<EOT
   <tr>
-   <td>$row->addr</td>
    <td><a href="/servers/show/?serverid=$row->serverid">$row->servername</a>
     <span class="actions">
      <button class="delete" alt="Delete" title="Delete" data-id="$row->serverid" data-type="server"></button>
      <button class="edit" alt="Edit" title="Edit" onclick="location.href='/servers/edit/?serverid=$row->serverid'"></button>
     </span>
    </td>
+   <td>$row->addr</td>
    <td>$row->steam</td>
    <td>$row->players</td>
    <td>$row->maxplayers</td>
