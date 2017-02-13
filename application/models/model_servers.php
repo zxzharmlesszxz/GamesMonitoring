@@ -19,7 +19,7 @@ class Model_Servers extends Model {
  }
 
  public function create(array $item) {
-  $item = Server::add($item['addr']);
+  $item = Server::add($item);
   return $item->save() ? $item : false;
  }
 
