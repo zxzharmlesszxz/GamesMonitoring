@@ -2,13 +2,13 @@
 <p class="form hide">
  <input type="text" value="" placeholder="addr" name="server[addr]"/>
  <input type="text" value="" placeholder="servername" name="server[servername]"/>
- <input type="text" value="" placeholder="servername" name="server[game]"/>
- <input type="text" value="" placeholder="servername" name="server[mode]"/>
- <input type="text" value="" placeholder="servername" name="server[maxplayers]"/>
- <input type="text" value="" placeholder="servername" name="server[location]"/>
- <input type="text" value="" placeholder="servername" name="server[steam]"/>
- <input type="text" value="" placeholder="servername" name="server[site]"/>
- <input type="text" value="" placeholder="servername" name="server[about]"/>
+ <input type="text" value="" placeholder="game" name="server[game]"/>
+ <input type="text" value="" placeholder="mode" name="server[mode]"/>
+ <input type="text" value="" placeholder="maxplayers" name="server[maxplayers]"/>
+ <input type="text" value="" placeholder="location" name="server[location]"/>
+ <input type="text" value="" placeholder="steam" name="server[steam]"/>
+ <input type="text" value="" placeholder="site" name="server[site]"/>
+ <input type="text" value="" placeholder="about" name="server[about]"/>
  <button class="create" title="Create" alt="Create" data-type="server">Create</button>
 </p>
 <p>
