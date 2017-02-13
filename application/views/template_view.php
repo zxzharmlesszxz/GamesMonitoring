@@ -22,7 +22,7 @@
     <menu>
      <li><a href="/">Main</a></li>
      <li><a href="/admins">Admins</a></li>
-     <li><a href="/users">Users</a></li>
+     <li><a href="/servers">Servers</a></li>
      <li><a href="/contacts">Contacts</a></li>
     </menu>
     <br class="clearfix" />
@@ -55,7 +55,7 @@
    </div>
   </div>
   <footer id="footer">
-   <a href="https://github.com/zxzharmlesszxz/"><?php echo config()->PROJECT_NAME; ?></a>-<?php echo config()->PROJECT_VERSION; ?> &copy; 2015-<?php echo date("Y"); ?>
+   <a href="https://github.com/zxzharmlesszxz/"><?php echo config()->PROJECT_NAME; ?></a> - <?php echo config()->PROJECT_VERSION; ?> &copy; 2015-<?php echo date("Y"); ?>
   </footer>
  </body>
 </html>
