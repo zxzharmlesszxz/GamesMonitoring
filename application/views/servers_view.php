@@ -16,8 +16,8 @@
 </p>
 <table id='table' class='display'>
 <thead>
- <th>Address</th>
  <th>Servername</th>
+ <th>Address</th>
  <th>Steam</th>
  <th>Players</th>
  <th>Maxplayers</th>
@@ -31,8 +31,8 @@
  <th>Status</th>
 </thead>
 <tfoot>
- <th>Address</th>
  <th>Servername</th>
+ <th>Address</th>
  <th>Steam</th>
  <th>Players</th>
  <th>Maxplayers</th>
