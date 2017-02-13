@@ -28,5 +28,5 @@ echo <<<EOT
  </tr>
  </tbody>
 </table>
-<p><button alt="Edit" title="Edit" onclick="location.href='/users/edit/?userid=$data->userid'">Edit this user</button></p>
+<p><button alt="Edit" title="Edit" onclick="location.href='/servers/edit/?serverid=$data->serverid'">Edit this server</button></p>
 EOT;
