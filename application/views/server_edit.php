@@ -38,7 +38,7 @@ echo <<<EOT
  </tr>
  <tr>
   <td>
-   <label for="maxplayers">Server slots</label></td><td><input type="text" value="$data->maxplayers" name="server[maxplayers]"/>
+   <label for="maxplayers">Server slots</label></td><td><input type="number" value="$data->maxplayers" name="server[maxplayers]"/>
   </td>
  </tr>
  <tr>
@@ -48,7 +48,7 @@ echo <<<EOT
  </tr>
  <tr>
   <td>
-   <label for="steam">Server steam</label></td><td><input type="text" value="$data->steam" name="server[steam]"/>
+   <label for="steam">Server steam</label></td><td><input type="checkbox" value="$data->steam" name="server[steam]"/>
   </td>
  </tr>
  <tr>
