@@ -20,7 +20,6 @@ class Model_Servers extends Model {
 
  public function create(array $item) {
   $item = Server::add($item);
-  var_dump($item);
   return $item->save() ? $item : false;
  }
 
