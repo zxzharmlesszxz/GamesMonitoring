@@ -14,11 +14,13 @@
  <th>Login</th>
  <th>Username</th>
  <th>Email</th>
+ <th>Status</th>
 </thead>
 <tfoot>
  <th>Login</th>
  <th>Username</th>
  <th>Email</th>
+ <th>Status</th>
 </tfoot>
 <tbody>
 <?php
@@ -35,6 +37,7 @@
    </td>
    <td>$row->username</td>
    <td>$row->email</td>
+   <td>$row->status</td>
   </tr>
 EOT;
  }
