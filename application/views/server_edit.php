@@ -15,9 +15,6 @@ echo <<<EOT
   <th>Value</th>
  </tr>
 </tfoot>
-
-  'status', 'location', 'steam', 'regdate', 'new', 'site' ,'about
-
 <tbody>
  <tr>
   <td>
