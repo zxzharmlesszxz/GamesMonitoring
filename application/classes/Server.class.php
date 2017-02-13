@@ -22,7 +22,7 @@ class Server extends DatabaseObject {
  public $site;
  public $about;
 
- public static function add($item) {
+ public static function add(array $item) {
   $new = new static;
   $new->addr = empty($item['addr']) ? NULL : trim($item['addr']);
   $new->servername = empty($item['servername']) ? NULL : trim($item['servername']);
