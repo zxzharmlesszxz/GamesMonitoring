@@ -6,11 +6,12 @@
 
 class User extends DatabaseObject {
  protected static $table_name = "users";
- protected static $db_fields = array('userid', 'login', 'password', 'username', 'email');
+ protected static $db_fields = array('userid', 'login', 'password', 'username', 'email', 'status');
 
  protected $userid;
- public $login;
  protected $password;
+ protected $status;
+ public $login;
  public $username;
  public $email;
 
@@ -20,6 +21,7 @@ class User extends DatabaseObject {
   $new->setPassword($password);
   $new->username = trim($username);
   $new->email = trim($email);
+  $new->status = 0;
   return $new;
  }
 
