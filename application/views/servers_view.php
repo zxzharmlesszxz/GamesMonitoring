@@ -74,8 +74,8 @@
    <td>$row->site</td>
    <td>$row->about</td>
    <td><input class="status" type="checkbox" data-id="$row->serverid" value="$row->status" data-type="server" disabled readonly /></td>
-   <td><input class="vip" type="checkbox" data-id="$row->serverid" value="$row->vip" data-type="server" /></td>
-   <td><input class="top" type="number" data-id="$row->serverid" value="$row->top" data-type="server" /></td>
+   <td><input class="vip" type="checkbox" data-id="$row->serverid" value="$row->vip" data-type="server" disabled readonly /></td>
+   <td><input class="top" type="number" data-id="$row->serverid" value="$row->top" data-type="server" disabled readonly /></td>
   </tr>
 EOT;
  }
