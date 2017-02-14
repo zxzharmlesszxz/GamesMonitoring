@@ -54,6 +54,8 @@
 
  foreach($data->keys() as $item){
   $row = $data->getItem($item);
+  $games_select_list = games_select_list($row->game);
+  $modes_select_list = modes_select_list($row->mode);
   echo <<<EOT
   <tr>
    <td><a href="/servers/show/?serverid=$row->serverid">$row->servername</a>
@@ -67,8 +69,8 @@
    <td>$row->players</td>
    <td>$row->maxplayers</td>
    <td>$row->map</td>
-   <td>$row->game</td>
-   <td>$row->mode</td>
+   <td>$games_select_list</td>
+   <td>$modes_select_list</td>
    <td>$row->location</td>
    <td>$row->regdate</td>
    <td>$row->site</td>

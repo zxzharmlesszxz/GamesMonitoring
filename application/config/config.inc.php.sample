@@ -15,6 +15,7 @@ $config = array(
  'CONTROLLERS_PATH' => 'application/controllers',
  'MODELS_PATH' => 'application/models',
  'VIEWS_PATH' => 'application/views',
+ 'INCLUDES_PATH' => 'application/includes',
 
  'mysql' => array(
   'host' => 'localhost',
