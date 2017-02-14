@@ -9,3 +9,13 @@ function games_select_list($servergame = NULL) {
  $str .= "</select>";
  return $str;
 }
+
+function modes_select_list($servermode = NULL) {
+ $str = '<select name="mode">';
+ $str .= (empty($servermode)) ? '<option disabled selected>Select mode</option>' : '';
+ foreach (config()->modes as $mode => $title) {
+  $str .= "<option value='$mode' ".($servermode == $mode ? 'selected' : '').">$title</option>";
+ }
+ $str .= "</select>";
+ return $str;
+}
