@@ -2,8 +2,8 @@
 <p class="form hide">
  <input type="text" value="" placeholder="addr" name="server[addr]"/>
  <input type="text" value="" placeholder="servername" name="server[servername]"/>
- <input type="text" value="" placeholder="game" name="server[game]"/>
- <input type="text" value="" placeholder="mode" name="server[mode]"/>
+ <?php echo games_select_list(); ?>
+ <?php echo modes_select_list(); ?>
  <input type="text" value="" placeholder="maxplayers" name="server[maxplayers]"/>
  <input type="text" value="" placeholder="location" name="server[location]"/>
  <input type="text" value="" placeholder="steam" name="server[steam]"/>
@@ -54,8 +54,6 @@
 
  foreach($data->keys() as $item){
   $row = $data->getItem($item);
-  $games_select_list = games_select_list($row->game);
-  $modes_select_list = modes_select_list($row->mode);
   echo <<<EOT
   <tr>
    <td><a href="/servers/show/?serverid=$row->serverid">$row->servername</a>
@@ -69,8 +67,8 @@
    <td>$row->players</td>
    <td>$row->maxplayers</td>
    <td>$row->map</td>
-   <td>$games_select_list</td>
-   <td>$modes_select_list</td>
+   <td>$row->game</td>
+   <td>$row->mode</td>
    <td>$row->location</td>
    <td>$row->regdate</td>
    <td>$row->site</td>
