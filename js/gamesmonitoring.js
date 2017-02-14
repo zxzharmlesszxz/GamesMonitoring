@@ -9,7 +9,7 @@ $(document).ready(function(){
 
   // Autocheck checkbox if value = 1
   $('input[type="checkbox"]').each(function(){ ($(this).val() == 1) ? $(this).prop('checked', true) : $(this).prop('checked', false); });
-  $(document).on('change',"input[type=checkbox]", function(event){if(!$(this).attr('readonly')){$(this).is(':checked') ? $(this).val(1) : $(this).val(0);} });
+  $(document).on('change',"input[type=checkbox]", function(event){if($(this).attr('readonly') == FALSE){$(this).is(':checked') ? $(this).val(1) : $(this).val(0);} });
 
   // Colored nav menu
   $('nav#menu').children('menu').children('li').each(function(){
