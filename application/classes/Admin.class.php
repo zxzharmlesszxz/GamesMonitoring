@@ -9,11 +9,11 @@ class Admin extends DatabaseObject {
  protected static $db_fields = array('adminid', 'login', 'password', 'username', 'email', 'status');
 
  protected $adminid;
- public $login;
  protected $password;
+ protected $status;
+ public $login;
  public $username;
  public $email;
- protected $status;
 
  public static function add($login, $password, $username, $email) {
   $new = new static;

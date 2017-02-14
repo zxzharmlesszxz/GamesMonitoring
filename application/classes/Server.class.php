@@ -10,22 +10,22 @@ class Server extends DatabaseObject {
   'players', 'maxplayers', 'location', 'steam', 'new', 'site', 'about', 'vip', 'top');
 
  protected $serverid;
- public $addr;
- public $servername;
  protected $status;
  protected $regdate;
- public $game;
- public $mode;
  protected $map;
  protected $players;
+ protected $new;
+ protected $vip;
+ protected $top;
+ public $addr;
+ public $servername;
+ public $game;
+ public $mode;
  public $maxplayers;
  public $location;
  public $steam;
- protected $new;
  public $site;
  public $about;
- protected $vip;
- protected $top;
 
  public static function add(array $item) {
   $new = new static;
@@ -46,5 +46,10 @@ class Server extends DatabaseObject {
   $new->vip = NULL;
   $new->top = NULL;
   return $new;
+ }
+
+ public function changeStatus() {
+  $this->status = ($this->status == 1) ? 0 : 1;
+  return $this->save();
  }
 }

@@ -28,4 +28,9 @@ class User extends DatabaseObject {
  public function setPassword($password) {
   $this->password = md5(trim($password));
  }
+
+ public function changeStatus() {
+  $this->status = ($this->status == 1) ? 0 : 1;
+  return $this->save();
+ }
 }

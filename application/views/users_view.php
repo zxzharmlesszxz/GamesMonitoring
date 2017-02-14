@@ -37,7 +37,7 @@
    </td>
    <td>$row->username</td>
    <td>$row->email</td>
-   <td>$row->status</td>
+   <td><input class="status" type="checkbox" data-id="$row->userid" value="$row->status" data-type="user" /></td>
   </tr>
 EOT;
  }
