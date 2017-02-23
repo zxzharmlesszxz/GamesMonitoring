@@ -47,15 +47,4 @@ echo <<<EOT
 </p>
 EOT;
 
-$sq = new SourceServerQueries();
-$server = $data->addr;
-$address = explode(':', $server);
-$sq->connect($address[0], $address[1]);
-$info = $sq->getInfo();
-$players = $sq->getPlayers();
-$rules = $sq->getRules();
-$sq->disconnect();
-
-var_dump($info);
-var_dump($players);
-var_dump($rules);
+var_dump($data);
