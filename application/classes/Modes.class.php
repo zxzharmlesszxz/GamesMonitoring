@@ -1,5 +1,5 @@
 <?php
-class GamesModes extends DatabaseObject {
+class Modes extends DatabaseObject {
  protected static $table_name = "gamesmodes";
  protected static $db_fields = array('modeid', 'shortname', 'fullname','description', 'gameid');
 
