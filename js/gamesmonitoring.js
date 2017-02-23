@@ -96,7 +96,7 @@ $(document).ready(function(){
      send = '';
 
     form.children('input').each(function(){
-      send += $(this).prop('name')+'='+$(this).val()+'&';
+      send += $(this).prop('name')+'='+encodeURIComponent($(this).val())+'&';
     });
 
     form.children('select').each(function(){
