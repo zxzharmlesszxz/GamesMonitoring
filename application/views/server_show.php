@@ -1,5 +1,6 @@
 <?php
 
+var_dump($data);
 echo <<<EOT
 <h1>Server</h1>
 <table id='1table' class='display'>
