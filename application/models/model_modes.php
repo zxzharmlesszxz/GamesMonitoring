@@ -4,7 +4,7 @@ class ModelModes extends Model {
  
  public function get_data() {
   $items = new Collection;
-  foreach (GamesModes::find_all() as $item) {
+  foreach (Modes::find_all() as $item) {
    $items->addItem($item, $item->modeid);
   }
   return $items;
@@ -14,12 +14,12 @@ class ModelModes extends Model {
   return $this->get_data()->getItem($itemid);
  }
 
- public function save(GameMode $mode){
+ public function save(Mode $mode){
   return $mode->save() ? $mode : false;
  }
 
  public function create(array $item) {
-  $new = GamesModes::add($item);
+  $new = Modes::add($item);
   return $new->save() ? $new : false;
  }
 
