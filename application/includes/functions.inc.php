@@ -19,3 +19,7 @@ function modes_select_list($servermode = NULL) {
  $str .= "</select>";
  return $str;
 }
+
+function locations_select_list($serverlocation = NULL) {
+
+}

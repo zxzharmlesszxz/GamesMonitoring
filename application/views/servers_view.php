@@ -5,7 +5,7 @@
  <?php echo games_select_list(); ?>
  <?php echo modes_select_list(); ?>
  <input type="text" value="" placeholder="maxplayers" name="server[maxplayers]"/>
- <input type="text" value="" placeholder="location" name="server[location]"/>
+ <?php echo locations_select_list(); ?>
  <input type="text" value="" placeholder="steam" name="server[steam]"/>
  <input type="text" value="" placeholder="site" name="server[site]"/>
  <input type="text" value="" placeholder="about" name="server[about]"/>
