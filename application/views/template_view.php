@@ -24,6 +24,7 @@
      <li><a href="/admins">Admins</a></li>
      <li><a href="/users">Users</a></li>
      <li><a href="/servers">Servers</a></li>
+     <li><a href="/games">Games</a></li>
      <li><a href="/contacts">Contacts</a></li>
     </menu>
     <br class="clearfix" />
