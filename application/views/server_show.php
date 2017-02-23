@@ -51,6 +51,7 @@ echo <<<EOT
  <caption>Players</caption>
  <thead>
   <tr>
+   <th>#</th>
    <th>Player name</th>
    <th>Score</th>
    <th>Time in game</th>
@@ -58,9 +59,10 @@ echo <<<EOT
  </thead>
  <tbody>
 EOT;
-foreach ($data->players_info as $player) {
+foreach ($data->players_info as $num => $player) {
  echo <<<EOT
   <tr>
+   <td>$num</td>
    <td>$player['name']</td>
    <td>$player['score']</td>
    <td>$player['time']</td>
