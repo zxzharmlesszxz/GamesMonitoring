@@ -1,15 +1,15 @@
 <?php
 
 /**
-* Controller for GamesModes Class
+* Controller for Modes Class
 **/
 
-class Controller_GamesModes extends Controller {
+class Controller_Modes extends Controller {
  protected $query;
 
  public function __construct() {
   parent::__construct();
-  $this->model = new Model_GamesModes();
+  $this->model = new Model_Modes();
   $this->query = $_REQUEST;
  }
 
