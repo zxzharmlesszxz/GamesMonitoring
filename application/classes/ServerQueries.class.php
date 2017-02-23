@@ -6,13 +6,13 @@ abstract class ServerQueries {
  protected $ip;
  protected $port;
 
- function __construct() {
+ public function __construct() {
   $this->resource = false;
   $this->connected = false;
   $this->raw = "";
  }
  
- function __destrcut() {
+ public function __destrcut() {
   self::disconnect();
  }
 
