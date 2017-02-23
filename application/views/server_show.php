@@ -46,6 +46,7 @@ echo <<<EOT
  <button alt="Edit" title="Edit" onclick="location.href='/servers/edit/?serverid=$data->serverid'">Edit this server</button>
 </p>
 EOT;
+
 echo <<<EOT
 <table>
  <caption>Players</caption>
@@ -59,6 +60,7 @@ echo <<<EOT
  </thead>
  <tbody>
 EOT;
+
 foreach ($data->players_info as $num => $player) {
  echo <<<EOT
   <tr>
@@ -69,6 +71,33 @@ foreach ($data->players_info as $num => $player) {
   </tr>
 EOT;
 }
+
+echo <<<EOT
+ </tbody>
+</table>
+EOT;
+
+echo <<<EOT
+<table>
+ <caption>Rules</caption>
+ <thead>
+  <tr>
+   <th>Param</th>
+   <th>Value</th>
+  </tr>
+ </thead>
+ <tbody>
+EOT;
+
+foreach ($data->rules as $key => $value) {
+ echo <<<EOT
+  <tr>
+   <td>{$key}</td>
+   <td>{$value}</td>
+  </tr>
+EOT;
+}
+
 echo <<<EOT
  </tbody>
 </table>
