@@ -46,5 +46,29 @@ echo <<<EOT
  <button alt="Edit" title="Edit" onclick="location.href='/servers/edit/?serverid=$data->serverid'">Edit this server</button>
 </p>
 EOT;
-
+echo <<<EOT
+<table>
+ <caption>Players</caption>
+ <thead>
+  <tr>
+   <th>Player name</th>
+   <th>Score</th>
+   <th>Time in game</th>
+  </tr>
+ </thead>
+ <tbody>
+EOT;
+foreach ($data->players_info as $player) {
+ echo <<<EOT
+  <tr>
+   <td>$player['name']</td>
+   <td>$player['score']</td>
+   <td>$player['time']</td>
+  </tr>
+EOT;
+}
+echo <<<EOT
+ </tbody>
+</table>
+EOT;
 var_dump($data);
