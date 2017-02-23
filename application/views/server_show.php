@@ -62,10 +62,10 @@ EOT;
 foreach ($data->players_info as $num => $player) {
  echo <<<EOT
   <tr>
-   <td>$num</td>
-   <td>$player['name']</td>
-   <td>$player['score']</td>
-   <td>$player['time']</td>
+   <td>{$num}</td>
+   <td>{$player['name']}</td>
+   <td>{$player['score']}</td>
+   <td>{$player['time']}</td>
   </tr>
 EOT;
 }
