@@ -8,11 +8,11 @@ class Games extends DatabaseObject {
  protected $fullname;
  public $description;
 
- public static function add(array $new) {
+ public static function add(array $item) {
   $new = new static;
-  $new->shortname = trim($new['shortname']);
-  $new->fullname = trim($new['fullname']);
-  $new->description = trim($new['description']);
+  $new->shortname = trim($item['shortname']);
+  $new->fullname = trim($item['fullname']);
+  $new->description = trim($item['description']);
   return $new;
  }
 }
