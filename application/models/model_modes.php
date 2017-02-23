@@ -1,6 +1,6 @@
 <?php
 
-class ModelModes extends Model {
+class Model_Modes extends Model {
  
  public function get_data() {
   $items = new Collection;
