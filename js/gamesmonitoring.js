@@ -76,8 +76,6 @@ $(document).ready(function(){
         send += $(this).prop('name')+'='+$(this).val()+'&';
     });
 
-    alert(send);
-
     $.ajax({
      url: '/'+type+'s/update/',
      dataType: 'json',
