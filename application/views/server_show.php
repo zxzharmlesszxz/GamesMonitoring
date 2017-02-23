@@ -102,4 +102,4 @@ echo <<<EOT
  </tbody>
 </table>
 EOT;
-var_dump($data);
+var_dump($data->info);
