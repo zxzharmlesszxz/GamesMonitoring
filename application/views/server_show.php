@@ -47,3 +47,19 @@ echo <<<EOT
  <button alt="Edit" title="Edit" onclick="location.href='/servers/edit/?serverid=$data->serverid'">Edit this server</button>
 </p>
 EOT;
+
+$sq = new SourceServerQueries();
+$server = $data->addr;
+$address = explode(':', $server);
+$sq->connect($address[0], $address[1]);
+$info = $sq->getInfo();
+$players = $sq->getPlayers();
+$rules = $sq->getRules();
+$sq->disconnect();
+
+var_dump($sq);
+var_dump($server);
+var_dump($address);
+var_dump($info);
+var_dump($players);
+var_dump($rules);
