@@ -19,8 +19,8 @@ class Model_Servers extends Model {
  }
 
  public function create(array $item) {
-  $item = Server::add($item);
-  return $item->save() ? $item : false;
+  $new = Server::add($item);
+  return $new->save() ? $new : false;
  }
 
  public function delete($itemid) {
