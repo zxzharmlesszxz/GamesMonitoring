@@ -1,3 +1,4 @@
+<?php
 class Games extends DatabaseObject {
  protected static $table_name = "games";
  protected static $db_fields = array('gameid', 'shortname', 'fullname','description');
