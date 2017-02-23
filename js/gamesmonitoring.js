@@ -73,7 +73,7 @@ $(document).ready(function(){
      send = type+'['+type+'id]='+id+'&',
      p = form.parent().parent();
      form.children().find('input').each(function(){
-        send += $(this).prop('name')+'='+$(this).val()+'&';
+        send += $(this).prop('name')+'='+encodeURIComponent($(this).val())+'&';
     });
 
     $.ajax({
