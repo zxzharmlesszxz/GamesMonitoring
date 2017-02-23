@@ -11,7 +11,6 @@ class Controller_Servers extends Controller {
   parent::__construct();
   $this->model = new Model_Servers();
   $this->query = $_REQUEST;
- var_dump($this->query);
  }
 
  public function action_index() {
