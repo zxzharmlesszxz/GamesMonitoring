@@ -1,6 +1,5 @@
 <?php
 
-var_dump($data);
 echo <<<EOT
 <h1>Server</h1>
 <table id='1table' class='display'>
@@ -57,9 +56,6 @@ $players = $sq->getPlayers();
 $rules = $sq->getRules();
 $sq->disconnect();
 
-var_dump($sq);
-var_dump($server);
-var_dump($address);
 var_dump($info);
 var_dump($players);
 var_dump($rules);
