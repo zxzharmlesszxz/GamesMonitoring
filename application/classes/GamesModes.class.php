@@ -3,7 +3,7 @@ class GamesModes extends DatabaseObject {
  protected static $table_name = "gamesmodes";
  protected static $db_fields = array('modeid', 'shortname', 'fullname','description', 'gameid');
 
- protected $gameid;
+ protected $modeid;
  protected $shortname;
  protected $fullname;
  protected $gameid;
