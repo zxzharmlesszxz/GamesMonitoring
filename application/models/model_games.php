@@ -19,7 +19,7 @@ class Model_Games extends Model {
  }
 
  public function create(array $item) {
-  $new = Game::add($item);
+  $new = Games::add($item);
   return $new->save() ? $new : false;
  }
 
