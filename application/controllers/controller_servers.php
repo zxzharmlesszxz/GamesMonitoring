@@ -42,6 +42,14 @@ class Controller_Servers extends Controller {
     $data = $items->getItem($id);
    }
   }
+  $sq = new SourceServerQueries();
+  $server = $data->addr;
+  $address = explode(':', $server);
+  $sq->connect($address[0], $address[1]);
+  $data->info = $sq->getInfo();
+  $data->players_info = $sq->getPlayers();
+  $data->rules = $sq->getRules();
+  $sq->disconnect();
   $this->view->generate('server_show.php', 'template_view.php', $data);
  }
 }
