@@ -4,9 +4,9 @@
  <input type="text" value="" placeholder="servername" name="server[servername]"/>
  <?php echo games_select_list(); ?>
  <?php echo modes_select_list(); ?>
- <input type="text" value="" placeholder="maxplayers" name="server[maxplayers]"/>
+ <input type="number" value="" placeholder="maxplayers" name="server[maxplayers]"/>
  <?php echo locations_select_list(); ?>
- <input type="text" value="" placeholder="steam" name="server[steam]"/>
+ <label for="server[steam]">Steam?: </label><input type="checkbox" value="0" name="server[steam]"/>
  <input type="text" value="" placeholder="site" name="server[site]"/>
  <input type="text" value="" placeholder="about" name="server[about]"/>
  <button class="create" title="Create" alt="Create" data-type="server">Create</button>
