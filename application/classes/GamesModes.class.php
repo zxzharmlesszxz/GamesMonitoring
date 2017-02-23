@@ -1,0 +1,20 @@
+<?php
+class GamesModes extends DatabaseObject {
+ protected static $table_name = "gamesmodes";
+ protected static $db_fields = array('modeid', 'shortname', 'fullname','description', 'gameid');
+
+ protected $gameid;
+ protected $shortname;
+ protected $fullname;
+ protected $gameid;
+ public $description;
+
+ public static function add(array $item) {
+  $new = new static;
+  $new->shortname = trim($item['shortname']);
+  $new->fullname = trim($item['fullname']);
+  $new->gameid = trim($item['gameid']);
+  $new->description = trim($item['description']);
+  return $new;
+ }
+}
