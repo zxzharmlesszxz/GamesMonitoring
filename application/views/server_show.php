@@ -26,6 +26,11 @@ echo <<<EOT
    <label for="servername">Server name</label></td><td><input type="text" value="$data->servername" name="server[servername]"/>
   </td>
  </tr>
+ <tr>
+  <td>
+   <label for="server[about]">About</label></td><td><input type="text" value="$data->about" name="server[about]"/>
+  </td>
+ </tr>
  </tbody>
 </table>
 <p><button alt="Edit" title="Edit" onclick="location.href='/servers/edit/?serverid=$data->serverid'">Edit this server</button></p>
