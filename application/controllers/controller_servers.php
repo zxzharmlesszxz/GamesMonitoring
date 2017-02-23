@@ -32,6 +32,7 @@ class Controller_Servers extends Controller {
  }
 
  public function action_update() {
+ var_dump($this->query['server']);
   $this->view->ajax($this->model->update($this->query['server']));
  }
 
