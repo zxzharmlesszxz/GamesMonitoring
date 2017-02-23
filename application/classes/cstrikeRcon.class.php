@@ -1,5 +1,5 @@
 <?php
-class cstrikeRcon extends ServerQueries{
+class cstrikeRcon extends ServerQueries {
  protected $password;
  protected $challenge_number;
 
