@@ -3,7 +3,6 @@
  <input type="text" value="" placeholder="shortname" name="mode[shortname]"/>
  <input type="text" value="" placeholder="fullname" name="mode[fullname]"/>
  <input type="description" value="" placeholder="description" name="mode[description]"/>
- <?php echo games_select_list(); ?>
  <button class="create" title="Create" alt="Create" data-type="mode">Create</button>
 </p>
 <p>
