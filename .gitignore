@@ -2,3 +2,4 @@
 .htpassword
 .idea
 application/config/config.inc.php
+.nomedia
