@@ -3,8 +3,8 @@
 function games_select_list($servergame = NULL) {
  $str = '<select name="server[game]">';
  $str .= (empty($servergame)) ? '<option disabled selected>Select game</option>' : '';
- foreach (config()->games as $game => $title) {
-  $str .= "<option value='$game' ".($servergame == $game ? 'selected' : '').">$title</option>";
+ foreach (Games::find_all() as $game) {
+  $str .= "<option value='$game->shortname' ".($servergame == $game->shortname ? 'selected' : '').">$game->fullname</option>";
  }
  $str .= "</select>";
  return $str;
