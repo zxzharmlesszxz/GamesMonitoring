@@ -7,7 +7,6 @@ class Controller_Admin extends Controller{
 			$this->view->generate('admin_view.php', 'template_view.php');
 		}else{
 			session_destroy();
-			Route::ErrorPage404();
 		}
 	}
 
