@@ -20,13 +20,13 @@
    </div>
    <nav id="menu">
     <menu>
-     <li><a href="/">Main</a></li>
-     <li><a href="/admins">Admins</a></li>
-     <li><a href="/users">Users</a></li>
-     <li><a href="/servers">Servers</a></li>
-     <li><a href="/games">Games</a></li>
-     <li><a href="/modes">Modes</a></li>
-     <li><a href="/contacts">Contacts</a></li>
+     <li><a href="/private">Main</a></li>
+     <li><a href="/private/admins">Admins</a></li>
+     <li><a href="/private/users">Users</a></li>
+     <li><a href="/private/servers">Servers</a></li>
+     <li><a href="/private/games">Games</a></li>
+     <li><a href="/private/modes">Modes</a></li>
+     <li><a href="/private/contacts">Contacts</a></li>
     </menu>
     <br class="clearfix" />
    </nav>
