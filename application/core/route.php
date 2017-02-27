@@ -29,7 +29,7 @@ class Route {
 
   if (class_exists($controller_name)) $controller = new $controller_name;
 
-  if (method_exists($controller, $action_name)) {
+  if (isset($controller) && method_exists($controller, $action_name)) {
    $controller->$action_name();
   } else {
    self::ErrorPage404();
