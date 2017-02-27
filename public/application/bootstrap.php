@@ -1,10 +1,10 @@
 <?php
 
-require_once '../../private/application/core/model.php';
-require_once '../../private/application/core/view.php';
-require_once '../../private/application/core/controller.php';
-require_once '../../private/application/core/route.php';
-require_once '../../private/application/includes/functions.inc.php';
+require_once __DIR__.'/../../private/application/core/model.php';
+require_once __DIR__.'/../../private/application/core/view.php';
+require_once __DIR__.'/../../private/application/core/controller.php';
+require_once __DIR__.'/../../private/application/core/route.php';
+require_once __DIR__.'/../../private/application/includes/functions.inc.php';
 
 $config = Config::getInstance();
 Registry::_set('config', $config);
