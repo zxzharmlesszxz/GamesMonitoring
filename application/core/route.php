@@ -25,19 +25,14 @@ class Route {
 
   $controller_path = config()->CONTROLLERS_PATH.'/'.strtolower($controller_name).".php";
 
-  if (!file_exists($controller_path)) {
-   include config()->CONTROLLERS_PATH.'/'."controller_404.php";
-   self::ErrorPage404();
-  } else {
-   include $controller_path;
-  }
+  if (file_exists($controller_path)) include strtolower($controller_path);
 
-  $controller = class_exists($controller_name) ? new $controller_name : new Controller_404;
+  if (class_exists($controller_name)) $controller = new $controller_name;
 
   if (method_exists($controller, $action_name)) {
    $controller->$action_name();
   } else {
-   $controller->action_error();
+   self::ErrorPage404();
   }
  }
 
