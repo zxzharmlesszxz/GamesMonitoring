@@ -11,7 +11,6 @@
   <script type="text/javascript" src="/js/jquery.dataTables.min.js"></script>
   <script type="text/javascript" src="/js/html5shiv.js"></script>
   <script type="text/javascript" src="/js/less.js"></script>
-  <script type="text/javascript" src="/js/gamesmonitoring.js"></script>
  </head>
  <body>
   <header id="header">
@@ -21,11 +20,7 @@
    <nav id="menu">
     <menu>
      <li><a href="/">Main</a></li>
-     <li><a href="/admins">Admins</a></li>
-     <li><a href="/users">Users</a></li>
      <li><a href="/servers">Servers</a></li>
-     <li><a href="/games">Games</a></li>
-     <li><a href="/modes">Modes</a></li>
      <li><a href="/contacts">Contacts</a></li>
     </menu>
     <br class="clearfix" />
