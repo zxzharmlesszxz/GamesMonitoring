@@ -83,6 +83,8 @@ $(document).ready(function(){
       });
      });
 
+     alert(send);
+
     $.ajax({
      url: '/'+type+'s/update/',
      dataType: 'json',
