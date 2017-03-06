@@ -48,6 +48,10 @@ class Server extends DatabaseObject {
   return $new;
  }
 
+ public function setStatus($status = NULL) {
+  $this->status = ($status === NULL) ? $this->status : $status;
+ }
+
  public function changeStatus() {
   $this->status = ($this->status == 1) ? 0 : 1;
   return $this->save();
