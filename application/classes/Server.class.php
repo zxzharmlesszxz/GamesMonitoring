@@ -52,6 +52,10 @@ class Server extends DatabaseObject {
   $this->status = ($status === NULL) ? $this->status : $status;
  }
 
+ public function setPlayers($players = NULL) {
+  $this->players = ($players === NULL) ? $this->players : $players;
+ }
+
  public function changeStatus() {
   $this->status = ($this->status == 1) ? 0 : 1;
   return $this->save();
