@@ -67,7 +67,7 @@
    <td><input class="steam" type="checkbox" data-id="$row->serverid" value="$row->steam" data-type="server" disabled readonly /></td>
    <td>$row->players</td>
    <td>$row->maxplayers</td>
-   <td class="map" data-icon='/images/maps/$row->game/$row->map.png'><span style="background-color:white;">$row->map</span></td>
+   <td class="map" data-icon='/images/maps/$row->game/$row->map.png'><span>$row->map</span></td>
    <td>$row->game</td>
    <td>$row->mode</td>
    <td>$row->location</td>
