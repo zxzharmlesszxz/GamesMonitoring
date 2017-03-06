@@ -53,11 +53,11 @@ class Server extends DatabaseObject {
  }
 
  public function setPlayers($players = NULL) {
-  $this->players = ($players === NULL) ? $this->players : $players;
+  $this->players = $players;
  }
 
  public function setMap($map = NULL) {
-  $this->map = ($map === NULL) ? $this->map : $map;
+  $this->map = $map;
  }
 
  public function changeStatus() {
