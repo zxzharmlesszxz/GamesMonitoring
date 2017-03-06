@@ -80,6 +80,8 @@ $(document).ready(function(){
      form.children('select').each(function(){
       $(this).children('option:selected').each(function(){
         send += $(this).parent().prop('name')+'='+$(this).val()+'&';
+
+     alert(send);
       });
      });
 
