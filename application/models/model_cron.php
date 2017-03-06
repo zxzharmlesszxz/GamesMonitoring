@@ -11,7 +11,6 @@ class Model_Cron extends Model {
  }
 
  protected cron_update() {
-  $data = new Collection;
   foreach ($this->items as $id => $item) {
    $sq = new SourceServerQueries();
    $server = $item->addr;
@@ -21,9 +20,10 @@ class Model_Cron extends Model {
    $item->players_info = $sq->getPlayers();
    $item->rules = $sq->getRules();
    $sq->disconnect();
-   $data->addItem($item, $id);
+   $this->items->deleteItem($id);
+   $this->items->addItem($item, $id);
   }
-  return $data;
+  return $this->items;
  }
 
  protected function get($itemid) {
