@@ -83,8 +83,6 @@ $(document).ready(function(){
       });
      });
 
-     alert(send);
-
     $.ajax({
      url: '/'+type+'s/update/',
      dataType: 'json',
@@ -114,8 +112,6 @@ $(document).ready(function(){
       });
     });
 
-
-     alert(send);
     $.ajax({
      url: '/'+type+'s/create/',
      dataType: 'json',
