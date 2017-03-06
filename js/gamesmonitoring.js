@@ -72,9 +72,16 @@ $(document).ready(function(){
      form = $(this).parent().parent().parent(),
      send = type+'['+type+'id]='+id+'&',
      p = form.parent().parent();
+
      form.children().find('input').each(function(){
         send += $(this).prop('name')+'='+encodeURIComponent($(this).val())+'&';
-    });
+     });
+
+     form.children('select').each(function(){
+      $(this).children('option:selected').each(function(){
+        send += $(this).parent().prop('name')+'='+$(this).val()+'&';
+      });
+     });
 
     $.ajax({
      url: '/'+type+'s/update/',
