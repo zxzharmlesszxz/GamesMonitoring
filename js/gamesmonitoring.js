@@ -19,13 +19,6 @@ $(document).ready(function(){
   });
 
   // display map image in table
-  var list = document.querySelectorAll("span[data-icon]");
-  for (var i = 0; i < list.length; i++) {
-   var url = list[i].getAttribute('data-icon');
-   list[i].style.backgroundImage="url('" + url + "')";
-  }
-
-  // display map image in table
     var list = document.querySelectorAll("td[data-icon]");
     for (var i = 0; i < list.length; i++) {
      var url = list[i].getAttribute('data-icon');
