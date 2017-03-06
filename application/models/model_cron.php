@@ -21,9 +21,9 @@ class Model_Cron extends Model {
    $item->setMap($item->info['mapName']);
    $item->maxplayers = $item->info['maxPlayers'];
    $item->setStatus((empty($item->info)) ? 0 : 1);
-   $item->players_info = $sq->getPlayers();
+   #$item->players_info = $sq->getPlayers();
    $item->setPlayers($item->info['playerNumber']);
-   $item->rules = $sq->getRules();
+   #$item->rules = $sq->getRules();
    $sq->disconnect();
    $this->items->deleteItem($id);
    $this->items->addItem($item, $id);
