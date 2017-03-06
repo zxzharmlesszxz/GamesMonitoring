@@ -64,7 +64,7 @@
     </span>
    </td>
    <td>$row->addr</td>
-   <td>$row->steam</td>
+   <td><input class="steam" type="checkbox" data-id="$row->serverid" value="$row->steam" data-type="server" disabled readonly /></td>
    <td>$row->players</td>
    <td>$row->maxplayers</td>
    <td>$row->map</td>
