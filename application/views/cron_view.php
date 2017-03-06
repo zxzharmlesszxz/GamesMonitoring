@@ -48,3 +48,6 @@ EOT;
 ?>
  </tbody>
 </table>
+
+<?php
+var_dump($data);
