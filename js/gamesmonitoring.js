@@ -18,6 +18,13 @@ $(document).ready(function(){
     }
   });
 
+  // display map image in table
+  var list = document.querySelectorAll("span[data-icon]");
+  for (var i = 0; i < list.length; i++) {
+   var url = list[i].getAttribute('data-icon');
+   list[i].style.backgroundImage="url('" + url + "')";
+  }
+
   // Change status checkbox functions
   $(document).on('change',"input[type=checkbox].status", function(event){
     var el = $(this),
