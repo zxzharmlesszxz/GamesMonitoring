@@ -7,7 +7,7 @@ class Model_Cron extends Model {
   foreach (Server::find_all() as $item) {
    $this->items->addItem($item, $item->serverid);
   }
-  return cron_update();
+  return $this->cron_update();
  }
 
  protected cron_update() {
