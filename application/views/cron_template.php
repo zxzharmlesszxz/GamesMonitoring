@@ -21,17 +21,6 @@
     </div>
     <br class="clearfix" />
    </div>
-   <div id="page-bottom">
-    <div id="page-bottom-sidebar">
-     <h3>Contacts</h3>
-     <ul class="list">
-      <li class="last">email: zxzharmlesszxz@gmail.com</li>
-     </ul>
-    </div>
-    <div id="page-bottom-content">
-    </div>
-    <br class="clearfix" />
-   </div>
   </div>
   <footer id="footer">
    <a href="https://github.com/zxzharmlesszxz/"><?php echo config()->PROJECT_NAME; ?></a> - <?php echo config()->PROJECT_VERSION; ?> &copy; 2015-<?php echo date("Y"); ?>
