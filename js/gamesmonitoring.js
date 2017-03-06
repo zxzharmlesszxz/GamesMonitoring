@@ -114,6 +114,8 @@ $(document).ready(function(){
       });
     });
 
+
+     alert(send);
     $.ajax({
      url: '/'+type+'s/create/',
      dataType: 'json',
