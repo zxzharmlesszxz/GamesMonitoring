@@ -20,7 +20,7 @@ class Model_Cron extends Model {
    $item->info = $sq->getInfo();
    $item->setStatus((empty($item->info)) ? 0 : 1);
    $item->players_info = $sq->getPlayers();
-   $item->sePlayers(size($item->players_info));
+   $item->setPlayers(size($item->players_info));
    $item->rules = $sq->getRules();
    $sq->disconnect();
    $this->items->deleteItem($id);
