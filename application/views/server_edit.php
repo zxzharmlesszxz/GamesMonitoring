@@ -1,6 +1,7 @@
 <?php
 
-$locations = locations_select_list();
+$locations = locations_select_list($data->location);
+$modes = modes_select_list($data->mode);
 
 echo <<<EOT
 <h1>Server</h1>
@@ -47,7 +48,7 @@ echo <<<EOT
    <label for="mode">Server mode</label>
   </td>
   <td>
-   <input type="text" value="$data->mode" name="server[mode]"/>
+   $modes
   </td>
  </tr>
  <tr>
