@@ -50,4 +50,7 @@ EOT;
 </table>
 
 <?php
-var_dump($data->info);
+foreach($data->keys() as $item){
+ $row = $data->getItem($item);
+ var_dump($row->info);
+}
