@@ -21,5 +21,11 @@ function modes_select_list($servermode = NULL) {
 }
 
 function locations_select_list($serverlocation = NULL) {
-
+ $str = '<select name="server[location]">';
+ $str .= (empty($serverlocation)) ? '<option disabled selected>Select location</option>' : '';
+ foreach (Countries::countries as $key => $name) {
+  $str .= "<option value='$key' ".($serverlocation == $key ? 'selected' : '').">$name</option>";
+ }
+ $str .= "</select>";
+ return $str;
 }
