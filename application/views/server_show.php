@@ -103,7 +103,7 @@ echo <<<EOT
 </table>
 EOT;
 
-echo <<EOT
+echo <<<EOT
 <img src="/images/maps/$data->game/$data->map.png">
 EOT;
 var_dump($data->info);
