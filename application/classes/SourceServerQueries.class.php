@@ -21,23 +21,14 @@ final class SourceServerQueries extends ServerQueries {
     $return['version'] = $this->getByte();
     $this->getByte();
     $tmp = chr($this->getByte());
-    if($tmp == 'l')
-     $return['operatingSystem'] = 'Linux';
-    else
-     $return['operatingSystem'] = 'Windows';
-    if($this->getByte() == 0x01)
-     $return['passwordProtected'] = true;
-    else
-     $return['passwordProtected'] = false;
+    $return['operatingSystem'] = ($tmp == 'l') ? 'Linux' : 'Windows';
+    $return['passwordProtected'] = ($this->getByte() == 0x01) ? true : false;
     if($this->getByte() == 0x01) {
      $this->getString();
      $this->getString();
      $this->raw = substr($this->raw, 11);
     }
-    if($this->getByte() == 0x01)
-     $return['secureServer'] = true;
-    else
-     $return['secureServer'] = false;
+    $return['secureServer'] = ($this->getByte() == 0x01) ? true : false;
     $return['botNumber'] = $this->getByte();
    } elseif($tmp == 0x49) {
     $return['version'] = $this->getByte();
@@ -51,18 +42,9 @@ final class SourceServerQueries extends ServerQueries {
     $return['botNumber'] = $this->getByte();
     $this->getByte();
     $tmp = chr($this->getByte());
-    if($tmp == 'l')
-     $return['operatingSystem'] = 'Linux';
-    else
-     $return['operatingSystem'] = 'Windows';
-    if($this->getByte() == 0x01)
-     $return['passwordProtected'] = true;
-    else
-     $return['passwordProtected'] = false;
-    if($this->getByte() == 0x01)
-     $return['secureServer'] = true;
-    else
-     $return['secureServer'] = false;
+    $return['operatingSystem'] = ($tmp == 'l') ? 'Linux' : 'Windows';
+    $return['passwordProtected'] = ($this->getByte() == 0x01) ? true : false;
+    $return['secureServer'] = ($this->getByte() == 0x01) ? true : false;
    }
   } else {
    $this->disconnect();
