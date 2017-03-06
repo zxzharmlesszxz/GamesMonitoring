@@ -77,11 +77,9 @@ $(document).ready(function(){
         send += $(this).prop('name')+'='+encodeURIComponent($(this).val())+'&';
      });
 
-     form.children('select').each(function(){
+     form.children().find('select').each(function(){
       $(this).children('option:selected').each(function(){
         send += $(this).parent().prop('name')+'='+$(this).val()+'&';
-
-     alert(send);
       });
      });
 
