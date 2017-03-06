@@ -1,6 +1,6 @@
 ﻿<?php
 class Countries {
- constant $countries = Array(
+ static $countries = Array(
   "ua" => "Україна",
   "us" => "USA",
   "au" => "Австралия",
