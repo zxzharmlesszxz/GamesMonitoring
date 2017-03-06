@@ -22,7 +22,7 @@ class Model_Cron extends Model {
    $item->maxplayers = $item->info['maxPlayers'];
    $item->setStatus((empty($item->info)) ? 0 : 1);
    $item->players_info = $sq->getPlayers();
-   $item->setPlayers($item->info['playerNumber'];);
+   $item->setPlayers($item->info['playerNumber']);
    $item->rules = $sq->getRules();
    $sq->disconnect();
    $this->items->deleteItem($id);
