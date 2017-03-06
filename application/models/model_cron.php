@@ -23,7 +23,7 @@ class Model_Cron extends Model {
    $this->items->deleteItem($id);
    $this->items->addItem($item, $id);
   }
-  return $this->items;
+  return $this;
  }
 
  protected function get($itemid) {
