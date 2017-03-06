@@ -1,5 +1,7 @@
 <?php
 
+$locations = locations_select_list();
+
 echo <<<EOT
 <h1>Server</h1>
 <table id='1table' class='display'>
@@ -61,7 +63,7 @@ echo <<<EOT
    <label for="location">Server location</label>
   </td>
   <td>
-   <?php echo locations_select_list(); ?>
+   $locations
   </td>
  </tr>
  <tr>
