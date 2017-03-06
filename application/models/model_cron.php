@@ -25,8 +25,10 @@ class Model_Cron extends Model {
    $item->setPlayers($item->info['playerNumber']);
    #$item->rules = $sq->getRules();
    $sq->disconnect();
+   $item->save();
    $this->items->deleteItem($id);
    $this->items->addItem($item, $id);
+
   }
   return $this->items;
  }
@@ -37,20 +39,5 @@ class Model_Cron extends Model {
 
  protected function save(Server $server){
   return $server->save() ? $server : false;
- }
-
- protected function update(array $item) {
-  foreach ($item as $key => $value) {
-   $item[$key] = trim($value);
-  }
-  $u = $this->items->getItem($item['serverid']);
-  unset($item['serverid']);
-  if (!$u) {
-   return FALSE;
-  }
-  foreach ($item as $key => $value) {
-   $u->$key = $value;
-  }
-  return $u->save() ? $u : false;
  }
 }
