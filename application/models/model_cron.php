@@ -10,7 +10,7 @@ class Model_Cron extends Model {
   return $this->cron_update();
  }
 
- protected cron_update() {
+ protected function cron_update() {
   foreach ($this->items as $id => $item) {
    $sq = new SourceServerQueries();
    $server = $item->addr;
