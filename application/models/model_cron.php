@@ -3,15 +3,31 @@
 class Model_Cron extends Model {
  
  public function get_data() {
-  $items = new Collection;
+  $this->items = new Collection;
   foreach (Server::find_all() as $item) {
-   $items->addItem($item, $item->serverid);
+   $this->items->addItem($item, $item->serverid);
   }
-  return $items;
+  return cron_update();
+ }
+
+ protected cron_update() {
+  $data = new Collection;
+  foreach ($this->items as $id => $item) {
+   $sq = new SourceServerQueries();
+   $server = $item->addr;
+   $address = explode(':', $server);
+   $sq->connect($address[0], $address[1]);
+   $item->info = $sq->getInfo();
+   $item->players_info = $sq->getPlayers();
+   $item->rules = $sq->getRules();
+   $sq->disconnect();
+   $data->addItem($item, $id);
+  }
+  return $data;
  }
 
  protected function get($itemid) {
-  return $this->get_data()->getItem($itemid);
+  return $this->items->getItem($itemid);
  }
 
  protected function save(Server $server){
@@ -22,7 +38,7 @@ class Model_Cron extends Model {
   foreach ($item as $key => $value) {
    $item[$key] = trim($value);
   }
-  $u = $this->get_data()->getItem($item['serverid']);
+  $u = $this->items->getItem($item['serverid']);
   unset($item['serverid']);
   if (!$u) {
    return FALSE;
