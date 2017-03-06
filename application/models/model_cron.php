@@ -19,7 +19,7 @@ class Model_Cron extends Model {
    $sq->connect($address[0], $address[1]);
    $item->info = $sq->getInfo();
    if (empty($item->info)) {
-    $item->status = 0;
+    $item->setStatus(0);
    }
    $item->players_info = $sq->getPlayers();
    $item->rules = $sq->getRules();
