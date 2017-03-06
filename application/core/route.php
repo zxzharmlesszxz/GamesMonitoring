@@ -39,6 +39,7 @@ class Route {
  protected function ErrorPage404() {
   header('HTTP/1.1 404 Not Found');
   header('Status: 404 Not Found');
+  include_once config()->CONTROLLERS_PATH.'/controller_404.php';
   $controller = new Controller_404;
   $controller->action_index();
   #header('Location:/404');
