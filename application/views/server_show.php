@@ -2,7 +2,7 @@
 
 echo <<<EOT
 <h1>Server</h1>
-<table id='table' class='display'>
+<table>
 <thead>
  <tr>
   <th>Param</th>
