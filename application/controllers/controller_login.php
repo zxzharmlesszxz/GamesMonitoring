@@ -10,17 +10,15 @@ class Controller_Login extends Controller{
  }
 
  public function action_index(){
-   if ($login=="admin" && $password=="12345"){
-    $data["login_status"] = "access_granted";
-    session_start();
-    echo $_SESSION['admin'];
-    $_SESSION['admin'] = $password;
-    header('Location: /admin/');
-   } else {
-    $data["login_status"] = "access_denied";
-   }
+  $data["login_status"] = "";
+  if ($login=="admin" && $password=="12345"){
+   $data["login_status"] = "access_granted";
+   session_start();
+   echo $_SESSION['admin'];
+   $_SESSION['admin'] = $password;
+   header('Location: /admin/');
   } else {
-   $data["login_status"] = "";
+   $data["login_status"] = "access_denied";
   }
 
   $data['debug']['query'] = $this->query;
