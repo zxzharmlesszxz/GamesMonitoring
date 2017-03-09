@@ -19,8 +19,7 @@
  <th>Servername</th>
  <th>Address</th>
  <th>Steam</th>
- <th>Players</th>
- <th>Maxplayers</th>
+ <th>Players/Bots/Maxplayers</th>
  <th>Map</th>
  <th>Game</th>
  <th>Mode</th>
@@ -36,8 +35,7 @@
  <th>Servername</th>
  <th>Address</th>
  <th>Steam</th>
- <th>Players</th>
- <th>Maxplayers</th>
+ <th>Players/Bots/Maxplayers</th>
  <th>Map</th>
  <th>Game</th>
  <th>Mode</th>
@@ -65,8 +63,7 @@
    </td>
    <td>$row->addr</td>
    <td><input class="steam" type="checkbox" data-id="$row->serverid" value="$row->steam" data-type="server" disabled readonly /></td>
-   <td>$row->players</td>
-   <td>$row->maxplayers</td>
+   <td>$row->players/$row->botNumber/$row->maxplayers</td>
    <td class="map" data-icon='/images/maps/$row->game/$row->map.png'><span>$row->map</span></td>
    <td>$row->game</td>
    <td>$row->mode</td>
