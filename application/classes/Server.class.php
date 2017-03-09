@@ -7,7 +7,8 @@
 class Server extends DatabaseObject {
  protected static $table_name = "servers";
  protected static $db_fields = array('serverid', 'servername', 'addr', 'status', 'regdate', 'game', 'mode', 'map',
-  'players', 'maxplayers', 'location', 'steam', 'new', 'site', 'about', 'vip', 'top');
+  'players', 'maxplayers', 'location', 'steam', 'new', 'site', 'about', 'vip', 'top', 'secureServer',
+  'passwordProtected', 'operatingSystem', 'botNumber', 'version');
 
  protected $serverid;
  protected $status;
@@ -17,6 +18,11 @@ class Server extends DatabaseObject {
  protected $new;
  protected $vip;
  protected $top;
+ protected $secureServer;
+ protected $passwordProtected;
+ protected $operatingSystem;
+ protected $botNumber;
+ protected $version;
  public $addr;
  public $servername;
  public $game;
@@ -45,6 +51,11 @@ class Server extends DatabaseObject {
   $new->about = empty($item['about']) ? NULL : trim($item['about']);
   $new->vip = NULL;
   $new->top = NULL;
+  $new->secureServer = NULL;
+  $new->passwordProtected = NULL;
+  $new->operatingSystem = NULL;
+  $new->botNumber = NULL;
+  $new->version = NULL;
   return $new;
  }
 
@@ -58,6 +69,22 @@ class Server extends DatabaseObject {
 
  public function setMap($map = NULL) {
   $this->map = $map;
+ }
+
+ public function setSecureServer($secureServer = NULL) {
+  $this->secureServer = $secureServer;
+ }
+ public function setPasswordProtected($passwordProtected = NULL) {
+  $this->passwordProtected = $passwordProtected;
+ }
+ public function setOperatingSystem($operatingSystem = NULL) {
+  $this->operatingSystem = $operatingSystem;
+ }
+ public function setBotNumber($botNumber = NULL) {
+  $this->botNumber = $botNumber;
+ }
+ public function setVersion($version = NULL) {
+  $this->version = $version;
  }
 
  public function changeStatus() {
