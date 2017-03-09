@@ -66,10 +66,10 @@ echo <<<EOT
  </tr>
  <tr>
   <td>
-   <label for="server[servername]">Server name</label>
+   <label for="server[botNumber]">Server Bots</label>
   </td>
   <td>
-   <input type="text" value="$data->servername" name="server[servername]"/>
+   <input type="text" value="$data->botNumber" name="server[botNumber]"/>
   </td>
  </tr>
  <tr>
