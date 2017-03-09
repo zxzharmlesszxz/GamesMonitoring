@@ -13,7 +13,6 @@ echo <<<EOT
  </ul>
  <div class="tabs__content active">
   <table style="float: left;">
-  <caption>Info</caption>
   <thead>
    <tr>
     <th>Param</th>
@@ -73,7 +72,6 @@ EOT;
 echo <<<EOT
 <div class="tabs__content">
  <table style="float: left;">
-  <caption>Players</caption>
   <thead>
    <tr>
     <th>#</th>
@@ -105,7 +103,6 @@ EOT;
 echo <<<EOT
 <div class="tabs__content">
  <table style="float: left;">
-  <caption>Rules</caption>
   <thead>
    <tr>
     <th>Param</th>
