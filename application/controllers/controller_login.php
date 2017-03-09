@@ -27,7 +27,7 @@ class Controller_Login extends Controller{
   $data["login_status"] = "";
   $data['debug']['query'] = $this->query;
   $data['debug']['model'] = $this->model;
-  $data['debug']['items'] = $this->model->items->get_data();
+  $data['debug']['items'] = $this->model->get_data();
   $this->view->generate('login_view.php', 'template_view.php', $data);
  }
 }
