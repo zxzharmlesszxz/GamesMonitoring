@@ -9,7 +9,7 @@
 
 abstract class Model {
  public function __construct() {
-  self::items->self::get_data();
+  $this->items = self::get_data();
  }
 
  /**
