@@ -2,7 +2,7 @@
 
 echo <<<EOT
 <h1>Server</h1>
-<table id='1table' class='display'>
+<table id='table' class='display'>
 <thead>
  <tr>
   <th>Param</th>
@@ -22,6 +22,46 @@ echo <<<EOT
   </td>
   <td>
    <input type="text" value="$data->addr" name="server[addr]"/>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <label for="server[servername]">Server name</label>
+  </td>
+  <td>
+   <input type="text" value="$data->servername" name="server[servername]"/>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <label for="server[version]">Server protocol version</label>
+  </td>
+  <td>
+   <input type="number" value="$data->version" name="server[version]"/>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <label for="server[secureServer]">Server secure</label>
+  </td>
+  <td>
+   <input type="text" value="$data->secureServer" name="server[secureServer]"/>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <label for="server[passwordProtected]">Server Password protected</label>
+  </td>
+  <td>
+   <input type="text" value="$data->passwordProtected" name="server[passwordProtected]"/>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <label for="server[operatingSystem]">Server OS</label>
+  </td>
+  <td>
+   <input type="text" value="$data->operatingSystem" name="server[operatingSystem]"/>
   </td>
  </tr>
  <tr>
