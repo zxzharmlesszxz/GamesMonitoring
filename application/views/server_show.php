@@ -57,8 +57,8 @@ echo <<<EOT
     <td>$data->operatingSystem</td>
    </tr>
    <tr>
-    <td>Server Bots</td>
-    <td>$data->botNumber</td>
+    <td>Server slots</td>
+    <td>$data->players/$data->botNumber/$data->maxplayers</td>
    </tr>
    <tr>
     <td>About</td>
