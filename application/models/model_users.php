@@ -3,15 +3,15 @@
 class Model_Users extends Model {
  
  public function get_data() {
-  $users = new Collection;
-  foreach (User::find_all() as $user) {
-   $users->addItem($user, $user->userid);
+  $this->items = new Collection;
+  foreach (User::find_all() as $item) {
+   $this->items->addItem($item, $item->userid);
   }
-  return $users;
+  return $this->items;
  }
 
  public function get($userid) {
-  return $this->get_data()->getItem($userid);
+  return $this->items->getItem($userid);
  }
 
  public function save(User $user){
@@ -28,7 +28,7 @@ class Model_Users extends Model {
  }
 
  public function delete($userid) {
-  return $this->get_data()->getItem($userid)->delete();
+  return $this->items->getItem($userid)->delete();
  }
 
  public function update(array $user) {
@@ -41,7 +41,7 @@ class Model_Users extends Model {
    unset($user['password']);
    unset($user['repassword']);
   }
-  $u = $this->get_data()->getItem($user['userid']);
+  $u = $this->items->getItem($user['userid']);
   unset($user['userid']);
   if (!$u) {
    return FALSE;

@@ -3,15 +3,15 @@
 class Model_Games extends Model {
  
  public function get_data() {
-  $items = new Collection;
+  $this->items = new Collection;
   foreach (Games::find_all() as $item) {
-   $items->addItem($item, $item->gameid);
+   $this->items->addItem($item, $item->gameid);
   }
-  return $items;
+  return $this->items;
  }
 
  public function get($itemid) {
-  return $this->get_data()->getItem($itemid);
+  return $this->items->getItem($itemid);
  }
 
  public function save(Game $game){
@@ -24,14 +24,14 @@ class Model_Games extends Model {
  }
 
  public function delete($itemid) {
-  return $this->get_data()->getItem($itemid)->delete();
+  return $this->items->getItem($itemid)->delete();
  }
 
  public function update(array $item) {
   foreach ($item as $key => $value) {
    $item[$key] = trim($value);
   }
-  $u = $this->get_data()->getItem($item['gameid']);
+  $u = $this->items->getItem($item['gameid']);
   unset($item['gameid']);
   if (!$u) {
    return FALSE;

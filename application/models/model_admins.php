@@ -3,15 +3,15 @@
 class Model_Admins extends Model {
  
  public function get_data() {
-  $items = new Collection;
+  $this->items = new Collection;
   foreach (Admin::find_all() as $item) {
-   $items->addItem($item, $item->adminid);
+   $this->items->addItem($item, $item->adminid);
   }
-  return $items;
+  return $this->items;
  }
 
  public function get($adminid) {
-  return $this->get_data()->getItem($adminid);
+  return $this->items->getItem($adminid);
  }
 
  public function save(Admin $admin){
@@ -28,7 +28,7 @@ class Model_Admins extends Model {
  }
 
  public function delete($adminid) {
-  return $this->get_data()->getItem($adminid)->delete();
+  return $this->items->getItem($adminid)->delete();
  }
 
  public function update(array $admin) {
@@ -41,7 +41,7 @@ class Model_Admins extends Model {
    unset($admin['password']);
    unset($admin['repassword']);
   }
-  $u = $this->get_data()->getItem($admin['adminid']);
+  $u = $this->items->getItem($admin['adminid']);
   if (!$u) {
    return FALSE;
   }
