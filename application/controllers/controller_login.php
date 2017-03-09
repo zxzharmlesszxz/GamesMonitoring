@@ -15,7 +15,8 @@ class Controller_Login extends Controller{
   if ($this->model->items->keyExists($this->query['login'])) {
    $data['debug']['login'] = $this->query['login'];
    $data['debug']['password'] = $this->query['password'];
-   foreach($this->model->items->keys() as $item){
+   $data['debug']['keys'] = $this->model->items->keys();
+   foreach ($this->model->items->keys() as $item) {
     $row = $this->model->items->getItem($item);
     if ($row->login == $this->query['login'] && $row->password == md5($this->query['password'])) {
      $data["login_status"] = "access_granted";
