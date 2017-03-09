@@ -10,7 +10,7 @@ class Controller_Login extends Controller{
 				$data["login_status"] = "access_granted";
 				session_start(); echo $_SESSION['admin'];
 				$_SESSION['admin'] = $password;
-				header('Location: "/admin/"');
+				header('Location: /admin/');
 			}else{
 				$data["login_status"] = "access_denied";
 			}
