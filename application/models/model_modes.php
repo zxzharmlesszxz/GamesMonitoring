@@ -14,7 +14,7 @@ class Model_Modes extends Model {
  }
 
  public function getAjax() {
-  return json_encode($this->items->getItems());
+  return $this->items->getItems();
  }
 
  public function save(Mode $mode){
