@@ -18,6 +18,8 @@ class Controller_Login extends Controller{
 			$data["login_status"] = "";
 		}
 
+		$data['debug'] = $_REQUEST;
+
 		$this->view->generate('login_view.php', 'template_view.php', $data);
 	}
 }
