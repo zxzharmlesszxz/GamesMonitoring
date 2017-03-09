@@ -12,6 +12,7 @@
   <script type="text/javascript" src="/js/html5shiv.js"></script>
   <script type="text/javascript" src="/js/less.js"></script>
   <script type="text/javascript" src="/js/gamesmonitoring.js"></script>
+  <script type="text/javascript" src="/js/tabs.js"></script>
  </head>
  <body>
   <header id="header">
