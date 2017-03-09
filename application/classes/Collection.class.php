@@ -37,6 +37,10 @@ class Collection {
   }
  }
 
+ public function getItems() {
+  return $this->items;
+ }
+
  public function keys() {
   return array_keys($this->items);
  }
