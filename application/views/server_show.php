@@ -17,76 +17,42 @@ echo <<<EOT
 </tfoot>
 <tbody>
  <tr>
-  <td>
-   <label for="server[addr]">Address and port</label>
-  </td>
-  <td>
-   <input type="text" value="$data->addr" name="server[addr]"/>
-  </td>
+  <td>Address and port</td>
+  <td>$data->addr</td>
  </tr>
  <tr>
-  <td>
-   <label for="server[servername]">Server name</label>
-  </td>
-  <td>
-   <input type="text" value="$data->servername" name="server[servername]"/>
-  </td>
+  <td>Server name</td>
+  <td>$data->servername</td>
  </tr>
  <tr>
-  <td>
-   <label for="server[map]">Server map</label>
-  </td>
+  <td>Server map</td>
   <td>
    <img src="/images/maps/$data->game/$data->map.png">
   </td>
  </tr>
  <tr>
-  <td>
-   <label for="server[version]">Server protocol version</label>
-  </td>
-  <td>
-   <input type="number" value="$data->version" name="server[version]"/>
-  </td>
+  <td>Server protocol version</td>
+  <td>$data->version</td>
  </tr>
  <tr>
-  <td>
-   <label for="server[secureServer]">Server secure</label>
-  </td>
-  <td>
-   <input type="text" value="$data->secureServer" name="server[secureServer]"/>
-  </td>
+  <td>Server secure</td>
+  <td>$data->secureServer</td>
  </tr>
  <tr>
-  <td>
-   <label for="server[passwordProtected]">Server Password protected</label>
-  </td>
-  <td>
-   <input type="text" value="$data->passwordProtected" name="server[passwordProtected]"/>
-  </td>
+  <td>Server Password protected</td>
+  <td>$data->passwordProtected</td>
  </tr>
  <tr>
-  <td>
-   <label for="server[operatingSystem]">Server OS</label>
-  </td>
-  <td>
-   <input type="text" value="$data->operatingSystem" name="server[operatingSystem]"/>
-  </td>
+  <td>Server OS</td>
+  <td>$data->operatingSystem</td>
  </tr>
  <tr>
-  <td>
-   <label for="server[botNumber]">Server Bots</label>
-  </td>
-  <td>
-   <input type="text" value="$data->botNumber" name="server[botNumber]"/>
-  </td>
+  <td>Server Bots</td>
+  <td>$data->botNumber</td>
  </tr>
  <tr>
-  <td>
-   <label for="server[about]">About</label>
-  </td>
-  <td>
-   <input type="text" value="$data->about" name="server[about]"/>
-  </td>
+  <td>About</td>
+  <td>$data->about</td>
  </tr>
  </tbody>
 </table>
