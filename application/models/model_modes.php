@@ -3,7 +3,6 @@
 class Model_Modes extends Model {
  
  public function get_data() {
-  $this->items = new Collection;
   foreach (Modes::find_all() as $item) {
    $this->items->addItem($item, $item->modeid);
   }
