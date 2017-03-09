@@ -129,7 +129,8 @@ ALTER TABLE `servers`
   ADD KEY `mode` (`mode`),
   ADD KEY `game` (`game`),
   ADD KEY `regdate` (`regdate`),
-  ADD KEY `status` (`status`);
+  ADD KEY `status` (`status`),
+  ADD UNIQUE `top` (`top`);
 ALTER TABLE `servers` ADD FULLTEXT KEY `addr` (`addr`);
 ALTER TABLE `servers` ADD FULLTEXT KEY `map` (`map`);
 
