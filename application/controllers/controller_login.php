@@ -11,7 +11,10 @@ class Controller_Login extends Controller{
  }
 
  public function action_login() {
+  $data["login_status"] = "";
   if ($this->model->items->keyExists($this->query['login'])) {
+   $data['debug']['login'] = $this->query['login'];
+   $data['debug']['password'] = $this->query['password'];
    foreach($this->model->items->keys() as $item){
     $row = $this->model->items->getItem($item);
     if ($row->login == $this->query['login'] && $row->password == md5($this->query['password'])) {
