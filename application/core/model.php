@@ -8,10 +8,10 @@
 //namespace Core;
 
 abstract class Model {
- protected $items = new Collection;
+ protected $items;
 
  public function __construct() {
-
+  self::items = new Collection;
  }
 
  /**
