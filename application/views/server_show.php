@@ -1,8 +1,11 @@
 <?php
 
 echo <<<EOT
-<h1>Server</h1>
-<table>
+<h1>Server $data->servername</h1>
+<p>
+ <button alt="Edit" title="Edit" onclick="location.href='/servers/edit/?serverid=$data->serverid'">Edit this server</button>
+</p>
+<table style="float: left;">
 <thead>
  <tr>
   <th>Param</th>
@@ -56,13 +59,10 @@ echo <<<EOT
  </tr>
  </tbody>
 </table>
-<p>
- <button alt="Edit" title="Edit" onclick="location.href='/servers/edit/?serverid=$data->serverid'">Edit this server</button>
-</p>
 EOT;
 
 echo <<<EOT
-<table>
+<table style="float: left;">
  <caption>Players</caption>
  <thead>
   <tr>
@@ -92,7 +92,7 @@ echo <<<EOT
 EOT;
 
 echo <<<EOT
-<table>
+<table style="float: left;">
  <caption>Rules</caption>
  <thead>
   <tr>
