@@ -44,4 +44,8 @@ class Controller_Modes extends Controller {
   }
   $this->view->generate('mode_show.php', 'template_view.php', $data);
  }
+
+ public function action_getAll() {
+  $this->view->ajax($this->model->getAjax());
+ }
 }

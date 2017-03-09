@@ -13,6 +13,10 @@ class Model_Modes extends Model {
   return $this->items->getItem($itemid);
  }
 
+ public function getAjax() {
+  return json_encode($this->items);
+ }
+
  public function save(Mode $mode){
   return $mode->save() ? $mode : false;
  }
