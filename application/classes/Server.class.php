@@ -23,11 +23,11 @@ class Server extends DatabaseObject {
  protected $operatingSystem;
  protected $botNumber;
  protected $version;
+ protected $servername;
+ protected $maxplayers;
  public $addr;
- public $servername;
  public $game;
  public $mode;
- public $maxplayers;
  public $location;
  public $steam;
  public $site;
@@ -36,14 +36,14 @@ class Server extends DatabaseObject {
  public static function add(array $item) {
   $new = new static;
   $new->addr = empty($item['addr']) ? NULL : trim($item['addr']);
-  $new->servername = empty($item['servername']) ? NULL : trim($item['servername']);
+  $new->servername = NULL;
   $new->status =  NULL;
   $new->regdate = date("Y-m-d H:i:s");
   $new->game = empty($item['game']) ? NULL : trim($item['game']);
   $new->mode = empty($item['mode']) ? NULL : trim($item['mode']);
   $new->map = NULL;
   $new->players = NULL;
-  $new->maxplayers = empty($item['maxplayers']) ? NULL : intval(trim($item['maxplayers']));
+  $new->maxplayers = NULL;
   $new->location = empty($item['location']) ? NULL : trim($item['location']);
   $new->steam = empty($item['steam']) ? NULL : intval(trim($item['steam']));
   $new->new = 1;
@@ -71,18 +71,30 @@ class Server extends DatabaseObject {
   $this->map = $map;
  }
 
+ public function setMaxPlayers($maxplayers = NULL) {
+  $this->maxplayers = $maxplayers;
+ }
+
+ public function setServername($servername = NULL) {
+  $this->servername = $servername;
+ }
+
  public function setSecureServer($secureServer = NULL) {
   $this->secureServer = $secureServer;
  }
+
  public function setPasswordProtected($passwordProtected = NULL) {
   $this->passwordProtected = $passwordProtected;
  }
+
  public function setOperatingSystem($operatingSystem = NULL) {
   $this->operatingSystem = $operatingSystem;
  }
+
  public function setBotNumber($botNumber = NULL) {
   $this->botNumber = $botNumber;
  }
+
  public function setVersion($version = NULL) {
   $this->version = $version;
  }

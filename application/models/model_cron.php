@@ -19,7 +19,9 @@ class Model_Cron extends Model {
    $sq->connect($address[0], $address[1]);
    $item->info = $sq->getInfo();
    $item->setMap($item->info['mapName']);
-   $item->maxplayers = $item->info['maxPlayers'];
+   $item->setServername($item->info['serverName']);
+   $item->setMaxPlayers($item->info['maxPlayers']);
+   $item->setPlayers($item->info['Players']);
    $item->setStatus((empty($item->info)) ? 0 : 1);
    #$item->players_info = $sq->getPlayers();
    $item->setPlayers($item->info['playerNumber']);
