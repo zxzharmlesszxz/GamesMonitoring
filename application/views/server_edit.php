@@ -29,14 +29,6 @@ echo <<<EOT
  </tr>
  <tr>
   <td>
-   <label for="servername">Server name</label>
-  </td>
-  <td>
-   <input type="text" value="$data->servername" name="server[servername]"/>
-  </td>
- </tr>
- <tr>
-  <td>
    <label for="game">Server game</label>
   </td>
   <td>
@@ -49,14 +41,6 @@ echo <<<EOT
   </td>
   <td>
    $modes
-  </td>
- </tr>
- <tr>
-  <td>
-   <label for="maxplayers">Server slots</label>
-  </td>
-  <td>
-   <input type="number" value="$data->maxplayers" name="server[maxplayers]"/>
   </td>
  </tr>
  <tr>
