@@ -1,6 +1,6 @@
 <h1>Страница авторизации</h1>
 <p>
-<form action="" method="post">
+<form action="/login/login" method="post">
 <table class="login">
 	<tr>
 		<th colspan="2">Авторизация</th>
