@@ -8,6 +8,10 @@
 //namespace Core;
 
 abstract class Model {
+ public function __construct() {
+  self::items = self::get_data();
+ }
+
  /**
  * Method get_data
  * Type: abstract public
