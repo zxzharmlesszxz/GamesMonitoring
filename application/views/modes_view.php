@@ -21,7 +21,7 @@
 </tfoot>
 <tbody>
 <?php
-
+/*
  foreach($data->keys() as $item){
   $row = $data->getItem($item);
   echo <<<EOT
@@ -37,7 +37,7 @@
   </tr>
 EOT;
  }
-
+*/
 ?>
  </tbody>
 </table>
