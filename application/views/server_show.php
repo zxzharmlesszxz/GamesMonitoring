@@ -34,6 +34,14 @@ echo <<<EOT
  </tr>
  <tr>
   <td>
+   <label for="server[map]">Server map</label>
+  </td>
+  <td>
+   <img src="/images/maps/$data->game/$data->map.png">
+  </td>
+ </tr>
+ <tr>
+  <td>
    <label for="server[version]">Server protocol version</label>
   </td>
   <td>
@@ -146,4 +154,3 @@ EOT;
 echo <<<EOT
 <img src="/images/maps/$data->game/$data->map.png">
 EOT;
-var_dump($data->info);
