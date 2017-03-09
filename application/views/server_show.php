@@ -150,7 +150,3 @@ echo <<<EOT
  </tbody>
 </table>
 EOT;
-
-echo <<<EOT
-<img src="/images/maps/$data->game/$data->map.png">
-EOT;
