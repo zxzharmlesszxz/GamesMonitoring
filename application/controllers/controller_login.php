@@ -12,19 +12,17 @@ class Controller_Login extends Controller{
 
  public function action_login() {
   $data["login_status"] = "";
-  if ($this->model->items->keyExists($this->query['login'])) {
-   $data['debug']['login'] = $this->query['login'];
-   $data['debug']['password'] = $this->query['password'];
-   $data['debug']['keys'] = $this->model->items->keys();
-   foreach ($this->model->items->keys() as $item) {
-    $row = $this->model->items->getItem($item);
-    if ($row->login == $this->query['login'] && $row->password == md5($this->query['password'])) {
-     $data["login_status"] = "access_granted";
-     session_start();
-     $_SESSION['login'] = $this->query['login'];
-    } else {
-     $data["login_status"] = "access_denied";
-    }
+  foreach ($this->model->items->keys() as $item) {
+   $row = $this->model->items->getItem($item);
+   if ($row->login == $this->query['login'] && $row->password == md5($this->query['password'])) {
+    $data['debug']['login'] = $this->query['login'];
+    $data['debug']['password'] = $this->query['password'];
+    $data['debug']['keys'] = $this->model->items->keys();
+    $data["login_status"] = "access_granted";
+    session_start();
+    $_SESSION['login'] = $this->query['login'];
+   } else {
+    $data["login_status"] = "access_denied";
    }
   }
   $data['debug']['query'] = $this->query;
