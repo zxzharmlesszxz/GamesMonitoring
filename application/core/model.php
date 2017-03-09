@@ -9,7 +9,7 @@
 
 abstract class Model {
  public function __construct() {
-  static::items = new Collection;
+  static::$items = new Collection;
  }
 
  /**
