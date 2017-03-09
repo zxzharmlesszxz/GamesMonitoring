@@ -11,7 +11,7 @@ echo <<<EOT
   <li>Players</li>
   <li>Rules</li>
  </ul>
- <div class="tabs__content">
+ <div class="tabs__content active">
   <table style="float: left;">
   <caption>Info</caption>
   <thead>
