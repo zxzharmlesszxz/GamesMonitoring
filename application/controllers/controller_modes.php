@@ -46,6 +46,7 @@ class Controller_Modes extends Controller {
  }
 
  public function action_getAll() {
+  var_dump($this->model->get_data());
   $this->view->ajax($this->model->get_data());
  }
 }
