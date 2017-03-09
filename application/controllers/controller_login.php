@@ -21,11 +21,11 @@ class Controller_Login extends Controller{
     } else {
      $data["login_status"] = "access_denied";
     }
-    $data['debug']['query'] = $this->query;
-    $data['debug']['items'] = $this->model->get_data();
-    $this->view->generate('login_login.php', 'template_view.php', $data);
    }
   }
+  $data['debug']['query'] = $this->query;
+  $data['debug']['items'] = $this->model->get_data();
+  $this->view->generate('login_login.php', 'template_view.php', $data);
  }
 
  public function action_index() {
