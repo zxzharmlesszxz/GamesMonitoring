@@ -2,6 +2,7 @@
 
 $locations = locations_select_list($data->location);
 $modes = modes_select_list($data->mode);
+$games = games_select_list($data->game);
 
 echo <<<EOT
 <h1>Server</h1>
@@ -32,7 +33,7 @@ echo <<<EOT
    <label for="game">Server game</label>
   </td>
   <td>
-   <input type="text" value="$data->game" name="server[game]"/>
+   $games
   </td>
  </tr>
  <tr>
