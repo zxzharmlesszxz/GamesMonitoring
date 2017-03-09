@@ -5,6 +5,7 @@ class Controller_Login extends Controller{
 
  public function __construct() {
   parent::__construct();
+  include_once(config()->MODELS_PATH.'/model_admins.php');
   $this->model = new Model_Admins();
   $this->query = $_REQUEST;
  }
