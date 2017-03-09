@@ -6,6 +6,7 @@ echo <<<EOT
  <button alt="Edit" title="Edit" onclick="location.href='/servers/edit/?serverid=$data->serverid'">Edit this server</button>
 </p>
 <table style="float: left;">
+<caption>Info</caption>
 <thead>
  <tr>
   <th>Param</th>
