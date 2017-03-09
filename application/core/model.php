@@ -11,7 +11,7 @@ abstract class Model {
  protected $items;
 
  public function __construct() {
-  self::$items = new Collection;
+  static::items = new Collection;
  }
 
  /**
