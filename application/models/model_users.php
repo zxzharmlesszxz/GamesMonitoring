@@ -3,7 +3,6 @@
 class Model_Users extends Model {
  
  public function get_data() {
-  $this->items = new Collection;
   foreach (User::find_all() as $item) {
    $this->items->addItem($item, $item->userid);
   }

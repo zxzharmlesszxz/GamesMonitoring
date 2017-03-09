@@ -3,7 +3,6 @@
 class Model_Cron extends Model {
  
  public function get_data() {
-  $this->items = new Collection;
   foreach (Server::find_all() as $item) {
    $this->items->addItem($item, $item->serverid);
   }
