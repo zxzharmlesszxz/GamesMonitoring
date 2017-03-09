@@ -8,6 +8,8 @@
 //namespace Core;
 
 abstract class Model {
+ static protected $items;
+
  public function __construct() {
   static::$items = new Collection;
  }
