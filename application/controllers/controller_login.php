@@ -10,21 +10,24 @@ class Controller_Login extends Controller{
   $this->query = $_REQUEST;
  }
 
- public function action_index(){
-  $data["login_status"] = "";
-  if ($login=="admin" && $password=="12345"){
+ public function action_login() {
+
+  if ($this->model->items->keyExists($this->query['login'])) {
+
    $data["login_status"] = "access_granted";
    session_start();
-   echo $_SESSION['admin'];
    $_SESSION['admin'] = $password;
-   header('Location: /admin/');
   } else {
    $data["login_status"] = "access_denied";
   }
+  $this->view->generate('login_login.php', 'template_view.php', $data);
+ }
 
+ public function action_index() {
+  $data["login_status"] = "";
   $data['debug']['query'] = $this->query;
   $data['debug']['model'] = $this->model;
-
+  $data['debug']['items'] = $this->model->items;
   $this->view->generate('login_view.php', 'template_view.php', $data);
  }
 }
