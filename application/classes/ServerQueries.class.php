@@ -43,7 +43,7 @@ abstract class ServerQueries {
   if($many_packets)
    $this->raw = stream_get_contents($this->resource);
   else
-   $this->raw = fread($this->resource, 2048);
+   $this->raw = fread($this->resource, 14000);
   return true;
  }
 
