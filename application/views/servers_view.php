@@ -1,10 +1,8 @@
 <h1>Servers</h1>
 <p class="form hide">
  <input type="text" value="" placeholder="addr" name="server[addr]"/>
- <input type="text" value="" placeholder="servername" name="server[servername]"/>
  <?php echo games_select_list(); ?>
  <?php echo modes_select_list(); ?>
- <input type="number" value="" placeholder="maxplayers" name="server[maxplayers]"/>
  <?php echo locations_select_list(); ?>
  <label for="server[steam]">Steam?: </label><input type="checkbox" value="0" name="server[steam]"/>
  <input type="text" value="" placeholder="site" name="server[site]"/>
