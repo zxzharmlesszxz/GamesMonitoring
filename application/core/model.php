@@ -9,7 +9,7 @@
 
 abstract class Model {
  public function __construct() {
-  $this->items = new Collection;
+  self::items = new Collection;
  }
 
  /**
