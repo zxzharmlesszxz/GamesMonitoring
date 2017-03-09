@@ -4,5 +4,3 @@
 <?php } elseif($data['login_status']=="access_denied") { ?>
 <p style="color:red">Логин и/или пароль введены неверно.</p>
 <?php } ?>
-<?php
-var_dump($data);

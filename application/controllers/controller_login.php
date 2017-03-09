@@ -15,9 +15,6 @@ class Controller_Login extends Controller{
   foreach ($this->model->items->keys() as $item) {
    $row = $this->model->items->getItem($item);
    if ($row->login == $this->query['login'] && $row->password == md5($this->query['password'])) {
-    $data['debug']['login'] = $this->query['login'];
-    $data['debug']['password'] = $this->query['password'];
-    $data['debug']['keys'] = $this->model->items->keys();
     $data["login_status"] = "access_granted";
     session_start();
     $_SESSION['login'] = $this->query['login'];
@@ -25,15 +22,11 @@ class Controller_Login extends Controller{
     $data["login_status"] = "access_denied";
    }
   }
-  $data['debug']['query'] = $this->query;
-  $data['debug']['items'] = $this->model->get_data();
   $this->view->generate('login_login.php', 'template_view.php', $data);
  }
 
  public function action_index() {
   $data["login_status"] = "";
-  $data['debug']['query'] = $this->query;
-  $data['debug']['items'] = $this->model->get_data();
   $this->view->generate('login_view.php', 'template_view.php', $data);
  }
 }
