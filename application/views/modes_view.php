@@ -43,5 +43,3 @@ EOT;
  </tbody>
 </table>
 */
-
-var_dump($data);
