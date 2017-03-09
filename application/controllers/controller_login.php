@@ -25,7 +25,7 @@ class Controller_Login extends Controller{
   $this->view->generate('login_login.php', 'template_view.php', $data);
  }
 
- public function action_login() {
+ public function action_logout() {
    $data["login_status"] = "";
    session_destroy();
    $this->view->generate('login_logout.php', 'template_view.php');
