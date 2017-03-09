@@ -8,10 +8,10 @@
 //namespace Core;
 
 abstract class Model {
- protected $items;
+ protected $items = new Collection;
 
  public function __construct() {
-  static::items->new Collection;
+
  }
 
  /**
