@@ -21,15 +21,15 @@ class Model_Cron extends Model {
    $item->setMap($item->info['mapName']);
    $item->setServername($item->info['serverName']);
    $item->setMaxPlayers($item->info['maxPlayers']);
-   $item->setPlayers($item->info['Players']);
+   $item->setPlayers($item->info['playerNumber']);
    $item->setStatus((empty($item->info)) ? 0 : 1);
-   #$item->players_info = $sq->getPlayers();
    $item->setPlayers($item->info['playerNumber']);
    $item->setSecureServer($item->info['secureServer']);
    $item->setPasswordProtected($item->info['passwordProtected']);
    $item->setOperatingSystem($item->info['operatingSystem']);
    $item->setBotNumber($item->info['botNumber']);
    $item->setVersion($item->info['version']);
+   #$item->players_info = $sq->getPlayers();
    #$item->rules = $sq->getRules();
    $sq->disconnect();
    $item->save();
