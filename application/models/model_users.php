@@ -12,11 +12,6 @@ class Model_Users extends Model {
   return $item = $this->get($id)->changeStatus();
  }
 
- public function create(array $item) {
-  $item = User::add($item);
-  return $item->save() ? $item : false;
- }
-
  public function update(array $user) {
   foreach ($user as $key => $value) {
    $user[$key] = trim($value);

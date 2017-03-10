@@ -34,4 +34,9 @@ abstract class Model {
  public function delete($id) {
   return $this->items->getItem($id)->delete();
  }
+
+ public function create(array $item) {
+  $item = explode("_", static::class)[1]::add($item);
+  return $item->save() ? $item : false;
+ }
 }
