@@ -2,9 +2,9 @@
 
 class Model_Cron extends Model {
  public function __construct() {
-  parent::__construct();
+  $this->items = new Collection;
   foreach (Server::find_all() as $item) {
-   $this->items->addItem($item, $item->serverid);
+   $this->items->addItem($item, $item->id());
   }
  }
 
