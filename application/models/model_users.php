@@ -8,10 +8,6 @@ class Model_Users extends Model {
   }
  }
 
- public function get_data() {
-  return $this->items;
- }
-
  public function get($id) {
   return $this->items->getItem($id);
  }
