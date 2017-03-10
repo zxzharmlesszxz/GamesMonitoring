@@ -62,4 +62,8 @@ class Collection {
  public function keyExists($key) {
   return isset($this->items[$key]);
  }
+
+ public function __sleep() {
+  return $this->items;
+ }
 }
