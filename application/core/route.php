@@ -19,10 +19,6 @@ class Route {
   echo "Action: $action_name <br>";
   */
 
-  $model_path = config()->MODELS_PATH.'/'.strtolower($model_name).'.php';
-
-  if (file_exists($model_path)) include strtolower($model_path);
-
   $controller_path = config()->CONTROLLERS_PATH.'/'.strtolower($controller_name).".php";
 
   if (file_exists($controller_path)) include strtolower($controller_path);
