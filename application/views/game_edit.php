@@ -1,8 +1,8 @@
 <?php
 
 echo <<<EOT
-<h1>Server</h1>
-<table id='1table' class='display'>
+<h1>Game $data->fullname</h1>
+<table id='table' class='display'>
 <thead>
  <tr>
   <th>Param</th>

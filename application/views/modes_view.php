@@ -1,4 +1,4 @@
-<h1>Servers</h1>
+<h1>Modes</h1>
 <p class="form hide">
  <input type="text" value="" placeholder="shortname" name="mode[shortname]"/>
  <input type="text" value="" placeholder="fullname" name="mode[fullname]"/>

@@ -1,4 +1,4 @@
-<h1>Servers</h1>
+<h1>Games</h1>
 <p class="form hide">
  <input type="text" value="" placeholder="shortname" name="game[shortname]"/>
  <input type="text" value="" placeholder="fullname" name="game[fullname]"/>
