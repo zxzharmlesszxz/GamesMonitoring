@@ -36,7 +36,7 @@ class Controller_Users extends Controller {
  }
 
  public function action_show() {
-  foreach ($this->model->items->keys() as $id) {
+  foreach ($this->model->get_data()->keys() as $id) {
    if ($this->model->getItem($id)->login == $this->query['login']) {
     $data = $this->model->getItem($id);
    }
