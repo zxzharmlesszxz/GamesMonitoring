@@ -158,4 +158,12 @@ abstract class DatabaseObject {
         db()->query($sql);
         return (db()->affected_rows() == 1) ? true : false;
     }
+
+    public function __sleep() {
+     return $this->attributes();
+    }
+
+    public function __toArray() {
+     return $this->__sleep();
+    }
 }
