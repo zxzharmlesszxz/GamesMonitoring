@@ -12,6 +12,9 @@ abstract class Model {
 
  public function __construct() {
   $this->items = new Collection;
+  foreach (substr(explode("_", static::class)[1], 0, -1)::find_all() as $item) {
+   $this->items->addItem($item, $item->id());
+  }
  }
 
  /**
