@@ -4,7 +4,7 @@ class Model_Games extends Model {
  
  public function __construct() {
   parent::__construct();
-  foreach (Games::find_all() as $item) {
+  foreach (Game::find_all() as $item) {
    $this->items->addItem($item, $item->gameid);
   }
  }

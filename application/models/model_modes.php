@@ -4,7 +4,7 @@ class Model_Modes extends Model {
  
  public function __construct() {
   parent::__construct();
-  foreach (Modes::find_all() as $item) {
+  foreach (Mode::find_all() as $item) {
    $this->items->addItem($item, $item->modeid);
   }
  }
