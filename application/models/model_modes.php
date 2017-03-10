@@ -10,17 +10,17 @@ class Model_Modes extends Model {
  }
 
  public function update(array $item) {
-  foreach ($item as $key => $value) {
-   $item[$key] = trim($value);
-  }
-  $u = $this->items->getItem($item['modeid']);
+  $item = array_map("trim", $item);
+
+  $old = $this->items->getItem($item['modeid']);
   unset($item['modeid']);
-  if (!$u) {
+
+  if (!$old) {
    return FALSE;
   }
   foreach ($item as $key => $value) {
-   $u->$key = $value;
+   $old->$key = $value;
   }
-  return $u->save() ? $u : false;
+  return $old->save() ? $old : false;
  }
 }

@@ -2,17 +2,16 @@
 
 class Model_Servers extends Model {
  public function update(array $item) {
-  foreach ($item as $key => $value) {
-   $item[$key] = trim($value);
-  }
-  $u = $this->items->getItem($item['serverid']);
+  $item = array_map("trim", $item);
+
+  $old = $this->items->getItem($item['serverid']);
   unset($item['serverid']);
-  if (!$u) {
+  if (!$old) {
    return FALSE;
   }
   foreach ($item as $key => $value) {
-   $u->$key = $value;
+   $old->$key = $value;
   }
-  return $u->save() ? $u : false;
+  return $old->save() ? $old : false;
  }
 }
