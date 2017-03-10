@@ -8,6 +8,24 @@
 <p>
  <button alt="Add new mode" title="Add new mode" id="show">Add new mode</button>
 </p>
+
+<script type="text/javascript">
+ $(document).ready(function() {
+  $('#table1').DataTable({
+   "processing": true,
+   "ajax": {
+    "url": "/modes/getAll/",
+    "dataSrc": ""
+   },
+   "columns": [
+    { "data": "modeid" },
+    { "data": "shortname" },
+    { "data": "fullname" },
+    { "data": "description" }
+   ]
+  });
+ });
+ </script>
 <table id='table1' class='display'>
 <thead>
  <th>ModeID</th>
@@ -43,21 +61,3 @@ EOT;
 ?>
  </tbody>
 </table>
-
-<script type="text/javascript">
- $(document).ready(function() {
-  $('#table1').DataTable({
-   "processing": true,
-   "ajax": {
-    "url": "/modes/getAll/",
-    "dataSrc": ""
-   },
-   "columns": [
-    { "data": "modeid" },
-    { "data": "shortname" },
-    { "data": "fullname" },
-    { "data": "description" }
-   ]
-  });
- });
- </script>
