@@ -9,10 +9,6 @@ class Model_Modes extends Model {
   }
  }
 
- public function get_data() {
-  return $this->items;
- }
-
  public function get($itemid) {
   return $this->items->getItem($itemid);
  }

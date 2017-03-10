@@ -8,10 +8,6 @@ class Model_Admins extends Model {
   }
  }
 
- public function get_data() {
-  return $this->items;
- }
-
  public function get($adminid) {
   return $this->items->getItem($adminid);
  }
