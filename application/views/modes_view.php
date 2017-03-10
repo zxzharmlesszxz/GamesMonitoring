@@ -15,9 +15,11 @@
    "processing": true,
    "ajax": "/modes/getAll/",
    "columns": [
-    { "data": null, render: "modeid"},
     { "data": null, render: "fullname"},
-    { "data": null, render: "shortname" },
+    { "data": "modeid",
+      "data": "shortname",
+      "render": "id="+modeid+" shortname="+shortname
+    },
     { "data": null, render: "description" }
    ]
   });
@@ -25,13 +27,11 @@
 </script>
 <table id='table1' class='display'>
 <thead>
- <th>ModeID</th>
  <th>Shortname</th>
  <th>Fullname</th>
  <th>Description</th>
 </thead>
 <tfoot>
- <th>ModeID</th>
  <th>Shortname</th>
  <th>Fullname</th>
  <th>Description</th>
