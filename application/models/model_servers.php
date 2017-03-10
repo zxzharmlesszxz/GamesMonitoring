@@ -8,21 +8,9 @@ class Model_Servers extends Model {
   }
  }
 
- public function get($itemid) {
-  return $this->items->getItem($itemid);
- }
-
- public function save(Server $server){
-  return $server->save() ? $server : false;
- }
-
  public function create(array $item) {
   $new = Server::add($item);
   return $new->save() ? $new : false;
- }
-
- public function delete($itemid) {
-  return $this->items->getItem($itemid)->delete();
  }
 
  public function update(array $item) {

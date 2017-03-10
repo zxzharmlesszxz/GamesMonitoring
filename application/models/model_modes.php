@@ -9,10 +9,6 @@ class Model_Modes extends Model {
   }
  }
 
- public function get($itemid) {
-  return $this->items->getItem($itemid);
- }
-
  public function getAjax() {
   $array = array();
   foreach ($this->items->getItems() as $key => $item) {
@@ -21,17 +17,9 @@ class Model_Modes extends Model {
   return $array;
  }
 
- public function save(Mode $mode){
-  return $mode->save() ? $mode : false;
- }
-
  public function create(array $item) {
   $new = Modes::add($item);
   return $new->save() ? $new : false;
- }
-
- public function delete($itemid) {
-  return $this->items->getItem($itemid)->delete();
  }
 
  public function update(array $item) {
