@@ -20,6 +20,6 @@ abstract class Model {
  * Return: mixed
  **/
  public function get_data() {
-  return static::items;
+  return $this->items;
  }
 }
