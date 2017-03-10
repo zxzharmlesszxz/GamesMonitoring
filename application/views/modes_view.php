@@ -45,7 +45,15 @@ EOT;
 <script type="text/javascript">
  $(document).ready(function() {
   $('#table1').DataTable({
-   "ajax": '/modes/getAll'
+   "processing": true,
+   "ajax": '/modes/getAll',
+   "columns": [
+    { "data": "#" },
+    { "data": "modeid" },
+    { "data": "shortname" },
+    { "data": "fullname" },
+    { "data": "description" }
+   ]
   });
  });
  </script>
