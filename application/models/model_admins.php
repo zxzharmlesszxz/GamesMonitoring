@@ -8,14 +8,6 @@ class Model_Admins extends Model {
   }
  }
 
- public function get($adminid) {
-  return $this->items->getItem($adminid);
- }
-
- public function save(Admin $admin){
-  return $admin->save() ? $admin : false;
- }
- 
  public function changeStatus($adminid) {
   return $admin = $this->get($adminid)->changeStatus();
  }
@@ -23,10 +15,6 @@ class Model_Admins extends Model {
  public function create(array $admin) {
   $new = Admin::add($admin);
   return $new->save() ? $new : false;
- }
-
- public function delete($adminid) {
-  return $this->items->getItem($adminid)->delete();
  }
 
  public function update(array $admin) {
