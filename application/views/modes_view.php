@@ -50,8 +50,8 @@ EOT;
   $.ajax({
    dataType: 'json',
    url: '/modes/getAll',
-   success: function(){
-    alert(result);
+   success: function(data){
+    alert(data);
    }
   });
  });
