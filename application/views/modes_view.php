@@ -13,10 +13,7 @@
  $(document).ready(function() {
   $('#table1').DataTable({
    "processing": true,
-   "ajax": {
-    "url": "/modes/getAll/",
-    "dataSrc": ""
-   },
+   "ajax": "/modes/getAll/",
    "columns": [
     { "data": "modeid" },
     { "data": "shortname" },
