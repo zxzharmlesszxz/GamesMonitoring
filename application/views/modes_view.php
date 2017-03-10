@@ -50,7 +50,10 @@ EOT;
  $(document).ready(function() {
   $('#table1').DataTable({
    "processing": true,
-   "ajax": '/modes/getAll',
+   "ajax": {
+    '/modes/getAll',
+    "dataSrc": ""
+   },
    "columns": [
     { "data": "Num" },
     { "data": "ModeID" },
