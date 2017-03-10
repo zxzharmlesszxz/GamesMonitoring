@@ -55,7 +55,6 @@ EOT;
     "dataSrc": ""
    },
    "columns": [
-    { "data": "Num" },
     { "data": "ModeID" },
     { "data": "Shortname" },
     { "data": "Fullname" },
