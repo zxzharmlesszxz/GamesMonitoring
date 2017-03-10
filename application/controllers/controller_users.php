@@ -9,9 +9,6 @@ class Controller_Users extends Controller {
 
  public function __construct() {
   parent::__construct();
-  $model = "Model_".explode("_", static::class)[1];
-  $this->model = new $model();
-  $this->query = $_REQUEST;
  }
 
  public function action_index() {
