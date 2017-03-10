@@ -55,10 +55,10 @@ EOT;
     "dataSrc": ""
    },
    "columns": [
-    { "data": "ModeID" },
-    { "data": "Shortname" },
-    { "data": "Fullname" },
-    { "data": "Description" }
+    { "data": "modeid" },
+    { "data": "shortname" },
+    { "data": "fullname" },
+    { "data": "description" }
    ]
   });
  });
