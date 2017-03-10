@@ -10,12 +10,12 @@
 </p>
 <script type="text/javascript">
  $(document).ready(function() {
-  $('#1table').DataTable({
+  $('#table1').DataTable({
    "ajax": '/modes/getAll'
   });
  });
  </script>
-<table id='1table' class='display'>
+<table id='table1' class='display'>
 <thead>
  <th>Game</th>
  <th>Shortname</th>
