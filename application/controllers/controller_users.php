@@ -9,7 +9,7 @@ class Controller_Users extends Controller {
 
  public function __construct() {
   parent::__construct();
-  $model = "Model_".strtok(__CLASS__,"_")[1];
+  $model = "Model_".explode("_", __CLASS__)[1];
   $this->model = new $model();
   $this->query = $_REQUEST;
  }
