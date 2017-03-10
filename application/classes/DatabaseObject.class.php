@@ -160,7 +160,7 @@ abstract class DatabaseObject {
     }
 
     public function __sleep() {
-     return $this->attributes();
+     return $this->sanitized_attributes();
     }
 
     public function __toArray() {
