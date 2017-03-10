@@ -51,7 +51,7 @@ EOT;
   $('#table1').DataTable({
    "processing": true,
    "ajax": {
-    "url": "/modes/getAll",
+    "url": "/modes/getAll/",
     "dataSrc": ""
    },
    "columns": [
