@@ -20,7 +20,7 @@ class Model_Modes extends Model {
  public function getAjax() {
   $array = array();
   foreach ($this->items->getItems() as $key => $item) {
-   $array[$key] = get_object_vars($item);
+   $array[$key] = (array) $item;
   }
   return $array;
  }
