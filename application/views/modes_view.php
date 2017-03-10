@@ -16,7 +16,7 @@
    "ajax": "/modes/getAll/",
    "columns": [
     { "data": null, render: "fullname"},
-    { "data": "mode",
+    { "data": ["modeid","shortname"],
       "render": "id="+modeid+" shortname="+shortname
     },
     { "data": null, render: "description" }
