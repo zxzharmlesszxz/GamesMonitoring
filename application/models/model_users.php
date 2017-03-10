@@ -7,14 +7,6 @@ class Model_Users extends Model {
    $this->items->addItem($item, $item->userid);
   }
  }
-
- public function get($id) {
-  return $this->items->getItem($id);
- }
-
- public function save(DatabaseObject $item){
-  return $item->save() ? $item : false;
- }
  
  public function changeStatus($id) {
   return $item = $this->get($id)->changeStatus();
@@ -23,10 +15,6 @@ class Model_Users extends Model {
  public function create(array $item) {
   $item = User::add($item);
   return $item->save() ? $item : false;
- }
-
- public function delete($id) {
-  return $this->items->getItem($id)->delete();
  }
 
  public function update(array $user) {
