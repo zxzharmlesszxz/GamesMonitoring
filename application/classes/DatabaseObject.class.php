@@ -14,11 +14,11 @@ abstract class DatabaseObject {
     }
 
     public static function find_all() {
-        return self::find_by_sql("SELECT * FROM " . static::$table_name." ORDER BY ".static::$db_fields[0]." ASC");
+        return self::find_by_sql("SELECT * FROM " . static::$table_name." ORDER BY ".static::id()." ASC");
     }
 
     public static function find_by_id($id = 0) {
-        $result_array = self::find_by_sql("SELECT * FROM " . static::$table_name . " WHERE ".static::$db_fields[0]."=" . db()->escape_value($id) . " LIMIT 1");
+        $result_array = self::find_by_sql("SELECT * FROM " . static::$table_name . " WHERE ".static::id()."=" . db()->escape_value($id) . " LIMIT 1");
         return !empty($result_array) ? $result_array[0] : false;
     }
 
@@ -97,12 +97,12 @@ abstract class DatabaseObject {
 
     public function save() {
         // A new record won't have an id yet.
-        $id = static::$db_fields[0];
+        $id = static::id();
         return isset($this->$id) ? $this->update() : $this->create();
     }
 
     public function create() {
-    	$id = static::$db_fields[0];
+    	$id = static::id();
 
         $attributes = $this->sanitized_attributes();
         array_shift($attributes);
@@ -130,7 +130,7 @@ abstract class DatabaseObject {
     }
 
     public function update() {
-        $id = static::$db_fields[0];
+        $id = static::id();
 
         $attributes = $this->sanitized_attributes();
         $attribute_pairs = array();
@@ -144,18 +144,22 @@ abstract class DatabaseObject {
         }
         $sql = "UPDATE " . static::$table_name . " SET ";
         $sql .= join(", ", $attribute_pairs);
-        $sql .= " WHERE ".static::$db_fields[0]."=" . db()->escape_value($this->$id);
+        $sql .= " WHERE ".static::id()."=" . db()->escape_value($this->$id);
         db()->query($sql);
         return (db()->affected_rows() == 1) ? true : false;
     }
 
     public function delete() {
-    	$id = static::$db_fields[0];
+    	$id = static::id();
 
         $sql = "DELETE FROM " . static::$table_name;
-        $sql .= " WHERE ".static::$db_fields[0]."=" . db()->escape_value($this->$id);
+        $sql .= " WHERE ".static::id()."=" . db()->escape_value($this->$id);
         $sql .= " LIMIT 1";
         db()->query($sql);
         return (db()->affected_rows() == 1) ? true : false;
+    }
+
+    public function id() {
+     return static::$db_fields[0];
     }
 }
