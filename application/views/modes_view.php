@@ -48,9 +48,8 @@ EOT;
   // "ajax": '/modes/getAll'
   //});
   $.ajax({
+   dataType: 'json',
    url: '/modes/getAll',
-   data: '',
-   type: 'get',
    success: function(){
     alert(result);
    }
