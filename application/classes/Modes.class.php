@@ -15,4 +15,12 @@ class Modes extends DatabaseObject {
   $new->description = trim($item['description']);
   return $new;
  }
+
+ public function __sleep() {
+  return $this->attributes();
+ }
+
+ public function __toArray() {
+  return $this->__sleep();
+ }
 }
