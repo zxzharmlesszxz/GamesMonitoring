@@ -10,17 +10,22 @@
 </p>
 <table id='table1' class='display'>
 <thead>
- <th>Mode</th>
+ <th>Num</th>
+ <th>ModeID</th>
  <th>Shortname</th>
+ <th>Fullname</th>
  <th>Description</th>
 </thead>
 <tfoot>
- <th>Mode</th>
+ <th>Num</th>
+ <th>ModeID</th>
  <th>Shortname</th>
+ <th>Fullname</th>
  <th>Description</th>
 </tfoot>
 <tbody>
 <?php
+/*
  foreach($data->keys() as $item){
   $row = $data->getItem($item);
   echo <<<EOT
@@ -36,6 +41,7 @@
   </tr>
 EOT;
  }
+*/
 ?>
  </tbody>
 </table>
@@ -47,7 +53,7 @@ EOT;
    "ajax": '/modes/getAll',
    "columns": [
     { "data": "Num" },
-    { "data": "modeid" },
+    { "data": "ModeID" },
     { "data": "Shortname" },
     { "data": "Fullname" },
     { "data": "Description" }
