@@ -6,31 +6,29 @@ class Model_Admins extends Model {
   return $admin = $this->get($adminid)->changeStatus();
  }
 
- public function create(array $admin) {
-  $new = Admin::add($admin);
-  return $new->save() ? $new : false;
- }
+ public function update(array $item) {
+  $item = array_map("trim", $item);
 
- public function update(array $admin) {
-  foreach ($admin as $key => $value) {
-   $admin[$key] = trim($value);
-  }
-  if (($admin['password'] == $admin['repassword']) && !empty($admin['password'])) {
-   unset($admin['repassword']);
+  if (($item['password'] == $item['repassword']) && !empty($item['password'])) {
+   unset($item['repassword']);
   } else {
-   unset($admin['password']);
-   unset($admin['repassword']);
+   unset($item['password']);
+   unset($item['repassword']);
   }
-  $u = $this->items->getItem($admin['adminid']);
-  if (!$u) {
+
+  $old = $this->items->getItem($item['adminid']);
+  unset($item['adminid']);
+
+  if (!$old) {
    return FALSE;
   }
-  foreach ($admin as $key => $value) {
-   $u->$key = $value;
+
+  foreach ($item as $key => $value) {
+   $old->$key = $value;
    if ($key == 'password') {
-    $u->setPassword($u->password);
+    $old->setPassword($old->password);
    }
   }
-  return $u->save() ? $u : false;
+  return $old->save() ? $old : false;
  }
 }

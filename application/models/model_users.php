@@ -5,27 +5,29 @@ class Model_Users extends Model {
   return $item = $this->get($id)->changeStatus();
  }
 
- public function update(array $user) {
-  foreach ($user as $key => $value) {
-   $user[$key] = trim($value);
-  }
-  if (($user['password'] == $user['repassword']) && !empty($user['password'])) {
-   unset($user['repassword']);
+ public function update(array $item) {
+  $item = array_map("trim", $item);
+
+  if (($item['password'] == $item['repassword']) && !empty($item['password'])) {
+   unset($item['repassword']);
   } else {
-   unset($user['password']);
-   unset($user['repassword']);
+   unset($item['password']);
+   unset($item['repassword']);
   }
-  $u = $this->items->getItem($user['userid']);
-  unset($user['userid']);
-  if (!$u) {
+
+  $old = $this->items->getItem($item['userid']);
+  unset($item['userid']);
+
+  if (!$old) {
    return FALSE;
   }
-  foreach ($user as $key => $value) {
-   $u->$key = $value;
+
+  foreach ($item as $key => $value) {
+   $old->$key = $value;
    if ($key == 'password') {
-    $u->setPassword($u->password);
+    $old->setPassword($old->password);
    }
   }
-  return $u->save() ? $u : false;
+  return $old->save() ? $old : false;
  }
 }
