@@ -1,13 +1,6 @@
 <?php
 
 class Model_Servers extends Model {
- public function __construct() {
-  parent::__construct(); 
-  foreach (Server::find_all() as $item) {
-   $this->items->addItem($item, $item->serverid);
-  }
- }
-
  public function update(array $item) {
   foreach ($item as $key => $value) {
    $item[$key] = trim($value);

@@ -1,14 +1,6 @@
 <?php
 
 class Model_Modes extends Model {
- 
- public function __construct() {
-  parent::__construct();
-  foreach (Mode::find_all() as $item) {
-   $this->items->addItem($item, $item->modeid);
-  }
- }
-
  public function getAjax() {
   $array = array();
   foreach ($this->items->getItems() as $key => $item) {

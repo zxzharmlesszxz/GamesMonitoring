@@ -1,12 +1,6 @@
 <?php
 
 class Model_Admins extends Model {
- public function __construct() {
-  parent::__construct();
-  foreach (Admin::find_all() as $item) {
-   $this->items->addItem($item, $item->adminid);
-  }
- }
 
  public function changeStatus($adminid) {
   return $admin = $this->get($adminid)->changeStatus();

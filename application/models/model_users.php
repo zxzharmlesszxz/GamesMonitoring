@@ -1,13 +1,6 @@
 <?php
 
 class Model_Users extends Model {
- public function __construct() {
-  parent::__construct();
-  foreach (User::find_all() as $item) {
-   $this->items->addItem($item, $item->userid);
-  }
- }
- 
  public function changeStatus($id) {
   return $item = $this->get($id)->changeStatus();
  }
