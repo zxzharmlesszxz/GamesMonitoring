@@ -15,14 +15,14 @@
    "processing": true,
    "ajax": "/modes/getAll/",
    "columns": [
-    { "data": "modeid" },
-    { "data": "shortname" },
-    { "data": "fullname" },
-    { "data": "description" }
+    { "data": null, render: "modeid"},
+    { "data": null, render: "fullname"},
+    { "data": null, render: "shortname" },
+    { "data": null, render: "description" }
    ]
   });
  });
- </script>
+</script>
 <table id='table1' class='display'>
 <thead>
  <th>ModeID</th>
