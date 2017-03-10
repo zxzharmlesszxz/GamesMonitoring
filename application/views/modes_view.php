@@ -10,7 +10,7 @@
 </p>
 <table id='table1' class='display'>
 <thead>
- <th>Game</th>
+ <th>Mode</th>
  <th>Shortname</th>
  <th>Description</th>
 </thead>
@@ -50,9 +50,9 @@ EOT;
    "columns": [
     { "data": "Num" },
     { "data": "modeid" },
-    { "data": "shortname" },
-    { "data": "fullname" },
-    { "data": "description" }
+    { "data": "Shortname" },
+    { "data": "Fullname" },
+    { "data": "Description" }
    ]
   });
  });
