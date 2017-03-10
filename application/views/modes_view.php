@@ -53,6 +53,6 @@ EOT;
    success: function(){
     alert(result);
    }
-  }););
+  });
  });
  </script>
