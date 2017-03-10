@@ -17,11 +17,6 @@ class Model_Modes extends Model {
   return $array;
  }
 
- public function create(array $item) {
-  $new = Modes::add($item);
-  return $new->save() ? $new : false;
- }
-
  public function update(array $item) {
   foreach ($item as $key => $value) {
    $item[$key] = trim($value);
