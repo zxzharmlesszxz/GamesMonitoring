@@ -3,7 +3,7 @@ class Modes extends DatabaseObject {
  protected static $table_name = "modes";
  protected static $db_fields = array('modeid', 'shortname', 'fullname','description');
 
- protected $modeid;
+ public $modeid;
  public $shortname;
  public $fullname;
  public $description;
