@@ -36,7 +36,7 @@ abstract class Model {
  }
 
  public function create(array $item) {
-  $item = explode("_", static::class)[1]::add($item);
+  $item = substr(explode("_", static::class)[1], 0, -1)::add($item);
   return $item->save() ? $item : false;
  }
 }
