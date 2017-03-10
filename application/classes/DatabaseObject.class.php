@@ -159,4 +159,7 @@ abstract class DatabaseObject {
         return (db()->affected_rows() == 1) ? true : false;
     }
 
+    public function __sleep() {
+     return $this->attributes();
+    }
 }
