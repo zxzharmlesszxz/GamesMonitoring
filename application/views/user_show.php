@@ -25,9 +25,6 @@ echo <<<EOT
  <tr>
   <td>Email</td><td>$data->email</td>
  </tr>
- <tr>
-  <td>Homedir</td><td>$data->homedir</td>
- </tr>
  </tbody>
 </table>
 <p><button alt="Edit" title="Edit" onclick="location.href='/users/edit/?userid=$data->userid'">Edit this user</button></p>

@@ -36,10 +36,9 @@ class Controller_Users extends Controller {
  }
 
  public function action_show() {
-  $users = $this->model->get_data();
-  foreach ($users->keys() as $userid) {
-   if ($users->getItem($userid)->login == $this->query['login']) {
-    $data = $users->getItem($userid);
+  foreach ($this->model->items->keys() as $id) {
+   if ($this->model->getItem($id)->login == $this->query['login']) {
+    $data = $this->model->getItem($id);
    }
   }
   $this->view->generate('user_show.php', 'template_view.php', $data);

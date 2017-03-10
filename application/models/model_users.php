@@ -25,12 +25,12 @@ class Model_Users extends Model {
  }
 
  public function create(array $item) {
-  $item = User::add($item['login'], $user['password'], $user['username'], $user['email']);
-  return $user->save() ? $user : false;
+  $item = User::add($item);
+  return $item->save() ? $item : false;
  }
 
- public function delete($userid) {
-  return $this->items->getItem($userid)->delete();
+ public function delete($id) {
+  return $this->items->getItem($id)->delete();
  }
 
  public function update(array $user) {
