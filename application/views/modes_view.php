@@ -10,14 +10,12 @@
 </p>
 <table id='table1' class='display'>
 <thead>
- <th>Num</th>
  <th>ModeID</th>
  <th>Shortname</th>
  <th>Fullname</th>
  <th>Description</th>
 </thead>
 <tfoot>
- <th>Num</th>
  <th>ModeID</th>
  <th>Shortname</th>
  <th>Fullname</th>
