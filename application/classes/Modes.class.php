@@ -4,8 +4,8 @@ class Modes extends DatabaseObject {
  protected static $db_fields = array('modeid', 'shortname', 'fullname','description');
 
  protected $modeid;
- protected $shortname;
- protected $fullname;
+ public $shortname;
+ public $fullname;
  public $description;
 
  public static function add(array $item) {
