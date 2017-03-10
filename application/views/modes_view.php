@@ -8,13 +8,6 @@
 <p>
  <button alt="Add new mode" title="Add new mode" id="show">Add new mode</button>
 </p>
-<script type="text/javascript">
- $(document).ready(function() {
-  $('#table1').DataTable({
-   "ajax": '/modes/getAll'
-  });
- });
- </script>
 <table id='table1' class='display'>
 <thead>
  <th>Game</th>
@@ -48,3 +41,11 @@ EOT;
 ?>
  </tbody>
 </table>
+
+<script type="text/javascript">
+ $(document).ready(function() {
+  $('#table1').DataTable({
+   "ajax": '/modes/getAll'
+  });
+ });
+ </script>
