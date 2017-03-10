@@ -15,12 +15,12 @@ class Admin extends DatabaseObject {
  public $username;
  public $email;
 
- public static function add($login, $password, $username, $email) {
+ public static function add(array $item) {
   $new = new static;
-  $new->login = trim($login);
-  $new->setPassword($password);
-  $new->username = trim($username);
-  $new->email = trim($email);
+  $new->login = trim($item['login']);
+  $new->setPassword($item['password']);
+  $new->username = trim($item['username']);
+  $new->email = trim($item['email']);
   $new->status = 0;
   return $new;
  }

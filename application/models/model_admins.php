@@ -25,7 +25,7 @@ class Model_Admins extends Model {
  }
 
  public function create(array $admin) {
-  $new = Admin::add($admin['login'], $admin['password'], $admin['username'], $admin['email']);
+  $new = Admin::add($admin);
   return $new->save() ? $new : false;
  }
 

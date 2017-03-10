@@ -12,20 +12,20 @@ class Model_Users extends Model {
   return $this->items;
  }
 
- public function get($userid) {
-  return $this->items->getItem($userid);
+ public function get($id) {
+  return $this->items->getItem($id);
  }
 
- public function save(User $user){
-  return $user->save() ? $user : false;
+ public function save(DatabaseObject $item){
+  return $item->save() ? $item : false;
  }
  
- public function changeStatus($userid) {
-  return $user = $this->get($userid)->changeStatus();
+ public function changeStatus($id) {
+  return $item = $this->get($id)->changeStatus();
  }
 
- public function create(array $user) {
-  $user = User::add($user['login'], $user['password'], $user['username'], $user['email']);
+ public function create(array $item) {
+  $item = User::add($item['login'], $user['password'], $user['username'], $user['email']);
   return $user->save() ? $user : false;
  }
 
