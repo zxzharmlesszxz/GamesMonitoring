@@ -23,9 +23,10 @@ class Model_Users extends Model {
   }
 
   foreach ($item as $key => $value) {
-   $old->$key = $value;
    if ($key == 'password') {
     $old->setPassword($old->password);
+   } else {
+    $old->$key = $value;
    }
   }
   return $old->save() ? $old : false;
