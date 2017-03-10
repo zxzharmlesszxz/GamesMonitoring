@@ -14,14 +14,12 @@ abstract class Model {
   $this->items = new Collection;
  }
 
-  public function get_data() {
-   return static::items;
-  }
-
  /**
  * Method get_data
  * Type: abstract public
  * Return: mixed
  **/
- abstract public function get_data();
+ public function get_data() {
+  return static::items;
+ }
 }
