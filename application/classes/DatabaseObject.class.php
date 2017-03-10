@@ -162,4 +162,8 @@ abstract class DatabaseObject {
     public function __sleep() {
      return $this->attributes();
     }
+
+    public function __toArray() {
+     return $this->__sleep();
+    }
 }
