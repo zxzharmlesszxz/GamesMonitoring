@@ -13,7 +13,6 @@
  $(document).ready(function() {
   $('#table1').DataTable({
    "processing": true,
-   "serverSide": true,
    "ajax": "/modes/getAll/",
    "columns": [
     { "data": null, render: "modeid"},
