@@ -18,7 +18,11 @@ class Model_Modes extends Model {
  }
 
  public function getAjax() {
-  return get_object_vars($this->items->getItems());
+  $array = array();
+  foreach ($this->items->getItems() as $key => $item) {
+   $array[$key] = get_object_vars($item);
+  }
+  return $array;
  }
 
  public function save(Mode $mode){
