@@ -15,13 +15,12 @@
  <th>Description</th>
 </thead>
 <tfoot>
- <th>Game</th>
+ <th>Mode</th>
  <th>Shortname</th>
  <th>Description</th>
 </tfoot>
 <tbody>
 <?php
-/*
  foreach($data->keys() as $item){
   $row = $data->getItem($item);
   echo <<<EOT
@@ -37,7 +36,6 @@
   </tr>
 EOT;
  }
-*/
 ?>
  </tbody>
 </table>
