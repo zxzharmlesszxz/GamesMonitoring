@@ -1,11 +1,14 @@
 <?php
 
 class Model_Admins extends Model {
- 
- public function get_data() {
+ public function __construct() {
+  parent::__construct();
   foreach (Admin::find_all() as $item) {
    $this->items->addItem($item, $item->adminid);
   }
+ }
+
+ public function get_data() {
   return $this->items;
  }
 

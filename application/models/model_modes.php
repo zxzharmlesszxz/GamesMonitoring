@@ -2,10 +2,14 @@
 
 class Model_Modes extends Model {
  
- public function get_data() {
+ public function __construct() {
+  parent::__construct();
   foreach (Modes::find_all() as $item) {
    $this->items->addItem($item, $item->modeid);
   }
+ }
+
+ public function get_data() {
   return $this->items;
  }
 

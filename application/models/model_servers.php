@@ -1,11 +1,14 @@
 <?php
 
 class Model_Servers extends Model {
- 
- public function get_data() {
+ public function __construct() {
+  parent::__construct(); 
   foreach (Server::find_all() as $item) {
    $this->items->addItem($item, $item->serverid);
   }
+ }
+
+ public function get_data() {
   return $this->items;
  }
 
