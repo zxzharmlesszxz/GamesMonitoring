@@ -4,7 +4,7 @@ class Model_Modes extends Model {
  public function getAjax() {
   $array = array('data' => array());
   foreach ($this->items->getItems() as $key => $item) {
-   $array['data'][] = json_encode($item);
+   $array['data'][] = $item;
   }
   return $array;
  }
