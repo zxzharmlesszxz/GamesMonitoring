@@ -37,6 +37,11 @@ class Collection {
   }
  }
 
+ /**
+ * Get array $items
+ * Input: empty
+ * Output: array of objects
+ **/
  public function getItems() {
   return $this->items;
  }
