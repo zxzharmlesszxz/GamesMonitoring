@@ -48,7 +48,7 @@ EOT;
    "processing": true,
    "ajax": '/modes/getAll',
    "columns": [
-    { "data": "#" },
+    { "data": "Num" },
     { "data": "modeid" },
     { "data": "shortname" },
     { "data": "fullname" },
