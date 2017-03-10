@@ -5,12 +5,9 @@
 **/
 
 class Controller_Admins extends Controller {
- protected $query;
  
  public function __construct() {
   parent::__construct();
-  $this->model = new Model_Admins();
-  $this->query = $_REQUEST;
  }
 
  public function action_index() {

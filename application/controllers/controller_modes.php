@@ -9,8 +9,6 @@ class Controller_Modes extends Controller {
 
  public function __construct() {
   parent::__construct();
-  $this->model = new Model_Modes();
-  $this->query = $_REQUEST;
  }
 
  public function action_index() {

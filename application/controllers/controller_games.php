@@ -5,12 +5,8 @@
 **/
 
 class Controller_Games extends Controller {
- protected $query;
-
  public function __construct() {
   parent::__construct();
-  $this->model = new Model_Games();
-  $this->query = $_REQUEST;
  }
 
  public function action_index() {

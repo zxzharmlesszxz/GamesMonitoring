@@ -7,7 +7,6 @@ class Controller_Login extends Controller{
   parent::__construct();
   include_once(config()->MODELS_PATH.'/model_admins.php');
   $this->model = new Model_Admins();
-  $this->query = $_REQUEST;
  }
 
  public function action_login() {
