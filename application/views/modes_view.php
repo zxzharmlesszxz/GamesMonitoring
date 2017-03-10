@@ -44,15 +44,8 @@ EOT;
 
 <script type="text/javascript">
  $(document).ready(function() {
-  //$('#table1').DataTable({
-  // "ajax": '/modes/getAll'
-  //});
-  $.ajax({
-   dataType: 'json',
-   url: '/modes/getAll',
-   success: function(data){
-    alert(data);
-   }
+  $('#table1').DataTable({
+   "ajax": '/modes/getAll'
   });
  });
  </script>
