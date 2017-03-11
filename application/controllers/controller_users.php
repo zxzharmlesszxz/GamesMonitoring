@@ -43,6 +43,6 @@ class Controller_Users extends Controller {
  }
 
  public function action_getAll() {
-  $this->view->ajax($this->model->());
+  $this->view->ajax($this->model->getAjax());
  }
 }
