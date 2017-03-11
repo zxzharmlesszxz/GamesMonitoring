@@ -12,7 +12,7 @@ abstract class Model {
 
  public function __construct() {
   $this->items = new Collection;
-  foreach (substr(explode("_", static::class)[1], 0, -1)::find_all() as $item) {
+  foreach (explode("_", static::class)[1]::find_all() as $item) {
    $id = $item->id();
    $this->items->addItem($item, $item->$id);
   }
@@ -48,7 +48,7 @@ abstract class Model {
  }
 
  public function create(array $item) {
-  $item = substr(explode("_", static::class)[1], 0, -1)::add($item);
+  $item = explode("_", static::class)[1]::add($item);
   return $item->save() ? $item : false;
  }
 }
