@@ -19,10 +19,10 @@
       var return_data = new Array();
       for(var i=0;i< json.length; i++){
         return_data.push({
-          'mode': '<a href="/modes/show/?modeid='+json[i].modeid+'">'+json[i].fullname+'</a>'+
+          'mode': '<a href="/modes/show/?modeid='+i+'">'+json[i].fullname+'</a>'+
             '<span class="actions">'+
             '<button class="delete" alt="Delete" title="Delete" data-id="'+json[i].modeid+'" data-type="mode"></button>'+
-            '<button class="edit" alt="Edit" title="Edit" onclick="location.href=\'/modes/edit/?modeid='+json[i].modeid+'\'"'+
+            '<button class="edit" alt="Edit" title="Edit" onclick="location.href=\'/modes/edit/?modeid='+i+'\'"'+
             '</span>',
           'shortname': json[i].shortname,
           'description': json[i].description
