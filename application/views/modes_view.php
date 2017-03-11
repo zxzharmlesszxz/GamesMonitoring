@@ -17,7 +17,7 @@
     "url": "/modes/getAll/",
     "dataSrc": function (json) {
       var return_data = new Array();
-      for(var i=0;i< json.data.length; i++){
+      for(var i=0;i< json.length; i++){
         return_data.push({
           'mode': '<a href="/modes/show/?modeid='+json[i].modeid+'">'+json[i].fullname+'</a>'+
             '<span class="actions">'+
