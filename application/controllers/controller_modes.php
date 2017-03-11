@@ -5,12 +5,6 @@
 **/
 
 class Controller_Modes extends Controller {
- protected $query;
-
- public function __construct() {
-  parent::__construct();
- }
-
  public function action_index() {
   $this->view->generate('modes_view.php', 'template_view.php', $this->model->get_data());
  }

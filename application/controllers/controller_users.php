@@ -41,4 +41,8 @@ class Controller_Users extends Controller {
   }
   $this->view->generate('user_show.php', 'template_view.php', $data);
  }
+
+ public function action_getAll() {
+  $this->view->ajax($this->model->());
+ }
 }
