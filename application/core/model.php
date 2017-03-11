@@ -36,7 +36,7 @@ abstract class Model {
   foreach ($this->items->getItems() as $key => $item) {
    $array['data'][] = $item;
   }
-  return $array;
+  return $this->items->getItems();
  }
 
  public function save(DatabaseObject $item){
