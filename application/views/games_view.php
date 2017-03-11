@@ -8,7 +8,37 @@
 <p>
  <button alt="Add new game" title="Add new game" id="show">Add new game</button>
 </p>
-<table id='table' class='display'>
+<script type="text/javascript">
+ $(document).ready(function() {
+  $('#table1').DataTable({
+   "processing": true,
+   "ajax": {
+    "url": "/games/getAll/",
+    "dataSrc": function (json) {
+      var return_data = new Array();
+      for(var i=0;i< json.data.length; i++){
+        return_data.push({
+          'game': '<a href="/games/show/?gameid='+json.data[i].gameid+'">'+json.data[i].fullname+'</a>'+
+            '<span class="actions">'+
+            '<button class="delete" alt="Delete" title="Delete" data-id="'+json.data[i].gameid+'" data-type="game"></button>'+
+            '<button class="edit" alt="Edit" title="Edit" onclick="location.href=\'/games/edit/?modeid='+json.data[i].gameid+'\'"'+
+            '</span>',
+          'shortname': json.data[i].shortname,
+          'description': json.data[i].description
+        })
+      }
+      return return_data;
+    }
+   },
+   "columns": [
+    { "data": "mode"},
+    { "data": "shortname"},
+    { "data": "description" }
+   ]
+  });
+ });
+</script>
+<table id='table1' class='display'>
 <thead>
  <th>Game</th>
  <th>Shortname</th>
@@ -21,7 +51,7 @@
 </tfoot>
 <tbody>
 <?php
-
+/*
  foreach($data->keys() as $item){
   $row = $data->getItem($item);
   echo <<<EOT
@@ -37,7 +67,7 @@
   </tr>
 EOT;
  }
-
+*/
 ?>
  </tbody>
 </table>

@@ -31,6 +31,14 @@ abstract class Model {
   return $this->items->getItem($id);
  }
 
+ public function getAjax() {
+  $array = array('data' => array());
+  foreach ($this->items->getItems() as $key => $item) {
+   $array['data'][] = $item;
+  }
+  return $array;
+ }
+
  public function save(DatabaseObject $item){
   return $item->save() ? $item : false;
  }
