@@ -31,7 +31,7 @@
     }
    },
    "columns": [
-    { "data": "mode"},
+    { "data": "game"},
     { "data": "shortname"},
     { "data": "description" }
    ]
