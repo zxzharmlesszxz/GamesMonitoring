@@ -13,25 +13,40 @@
  $(document).ready(function() {
   $('#table1').DataTable({
    "processing": true,
-   "ajax": "/modes/getAll/",
+   "ajax": {
+    "url": "/modes/getAll/",
+    "dataSrc": function (json) {
+      var return_data = new Array();
+      for(var i=0;i< json.data.length; i++){
+        return_data.push({
+          'mode': '<a href="/modes/show/?modeid='+json.data[i].modeid+'">'+json.data[i].fullname+'</a>'+
+            '<span class="actions">'+
+            '<button class="delete" alt="Delete" title="Delete" data-id="'+json.data[i].modeid+'" data-type="mode"></button>'+
+            '<button class="edit" alt="Edit" title="Edit" onclick="location.href=\'/modes/edit/?modeid='+json.data[i].modeid+'\'"'+
+            '</span>',
+          'shortname': json.data[i].shortname,
+          'description': json.data[i].description
+        })
+      }
+      return return_data;
+    }
+   },
    "columns": [
-    { "data": null, render: "fullname"},
-    { "data": ["modeid","shortname"],
-      "render": "id="+modeid+" shortname="+shortname
-    },
-    { "data": null, render: "description" }
+    { "data": "mode"},
+    { "data": "shortname"},
+    { "data": "description" }
    ]
   });
  });
 </script>
 <table id='table1' class='display'>
 <thead>
- <th>Shortname</th>
+ <th>Mode</th>
  <th>Fullname</th>
  <th>Description</th>
 </thead>
 <tfoot>
- <th>Shortname</th>
+ <th>Mode</th>
  <th>Fullname</th>
  <th>Description</th>
 </tfoot>
