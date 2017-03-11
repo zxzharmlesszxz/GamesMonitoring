@@ -19,13 +19,13 @@
       var return_data = new Array();
       for(var i=0;i< json.data.length; i++){
         return_data.push({
-          'mode': '<a href="/modes/show/?modeid='+json.data[i].modeid+'">'+json.data[i].fullname+'</a>'+
+          'mode': '<a href="/modes/show/?modeid='+json[i].modeid+'">'+json[i].fullname+'</a>'+
             '<span class="actions">'+
-            '<button class="delete" alt="Delete" title="Delete" data-id="'+json.data[i].modeid+'" data-type="mode"></button>'+
-            '<button class="edit" alt="Edit" title="Edit" onclick="location.href=\'/modes/edit/?modeid='+json.data[i].modeid+'\'"'+
+            '<button class="delete" alt="Delete" title="Delete" data-id="'+json[i].modeid+'" data-type="mode"></button>'+
+            '<button class="edit" alt="Edit" title="Edit" onclick="location.href=\'/modes/edit/?modeid='+json[i].modeid+'\'"'+
             '</span>',
-          'shortname': json.data[i].shortname,
-          'description': json.data[i].description
+          'shortname': json[i].shortname,
+          'description': json[i].description
         })
       }
       return return_data;
