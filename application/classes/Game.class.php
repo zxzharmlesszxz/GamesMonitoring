@@ -4,8 +4,8 @@ class Game extends DatabaseObject {
  protected static $db_fields = array('gameid', 'shortname', 'fullname','description');
 
  protected $gameid;
- protected $shortname;
- protected $fullname;
+ public $shortname;
+ public $fullname;
  public $description;
 
  public static function add(array $item) {
