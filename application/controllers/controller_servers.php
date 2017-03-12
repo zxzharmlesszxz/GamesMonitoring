@@ -24,9 +24,7 @@ class Controller_Servers extends Controller {
  }
 
  public function action_delete() {
-  $item = $this->model->get(intval($this->query['serverid']));
-  $data = $this->model->delete(intval($item->serverid));
-  $this->view->ajax($data);
+  $this->view->ajax($this->model->delete($this->model->get(intval($this->query['serverid']))->serverid));
  }
 
  public function action_update() {
@@ -34,12 +32,7 @@ class Controller_Servers extends Controller {
  }
 
  public function action_show() {
-  $items = $this->model->get_data();
-  foreach ($items->keys() as $id) {
-   if ($items->getItem($id)->serverid == $this->query['serverid']) {
-    $data = $items->getItem($id);
-   }
-  }
+  $data = $items->getItem(intval($this->query['serverid']));
   $sq = new SourceServerQueries();
   $server = $data->addr;
   $address = explode(':', $server);
