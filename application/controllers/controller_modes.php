@@ -28,12 +28,7 @@ class Controller_Modes extends Controller {
  }
 
  public function action_show() {
-  $items = $this->model->get_data();
-  foreach ($items->keys() as $id) {
-   if ($items->getItem($id)->modeid == $this->query['modeid']) {
-    $data = $items->getItem($id);
-   }
-  }
+  $data = ($this->model->keyExists($this->query['modeid'])) ? $this->model->get($this->query['modeid']) : NULL;
   $this->view->generate('mode_show.php', 'template_view.php', $data);
  }
 

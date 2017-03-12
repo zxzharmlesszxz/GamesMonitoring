@@ -43,7 +43,7 @@
         });
     });
 </script>
-<table id='table' class='display'>
+<table id='table1' class='display'>
 <thead>
  <tr>
   <th>Login</th>
