@@ -50,4 +50,8 @@ class Controller_Servers extends Controller {
   $sq->disconnect();
   $this->view->generate('server_show.php', 'template_view.php', $data);
  }
+
+ public function action_getAll() {
+  $this->view->ajax($this->model->getAjax());
+ }
 }
