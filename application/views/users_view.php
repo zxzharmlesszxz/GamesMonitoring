@@ -28,7 +28,7 @@
                             '</span>',
                             'username': item.username,
                             'email': item.email,
-                            'status': item.status
+                            'status': '<input class="status" type="checkbox" data-id="'+item.userid+'" value="'+item.status+'" data-type="user" />'
                         })
                     }
                     return return_data;
