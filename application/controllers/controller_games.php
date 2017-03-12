@@ -26,7 +26,7 @@ class Controller_Games extends Controller {
  }
 
  public function action_show() {
-  $this->view->generate('game_show.php', 'template_view.php', $this->model->get(intval($this->query['gameid'])));
+  $this->view->generate('game_show.php', 'template_view.php', ($this->model->get_data()->keyExists($this->query['gameid'])) ? $this->model->get($this->query['gameid']) : NULL);
  }
 
  public function action_getAll() {
