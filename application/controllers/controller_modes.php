@@ -18,9 +18,7 @@ class Controller_Modes extends Controller {
  }
 
  public function action_delete() {
-  $item = $this->model->get(intval($this->query['modeid']));
-  $data = $this->model->delete(intval($item->modeid));
-  $this->view->ajax($data);
+  $this->view->ajax($this->model->delete($this->model->get(intval($this->query['modeid']))->modeid));
  }
 
  public function action_update() {
@@ -28,8 +26,7 @@ class Controller_Modes extends Controller {
  }
 
  public function action_show() {
-  $data = ($this->model->keyExists($this->query['modeid'])) ? $this->model->get($this->query['modeid']) : NULL;
-  $this->view->generate('mode_show.php', 'template_view.php', $data);
+  $this->view->generate('mode_show.php', 'template_view.php', ($this->model->keyExists($this->query['modeid'])) ? $this->model->get($this->query['modeid']) : NULL);
  }
 
  public function action_getAll() {
