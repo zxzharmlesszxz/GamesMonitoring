@@ -28,7 +28,6 @@
           'description': json[i].description
         })
       }
-      alert(json);
       return return_data;
     }
    },
