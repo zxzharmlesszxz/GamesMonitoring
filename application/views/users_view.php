@@ -35,9 +35,10 @@
                 }
             },
             "columns": [
-                { "data": "mode"},
-                { "data": "shortname"},
-                { "data": "description" }
+                { "data": "user"},
+                { "data": "username"},
+                { "data": "email" },
+                { "data": "status"}
             ]
         });
     });
