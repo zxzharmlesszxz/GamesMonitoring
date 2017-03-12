@@ -2,11 +2,11 @@
 <p class="form hide">
  <input type="text" value="" placeholder="shortname" name="mode[shortname]"/>
  <input type="text" value="" placeholder="fullname" name="mode[fullname]"/>
- <input type="description" value="" placeholder="description" name="mode[description]"/>
- <button class="create" title="Create" alt="Create" data-type="mode">Create</button>
+ <input type="text" value="" placeholder="description" name="mode[description]"/>
+ <button class="create" title="Create" data-type="mode">Create</button>
 </p>
 <p>
- <button alt="Add new mode" title="Add new mode" id="show">Add new mode</button>
+ <button title="Add new mode" id="show">Add new mode</button>
 </p>
 <script type="text/javascript">
  $(document).ready(function() {
@@ -15,15 +15,15 @@
    "ajax": {
     "url": "/modes/getAll/",
     "dataSrc": function (json) {
-      var return_data = new Array();
+      var return_data = [];
 //      json.data.forEach(function(item){alert(item);});
       for(var i=0;i< json.data.length; i++){
         var item = json.data[i];
         return_data.push({
           'mode': '<a href="/modes/show/?modeid='+item.modeid+'">'+item.fullname+'</a>'+
             '<span class="actions">'+
-            '<button class="delete" alt="Delete" title="Delete" data-id="'+item.modeid+'" data-type="mode"></button>'+
-            '<button class="edit" alt="Edit" title="Edit" onclick="location.href=\'/modes/edit/?modeid='+item.modeid+'\'"></button>'+
+            '<button class="delete" title="Delete" data-id="'+item.modeid+'" data-type="mode"></button>'+
+            '<button class="edit" title="Edit" onclick="location.href=\'/modes/edit/?modeid='+item.modeid+'\'"></button>'+
             '</span>',
           'shortname': item.shortname,
           'description': item.description
@@ -42,14 +42,18 @@
 </script>
 <table id='table1' class='display'>
 <thead>
- <th>Mode</th>
- <th>Fullname</th>
- <th>Description</th>
+ <tr>
+  <th>Mode</th>
+  <th>Fullname</th>
+  <th>Description</th>
+ </tr>
 </thead>
 <tfoot>
- <th>Mode</th>
- <th>Fullname</th>
- <th>Description</th>
+ <tr>
+  <th>Mode</th>
+  <th>Fullname</th>
+  <th>Description</th>
+ </tr>
 </tfoot>
 <tbody>
 <?php
