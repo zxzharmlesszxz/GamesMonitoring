@@ -17,6 +17,11 @@ class Model_Modes extends Model {
  }
 
  public function getAjax() {
-  var_dump(parent::getAjax());
+  $items = parent::getAjax();
+  $result = array();
+  foreach ($items as $id => $item) {
+   array_push($result, $item);
+  }
+  return $result;
  }
 }
