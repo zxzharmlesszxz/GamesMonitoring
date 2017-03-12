@@ -32,7 +32,7 @@ class Controller_Servers extends Controller {
  }
 
  public function action_show() {
-  $data = $this->model->getItem(intval($this->query['serverid']));
+  $data = $this->model->get(intval($this->query['serverid']));
   $sq = new SourceServerQueries();
   $server = $data->addr;
   $address = explode(':', $server);
