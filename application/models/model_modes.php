@@ -17,6 +17,6 @@ class Model_Modes extends Model {
  }
 
  public function getAjax() {
-  return parent::getAjax();
+  var_dump(parent::getAjax());
  }
 }
