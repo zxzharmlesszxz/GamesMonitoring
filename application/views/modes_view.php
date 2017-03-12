@@ -28,7 +28,7 @@
           'description': json[i].description
         })
       }
-      alert(return_data);
+      alert(json);
       return return_data;
     }
    },
