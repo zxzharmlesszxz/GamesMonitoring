@@ -31,11 +31,7 @@ echo <<<EOT
    <label for="description">Description</label></td><td><input type="text" value="$data->description" name="mode[description]"/>
   </td>
  </tr>
- <tr>
-  <td>
-   </td><td><button class="save" data-id="$data->modeid" data-type="mode">Save</button>
-  </td>
- </tr>
  </tbody>
 </table>
+<button class="save" data-id="$data->modeid" data-type="mode">Save</button>
 EOT;
