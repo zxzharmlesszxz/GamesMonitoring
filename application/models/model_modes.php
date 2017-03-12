@@ -17,11 +17,16 @@ class Model_Modes extends Model {
  }
 
  public function getAjax() {
-  $items = parent::getAjax();
+  $items = parent::getAjax()['data'];
   $result = array();
   foreach ($items as $id => $item) {
-   array_push($result, $item);
+   $result[] = array(
+    'modeid'=> $item->modeid,
+    'fullname' => $item->fullname,
+    'shortname' => $item->shortname,
+    'description' => $item->description
+   );
   }
-  return $result;
+  return array('data' => $result);
  }
 }
