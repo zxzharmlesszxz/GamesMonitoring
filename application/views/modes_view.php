@@ -17,15 +17,18 @@
     "url": "/modes/getAll/",
     "dataSrc": function (json) {
       var return_data = new Array();
-      for(var i=0;i< json.length; i++){
+      json.data.forEach(function(item){alert(item);});
+      for(var i=0;i< json.data.length; i++){
+        var item = json.data[i];
+        alert(item);
         return_data.push({
-          'mode': '<a href="/modes/show/?modeid='+i+'">'+json[i].fullname+'</a>'+
+          'mode': '<a href="/modes/show/?modeid='+i+'">'+json.data[i].fullname+'</a>'+
             '<span class="actions">'+
-            '<button class="delete" alt="Delete" title="Delete" data-id="'+json[i].modeid+'" data-type="mode"></button>'+
+            '<button class="delete" alt="Delete" title="Delete" data-id="'+i+'" data-type="mode"></button>'+
             '<button class="edit" alt="Edit" title="Edit" onclick="location.href=\'/modes/edit/?modeid='+i+'\'"'+
             '</span>',
-          'shortname': json[i].shortname,
-          'description': json[i].description
+          'shortname': json.data.i.shortname,
+          'description': json.data.i.description
         })
       }
       return return_data;
