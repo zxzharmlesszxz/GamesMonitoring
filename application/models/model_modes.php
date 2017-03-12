@@ -15,4 +15,8 @@ class Model_Modes extends Model {
   }
   return $old->save() ? $old : false;
  }
+
+ public function getAjax() {
+  return parent::getAjax();
+ }
 }
