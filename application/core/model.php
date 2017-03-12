@@ -34,7 +34,7 @@ abstract class Model {
  public function getAjax() {
   $array = array('data' => array());
   foreach ($this->items->getItems() as $key => $item) {
-   $array['data'][] = $item;
+   $array['data'][$key] = $item;
   }
   return $this->items->getItems();
  }
