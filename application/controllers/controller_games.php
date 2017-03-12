@@ -5,10 +5,6 @@
 **/
 
 class Controller_Games extends Controller {
- public function __construct() {
-  parent::__construct();
- }
-
  public function action_index() {
   $this->view->generate('games_view.php', 'template_view.php', $this->model->get_data());
  }
@@ -22,9 +18,7 @@ class Controller_Games extends Controller {
  }
 
  public function action_delete() {
-  $item = $this->model->get(intval($this->query['gameid']));
-  $data = $this->model->delete(intval($item->gameid));
-  $this->view->ajax($data);
+  $this->view->ajax($this->model->delete($this->model->get(intval($this->query['gameid']))->gameid));
  }
 
  public function action_update() {
@@ -32,13 +26,7 @@ class Controller_Games extends Controller {
  }
 
  public function action_show() {
-  $items = $this->model->get_data();
-  foreach ($items->keys() as $id) {
-   if ($items->getItem($id)->gameid == $this->query['gameid']) {
-    $data = $items->getItem($id);
-   }
-  }
-  $this->view->generate('game_show.php', 'template_view.php', $data);
+  $this->view->generate('game_show.php', 'template_view.php', $this->model->get(intval($this->query['gameid'])));
  }
 
  public function action_getAll() {
