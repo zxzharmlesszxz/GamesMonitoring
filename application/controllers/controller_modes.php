@@ -26,7 +26,7 @@ class Controller_Modes extends Controller {
  }
 
  public function action_show() {
-  $this->view->generate('mode_show.php', 'template_view.php', ($this->model->keyExists($this->query['modeid'])) ? $this->model->get($this->query['modeid']) : NULL);
+  $this->view->generate('mode_show.php', 'template_view.php', ($this->model->get_data()->keyExists($this->query['modeid'])) ? $this->model->get($this->query['modeid']) : NULL);
  }
 
  public function action_getAll() {
