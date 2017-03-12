@@ -4,27 +4,64 @@
  <input type="password" value="" placeholder="password" name="user[password]"/>
  <input type="text" value="" placeholder="username" name="user[username]"/>
  <input type="text" value="" placeholder="email" name="user[email]"/>
- <button class="create" title="Create" alt="Create" data-type="user">Create</button>
+ <button class="create" title="Create" data-type="user">Create</button>
 </p>
 <p>
- <button alt="Add new uesr" title="Add new user" id="show">Add new user</button>
+ <button title="Add new user" id="show">Add new user</button>
 </p>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#table1').DataTable({
+            "processing": true,
+            "ajax": {
+                "url": "/users/getAll/",
+                "dataSrc": function (json) {
+                    var return_data = [];
+//      json.data.forEach(function(item){alert(item);});
+                    for(var i=0;i< json.data.length; i++){
+                        var item = json.data[i];
+                        return_data.push({
+                            'user': '<a href="/users/show/?login='+item.login+'">'+item.login+'</a>'+
+                            '<span class="actions">'+
+                            '<button class="delete" title="Delete" data-id="'+item.userid+'" data-type="user"></button>'+
+                            '<button class="edit" title="Edit" onclick="location.href=\'/users/edit/?userid='+item.userid+'\'"></button>'+
+                            '</span>',
+                            'username': item.username,
+                            'email': item.email,
+                            'status': item.status
+                        })
+                    }
+                    return return_data;
+                }
+            },
+            "columns": [
+                { "data": "mode"},
+                { "data": "shortname"},
+                { "data": "description" }
+            ]
+        });
+    });
+</script>
 <table id='table' class='display'>
 <thead>
- <th>Login</th>
- <th>Username</th>
- <th>Email</th>
- <th>Status</th>
+ <tr>
+  <th>Login</th>
+  <th>Username</th>
+  <th>Email</th>
+  <th>Status</th>
+ </tr>
 </thead>
 <tfoot>
- <th>Login</th>
- <th>Username</th>
- <th>Email</th>
- <th>Status</th>
+ <tr>
+  <th>Login</th>
+  <th>Username</th>
+  <th>Email</th>
+  <th>Status</th>
+ </tr>
 </tfoot>
 <tbody>
 <?php
-
+/*
  foreach($data->keys() as $item){
   $row = $data->getItem($item);
   echo <<<EOT
@@ -41,7 +78,7 @@
   </tr>
 EOT;
  }
- 
+*/
 ?>
  </tbody>
 </table>
