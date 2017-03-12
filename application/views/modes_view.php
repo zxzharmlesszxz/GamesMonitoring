@@ -8,7 +8,6 @@
 <p>
  <button alt="Add new mode" title="Add new mode" id="show">Add new mode</button>
 </p>
-
 <script type="text/javascript">
  $(document).ready(function() {
   $('#table1').DataTable({

@@ -16,22 +16,24 @@
     "url": "/games/getAll/",
     "dataSrc": function (json) {
       var return_data = new Array();
+//      json.data.forEach(function(item){alert(item);});
       for(var i=0;i< json.data.length; i++){
+        var item = json.data[i];
         return_data.push({
-          'game': '<a href="/games/show/?gameid='+json.data[i].gameid+'">'+json.data[i].fullname+'</a>'+
+          'mode': '<a href="/games/show/?gameid='+item.gameid+'">'+item.fullname+'</a>'+
             '<span class="actions">'+
-            '<button class="delete" alt="Delete" title="Delete" data-id="'+json.data[i].gameid+'" data-type="game"></button>'+
-            '<button class="edit" alt="Edit" title="Edit" onclick="location.href=\'/games/edit/?modeid='+json.data[i].gameid+'\'"'+
+            '<button class="delete" alt="Delete" title="Delete" data-id="'+item.gameid+'" data-type="mode"></button>'+
+            '<button class="edit" alt="Edit" title="Edit" onclick="location.href=\'/games/edit/?gameid='+item.gameid+'\'"></button>'+
             '</span>',
-          'shortname': json.data[i].shortname,
-          'description': json.data[i].description
+          'shortname': item.shortname,
+          'description': item.description
         })
       }
       return return_data;
     }
    },
    "columns": [
-    { "data": "game"},
+    { "data": "mode"},
     { "data": "shortname"},
     { "data": "description" }
    ]

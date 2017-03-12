@@ -14,4 +14,18 @@ class Model_Games extends Model {
   }
   return $old->save() ? $old : false;
  }
+
+ public function getAjax() {
+  $items = parent::getAjax()['data'];
+  $result = array();
+  foreach ($items as $id => $item) {
+   $result[] = array(
+    'gameid'=> $item->gameid,
+    'fullname' => $item->fullname,
+    'shortname' => $item->shortname,
+    'description' => $item->description
+   );
+  }
+  return array('data' => $result);
+ }
 }
