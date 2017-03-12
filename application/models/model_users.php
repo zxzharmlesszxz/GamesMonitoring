@@ -31,4 +31,19 @@ class Model_Users extends Model {
   }
   return $old->save() ? $old : false;
  }
+
+ public function getAjax() {
+  $items = parent::getAjax()['data'];
+  $result = array();
+  foreach ($items as $id => $item) {
+   $result[] = array(
+    'userid'=> $item->userid,
+    'login' => $item->login,
+    'username' => $item->username,
+    'email' => $item->email,
+    'status' => $item->status
+   );
+  }
+  return array('data' => $result);
+ }
 }
