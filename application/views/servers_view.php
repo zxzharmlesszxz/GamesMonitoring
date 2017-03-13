@@ -7,10 +7,10 @@
  <label for="server[steam]">Steam?: </label><input type="checkbox" value="0" name="server[steam]"/>
  <input type="text" value="" placeholder="site" name="server[site]"/>
  <input type="text" value="" placeholder="about" name="server[about]"/>
- <button class="create" title="Create" alt="Create" data-type="server">Create</button>
+ <button class="create" title="Create" data-type="server">Create</button>
 </p>
 <p>
- <button alt="Add new server" title="Add new server" id="show">Add new server</button>
+ <button title="Add new server" id="show">Add new server</button>
 </p>
 <script type="text/javascript">
  $(document).ready(function() {
@@ -32,7 +32,7 @@
           'addr': item.addr,
           'steam': '<input class="steam" type="checkbox" data-id="'+item.serverid+'" value="'+item.steam+'" data-type="server" disabled readonly />',
           'players': item.players+"/"+item.botNumber+"/"+item.maxplayers,
-          'map': item.map,
+          'map': '<div class="map" data-icon="/images/maps/'+item.game+'/'+item.map+'.png"><span>'+item.map+'</span></div>',
           'game': item.game,
           'mode': item.mode,
           'location': item.location,
@@ -40,7 +40,7 @@
           'site': item.site,
           'status': '<input class="status" type="checkbox" data-id="'+item.serverid+'" value="'+item.status+'" data-type="server" disabled readonly />',
           'vip': '<input class="vip" type="checkbox" data-id="'+item.serverid+'" value="'+item.vip+'" data-type="server" disabled readonly />',
-          'top': item.top,
+          'top': item.top
         })
       }
       return return_data;
@@ -59,7 +59,7 @@
     { "data": "site" },
     { "data": "status" },
     { "data": "vip" },
-    { "data": "top" },
+    { "data": "top" }
    ]
   });
  });
