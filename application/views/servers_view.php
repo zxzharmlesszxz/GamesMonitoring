@@ -30,7 +30,7 @@
             '<button class="edit" title="Edit" onclick="location.href=\'/servers/edit/?serverid='+item.serverid+'\'"></button>'+
             '</span>',
           'addr': item.addr,
-          'steam': item.steam,
+          'steam': '<input class="steam" type="checkbox" data-id="'+item.serverid+'" value="'+item.steam+'" data-type="server" disabled readonly />',
           'players': item.players+"/"+item.botNumber+"/"+item.maxplayers,
           'map': item.map,
           'game': item.game,
