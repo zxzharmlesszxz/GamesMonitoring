@@ -10,8 +10,7 @@ class Controller_Servers extends Controller {
  }
 
  public function action_edit() {
-  $id = intval($this->query['serverid']);
-  $this->view->generate('server_edit.php', 'template_view.php', $this->model->get($id));
+  $this->view->generate('server_edit.php', 'template_view.php', $this->model->get(intval($this->query['serverid'])));
  }
 
  public function action_create() {
