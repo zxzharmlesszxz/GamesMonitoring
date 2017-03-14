@@ -37,13 +37,8 @@ class Model_Cron extends Model {
    $item->save();
    $this->items->deleteItem($id);
    $this->items->addItem($item, $id);
-
   }
   return $this->items;
- }
-
- protected function get($itemid) {
-  return $this->items->getItem($itemid);
  }
 
  protected function save(Server $server){
