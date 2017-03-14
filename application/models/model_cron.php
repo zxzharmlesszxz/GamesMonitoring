@@ -1,6 +1,6 @@
 <?php
 
-class Cron extends Server {}
+class Cro extends Server {}
 
 class Model_Cron extends Model {
  public function __construct() {
