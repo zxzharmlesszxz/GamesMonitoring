@@ -1,10 +1,10 @@
 <?php
 
-class Cro extends Server {}
+//class Cro extends Server {}
 
 class Model_Cron extends Model {
  public function __construct() {
-  parent::__construct();
+  parent::__construct("Server");
   /*
   foreach (Server::find_all() as $item) {
    $this->items->addItem($item, $item->id());
