@@ -62,5 +62,5 @@
    <a href="https://github.com/zxzharmlesszxz/"><?php echo config()->PROJECT_NAME; ?></a> - <?php echo config()->PROJECT_VERSION; ?> &copy; 2015-<?php echo date("Y"); ?>
   </footer>
  </body>
- <script type="application/javascript" src="js/implementations.js"></script>
+ <script type="application/javascript" src="/js/implementations.js"></script>
 </html>
