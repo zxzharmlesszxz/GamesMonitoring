@@ -1,12 +1,4 @@
 $(document).ready(function(){
-  // DataTable jquery plugin
-  //var table = $('#table').DataTable({"stateSave": true});
-//  var table = $('#table').DataTable();
-//  $('#table.search tfoot th').each(function(){var title = $('#table.search thead th').eq($(this).index()).text();$(this).html('<input type="text" placeholder="'+title+'" />');});
-
-  // Apply the search
-//  if(table.columns().eq(0)){table.columns().each(function(colIdx){$('input', table.column(colIdx).footer()).on('keyup change', function(){table.column(colIdx).search(this.value).draw();});});}
-
   // Autocheck checkbox if value = 1
   $('input[type="checkbox"]').each(function(){ ($(this).val() == 1) ? $(this).prop('checked', true) : $(this).prop('checked', false); });
   $(document).on('change',"input[type=checkbox]", function(event){if(!$(this).attr('readonly')){$(this).is(':checked') ? $(this).val(1) : $(this).val(0);} });
