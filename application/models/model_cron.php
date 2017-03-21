@@ -1,11 +1,15 @@
 <?php
 
+//class Cro extends Server {}
+
 class Model_Cron extends Model {
  public function __construct() {
-  $this->items = new Collection;
+  parent::__construct("Server");
+  /*
   foreach (Server::find_all() as $item) {
    $this->items->addItem($item, $item->id());
   }
+  */
  }
 
  public function get_data() {
@@ -37,16 +41,7 @@ class Model_Cron extends Model {
    $item->save();
    $this->items->deleteItem($id);
    $this->items->addItem($item, $id);
-
   }
   return $this->items;
- }
-
- protected function get($itemid) {
-  return $this->items->getItem($itemid);
- }
-
- protected function save(Server $server){
-  return $server->save() ? $server : false;
  }
 }
