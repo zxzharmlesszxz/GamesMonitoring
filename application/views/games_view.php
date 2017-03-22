@@ -10,13 +10,12 @@
 </p>
 <script type="text/javascript">
  $(document).ready(function() {
-  $('#table1').DataTable({
+  $('#table').DataTable({
    "processing": true,
    "ajax": {
     "url": "/games/getAll/",
     "dataSrc": function (json) {
       var return_data = [];
-//      json.data.forEach(function(item){alert(item);});
       for(var i=0;i< json.data.length; i++){
         var item = json.data[i];
         return_data.push({
@@ -40,40 +39,21 @@
   });
  });
 </script>
-<table id='table1' class='display'>
-<thead>
- <tr>
-  <th>Game</th>
-  <th>Shortname</th>
-  <th>Description</th>
- </tr>
-</thead>
-<tfoot>
- <tr>
-  <th>Game</th>
-  <th>Shortname</th>
-  <th>Description</th>
- </tr>
-</tfoot>
-<tbody>
-<?php
-/*
- foreach($data->keys() as $item){
-  $row = $data->getItem($item);
-  echo <<<EOT
+<table id='table' class='display'>
+ <thead>
   <tr>
-   <td><a href="/games/show/?gameid=$row->gameid">$row->fullname</a>
-    <span class="actions">
-     <button class="delete" alt="Delete" title="Delete" data-id="$row->gameid" data-type="game"></button>
-     <button class="edit" alt="Edit" title="Edit" onclick="location.href='/games/edit/?gameid=$row->gameid'"></button>
-    </span>
-   </td>
-   <td>$row->shortname</td>
-   <td>$row->description</td>
+   <th>Game</th>
+   <th>Shortname</th>
+   <th>Description</th>
   </tr>
-EOT;
- }
-*/
-?>
+ </thead>
+ <tfoot>
+  <tr>
+   <th>Game</th>
+   <th>Shortname</th>
+   <th>Description</th>
+  </tr>
+ </tfoot>
+ <tbody>
  </tbody>
 </table>

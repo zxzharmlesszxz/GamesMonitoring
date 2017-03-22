@@ -10,76 +10,55 @@
  <button title="Add new user" id="show">Add new user</button>
 </p>
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('#table1').DataTable({
-            "processing": true,
-            "ajax": {
-                "url": "/users/getAll/",
-                "dataSrc": function (json) {
-                    var return_data = [];
-//      json.data.forEach(function(item){alert(item);});
-                    for(var i=0;i< json.data.length; i++){
-                        var item = json.data[i];
-                        return_data.push({
-                            'user': '<a href="/users/show/?login='+item.login+'">'+item.login+'</a>'+
-                            '<span class="actions">'+
-                            '<button class="delete" title="Delete" data-id="'+item.userid+'" data-type="user"></button>'+
-                            '<button class="edit" title="Edit" onclick="location.href=\'/users/edit/?userid='+item.userid+'\'"></button>'+
-                            '</span>',
-                            'username': item.username,
-                            'email': item.email,
-                            'status': '<input class="status" type="checkbox" data-id="'+item.userid+'" value="'+item.status+'" data-type="user" />'
-                        })
-                    }
-                    return return_data;
-                }
-            },
-            "columns": [
-                { "data": "user"},
-                { "data": "username"},
-                { "data": "email" },
-                { "data": "status"}
-            ]
-        });
-    });
+ $(document).ready(function() {
+  $('#table').DataTable({
+   "processing": true,
+   "ajax": {
+    "url": "/users/getAll/",
+    "dataSrc": function (json) {
+     var return_data = [];
+     for(var i=0;i< json.data.length; i++){
+      var item = json.data[i];
+      return_data.push({
+       'user': '<a href="/users/show/?login='+item.login+'">'+item.login+'</a>'+
+        '<span class="actions">'+
+        '<button class="delete" title="Delete" data-id="'+item.userid+'" data-type="user"></button>'+
+        '<button class="edit" title="Edit" onclick="location.href=\'/users/edit/?userid='+item.userid+'\'"></button>'+
+        '</span>',
+       'username': item.username,
+       'email': item.email,
+       'status': '<input class="status" type="checkbox" data-id="'+item.userid+'" value="'+item.status+'" data-type="user" />'
+      })
+     }
+     return return_data;
+    }
+   },
+   "columns": [
+    { "data": "user"},
+    { "data": "username"},
+    { "data": "email" },
+    { "data": "status"}
+   ]
+  });
+ });
 </script>
-<table id='table1' class='display'>
-<thead>
- <tr>
-  <th>Login</th>
-  <th>Username</th>
-  <th>Email</th>
-  <th>Status</th>
- </tr>
-</thead>
-<tfoot>
- <tr>
-  <th>Login</th>
-  <th>Username</th>
-  <th>Email</th>
-  <th>Status</th>
- </tr>
-</tfoot>
-<tbody>
-<?php
-/*
- foreach($data->keys() as $item){
-  $row = $data->getItem($item);
-  echo <<<EOT
+<table id='table' class='display'>
+ <thead>
   <tr>
-   <td><a href="/users/show/?login=$row->login">$row->login</a>
-    <span class="actions">
-     <button class="delete" alt="Delete" title="Delete" data-id="$row->userid" data-type="user"></button>
-     <button class="edit" alt="Edit" title="Edit" onclick="location.href='/users/edit/?userid=$row->userid'"></button>
-    </span>
-   </td>
-   <td>$row->username</td>
-   <td>$row->email</td>
-   <td><input class="status" type="checkbox" data-id="$row->userid" value="$row->status" data-type="user" /></td>
+   <th>Login</th>
+   <th>Username</th>
+   <th>Email</th>
+   <th>Status</th>
   </tr>
-EOT;
- }
-*/
-?>
+ </thead>
+ <tfoot>
+  <tr>
+   <th>Login</th>
+   <th>Username</th>
+   <th>Email</th>
+   <th>Status</th>
+  </tr>
+ </tfoot>
+ <tbody>
  </tbody>
 </table>

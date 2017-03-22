@@ -1,40 +1,40 @@
 <h1>Servers</h1>
 <table id='table' class='display'>
-<thead>
- <th>ID</th>
- <th>Servername</th>
- <th>Address</th>
- <th>Steam</th>
- <th>Players</th>
- <th>Bots</th>
- <th>Maxplayers</th>
- <th>Map</th>
- <th>Game</th>
- <th>Mode</th>
- <th>Password protected</th>
- <th>Secure</th>
- <th>OS</th>
- <th>Protocol</th>
- <th>Status</th>
-</thead>
-<tfoot>
- <th>ID</th>
- <th>Servername</th>
- <th>Address</th>
- <th>Steam</th>
- <th>Players</th>
- <th>Bots</th>
- <th>Maxplayers</th>
- <th>Map</th>
- <th>Game</th>
- <th>Mode</th>
- <th>Password protected</th>
- <th>Secure</th>
- <th>OS</th>
- <th>Protocol</th>
- <th>Status</th>
-</tfoot>
-<tbody>
+ <thead>
+  <th>ID</th>
+  <th>Servername</th>
+  <th>Address</th>
+  <th>Steam</th>
+  <th>Players</th>
+  <th>Bots</th>
+  <th>Maxplayers</th>
+  <th>Map</th>
+  <th>Game</th>
+  <th>Mode</th>
+  <th>Password protected</th>
+  <th>Secure</th>
+  <th>OS</th>
+  <th>Protocol</th>
+  <th>Status</th>
+ </thead>
+ <tfoot>
+  <th>ID</th>
+  <th>Servername</th>
+  <th>Address</th>
+  <th>Steam</th>
+  <th>Players</th>
+  <th>Bots</th>
+  <th>Maxplayers</th>
+  <th>Map</th>
+  <th>Game</th>
+  <th>Mode</th>
+  <th>Password protected</th>
+  <th>Secure</th>
+  <th>OS</th>
+  <th>Protocol</th>
+  <th>Status</th>
+ </tfoot>
+ <tbody>
 <?php
 
  foreach($data->keys() as $item){

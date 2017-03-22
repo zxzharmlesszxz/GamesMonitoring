@@ -14,13 +14,12 @@
 </p>
 <script type="text/javascript">
  $(document).ready(function() {
-  $('#table1').DataTable({
+  $('#table').DataTable({
    "processing": true,
    "ajax": {
     "url": "/servers/getAll/",
     "dataSrc": function (json) {
       var return_data = [];
-//      json.data.forEach(function(item){alert(item);});
       for(var i=0;i< json.data.length; i++){
         var item = json.data[i];
         return_data.push({
@@ -64,72 +63,41 @@
   });
  });
 </script>
-<table id='table1' class='display'>
-<thead>
- <tr>
-  <th>Servername</th>
-  <th>Address</th>
-  <th>Steam</th>
-  <th>Players/Bots/Maxplayers</th>
-  <th>Map</th>
-  <th>Game</th>
-  <th>Mode</th>
-  <th>Location</th>
-  <th>Registration date</th>
-  <th>Site</th>
-  <th>Status</th>
-  <th>VIP</th>
-  <th>TOP</th>
- </tr>
-</thead>
-<tfoot>
- <tr>
-  <th>Servername</th>
-  <th>Address</th>
-  <th>Steam</th>
-  <th>Players/Bots/Maxplayers</th>
-  <th>Map</th>
-  <th>Game</th>
-  <th>Mode</th>
-  <th>Location</th>
-  <th>Registration date</th>
-  <th>Site</th>
-  <th>Status</th>
-  <th>VIP</th>
-  <th>TOP</th>
- </tr>
-</tfoot>
-<tbody>
-<?php
-/*
- foreach($data->keys() as $item){
-  $row = $data->getItem($item);
-  echo <<<EOT
+<table id='table' class='display'>
+ <thead>
   <tr>
-   <td>
-    <a href="/servers/show/?serverid=$row->serverid">$row->servername</a>
-    <span class="actions">
-     <button class="delete" alt="Delete" title="Delete" data-id="$row->serverid" data-type="server"></button>
-     <button class="edit" alt="Edit" title="Edit" onclick="location.href='/servers/edit/?serverid=$row->serverid'"></button>
-    </span>
-   </td>
-   <td>$row->addr</td>
-   <td><input class="steam" type="checkbox" data-id="$row->serverid" value="$row->steam" data-type="server" disabled readonly /></td>
-   <td>$row->players/$row->botNumber/$row->maxplayers</td>
-   <td class="map" data-icon='/images/maps/$row->game/$row->map.png'><span>$row->map</span></td>
-   <td>$row->game</td>
-   <td>$row->mode</td>
-   <td>$row->location</td>
-   <td>$row->regdate</td>
-   <td>$row->site</td>
-   <!--<td>$row->about</td>-->
-   <td><input class="status" type="checkbox" data-id="$row->serverid" value="$row->status" data-type="server" disabled readonly /></td>
-   <td><input class="vip" type="checkbox" data-id="$row->serverid" value="$row->vip" data-type="server" disabled readonly /></td>
-   <td>$row->top</td>
+   <th>Servername</th>
+   <th>Address</th>
+   <th>Steam</th>
+   <th>Players/Bots/Maxplayers</th>
+   <th>Map</th>
+   <th>Game</th>
+   <th>Mode</th>
+   <th>Location</th>
+   <th>Registration date</th>
+   <th>Site</th>
+   <th>Status</th>
+   <th>VIP</th>
+   <th>TOP</th>
   </tr>
-EOT;
- }
-*/
-?>
+ </thead>
+ <tfoot>
+  <tr>
+   <th>Servername</th>
+   <th>Address</th>
+   <th>Steam</th>
+   <th>Players/Bots/Maxplayers</th>
+   <th>Map</th>
+   <th>Game</th>
+   <th>Mode</th>
+   <th>Location</th>
+   <th>Registration date</th>
+   <th>Site</th>
+   <th>Status</th>
+   <th>VIP</th>
+   <th>TOP</th>
+  </tr>
+ </tfoot>
+ <tbody>
  </tbody>
 </table>
