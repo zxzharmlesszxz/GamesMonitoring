@@ -15,7 +15,6 @@ class Controller_Login extends Controller{
    $row = $this->model->get($item);
    if ($row->login == $this->query['login'] && $row->password == md5($this->query['password'])) {
     $data["login_status"] = "access_granted";
-    session_start();
     $_SESSION['login'] = $this->query['login'];
    } else {
     $data["login_status"] = "access_denied";
@@ -26,7 +25,6 @@ class Controller_Login extends Controller{
 
  public function action_logout() {
    $data["login_status"] = "";
-   session_destroy();
    $this->view->generate('login_logout.php', 'template_view.php');
   }
 
