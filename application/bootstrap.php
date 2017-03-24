@@ -6,10 +6,9 @@ require_once 'core/controller.php';
 require_once 'core/route.php';
 require_once 'includes/functions.inc.php';
 
-$config = Config::getInstance();
-Registry::_set('config', $config);
-$database = new MySQL_Database;
-Registry::_set('database', $database);
+Registry::_set('config', Config::getInstance());
+Registry::_set('database', new MySQL_Database);
+Registry::_set('session', new Session);
 
 function __autoload($class){
  @include_once __DIR__."/classes/${class}.class.php";
