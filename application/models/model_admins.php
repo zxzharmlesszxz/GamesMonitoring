@@ -51,7 +51,7 @@ class Model_Admins extends Model {
  public function authenticate($login="", $password="") {
   $data = false;
   foreach ($this->items->keys() as $id) {
-   if ($this->get($id)->login == $this->query['login'] && $this->get($id)->password == $this->query['password']) {
+   if ($this->get($id)->login == $login && $this->get($id)->password == $password) {
     $data = $this->get($id);
    }
   }
