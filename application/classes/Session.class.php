@@ -22,7 +22,8 @@ class Session {
 
  public function login($user) {
   if ($user){
-   $this->($user->id()) = $_SESSION[$user->id()] = $user->($user->id());
+   $id = $user->id()
+   $this->userid = $_SESSION[userid] = $user->$id;
    $this->logged_in = true;
   }
  }
