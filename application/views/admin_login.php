@@ -3,7 +3,7 @@ var_dump(session());
 ?>
 <h1>Страница авторизации</h1>
 <p>
- <form action="/admin/login" method="post">
+ <form action="/admins/login" method="post">
   <table class="login">
    <tr>
     <th colspan="2">Авторизация</th>
