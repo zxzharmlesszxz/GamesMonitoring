@@ -47,4 +47,14 @@ class Model_Admins extends Model {
   }
   return array('data' => $result);
  }
+
+ public static function authenticate($login="", $password="") {
+  $data = false;
+  foreach ($this->items->keys() as $id) {
+   if ($this->get($id)->login == $this->query['login'] && $this->get($id)->password == $this->query['password']) {
+    $data = $this->get($id);
+   }
+  }
+  return $data;
+ }
 }

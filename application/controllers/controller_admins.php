@@ -41,4 +41,8 @@ class Controller_Admins extends Controller {
   }
   $this->view->generate('admin_show.php', 'template_view.php', $data);
  }
+
+ public function action_login() {
+  var_dump($this->model->authenticate(trim($this->query['login']), md5(trim($this->query['password']))));
+ }
 }
