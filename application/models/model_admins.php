@@ -52,6 +52,7 @@ class Model_Admins extends Model {
   $data = false;
   foreach ($this->items->keys() as $id) {
    if ($this->get($id)->login == $login && $this->get($id)->password == $password) {
+    session()->login($this->get($id));
     $data = $this->get($id);
    }
   }
