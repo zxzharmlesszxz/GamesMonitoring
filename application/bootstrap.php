@@ -22,4 +22,8 @@ function db(){
  return Registry::_get('database');
 }
 
+function session() {
+ return Registry::_get('session');
+}
+
 Route::start();

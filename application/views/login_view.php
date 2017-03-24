@@ -1,5 +1,5 @@
 <?php
-var_dump(Registry::_get('session'));
+var_dump(session());
 ?>
 <h1>Страница авторизации</h1>
 <p>
