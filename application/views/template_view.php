@@ -15,6 +15,7 @@
   <script type="text/javascript" src="/js/tabs.js"></script>
  </head>
  <body>
+ <?php var_dump(session()); ?>
   <header id="header">
    <div id="logo">
     <a href="/"><?php echo config()->PROJECT_NAME; ?></a>

@@ -1,6 +1,3 @@
-<?php
-var_dump(session());
-?>
 <h1>Страница авторизации</h1>
 <p>
  <form action="/admins/login" method="post">
