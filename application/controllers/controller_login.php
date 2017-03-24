@@ -11,8 +11,8 @@ class Controller_Login extends Controller{
 
  public function action_login() {
   $data["login_status"] = "";
-  foreach ($this->model->items->keys() as $item) {
-   $row = $this->model->items->getItem($item);
+  foreach ($this->model->get_data()->keys() as $item) {
+   $row = $this->model->get($item);
    if ($row->login == $this->query['login'] && $row->password == md5($this->query['password'])) {
     $data["login_status"] = "access_granted";
     session_start();
