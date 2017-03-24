@@ -1,3 +1,6 @@
+<?php
+var_dump(Registry::_get('session'));
+?>
 <h1>Страница авторизации</h1>
 <p>
  <form action="/login/login" method="post">
