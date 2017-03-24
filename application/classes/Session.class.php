@@ -21,9 +21,8 @@ class Session {
  }
 
  public function login($user) {
-  // database should find user based on username/password
   if ($user){
-   $this->userid = $_SESSION['userid'] = $user->userid;
+   $this->($user->id()) = $_SESSION[$user->id()] = $user->($user->id());
    $this->logged_in = true;
   }
  }
