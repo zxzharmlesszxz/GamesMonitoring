@@ -37,6 +37,14 @@ class Controller_Users extends Controller
     /**
      *
      */
+    public function action_changeStatus()
+    {
+        $this->view->ajax($this->model->changeStatus(intval($this->query['userid'])));
+    }
+
+    /**
+     *
+     */
     public function action_create()
     {
         $this->view->ajax($this->model->create($this->query['user']));
