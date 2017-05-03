@@ -1,23 +1,33 @@
 <?php
 
 /**
-* Controller Class
-* Type: abstract
-**/
+ * Class Controller
+ */
+abstract class Controller
+{
 
-//namespace Core;
+    /**
+     * @var string
+     */
+    public $model;
+    /**
+     * @var View
+     */
+    public $view;
 
-abstract class Controller {
- 
- public $model;
- public $view;
- 
- public function __construct() {
-  $this->view = new View();
-  $model = "Model_".explode("_", static::class)[1];
-  $this->model = (class_exists($model)) ? new $model() : '';
-  $this->query = $_REQUEST;
- }
+    /**
+     * Controller constructor.
+     */
+    public function __construct()
+    {
+        $this->view = new View();
+        $model = "Model_" . explode("_", static::class)[1];
+        $this->model = (class_exists($model)) ? new $model() : '';
+        $this->query = $_REQUEST;
+    }
 
- abstract public function action_index();
+    /**
+     * @return mixed
+     */
+    abstract public function action_index();
 }

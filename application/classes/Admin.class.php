@@ -1,36 +1,72 @@
 <?php
 
 /***
-* Admin class
-***/
+ * Admin class
+ ***/
+class Admin extends DatabaseObject
+{
+    /**
+     * @var string
+     */
+    protected static $table_name = "admins";
+    /**
+     * @var array
+     */
+    protected static $db_fields = array('adminid', 'login', 'password', 'username', 'email', 'status');
+    /**
+     * @var
+     */
+    protected $adminid;
+    /**
+     * @var
+     */
+    protected $password;
+    /**
+     * @var
+     */
+    protected $status;
+    /**
+     * @var
+     */
+    public $login;
+    /**
+     * @var
+     */
+    public $username;
+    /**
+     * @var
+     */
+    public $email;
 
-class Admin extends DatabaseObject {
- protected static $table_name = "admins";
- protected static $db_fields = array('adminid', 'login', 'password', 'username', 'email', 'status');
+    /**
+     * @param array $item
+     * @return static
+     */
+    public static function add(array $item)
+    {
+        $new = new static;
+        $new->login = trim($item['login']);
+        $new->setPassword($item['password']);
+        $new->username = trim($item['username']);
+        $new->email = trim($item['email']);
+        $new->status = 0;
+        return $new;
+    }
 
- protected $adminid;
- protected $password;
- protected $status;
- public $login;
- public $username;
- public $email;
+    /**
+     * @return bool
+     */
+    public function changeStatus()
+    {
+        $this->status = ($this->status == 1) ? 0 : 1;
+        return $this->save();
+    }
 
- public static function add(array $item) {
-  $new = new static;
-  $new->login = trim($item['login']);
-  $new->setPassword($item['password']);
-  $new->username = trim($item['username']);
-  $new->email = trim($item['email']);
-  $new->status = 0;
-  return $new;
- }
-
- public function changeStatus() {
-  $this->status = ($this->status == 1) ? 0 : 1;
-  return $this->save();
- }
-
- public function setPassword($password) {
-  $this->password = md5(trim($password));
- }
+    /**
+     * @param $password
+     */
+    public function setPassword($password)
+    {
+        $this->password = md5(trim($password));
+    }
 }

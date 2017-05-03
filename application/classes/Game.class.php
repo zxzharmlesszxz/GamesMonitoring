@@ -1,18 +1,46 @@
 <?php
-class Game extends DatabaseObject {
- protected static $table_name = "games";
- protected static $db_fields = array('gameid', 'shortname', 'fullname','description');
 
- protected $gameid;
- public $shortname;
- public $fullname;
- public $description;
+/**
+ * Class Game
+ */
+class Game extends DatabaseObject
+{
+    /**
+     * @var string
+     */
+    protected static $table_name = "games";
+    /**
+     * @var array
+     */
+    protected static $db_fields = array('gameid', 'shortname', 'fullname', 'description');
 
- public static function add(array $item) {
-  $new = new static;
-  $new->shortname = trim($item['shortname']);
-  $new->fullname = trim($item['fullname']);
-  $new->description = trim($item['description']);
-  return $new;
- }
+    /**
+     * @var
+     */
+    protected $gameid;
+    /**
+     * @var
+     */
+    public $shortname;
+    /**
+     * @var
+     */
+    public $fullname;
+    /**
+     * @var
+     */
+    public $description;
+
+    /**
+     * @param array $item
+     * @return static
+     */
+    public static function add(array $item)
+    {
+        $new = new static;
+        $new->shortname = trim($item['shortname']);
+        $new->fullname = trim($item['fullname']);
+        $new->description = trim($item['description']);
+        return $new;
+    }
 }

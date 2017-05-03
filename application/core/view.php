@@ -1,36 +1,34 @@
 <?php
 
 /**
-* View Class
-**/
+ * Class View
+ */
+class View
+{
+    /**
+     * @param $content_view
+     * @param $template_view
+     * @param null $data
+     */
+    public function generate($content_view, $template_view, $data = null)
+    {
+        include config()->VIEWS_PATH . '/' . $template_view;
+    }
 
-//namespace Core;
+    /**
+     * @param null $data
+     */
+    public function ajax($data = null)
+    {
+        header('Content-Type: application/json');
+        echo json_encode($data);
+    }
 
-class View {
- /**
- * Input: content_view
- *        template_view
- *        data
- * Output: none
- **/
- public function generate($content_view, $template_view, $data = null) {
-  include config()->VIEWS_PATH.'/'.$template_view;
- }
-
- /**
- * Input: mixed
- * Output: json array
- **/
- public function ajax($data = null) {
-  header('Content-Type: application/json');
-  echo json_encode($data);
- }
-
- /**
- * Input: mixed
- * Output: string
- **/
- public function debug($data = null) {
-  var_dump($data);
- }
+    /**
+     * @param null $data
+     */
+    public function debug($data = null)
+    {
+        var_dump($data);
+    }
 }

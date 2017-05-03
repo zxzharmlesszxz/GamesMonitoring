@@ -1,48 +1,82 @@
 <?php
 
 /**
-* DatabaseObject Class
-**/
-
-abstract class DatabaseObject {
-
+ * Class DatabaseObject
+ */
+abstract class DatabaseObject
+{
+    /**
+     * @var
+     */
     private static $table_name;
+    /**
+     * @var array
+     */
     protected static $db_fields = array();
 
-    final public function __get($key) {
-     return $this->$key;
+    /**
+     * @param $key
+     * @return mixed
+     */
+    final public function __get($key)
+    {
+        return $this->$key;
     }
 
-    public static function find_all() {
-        return self::find_by_sql("SELECT * FROM " . static::$table_name." ORDER BY ".static::id()." ASC");
+    /**
+     * @return array
+     */
+    public static function find_all()
+    {
+        return self::find_by_sql("SELECT * FROM " . static::$table_name . " ORDER BY " . static::id() . " ASC");
     }
 
-    public static function find_by_id($id = 0) {
-        $result_array = self::find_by_sql("SELECT * FROM " . static::$table_name . " WHERE ".static::id()."=" . db()->escape_value($id) . " LIMIT 1");
+    /**
+     * @param int $id
+     * @return bool|mixed
+     */
+    public static function find_by_id($id = 0)
+    {
+        $result_array = self::find_by_sql("SELECT * FROM " . static::$table_name . " WHERE " . static::id() . "=" . db()->escape_value($id) . " LIMIT 1");
         return !empty($result_array) ? $result_array[0] : false;
     }
 
-    public static function find_by_scope($scopes) {
-     $scope = array();
-     foreach($scopes as $key => $value) {
-      $scope[] = "$key = '".db()->escape_value($value)."'";
-     }
-     $scope = implode(' AND ', $scope);
-     $result_array = self::find_by_sql("SELECT * FROM " . static::$table_name . " WHERE ".$scope);
-     return !empty($result_array) ? $result_array : false;
+    /**
+     * @param $scopes
+     * @return array|bool
+     */
+    public static function find_by_scope($scopes)
+    {
+        $scope = array();
+        foreach ($scopes as $key => $value) {
+            $scope[] = "$key = '" . db()->escape_value($value) . "'";
+        }
+        $scope = implode(' AND ', $scope);
+        $result_array = self::find_by_sql("SELECT * FROM " . static::$table_name . " WHERE " . $scope);
+        return !empty($result_array) ? $result_array : false;
     }
 
-    public static function find_by_like($scopes) {
-     $scope = array();
-     foreach($scopes as $key => $value) {
-      $scope[] = "$key LIKE '%".db()->escape_value($value)."%'";
-     }
-     $scope = implode(' AND ', $scope);
-     $result_array = self::find_by_sql("SELECT * FROM " . static::$table_name . " WHERE ".$scope);
-     return !empty($result_array) ? $result_array : false;
+    /**
+     * @param $scopes
+     * @return array|bool
+     */
+    public static function find_by_like($scopes)
+    {
+        $scope = array();
+        foreach ($scopes as $key => $value) {
+            $scope[] = "$key LIKE '%" . db()->escape_value($value) . "%'";
+        }
+        $scope = implode(' AND ', $scope);
+        $result_array = self::find_by_sql("SELECT * FROM " . static::$table_name . " WHERE " . $scope);
+        return !empty($result_array) ? $result_array : false;
     }
 
-    public static function find_by_sql($sql = "") {
+    /**
+     * @param string $sql
+     * @return array
+     */
+    public static function find_by_sql($sql = "")
+    {
         $result_set = db()->query($sql);
         $object_array = array();
         while ($row = db()->fetch_array($result_set)) {
@@ -51,14 +85,23 @@ abstract class DatabaseObject {
         return $object_array;
     }
 
-    public static function count_all() {
+    /**
+     * @return mixed
+     */
+    public static function count_all()
+    {
         $sql = "SELECT COUNT(*) FROM " . static::$table_name;
         $result_set = db()->query($sql);
         $row = db()->fetch_array($result_set);
         return array_shift($row);
     }
 
-    private static function instantiate($record) {
+    /**
+     * @param $record
+     * @return static
+     */
+    private static function instantiate($record)
+    {
         $object = new static;
         foreach ($record as $attribute => $value) {
             if ($object->has_attribute($attribute)) {
@@ -68,13 +111,22 @@ abstract class DatabaseObject {
         return $object;
     }
 
-    private function has_attribute($attribute) {
+    /**
+     * @param $attribute
+     * @return bool
+     */
+    private function has_attribute($attribute)
+    {
         // We don't care about the value, we just want to know if the key exists
         // Will return true or false
         return array_key_exists($attribute, $this->attributes());
     }
 
-    protected function attributes() {
+    /**
+     * @return array
+     */
+    protected function attributes()
+    {
         // return an array of attribute keys and their values
         $attributes = array();
         foreach (static::$db_fields as $field) {
@@ -85,7 +137,11 @@ abstract class DatabaseObject {
         return $attributes;
     }
 
-    protected function sanitized_attributes() {
+    /**
+     * @return array
+     */
+    protected function sanitized_attributes()
+    {
         $clean_attributes = array();
         foreach ($this->attributes() as $key => $value) {
             if (is_array($value)) $value = implode(',', $value);
@@ -95,26 +151,34 @@ abstract class DatabaseObject {
         return $clean_attributes;
     }
 
-    public function save() {
+    /**
+     * @return bool
+     */
+    public function save()
+    {
         // A new record won't have an id yet.
         $id = static::id();
         return isset($this->$id) ? $this->update() : $this->create();
     }
 
-    public function create() {
-    	$id = static::id();
+    /**
+     * @return bool
+     */
+    public function create()
+    {
+        $id = static::id();
 
         $attributes = $this->sanitized_attributes();
         array_shift($attributes);
         /* new style */
-    	$attribute_pairs = array();
+        $attribute_pairs = array();
         foreach ($attributes as $key => $value) {
             if (is_int($value) or is_float($value)) {
                 $attribute_pairs[] = "{$key}={$value}";
             } elseif (is_bool($value)) {
-                $attribute_pairs[] = "{$key}=".(($value) ? "true" : "false");
+                $attribute_pairs[] = "{$key}=" . (($value) ? "true" : "false");
             } else {
-                $attribute_pairs[] = "{$key}=".((empty($value) && strlen($value) == 0 && $value != 'false') ? "NULL" : "'".$value."'");
+                $attribute_pairs[] = "{$key}=" . ((empty($value) && strlen($value) == 0 && $value != 'false') ? "NULL" : "'" . $value . "'");
             }
 
         }
@@ -129,37 +193,49 @@ abstract class DatabaseObject {
         }
     }
 
-    public function update() {
+    /**
+     * @return bool
+     */
+    public function update()
+    {
         $id = static::id();
 
         $attributes = $this->sanitized_attributes();
         $attribute_pairs = array();
         foreach ($attributes as $key => $value) {
             $value = (string)$value;
-	    if (empty($value) AND strlen($value) == 0) {
-	     $attribute_pairs[] = "{$key}=NULL";
-	    } else {
-             $attribute_pairs[] = "{$key}='{$value}'";
-	    }
+            if (empty($value) AND strlen($value) == 0) {
+                $attribute_pairs[] = "{$key}=NULL";
+            } else {
+                $attribute_pairs[] = "{$key}='{$value}'";
+            }
         }
         $sql = "UPDATE " . static::$table_name . " SET ";
         $sql .= join(", ", $attribute_pairs);
-        $sql .= " WHERE ".static::id()."=" . db()->escape_value($this->$id);
+        $sql .= " WHERE " . static::id() . "=" . db()->escape_value($this->$id);
         db()->query($sql);
         return (db()->affected_rows() == 1) ? true : false;
     }
 
-    public function delete() {
-    	$id = static::id();
+    /**
+     * @return bool
+     */
+    public function delete()
+    {
+        $id = static::id();
 
         $sql = "DELETE FROM " . static::$table_name;
-        $sql .= " WHERE ".static::id()."=" . db()->escape_value($this->$id);
+        $sql .= " WHERE " . static::id() . "=" . db()->escape_value($this->$id);
         $sql .= " LIMIT 1";
         db()->query($sql);
         return (db()->affected_rows() == 1) ? true : false;
     }
 
-    public function id() {
-     return static::$db_fields[0];
+    /**
+     * @return mixed
+     */
+    public function id()
+    {
+        return static::$db_fields[0];
     }
 }

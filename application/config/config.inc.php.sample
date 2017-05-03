@@ -4,8 +4,6 @@
 * Games Monitoring Project Configuration file
 **/
 
-//namespace Core;
-
 $config = array(
 
  'PROJECT_NAME' => 'Games Monitoring',

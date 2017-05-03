@@ -1,56 +1,87 @@
 <?php
 
 /**
-* Model Class
-* Type: abstract
-**/
+ * Class Model
+ */
+abstract class Model
+{
+    /**
+     * @var Collection
+     */
+    protected $items;
+    /**
+     * @var bool|null|string
+     */
+    protected $class;
 
-//namespace Core;
+    /**
+     * Model constructor.
+     * @param null $class
+     */
+    public function __construct($class = NULL)
+    {
+        $this->items = new Collection;
+        $this->class = empty($class) ? substr(explode("_", static::class)[1], 0, -1) : $class;
+        foreach (($this->class)::find_all() as $item) {
+            $id = $item->id();
+            $this->items->addItem($item, $item->$id);
+        }
+    }
 
-abstract class Model {
- protected $items;
- protected $class;
+    /**
+     * @return Collection
+     */
+    public function get_data()
+    {
+        return $this->items;
+    }
 
- public function __construct($class = NULL) {
-  $this->items = new Collection;
-  $this->class = empty($class) ? substr(explode("_", static::class)[1], 0, -1) : $class;
-  foreach (($this->class)::find_all() as $item) {
-   $id = $item->id();
-   $this->items->addItem($item, $item->$id);
-  }
- }
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function get($id)
+    {
+        return $this->items->getItem($id);
+    }
 
- /**
- * Method get_data
- * Type: abstract public
- * Return: mixed
- **/
- public function get_data() {
-  return $this->items;
- }
+    /**
+     * @return array
+     */
+    public function getAjax()
+    {
+        $array = array('data' => array());
+        foreach ($this->items->getItems() as $key => $item) {
+            $array['data'][$key] = $item;
+        }
+        return $array;
+    }
 
- public function get($id) {
-  return $this->items->getItem($id);
- }
+    /**
+     * @param DatabaseObject $item
+     * @return bool|DatabaseObject
+     */
+    public function save(DatabaseObject $item)
+    {
+        return $item->save() ? $item : false;
+    }
 
- public function getAjax() {
-  $array = array('data' => array());
-  foreach ($this->items->getItems() as $key => $item) {
-   $array['data'][$key] = $item;
-  }
-  return $array;
- }
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function delete($id)
+    {
+        return $this->items->getItem($id)->delete();
+    }
 
- public function save(DatabaseObject $item){
-  return $item->save() ? $item : false;
- }
-
- public function delete($id) {
-  return $this->items->getItem($id)->delete();
- }
-
- public function create(array $item) {
-  $item = ($this->class)::add($item);
-  return $item->save() ? $item : false;
- }
+    /**
+     * @param array $item
+     * @return bool
+     */
+    public function create(array $item)
+    {
+        $item = ($this->class)::add($item);
+        return $item->save() ? $item : false;
+    }
 }

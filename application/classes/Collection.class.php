@@ -1,70 +1,95 @@
 <?php
 
 /**
-* Collection class
-**/
+ * Class Collection
+ */
+class Collection
+{
+    /**
+     * @var array
+     */
+    private $items = array();
 
-//namespace Core;
+    /**
+     * @param $obj
+     * @param null $key
+     * @throws Exception
+     */
+    public function addItem($obj, $key = null)
+    {
+        if ($key == null) {
+            $this->items[] = $obj;
+        } else {
+            if (isset($this->items[$key])) {
+                throw new Exception("Key $key already in use.");
+            } else {
+                $this->items[$key] = $obj;
+            }
+        }
+    }
 
-class Collection {
- private $items = array();
+    /**
+     * @param $key
+     * @throws Exception
+     */
+    public function deleteItem($key)
+    {
+        if ($this->keyExists($key)) {
+            unset($this->items[$key]);
+        } else {
+            throw new Exception("Invalid key $key.");
+        }
+    }
 
- public function addItem($obj, $key = null) {
-  if ($key == null) {
-   $this->items[] = $obj;
-  } else {
-   if (isset($this->items[$key])) {
-    throw new Exception("Key $key already in use.");
-   } else {
-    $this->items[$key] = $obj;
-   }
-  }
- }
+    /**
+     * @param $key
+     * @return mixed
+     * @throws Exception
+     */
+    public function getItem($key)
+    {
+        if ($this->keyExists($key)) {
+            return $this->items[$key];
+        } else {
+            throw new Exception("Invalid key $key.");
+        }
+    }
 
- public function deleteItem($key) {
-  if ($this->keyExists($key)) {
-   unset($this->items[$key]);
-  } else {
-   throw new Exception("Invalid key $key.");
-  }
- }
+    /**
+     * Get array $items
+     * Input: empty
+     * Output: array of objects
+     **/
+    public function getItems()
+    {
+        return $this->items;
+    }
 
- public function getItem($key) {
-  if ($this->keyExists($key)) {
-   return $this->items[$key];
-  } else {
-   throw new Exception("Invalid key $key.");
-  }
- }
+    /**
+     * @return array
+     */
+    public function keys()
+    {
+        return array_keys($this->items);
+    }
 
- /**
- * Get array $items
- * Input: empty
- * Output: array of objects
- **/
- public function getItems() {
-  return $this->items;
- }
+    /**
+     * Get length of array $items
+     * Input: empty
+     * Output: integer
+     **/
+    public function length()
+    {
+        return count($this->items);
+    }
 
- public function keys() {
-  return array_keys($this->items);
- }
-
- /**
- * Get length of array $items
- * Input: empty
- * Output: integer
- **/
- public function length() {
-  return count($this->items);
- }
-
- /**
- * Check if key exists in array $items
- * Input: string
- * Output: bulean
- **/
- public function keyExists($key) {
-  return isset($this->items[$key]);
- }
+    /**
+     * Check if key exists in array $items
+     * Input: string
+     * Output: bulean
+     **/
+    public function keyExists($key)
+    {
+        return isset($this->items[$key]);
+    }
 }
