@@ -43,14 +43,6 @@ echo <<<EOT
   </tr>
   <tr>
    <td>
-    <label for="status">Status</label>
-   </td>
-   <td>
-    <input class="status" type="checkbox" value="$data->status" name="admin[status]" />
-   </td>
-  </tr>
-  <tr>
-   <td>
     <label for="password">Password(Please input password if you want to change it.)</label>
    </td>
    <td>
