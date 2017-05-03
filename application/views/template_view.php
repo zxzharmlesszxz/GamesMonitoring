@@ -32,6 +32,7 @@
      <li><a href="/games">Games</a></li>
      <li><a href="/modes">Modes</a></li>
      <li><a href="/contacts">Contacts</a></li>
+     <li><a href="/login">Login</a></li>
     </menu>
     <br class="clearfix" />
    </nav>
