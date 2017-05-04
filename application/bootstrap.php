@@ -3,7 +3,7 @@
 require_once 'Core/index.php';
 require_once 'includes/functions.inc.php';
 
-Registry::_set('config', Config::getInstance());
+Core\Registry::_set('config', Core\Config::getInstance());
 #Registry::_set('database', new MySQL_Database);
 #Registry::_set('session', new Session);
 
