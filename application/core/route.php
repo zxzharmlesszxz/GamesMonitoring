@@ -23,8 +23,10 @@ class Route
 
         $model_path = config()->MODELS_PATH . '/' . config()->dir . '/' . strtolower($model_name) . '.php';
 
-        if (file_exists($model_path)) include strtolower($model_path);
-        else include strtolower(config()->MODELS_PATH . '/' . config()->DEFAULT . '/' . strtolower($model_name) . ".php");
+        if (file_exists($model_path))
+            include strtolower($model_path);
+        elseif (file_exists(config()->MODELS_PATH . '/' . config()->DEFAULT . '/' . strtolower($model_name) . ".php"))
+            include strtolower(config()->MODELS_PATH . '/' . config()->DEFAULT . '/' . strtolower($model_name) . ".php");
 
         $controller_path = config()->CONTROLLERS_PATH . '/' . config()->dir . '/' . strtolower($controller_name) . ".php";
 
