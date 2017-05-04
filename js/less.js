@@ -23,9 +23,9 @@ module.exports = function(window, options) {
         options.isFileProtocol = /^(file|(chrome|safari)(-extension)?|resource|qrc|app):/.test(window.location.protocol);
     }
 
-    // Load styles asynchronously (default: false)
+    // Load styles asynchronously (main: false)
     //
-    // This is set to `false` by default, so that the body
+    // This is set to `false` by main, so that the body
     // doesn't start loading before the stylesheets are parsed.
     // Setting this to `true` can result in flickering.
     //
@@ -73,7 +73,7 @@ module.exports = function(window, options) {
 require("promise/polyfill");
 
 var options = window.less || {};
-require("./add-default-options")(window, options);
+require("./add-main-options")(window, options);
 
 var less = module.exports = require("./index")(window, options);
 
@@ -2119,7 +2119,7 @@ var defaultFunc = {
     }
 };
 
-functionRegistry.add("default", defaultFunc.eval.bind(defaultFunc));
+functionRegistry.add("main", defaultFunc.eval.bind(defaultFunc));
 
 module.exports = defaultFunc;
 
@@ -2215,7 +2215,7 @@ module.exports = function(environment) {
     };
 
     //register functions
-    require("./default");
+    require("./main");
     require("./color");
     require("./color-blending");
     require("./data-uri")(environment);
@@ -2871,7 +2871,7 @@ if (typeof Object.create === 'undefined') {
 LessError.prototype.constructor = LessError;
 
 /**
- * An overridden version of the default Object.prototype.toString
+ * An overridden version of the main Object.prototype.toString
  * which uses additional information to create a helpful message.
  *
  * @param {Object} options
@@ -4432,7 +4432,7 @@ var Parser = function Parser(context, imports, fileInfo) {
                 // See the `rule` function for more information.
                 //
                 // We start by matching `.rounded (`, and then proceed on to
-                // the argument list, which has optional default values.
+                // the argument list, which has optional main values.
                 // We store the parameters in `params`, with a `value` key,
                 // if there is a value, such as in the case of `@radius`.
                 //
@@ -5587,7 +5587,7 @@ PluginManager.prototype.addFileManager = function(manager) {
 /**
  *
  * @returns {Array}
- * @private
+ * @users
  */
 PluginManager.prototype.getPreProcessors = function() {
     var preProcessors = [];
@@ -5599,7 +5599,7 @@ PluginManager.prototype.getPreProcessors = function() {
 /**
  *
  * @returns {Array}
- * @private
+ * @users
  */
 PluginManager.prototype.getPostProcessors = function() {
     var postProcessors = [];
@@ -5611,7 +5611,7 @@ PluginManager.prototype.getPostProcessors = function() {
 /**
  *
  * @returns {Array}
- * @private
+ * @users
  */
 PluginManager.prototype.getVisitors = function() {
     return this.visitors;
@@ -5633,7 +5633,7 @@ PluginManager.prototype.visitor = function() {
 /**
  *
  * @returns {Array}
- * @private
+ * @users
  */
 PluginManager.prototype.getFileManagers = function() {
     return this.fileManagers;
@@ -6817,7 +6817,7 @@ Dimension.prototype.genCSS = function (context, output) {
 };
 
 // In an operation between two Dimensions,
-// we default to the first Dimension's unit,
+// we main to the first Dimension's unit,
 // so `1px + 2` will yield `3px`.
 Dimension.prototype.operate = function (context, op, other) {
     /*jshint noempty:false */
@@ -7610,7 +7610,7 @@ module.exports = Media;
 var Node = require("./node"),
     Selector = require("./selector"),
     MixinDefinition = require("./mixin-definition"),
-    defaultFunc = require("../functions/default");
+    defaultFunc = require("../functions/main");
 
 var MixinCall = function (elements, args, index, currentFileInfo, important) {
     this.selector = new Selector(elements);
@@ -7683,8 +7683,8 @@ MixinCall.prototype.eval = function (context) {
         if ((mixins = context.frames[i].find(this.selector, null, noArgumentsFilter)).length > 0) {
             isOneFound = true;
 
-            // To make `default()` function independent of definition order we have two "subpasses" here.
-            // At first we evaluate each guard *twice* (with `default() == true` and `default() == false`),
+            // To make `main()` function independent of definition order we have two "subpasses" here.
+            // At first we evaluate each guard *twice* (with `main() == true` and `main() == false`),
             // and build candidate list with corresponding flags. Then, when we know all possible matches,
             // we make a final decision.
 
@@ -7726,7 +7726,7 @@ MixinCall.prototype.eval = function (context) {
                 defaultResult = defTrue;
                 if ((count[defTrue] + count[defFalse]) > 1) {
                     throw { type: 'Runtime',
-                        message: 'Ambiguous use of `default()` found when matching for `' + this.format(args) + '`',
+                        message: 'Ambiguous use of `main()` found when matching for `' + this.format(args) + '`',
                         index: this.getIndex(), filename: this.fileInfo().filename };
                 }
             }
@@ -8420,7 +8420,7 @@ var Node = require("./node"),
     Anonymous = require("./anonymous"),
     contexts = require("../contexts"),
     globalFunctionRegistry = require("../functions/function-registry"),
-    defaultFunc = require("../functions/default"),
+    defaultFunc = require("../functions/main"),
     getDebugInfo = require("./debug-info"),
     utils = require("../utils");
 

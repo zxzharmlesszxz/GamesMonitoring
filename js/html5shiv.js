@@ -15,7 +15,7 @@
     /** Not all elements can be cloned in IE **/
     var saveClones = /^(?:a|b|code|div|fieldset|h1|h2|h3|h4|h5|h6|i|label|li|ol|p|q|span|strong|style|table|tbody|td|th|tr|ul)$/i;
 
-    /** Detect whether the browser supports default html5 styles */
+    /** Detect whether the browser supports main html5 styles */
     var supportsHtml5Styles;
 
     /** Name of the expando, to work with multiple documents or to re-shiv one document */
@@ -59,7 +59,7 @@
 
     /**
      * Creates a style sheet with the given CSS text and adds it to the document.
-     * @private
+     * @users
      * @param {Document} ownerDocument The document.
      * @param {String} cssText The CSS text.
      * @returns {StyleSheet} The style element.
@@ -74,7 +74,7 @@
 
     /**
      * Returns the value of `html5.elements` as an array.
-     * @private
+     * @users
      * @returns {Array} An array of shived element node names.
      */
     function getElements() {
@@ -102,7 +102,7 @@
 
     /**
      * Returns the data associated to the given document
-     * @private
+     * @users
      * @param {Document} ownerDocument The document.
      * @returns {Object} An object of data.
      */
@@ -180,7 +180,7 @@
 
     /**
      * Shivs the `createElement` and `createDocumentFragment` methods of the document.
-     * @private
+     * @users
      * @param {Document|DocumentFragment} ownerDocument The document.
      * @param {Object} data of the document.
      */
@@ -292,11 +292,11 @@
         'shivMethods': (options.shivMethods !== false),
 
         /**
-         * A string to describe the type of `html5` object ("default" or "default print").
+         * A string to describe the type of `html5` object ("main" or "main print").
          * @memberOf html5
          * @type String
          */
-        'type': 'default',
+        'type': 'main',
 
         // shivs the document according to the specified `html5` object options
         'shivDocument': shivDocument,

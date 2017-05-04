@@ -9,8 +9,6 @@ require_once 'includes/functions.inc.php';
 Registry::_set('config', Config::getInstance());
 Registry::_set('database', new MySQL_Database);
 Registry::_set('session', new Session);
-$dir = explode('/', getcwd());
-Registry::_set('dir', array_pop($dir));
 
 /**
  * @param $class
