@@ -21,17 +21,17 @@ class Route
         echo "Action: $action_name <br>";
         */
 
-        $model_path = config()->MODELS_PATH . '/' . config()->dir . '/' . strtolower($model_name) . '.php';
+        $model_path = config()->PROJECT_ROOT . '/' . config()->MODELS_PATH . '/' . config()->dir . '/' . strtolower($model_name) . '.php';
 
         if (file_exists($model_path))
             include strtolower($model_path);
-        elseif (file_exists(config()->MODELS_PATH . '/' . config()->DEFAULT . '/' . strtolower($model_name) . ".php"))
-            include strtolower(config()->MODELS_PATH . '/' . config()->DEFAULT . '/' . strtolower($model_name) . ".php");
+        elseif (file_exists(config()->PROJECT_ROOT . '/' . config()->MODELS_PATH . '/' . config()->DEFAULT . '/' . strtolower($model_name) . ".php"))
+            include strtolower(config()->PROJECT_ROOT . '/' . config()->MODELS_PATH . '/' . config()->DEFAULT . '/' . strtolower($model_name) . ".php");
 
-        $controller_path = config()->CONTROLLERS_PATH . '/' . config()->dir . '/' . strtolower($controller_name) . ".php";
+        $controller_path = config()->PROJECT_ROOT . '/' . config()->CONTROLLERS_PATH . '/' . config()->dir . '/' . strtolower($controller_name) . ".php";
 
         if (file_exists($controller_path)) include strtolower($controller_path);
-        else include strtolower(config()->CONTROLLERS_PATH . '/' . config()->DEFAULT . '/' . strtolower($controller_name) . ".php");
+        else include strtolower(config()->PROJECT_ROOT . '/' . config()->CONTROLLERS_PATH . '/' . config()->DEFAULT . '/' . strtolower($controller_name) . ".php");
 
         if (class_exists($controller_name)) $controller = new $controller_name;
 
