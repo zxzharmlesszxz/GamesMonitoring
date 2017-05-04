@@ -12,8 +12,8 @@ class View
      */
     public function generate($content_view, $template_view, $data = null)
     {
-        include file_exists(config()->PROJECT_ROOT . '/' . config()->VIEWS_PATH . '/' . config()->dir . '/' . $template_view) ?
-            config()->PROJECT_ROOT . '/' . config()->VIEWS_PATH . '/' . config()->dir . '/' . $template_view :
+        include file_exists(config()->PROJECT_ROOT . '/' . config()->VIEWS_PATH . '/' . Registry::_get('dir') . '/' . $template_view) ?
+            config()->PROJECT_ROOT . '/' . config()->VIEWS_PATH . '/' . Registry::_get('dir') . '/' . $template_view :
             config()->PROJECT_ROOT . '/' . config()->VIEWS_PATH . '/' . config()->DEFAULT . '/' . $template_view;
     }
 
