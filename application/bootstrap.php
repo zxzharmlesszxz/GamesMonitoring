@@ -3,9 +3,12 @@
 require_once 'Core/index.php';
 require_once 'includes/functions.inc.php';
 
-Registry::_set('config', Config::getInstance());
-Registry::_set('database', new MySQL_Database);
-Registry::_set('session', new Session);
+Core\Registry::_set('config', Core\Config::getInstance());
+#Registry::_set('database', new MySQL_Database);
+#Registry::_set('session', new Session);
+
+var_dump(config());
+
 
 /**
  * @param $class
@@ -19,21 +22,21 @@ function __autoload($class)
  * @return mixed|null
  */
 function config(){
- return Registry::_get('config');
+ return Core\Registry::_get('config');
 }
 
 /**
  * @return mixed|null
  */
 function db(){
- return Registry::_get('database');
+ return Core\Registry::_get('database');
 }
 
 /**
  * @return mixed|null
  */
 function session() {
- return Registry::_get('session');
+ return Core\Registry::_get('session');
 }
 
-Route::start();
+Core\Router::start();

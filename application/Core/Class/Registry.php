@@ -3,6 +3,9 @@
 /**
  * Class Registry
  */
+
+namespace Core;
+
 class Registry
 {
     /**

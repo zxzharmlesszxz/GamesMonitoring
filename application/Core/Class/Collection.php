@@ -3,6 +3,8 @@
 /**
  * Class Collection
  */
+
+namespace Core;
 class Collection
 {
     /**

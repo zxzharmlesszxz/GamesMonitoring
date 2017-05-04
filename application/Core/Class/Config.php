@@ -3,6 +3,8 @@
 /**
  * Class Config
  */
+
+namespace Core;
 class Config
 {
     /**

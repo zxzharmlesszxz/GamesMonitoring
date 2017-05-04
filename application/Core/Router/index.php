@@ -3,7 +3,10 @@
 /**
  * Class Route
  */
-class Route
+
+namespace Core;
+
+class Router
 {
     /**
      *
