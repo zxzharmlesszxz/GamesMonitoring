@@ -19,6 +19,6 @@ class Controller_Contacts extends Controller
      */
     public function action_index()
     {
-        $this->view->generate('index.php', 'template_view.php');
+        $this->view->generate('module.php', 'template_view.php');
     }
 }

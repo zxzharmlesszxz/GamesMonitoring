@@ -6,11 +6,11 @@
  * Time: 17:37
  */
 
-namespace \Core;
-require_once 'Controller/index.php';
-require_once 'Model/index.php';
-require_once 'Router/index.php';
-require_once 'View/index.php';
+namespace Core;
+require_once 'Controller/module.php';
+require_once 'Model/module.php';
+require_once 'Router/module.php';
+require_once 'View/module.php';
 
 
 spl_autoload_register(function ($class) {

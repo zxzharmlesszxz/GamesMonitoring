@@ -10,6 +10,6 @@ class Controller_404 extends Controller
      */
     public function action_index()
     {
-        $this->view->generate('index.php', 'template_view.php', "Module/Method doesn't exists");
+        $this->view->generate('module.php', 'template_view.php', "Module/Method doesn't exists");
     }
 }
