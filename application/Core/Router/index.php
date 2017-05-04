@@ -49,7 +49,7 @@ class Route
     {
         header('HTTP/1.1 404 Not Found');
         header('Status: 404 Not Found');
-        include_once config()->PROJECT_ROOT . '/' . config()->CONTROLLERS_PATH . '/' . config()->DEFAULT . '/controller.php';
+        include_once config()->PROJECT_ROOT . '/' . config()->CONTROLLERS_PATH . '/' . config()->DEFAULT . '/index.php';
         $controller = new Controller_404;
         $controller->action_index();
         #header('Location:/404');

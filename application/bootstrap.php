@@ -1,9 +1,9 @@
 <?php
 
-require_once 'core/model.php';
-require_once 'core/view.php';
-require_once 'core/controller.php';
-require_once 'core/route.php';
+require_once 'core/index.php';
+require_once 'core/index.php';
+require_once 'core/index.php';
+require_once 'core/index.php';
 require_once 'includes/functions.inc.php';
 
 Registry::_set('config', Config::getInstance());
