@@ -23,7 +23,7 @@ class Config
      */
     private function __construct()
     {
-        $this->_configFile = __DIR__ . '/../config/config.inc.php';
+        $this->_configFile = __DIR__ . '/../../config/config.inc.php';
         include_once($this->_configFile);
         $this->_configuration = $config;
     }
