@@ -17,7 +17,7 @@ $config = array(
 
  'DEFAULT' => 'default',
  'PRIVATE' => 'private',
- 'PUBLIC' = 'public',
+ 'PUBLIC' => 'public',
 
  'mysql' => array(
   'host' => 'localhost',
