@@ -558,7 +558,7 @@
         7: [function (require, module, exports) {
             module.exports = function () {
 
-                var functionRegistry = require("./../less/functions/function-registry");
+                var functionRegistry = require("../less/functions/function-registry");
 
                 function imageSize() {
                     throw {

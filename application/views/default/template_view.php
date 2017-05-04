@@ -5,8 +5,8 @@
   <meta name="description" content="" />
   <meta name="keywords" content="" />
   <title><?php echo config()->PROJECT_NAME; ?></title>
-  <link rel="stylesheet" type="text/css" href="/css/jquery.dataTables.min.css" />
-  <link rel="stylesheet/less" type="text/css" href="/less/style.less">
+  <link rel="stylesheet" type="text/css" href="/css/css/jquery.dataTables.min.css" />
+  <link rel="stylesheet/less" type="text/css" href="/app/lessless/style.less">
   <script type="text/javascript" src="/js/jquery-2.1.3.min.js"></script>
   <script type="text/javascript" src="/js/jquery.dataTables.min.js"></script>
   <script type="text/javascript" src="/js/html5shiv.js"></script>
@@ -15,10 +15,6 @@
   <script type="text/javascript" src="/js/tabs.js"></script>
  </head>
  <body>
- <?php
-  var_dump(session());
-  var_dump($_SESSION);
- ?>
   <header id="header">
    <div id="logo">
     <a href="/"><?php echo config()->PROJECT_NAME; ?></a>
@@ -26,11 +22,7 @@
    <nav id="menu">
     <menu>
      <li><a href="/">Main</a></li>
-     <li><a href="/admins">Admins</a></li>
-     <li><a href="/users">Users</a></li>
      <li><a href="/servers">Servers</a></li>
-     <li><a href="/games">Games</a></li>
-     <li><a href="/modes">Modes</a></li>
      <li><a href="/contacts">Contacts</a></li>
      <li><a href="/login">Login</a></li>
     </menu>
@@ -41,7 +33,7 @@
    <div id="page">
     <div id="content">
      <div class="box">
-      <?php if(!empty($content_view)) include 'application/views/'.$content_view; ?>
+      <?php if(!empty($content_view)) include 'application/views/default/'.$content_view; ?>
      </div>
      <br class="clearfix" />
     </div>

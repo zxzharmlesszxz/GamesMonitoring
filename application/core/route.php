@@ -21,13 +21,15 @@ class Route
         echo "Action: $action_name <br>";
         */
 
-        $model_path = config()->MODELS_PATH . '/' . strtolower($model_name) . '.php';
+        $model_path = config()->MODELS_PATH . '/' . config()->dir . '/' . strtolower($model_name) . '.php';
 
         if (file_exists($model_path)) include strtolower($model_path);
+        else include strtolower(config()->MODELS_PATH . '/' . config()->DEFAULT . '/' . strtolower($model_name) . ".php");
 
-        $controller_path = config()->CONTROLLERS_PATH . '/' . strtolower($controller_name) . ".php";
+        $controller_path = config()->CONTROLLERS_PATH . '/' . config()->dir . '/' . strtolower($controller_name) . ".php";
 
         if (file_exists($controller_path)) include strtolower($controller_path);
+        else include strtolower(config()->CONTROLLERS_PATH . '/' . config()->DEFAULT . '/' . strtolower($controller_name) . ".php");
 
         if (class_exists($controller_name)) $controller = new $controller_name;
 
@@ -45,7 +47,7 @@ class Route
     {
         header('HTTP/1.1 404 Not Found');
         header('Status: 404 Not Found');
-        include_once config()->CONTROLLERS_PATH . '/controller_404.php';
+        include_once config()->CONTROLLERS_PATH . '/' . config()->DEFAULT . '/controller_404.php';
         $controller = new Controller_404;
         $controller->action_index();
         #header('Location:/404');
