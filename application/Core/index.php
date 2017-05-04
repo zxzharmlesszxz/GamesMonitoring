@@ -6,7 +6,7 @@
  * Time: 17:37
  */
 
-namespace \Core;
+namespace Core;
 require_once 'Controller/index.php';
 require_once 'Model/index.php';
 require_once 'Router/index.php';
