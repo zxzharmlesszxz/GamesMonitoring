@@ -12,10 +12,7 @@ require_once 'Model/index.php';
 require_once 'Router/index.php';
 require_once 'View/index.php';
 
-/**
- * @param $class
- */
-function __autoload($class)
-{
+
+spl_autoload_register(function ($class) {
     @include_once __DIR__ . "/Class/${class}.php";
-}
+});
