@@ -12,7 +12,9 @@ class View
      */
     public function generate($content_view, $template_view, $data = null)
     {
-        include config()->VIEWS_PATH . '/' . $template_view;
+        include file_exists(config()->VIEWS_PATH . '/' . config()->dir . '/' . $template_view) ?
+            config()->VIEWS_PATH . '/' . $template_view :
+            config()->VIEWS_PATH . '/' . config()->DEFAULT . '/' . $template_view;
     }
 
     /**
