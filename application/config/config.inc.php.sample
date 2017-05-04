@@ -8,12 +8,13 @@ $config = array(
 
  'PROJECT_NAME' => 'Games Monitoring',
  'PROJECT_VERSION' => '0.0.1',
+ 'PROJECT_ROOT' => dirname(__DIR__, 2),
  'DEFAULT_THEME' => 'Default',
- 'CLASS_PATH' => '../application/classes',
- 'CONTROLLERS_PATH' => '../application/controllers',
- 'MODELS_PATH' => '../application/models',
- 'VIEWS_PATH' => '../application/views',
- 'INCLUDES_PATH' => '../application/includes',
+ 'CLASS_PATH' => PROJECT_ROOT . '/application/classes',
+ 'CONTROLLERS_PATH' => PROJECT_ROOT . '/application/controllers',
+ 'MODELS_PATH' => PROJECT_ROOT . '/application/models',
+ 'VIEWS_PATH' => PROJECT_ROOT . '/application/views',
+ 'INCLUDES_PATH' => PROJECT_ROOT . '/application/includes',
 
  'DEFAULT' => 'default',
  'PRIVATE' => 'private',
