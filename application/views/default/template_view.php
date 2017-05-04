@@ -33,7 +33,7 @@
    <div id="page">
     <div id="content">
      <div class="box">
-      <?php if(!empty($content_view)) include 'application/views/default/'.$content_view; ?>
+      <?php if(!empty($content_view)) include 'application/views/' . config()->dir . '/'.$content_view; ?>
      </div>
      <br class="clearfix" />
     </div>
