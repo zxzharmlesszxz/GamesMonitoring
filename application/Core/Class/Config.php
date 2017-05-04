@@ -12,10 +12,6 @@ class Config
      */
     static public $instance;
     /**
-     * @var string
-     */
-    protected $_configFile;
-    /**
      * @var
      */
     protected $_configuration;
@@ -25,8 +21,7 @@ class Config
      */
     private function __construct()
     {
-        $this->_configFile = __DIR__ . '/../../config/config.inc.php';
-        include_once($this->_configFile);
+        include_once(__DIR__ . '/../../config/config.inc.php');
         $this->_configuration = $config;
     }
 

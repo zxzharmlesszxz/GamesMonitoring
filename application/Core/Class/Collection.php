@@ -15,7 +15,7 @@ class Collection
     /**
      * @param $obj
      * @param null $key
-     * @throws Exception
+     * @throws \Exception
      */
     public function addItem($obj, $key = null)
     {
@@ -23,7 +23,7 @@ class Collection
             $this->items[] = $obj;
         } else {
             if (isset($this->items[$key])) {
-                throw new Exception("Key $key already in use.");
+                throw new \Exception("Key $key already in use.");
             } else {
                 $this->items[$key] = $obj;
             }
@@ -32,28 +32,28 @@ class Collection
 
     /**
      * @param $key
-     * @throws Exception
+     * @throws \Exception
      */
     public function deleteItem($key)
     {
         if ($this->keyExists($key)) {
             unset($this->items[$key]);
         } else {
-            throw new Exception("Invalid key $key.");
+            throw new \Exception("Invalid key $key.");
         }
     }
 
     /**
      * @param $key
      * @return mixed
-     * @throws Exception
+     * @throws \Exception
      */
     public function getItem($key)
     {
         if ($this->keyExists($key)) {
             return $this->items[$key];
         } else {
-            throw new Exception("Invalid key $key.");
+            throw new \Exception("Invalid key $key.");
         }
     }
 
