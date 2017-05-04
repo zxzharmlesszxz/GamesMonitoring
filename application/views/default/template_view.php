@@ -33,7 +33,7 @@
    <div id="page">
     <div id="content">
      <div class="box">
-      <?php if(!empty($content_view)) include config()->PROJECT_ROOT . '/' . config()->VIEWS_PATH . '/' . Registry::_get('dir') . '/'.$content_view; ?>
+      <?php if(!empty($content_view)) include file_exists(config()->PROJECT_ROOT . '/' . config()->VIEWS_PATH . '/' . Registry::_get('dir') . '/'.$content_view) ? config()->PROJECT_ROOT . '/' . config()->VIEWS_PATH . '/' . Registry::_get('dir') . '/'.$content_view : config()->PROJECT_ROOT . '/' . config()->VIEWS_PATH . '/' . config()->DEFAULT . '/'.$content_view; ?>
      </div>
      <br class="clearfix" />
     </div>
