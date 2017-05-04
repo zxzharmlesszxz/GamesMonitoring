@@ -5,8 +5,8 @@
   <meta name="description" content="" />
   <meta name="keywords" content="" />
   <title><?php echo config()->PROJECT_NAME; ?></title>
-  <link rel="stylesheet" type="text/css" href="/css/css/jquery.dataTables.min.css" />
-  <link rel="stylesheet/less" type="text/css" href="/app/lessless/style.less">
+  <link rel="stylesheet" type="text/css" href="/css/jquery.dataTables.min.css" />
+  <link rel="stylesheet/less" type="text/css" href="/less/style.less">
   <script type="text/javascript" src="/js/jquery-2.1.3.min.js"></script>
   <script type="text/javascript" src="/js/jquery.dataTables.min.js"></script>
   <script type="text/javascript" src="/js/html5shiv.js"></script>
