@@ -23,11 +23,7 @@
       for(var i=0;i< json.data.length; i++){
         var item = json.data[i];
         return_data.push({
-          'server': '<a href="/servers/show/?serverid='+item.serverid+'">'+item.servername+'</a>'+
-            '<span class="actions">'+
-            '<button class="delete" title="Delete" data-id="'+item.serverid+'" data-type="server"></button>'+
-            '<button class="edit" title="Edit" onclick="location.href=\'/servers/edit/?serverid='+item.serverid+'\'"></button>'+
-            '</span>',
+          'server': '<a href="/servers/show/?serverid='+item.serverid+'">'+item.servername+'</a>',
           'addr': item.addr,
           'steam': '<input class="steam" type="checkbox" data-id="'+item.serverid+'" value="'+item.steam+'" data-type="server" disabled readonly />',
           'players': item.players+"/"+item.botNumber+"/"+item.maxplayers,
