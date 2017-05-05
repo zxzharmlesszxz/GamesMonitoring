@@ -26,7 +26,7 @@ class Module implements Interfaces\ModuleInterface
      */
     public function __construct()
     {
-        $this->Controller = new Module\Error\Controller();
+        $this->Controller = new Controller();
     }
 }
 
