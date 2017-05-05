@@ -12,6 +12,9 @@ require_once 'Model/index.php';
 require_once 'Router/index.php';
 require_once 'View/index.php';
 
+$core = Core::getInstance();
+
+var_dump($core);
 
 spl_autoload_register(function ($class) {
     $ierarchy = explode('\\', $class);
