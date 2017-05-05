@@ -14,5 +14,6 @@ require_once 'View/index.php';
 
 
 spl_autoload_register(function ($class) {
-    @include_once __DIR__ . "/Class/${class}.php";
+    $ierarchy = explode('\\', $class);
+    @include_once __DIR__ . '/Class/' . end($class) . '.php';
 });
