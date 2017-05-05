@@ -1,5 +1,7 @@
 <?php
 
+namespace Module\Error;
+
 /**
  * Class Controller_404
  */
