@@ -7,7 +7,7 @@
  */
 
 namespace Core;
-
+use Core\Interfaces\ModuleInterface;
 
 /**
  * Class Core
@@ -64,17 +64,17 @@ class Core
      */
     static public function getInstance()
     {
-        if (is_null(self::$instance)) {
-            self::$instance = new self;
+        if (is_null(static::$instance)) {
+            static::$instance = new static();
         }
-        return self::$instance;
+        return static::$instance;
     }
 
     /**
      * @param $name
-     * @param Module $module
+     * @param ModuleInterface $module
      */
-    public function registerModule($name, Module $module)
+    public function registerModule($name, ModuleInterface $module)
     {
         $this->Modules->addItem($module, $name);
     }
