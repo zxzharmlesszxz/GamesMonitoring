@@ -15,12 +15,12 @@ class User extends DatabaseObject
     /**
      * @var array
      */
-    protected static $db_fields = array('userid', 'login', 'password', 'username', 'email', 'status');
+    protected static $db_fields = array('id', 'login', 'password', 'username', 'email', 'status');
 
     /**
      * @var
      */
-    protected $userid;
+    protected $id;
     /**
      * @var
      */
