@@ -19,7 +19,7 @@ while (false !== ($module = $modulesDir->read()))
             break;
         default:
             include_once $core->Config->PROJECT_ROOT . '/' . $core->Config->MODULES_PATH . '/' . $module . '/module.php';
-            $moduleName = "Module\\$module\\Module";
+            $moduleName = "Module\\$module";
             $core->registerModule($module, new $moduleName);
             break;
     }
