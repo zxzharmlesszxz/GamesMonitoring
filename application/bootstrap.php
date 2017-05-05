@@ -17,8 +17,8 @@ while (false !== ($module = $modulesDir->read()))
         case 'Database':
             break;
         default:
-            use Module;
-            $core->Modules->addItem(new $module);
+            include_once $core->Config->PROJECT_ROOT . '/' . $core->Config->MODULES_PATH . '/module.php';
+            $core->Modules->addItem(new Module\$module);
             break;
     }
 }
