@@ -16,7 +16,6 @@ while (false !== ($module = $modulesDir->read()))
     switch ($module) {
         case '.':
         case '..':
-        case 'Database':
             break;
         default:
             include_once $core->Config->PROJECT_ROOT . '/' . $core->Config->MODULES_PATH . '/' . $module . '/module.php';
