@@ -1,17 +1,26 @@
 <?php
 
 namespace Module\Error;
-use Core\Controller as ControllerInterface;
+use Core\Interfaces;
 
 /**
  * Class Controller
  */
-class Controller implements ControllerInterface
+class Controller implements Interfaces\ControllerInterface
 {
     /**
-     *
+     * Controller constructor.
      */
-    public function action_index()
+    public function __construct()
+    {
+
+    }
+
+    /**
+     * @param string $action
+     * @return mixed|void
+     */
+    public function action($action = 'index')
     {
         $this->view->generate('module.php', 'template_view.php', "ModuleInterface/Method doesn't exists");
     }
