@@ -41,7 +41,7 @@ class Core
      */
     final public function __get($key)
     {
-        return isset($this->$key) ? $this->$key : NULL;
+        return isset($this->$key) ? $this->$key : null;
     }
 
     /**
