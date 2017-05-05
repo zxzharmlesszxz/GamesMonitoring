@@ -6,7 +6,7 @@
  * Time: 17:37
  */
 
-namespace Module\Database;
+namespace Module;
 use Core;
 
 class Database implements Core\Module

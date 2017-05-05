@@ -6,7 +6,7 @@
  * Time: 17:37
  */
 
-namespace Module\Error;
+namespace Module;
 use Core;
 require_once 'Controller/controller.php';
 
