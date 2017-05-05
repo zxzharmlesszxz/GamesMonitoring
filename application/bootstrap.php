@@ -29,14 +29,14 @@ function config(){
  * @return mixed|null
  */
 function db(){
- return Registry::_get('database');
+ return Core\Registry::_get('database');
 }
 
 /**
  * @return mixed|null
  */
 function session() {
- return Registry::_get('session');
+ return Core\Registry::_get('session');
 }
 
-Router::start();
+Core\Router::start();
