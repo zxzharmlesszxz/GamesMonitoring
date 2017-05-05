@@ -14,9 +14,11 @@ while (false !== ($module = $modulesDir->read()))
     switch ($module) {
         case '.':
         case '..':
+        case 'Database':
             break;
         default:
             $core->Modules->addItem(new $module);
+            break;
     }
 }
 
