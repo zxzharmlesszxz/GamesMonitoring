@@ -15,7 +15,7 @@ class Controller implements ControllerInterface
      */
     public function __construct()
     {
-        $this->model = new Model();
+        $this->model = new Cron\Model();
     }
 
     /**
