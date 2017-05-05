@@ -18,11 +18,11 @@ class Router
         $action_name = 'action_' . (!empty($routes[2]) ? $routes[2] : 'index');
         $model_name = 'Model_' . (!empty($routes[1]) ? $routes[1] : 'Main');
 
-        /*
+
         echo "Model: $model_name <br>";
         echo "Controller: $controller_name <br>";
         echo "Action: $action_name <br>";
-        */
+
 
         $model_path = config()->PROJECT_ROOT . '/' . config()->MODELS_PATH . '/' . Registry::_get('dir') . '/' . strtolower($model_name) . '.php';
 
