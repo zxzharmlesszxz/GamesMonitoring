@@ -1,5 +1,8 @@
 <?php
 
+namespace Module\User;
+use Core\Model;
+
 /**
  * Class Model_Users
  */
@@ -29,8 +32,8 @@ class Model_Users extends Model
             unset($item['repassword']);
         }
 
-        $old = $this->items->getItem($item['userid']);
-        unset($item['userid']);
+        $old = $this->items->getItem($item['id']);
+        unset($item['id']);
 
         if (!$old) {
             return FALSE;
@@ -55,7 +58,7 @@ class Model_Users extends Model
         $result = array();
         foreach ($items as $id => $item) {
             $result[] = array(
-                'userid' => $item->userid,
+                'id' => $item->id,
                 'login' => $item->login,
                 'username' => $item->username,
                 'email' => $item->email,
