@@ -7,14 +7,14 @@
  */
 
 namespace Module\Error;
-use Core;
+use Core\Module as ModuleInterface;
 require_once 'Controller/controller.php';
 
 /**
- * Class Module
- * @package Module\Error
+ * Class ModuleInterface
+ * @package ModuleInterface\Error
  */
-class Module implements Core\Module
+class Module implements ModuleInterface
 {
     /**
      * @var Controller
@@ -22,7 +22,7 @@ class Module implements Core\Module
     public $Controller;
 
     /**
-     * Module constructor.
+     * ModuleInterface constructor.
      */
     public function __construct()
     {
