@@ -11,7 +11,13 @@ $core = Core\Core::getInstance();
 $modulesDir = dir($core->Config->PROJECT_ROOT . '/' . $core->Config->MODULES_PATH);
 while (false !== ($module = $modulesDir->read()))
 {
-    $core->Modules->addItem(new $module);
+    switch ($module) {
+        case '.':
+        case '..':
+            break;
+        default:
+            $core->Modules->addItem(new $module);
+    }
 }
 
 var_dump($core);
