@@ -6,12 +6,38 @@
  * Time: 17:37
  */
 
-namespace Module\Admin;
+namespace Module;
+
+use Core\Interfaces;
+
 require_once 'Controller/controller.php';
 require_once 'Model/model.php';
 
+/**
+ * Class Admin
+ * @package Module
+ */
+class Admin implements Interfaces\ModuleInterface
+{
+    /**
+     * @var Game\Controller
+     */
+    public $Controller;
 
-spl_autoload_register(function ($class) {
-    $ierarchy = explode('\\', $class);
-    @include_once __DIR__ . '/Class/' . end($ierarchy) . '.php';
-});
+    /**
+     * Cron constructor.
+     */
+    public function __construct()
+    {
+        $this->Controller = new Admin\Controller();
+    }
+}
+
+spl_autoload_register(
+/**
+ * @param $class
+ */
+    function ($class) {
+        $hierarchy = explode('\\', $class);
+        @include_once __DIR__ . '/Class/' . end($hierarchy) . '.php';
+    });

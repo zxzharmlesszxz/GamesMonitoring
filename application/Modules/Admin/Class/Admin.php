@@ -2,6 +2,7 @@
 
 namespace Module\Admin;
 
+
 /***
  * Admin class
  ***/
