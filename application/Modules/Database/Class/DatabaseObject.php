@@ -1,5 +1,7 @@
 <?php
 
+namespace Database;
+
 /**
  * Class DatabaseObject
  */
@@ -28,7 +30,7 @@ abstract class DatabaseObject
      */
     public static function find_all()
     {
-        return self::find_by_sql("SELECT * FROM " . static::$table_name . " ORDER BY " . static::id() . " ASC");
+        return self::find_by_sql("SELECT * FROM " . static::$table_name . " ORDER BY `id` ASC");
     }
 
     /**
@@ -37,7 +39,7 @@ abstract class DatabaseObject
      */
     public static function find_by_id($id = 0)
     {
-        $result_array = self::find_by_sql("SELECT * FROM " . static::$table_name . " WHERE " . static::id() . "=" . db()->escape_value($id) . " LIMIT 1");
+        $result_array = self::find_by_sql("SELECT * FROM " . static::$table_name . " WHERE `id` = " . db()->escape_value($id) . " LIMIT 1");
         return !empty($result_array) ? $result_array[0] : false;
     }
 
@@ -117,8 +119,6 @@ abstract class DatabaseObject
      */
     private function has_attribute($attribute)
     {
-        // We don't care about the value, we just want to know if the key exists
-        // Will return true or false
         return array_key_exists($attribute, $this->attributes());
     }
 
@@ -127,7 +127,6 @@ abstract class DatabaseObject
      */
     protected function attributes()
     {
-        // return an array of attribute keys and their values
         $attributes = array();
         foreach (static::$db_fields as $field) {
             if (property_exists($this, $field)) {
@@ -156,9 +155,7 @@ abstract class DatabaseObject
      */
     public function save()
     {
-        // A new record won't have an id yet.
-        $id = static::id();
-        return isset($this->$id) ? $this->update() : $this->create();
+        return isset($this->id) ? $this->update() : $this->create();
     }
 
     /**
@@ -166,11 +163,8 @@ abstract class DatabaseObject
      */
     public function create()
     {
-        $id = static::id();
-
         $attributes = $this->sanitized_attributes();
         array_shift($attributes);
-        /* new style */
         $attribute_pairs = array();
         foreach ($attributes as $key => $value) {
             if (is_int($value) or is_float($value)) {
@@ -186,7 +180,7 @@ abstract class DatabaseObject
         $sql .= join(", ", $attribute_pairs);
 
         if (db()->query($sql)) {
-            $this->$id = db()->insert_id();
+            $this->id = db()->insert_id();
             return true;
         } else {
             return false;
@@ -198,8 +192,6 @@ abstract class DatabaseObject
      */
     public function update()
     {
-        $id = static::id();
-
         $attributes = $this->sanitized_attributes();
         $attribute_pairs = array();
         foreach ($attributes as $key => $value) {
@@ -212,7 +204,7 @@ abstract class DatabaseObject
         }
         $sql = "UPDATE " . static::$table_name . " SET ";
         $sql .= join(", ", $attribute_pairs);
-        $sql .= " WHERE " . static::id() . "=" . db()->escape_value($this->$id);
+        $sql .= " WHERE `id` = " . db()->escape_value($this->id);
         db()->query($sql);
         return (db()->affected_rows() == 1) ? true : false;
     }
@@ -222,20 +214,10 @@ abstract class DatabaseObject
      */
     public function delete()
     {
-        $id = static::id();
-
         $sql = "DELETE FROM " . static::$table_name;
-        $sql .= " WHERE " . static::id() . "=" . db()->escape_value($this->$id);
+        $sql .= " WHERE `id` = " . db()->escape_value($this->id);
         $sql .= " LIMIT 1";
         db()->query($sql);
         return (db()->affected_rows() == 1) ? true : false;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function id()
-    {
-        return static::$db_fields[0];
     }
 }

@@ -7,8 +7,18 @@
  */
 
 namespace Module\Error;
+use Core;
 require_once 'Controller/controller.php';
 
+class Error implements Core\Module
+{
+    public $Controller;
+
+    public function __construct()
+    {
+        $this->Controller = new Controller();
+    }
+}
 
 spl_autoload_register(function ($class) {
     $hierarchy = explode('\\', $class);

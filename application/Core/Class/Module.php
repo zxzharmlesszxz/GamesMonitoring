@@ -9,7 +9,7 @@
 namespace Core;
 
 
-class Module
+interface Module
 {
 
 }
