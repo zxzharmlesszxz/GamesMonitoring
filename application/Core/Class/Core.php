@@ -21,6 +21,11 @@ class Core
     static public $instance;
 
     /**
+     * @var Collection
+     */
+    protected $Modules;
+
+    /**
      * Config constructor.
      */
     private function __construct()
@@ -63,5 +68,14 @@ class Core
             self::$instance = new self;
         }
         return self::$instance;
+    }
+
+    /**
+     * @param $name
+     * @param Module $module
+     */
+    public function registerModule($name, Module $module)
+    {
+        $this->Modules->addItem($module, $name);
     }
 }

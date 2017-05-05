@@ -21,7 +21,7 @@ while (false !== ($module = $modulesDir->read()))
             include_once $core->Config->PROJECT_ROOT . '/' . $core->Config->MODULES_PATH . '/' . $module . '/module.php';
             var_dump($core->Config->PROJECT_ROOT . '/' . $core->Config->MODULES_PATH . '/' . $module . '/module.php');
             var_dump($module);
-            var_dump($core->Modules->addItem(new $module, $module));
+            var_dump($core->registerModule($module, new $module));
             break;
     }
 }
