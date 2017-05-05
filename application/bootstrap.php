@@ -1,10 +1,9 @@
 <?php
 
-namespace Core;
 require_once 'Core/index.php';
 require_once 'includes/functions.inc.php';
 
-Registry::_set('config', Config::getInstance());
+Core\Registry::_set('config', Core\Config::getInstance());
 #Registry::_set('database', new MySQL_Database);
 #Registry::_set('session', new Session);
 
@@ -23,7 +22,7 @@ function __autoload($class)
  * @return mixed|null
  */
 function config(){
- return Registry::_get('config');
+ return Core\Registry::_get('config');
 }
 
 /**
