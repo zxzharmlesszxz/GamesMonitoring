@@ -18,7 +18,7 @@ while (false !== ($module = $modulesDir->read()))
             break;
         default:
             include_once $core->Config->PROJECT_ROOT . '/' . $core->Config->MODULES_PATH . '/module.php';
-            $core->Modules->addItem(new Module\$module);
+            $core->Modules->addItem(new $module);
             break;
     }
 }
