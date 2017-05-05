@@ -8,6 +8,8 @@ Core\Registry::_set('config', Core\Config::getInstance());
 #Registry::_set('session', new Session);
 
 $core = Core\Core::getInstance();
+var_dump($core);
+
 $modulesDir = dir($core->Config->PROJECT_ROOT . '/' . $core->Config->MODULES_PATH);
 while (false !== ($module = $modulesDir->read()))
 {
@@ -18,7 +20,7 @@ while (false !== ($module = $modulesDir->read()))
             break;
         default:
             include_once $core->Config->PROJECT_ROOT . '/' . $core->Config->MODULES_PATH . '/' . $module . '/module.php';
-            $core->Modules->addItem(new $module);
+            var_dump($core->Modules->addItem(new $module));
             break;
     }
 }
