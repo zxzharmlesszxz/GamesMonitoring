@@ -8,8 +8,8 @@ Core\Registry::_set('config', Core\Config::getInstance());
 #Registry::_set('session', new Session);
 
 $core = Core\Core::getInstance();
-
-foreach (dir($core->Config->PROJECT_ROOT . '/' . $core->Config->MODULES_PATH)->read() as $module)
+$modulesDir = dir($core->Config->PROJECT_ROOT . '/' . $core->Config->MODULES_PATH);
+while (false !== ($module = $modulesDir->read()))
 {
     $core->Modules->addItem(new $module);
 }
