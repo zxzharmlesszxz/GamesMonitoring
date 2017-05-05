@@ -78,4 +78,20 @@ class Core
     {
         $this->Modules->addItem($module, $name);
     }
+
+    /**
+     * @param $name
+     */
+    public function unregisterModule($name)
+    {
+        $this->Modules->deleteItem($name);
+    }
+
+    /**
+     * @param $name
+     */
+    public function getModule($name)
+    {
+        $this->Modules->getItem($name);
+    }
 }
