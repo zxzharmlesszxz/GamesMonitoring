@@ -6,7 +6,9 @@
 
 namespace Core;
 
-class Router
+use Core\Interfaces\RouterInterface;
+
+class Router implements RouterInterface
 {
     /**
      *
