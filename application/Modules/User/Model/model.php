@@ -1,12 +1,12 @@
 <?php
 
 namespace Module\User;
-use Core\Model;
+use Core;
 
 /**
  * Class Model_Users
  */
-class Model_Users extends Model
+class Model extends Core\Model
 {
     /**
      * @param $id

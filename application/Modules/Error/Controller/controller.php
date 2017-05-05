@@ -1,12 +1,12 @@
 <?php
 
 namespace Module\Error;
-use Core\Controller;
+use Core;
 
 /**
- * Class Controller_404
+ * Class Controller
  */
-class Controller_404 extends Controller
+class Controller extends Core\Controller
 {
     /**
      *

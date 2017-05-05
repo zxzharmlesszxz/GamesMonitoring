@@ -1,12 +1,12 @@
 <?php
 
 namespace Module\User;
-use Core\Controller;
+use Core;
 
 /**
- * Class Controller_Users
+ * Class Controller
  */
-class Controller_Users extends Controller
+class Controller extends Core\Controller
 {
     /**
      * @var
@@ -14,7 +14,7 @@ class Controller_Users extends Controller
     protected $query;
 
     /**
-     * Controller_Users constructor.
+     * Controller constructor.
      */
     public function __construct()
     {
