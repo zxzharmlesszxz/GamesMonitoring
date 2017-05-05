@@ -7,13 +7,9 @@ Core\Registry::_set('config', Core\Config::getInstance());
 #Registry::_set('database', new MySQL_Database);
 #Registry::_set('session', new Session);
 
-var_dump(config());
-
 $core = Core\Core::getInstance();
 
-$modules = dir($core->Config->PROJECT_ROOT . '/' . $core->Config->MODULES_PATH)->read();
-
-foreach ($modules as $module)
+foreach (dir($core->Config->PROJECT_ROOT . '/' . $core->Config->MODULES_PATH)->read() as $module)
 {
     $core->Modules->addItem(new $module);
 }
