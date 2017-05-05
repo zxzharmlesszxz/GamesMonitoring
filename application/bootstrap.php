@@ -11,9 +11,11 @@ var_dump(config());
 
 $core = Core\Core::getInstance();
 
-foreach ()
-{
+$modules = dir($core->Config->MODULES_PATH)->read();
 
+foreach ($modules as $module)
+{
+    $core->Modules->addItem(new $module);
 }
 
 var_dump($core);

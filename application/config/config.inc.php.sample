@@ -12,6 +12,7 @@ $config = array(
  'DEFAULT_THEME' => 'Default',
  'CLASS_PATH' => 'application/classes',
  'INCLUDES_PATH' => 'application/includes',
+ 'MODULES_PATH' => 'application/Modules',
 
  'mysql' => array(
   'host' => 'localhost',
