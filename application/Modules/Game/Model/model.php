@@ -1,9 +1,10 @@
 <?php
 
-/**
- * Class Model_Games
- */
-class Model_Games extends Model
+namespace Module\Game;
+
+use Core\Interfaces\ModelInterface;
+
+class Model implements ModelInterface
 {
     /**
      * @param array $item

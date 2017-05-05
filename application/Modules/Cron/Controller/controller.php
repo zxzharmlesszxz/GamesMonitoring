@@ -10,12 +10,14 @@ use Module\Cron;
  */
 class Controller implements ControllerInterface
 {
+    public $Model;
+    public $View;
     /**
      * Controller constructor.
      */
     public function __construct()
     {
-        $this->model = new Cron\Model();
+        $this->Model = new Cron\Model();
     }
 
     /**
@@ -24,6 +26,6 @@ class Controller implements ControllerInterface
      */
     public function action($action = 'index')
     {
-        $this->view->generate('cron_view.php', 'cron_template.php', $this->model->get_data());
+        $this->view->generate('cron_view.php', 'cron_template.php', $this->Model->get_data());
     }
 }
