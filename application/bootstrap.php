@@ -17,6 +17,7 @@ while (false !== ($module = $modulesDir->read()))
         case 'Database':
             break;
         default:
+            use Module;
             $core->Modules->addItem(new $module);
             break;
     }
