@@ -20,12 +20,12 @@ require_once 'Model/model.php';
 class Admin implements Interfaces\ModuleInterface
 {
     /**
-     * @var Game\Controller
+     * @var Admin\Controller
      */
     public $Controller;
 
     /**
-     * Cron constructor.
+     * Admin constructor.
      */
     public function __construct()
     {

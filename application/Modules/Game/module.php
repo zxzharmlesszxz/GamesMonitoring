@@ -25,7 +25,7 @@ class Game implements Interfaces\ModuleInterface
     public $Controller;
 
     /**
-     * Cron constructor.
+     * Game constructor.
      */
     public function __construct()
     {
