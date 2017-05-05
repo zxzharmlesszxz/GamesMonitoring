@@ -27,6 +27,7 @@ class Core
     {
         $this->Config = Config::getInstance();
         $this->Router = new Router();
+        $this->Modules = new Collection();
     }
 
     /**
