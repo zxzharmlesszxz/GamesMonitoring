@@ -17,5 +17,5 @@ interface RouterInterface
     /**
      * @return mixed
      */
-    public function start();
+    static public function start();
 }
