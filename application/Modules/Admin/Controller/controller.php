@@ -1,5 +1,7 @@
 <?php
 
+namespace Module\Admin;
+use Core\Controller;
 /**
  * Class Controller_Admins
  */
@@ -18,7 +20,7 @@ class Controller_Admins extends Controller
      */
     public function action_edit()
     {
-        $this->view->generate('admin_edit.php', 'template_view.php', $this->model->get(intval($this->query['adminid'])));
+        $this->view->generate('admin_edit.php', 'template_view.php', $this->model->get(intval($this->query['id'])));
     }
 
     /**
@@ -26,7 +28,7 @@ class Controller_Admins extends Controller
      */
     public function action_changeStatus()
     {
-        $this->view->ajax($this->model->changeStatus(intval($this->query['adminid'])));
+        $this->view->ajax($this->model->changeStatus(intval($this->query['id'])));
     }
 
     /**
@@ -42,7 +44,7 @@ class Controller_Admins extends Controller
      */
     public function action_delete()
     {
-        $this->view->ajax($this->model->delete($this->model->get(intval($this->query['adminid']))->adminid));
+        $this->view->ajax($this->model->delete($this->model->get(intval($this->query['id']))->id));
     }
 
     /**

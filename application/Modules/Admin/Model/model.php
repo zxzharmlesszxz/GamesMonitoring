@@ -1,5 +1,8 @@
 <?php
 
+namespace Module\Admin;
+use Core\Model;
+
 /**
  * Class Model_Admins
  */
@@ -7,12 +10,12 @@ class Model_Admins extends Model
 {
 
     /**
-     * @param $adminid
+     * @param $id
      * @return mixed
      */
-    public function changeStatus($adminid)
+    public function changeStatus($id)
     {
-        return $admin = $this->get($adminid)->changeStatus();
+        return $admin = $this->get($id)->changeStatus();
     }
 
     /**
@@ -30,8 +33,8 @@ class Model_Admins extends Model
             unset($item['repassword']);
         }
 
-        $old = $this->items->getItem($item['adminid']);
-        unset($item['adminid']);
+        $old = $this->items->getItem($item['id']);
+        unset($item['id']);
 
         if (!$old) {
             return FALSE;
@@ -56,7 +59,7 @@ class Model_Admins extends Model
         $result = array();
         foreach ($items as $id => $item) {
             $result[] = array(
-                'adminid' => $item->adminid,
+                'id' => $item->id,
                 'login' => $item->login,
                 'username' => $item->username,
                 'email' => $item->email,

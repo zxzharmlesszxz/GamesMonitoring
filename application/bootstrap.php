@@ -11,6 +11,11 @@ var_dump(config());
 
 $core = Core\Core::getInstance();
 
+foreach ()
+{
+
+}
+
 var_dump($core);
 
 /**
