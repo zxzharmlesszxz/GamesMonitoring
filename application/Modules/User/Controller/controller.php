@@ -1,5 +1,8 @@
 <?php
 
+namespace Module\User;
+use Core\Controller;
+
 /**
  * Class Controller_Users
  */
@@ -31,7 +34,7 @@ class Controller_Users extends Controller
      */
     public function action_edit()
     {
-        $this->view->generate('user_edit.php', 'template_view.php', $this->model->get(intval($this->query['userid'])));
+        $this->view->generate('user_edit.php', 'template_view.php', $this->model->get(intval($this->query['id'])));
     }
 
     /**
@@ -39,7 +42,7 @@ class Controller_Users extends Controller
      */
     public function action_changeStatus()
     {
-        $this->view->ajax($this->model->changeStatus(intval($this->query['userid'])));
+        $this->view->ajax($this->model->changeStatus(intval($this->query['id'])));
     }
 
     /**
@@ -55,7 +58,7 @@ class Controller_Users extends Controller
      */
     public function action_delete()
     {
-        $user = $this->model->get(intval($this->query['userid']));
+        $user = $this->model->get(intval($this->query['id']));
         $data = $this->model->delete(intval($user->userid));
         $this->view->ajax($data);
     }
