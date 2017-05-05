@@ -1,5 +1,8 @@
 <?php
 
+namespace Module\User;
+use Database;
+
 /**
  * Class User
  */
