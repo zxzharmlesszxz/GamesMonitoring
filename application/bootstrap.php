@@ -9,6 +9,9 @@ Core\Registry::_set('config', Core\Config::getInstance());
 
 var_dump(config());
 
+$core = Core\Core::getInstance();
+
+var_dump($core);
 
 /**
  * @param $class

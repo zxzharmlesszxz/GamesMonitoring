@@ -9,6 +9,10 @@
 namespace Core;
 
 
+/**
+ * Class Core
+ * @package Core
+ */
 class Core
 {
     /**
