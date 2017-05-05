@@ -1,23 +1,28 @@
 <?php
 
+namespace Module\Cron;
+use Core\Interfaces\ControllerInterface;
+use Module\Cron;
+
 /**
- * Class Controller_cron
+ * Class Controller
+ * @package Module\Cron
  */
-class Controller_cron extends Controller
+class Controller implements ControllerInterface
 {
     /**
-     * Controller_cron constructor.
+     * Controller constructor.
      */
     public function __construct()
     {
-        parent::__construct();
-        $this->model = new Model_Cron();
+        $this->model = new Model();
     }
 
     /**
-     *
+     * @param string $action
+     * @return mixed|void
      */
-    public function action_index()
+    public function action($action = 'index')
     {
         $this->view->generate('cron_view.php', 'cron_template.php', $this->model->get_data());
     }

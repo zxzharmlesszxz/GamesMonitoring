@@ -7,12 +7,14 @@
  */
 
 namespace Module;
+
 use Core\Interfaces;
+
 require_once 'Controller/controller.php';
 
 /**
- * Class ModuleInterface
- * @package ModuleInterface\Error
+ * Class Error
+ * @package Module
  */
 class Error implements Interfaces\ModuleInterface
 {
@@ -22,7 +24,7 @@ class Error implements Interfaces\ModuleInterface
     public $Controller;
 
     /**
-     * ModuleInterface constructor.
+     * Error constructor.
      */
     public function __construct()
     {
@@ -35,6 +37,6 @@ spl_autoload_register(
  * @param $class
  */
     function ($class) {
-    $hierarchy = explode('\\', $class);
-    @include_once __DIR__ . '/Class/' . end($hierarchy) . '.php';
-});
+        $hierarchy = explode('\\', $class);
+        @include_once __DIR__ . '/Class/' . end($hierarchy) . '.php';
+    });

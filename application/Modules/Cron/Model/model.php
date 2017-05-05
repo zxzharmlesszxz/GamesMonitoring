@@ -1,29 +1,20 @@
 <?php
 
-/**
- * Class Model_Cron
- */
-class Model_Cron extends Model
+namespace Module\Cron;
+use Core\Interfaces\ModelInterface;
+
+class Model implements ModelInterface
 {
-    /**
-     * Model_Cron constructor.
-     */
     public function __construct()
     {
         parent::__construct("Server");
     }
 
-    /**
-     * @return Collection
-     */
     public function get_data()
     {
         return $this->cron_update();
     }
 
-    /**
-     * @return Collection
-     */
     protected function cron_update()
     {
         foreach ($this->items->keys() as $id) {
