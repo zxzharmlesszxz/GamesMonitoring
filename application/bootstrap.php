@@ -11,7 +11,7 @@ var_dump(config());
 
 $core = Core\Core::getInstance();
 
-$modules = dir($core->Config->MODULES_PATH)->read();
+$modules = dir($core->Config->PROJECT_ROOT . '/' . $core->Config->MODULES_PATH)->read();
 
 foreach ($modules as $module)
 {
