@@ -1,14 +1,20 @@
 <?php
 
+namespace Core;
+
+use Core\Interfaces\ViewInterface;
+
 /**
  * Class View
+ * @package Core
  */
-class View
+class View implements ViewInterface
 {
     /**
      * @param $content_view
      * @param $template_view
      * @param null $data
+     * @return mixed|void
      */
     public function generate($content_view, $template_view, $data = null)
     {
@@ -19,6 +25,7 @@ class View
 
     /**
      * @param null $data
+     * @return mixed|void
      */
     public function ajax($data = null)
     {
@@ -28,6 +35,7 @@ class View
 
     /**
      * @param null $data
+     * @return mixed|void
      */
     public function debug($data = null)
     {

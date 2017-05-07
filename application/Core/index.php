@@ -11,6 +11,7 @@ require_once 'Interface/ControllerInterface.php';
 require_once 'Interface/RouterInterface.php';
 require_once 'Interface/ModuleInterface.php';
 require_once 'Interface/ModelInterface.php';
+require_once 'Interface/ViewInterface.php';
 require_once 'Model/index.php';
 require_once 'Router/index.php';
 require_once 'View/index.php';
