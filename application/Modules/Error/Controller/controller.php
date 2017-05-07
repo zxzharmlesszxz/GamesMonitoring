@@ -22,6 +22,6 @@ class Controller implements Interfaces\ControllerInterface
      */
     public function action($action = 'index')
     {
-        $this->view->generate('module.php', 'template_view.php', "ModuleInterface/Method doesn't exists");
+
     }
 }
