@@ -11,16 +11,15 @@ namespace Module;
 use Core\Interfaces;
 
 require_once 'Controller/controller.php';
-require_once 'Model/model.php';
 
 /**
- * Class Contacts
+ * Class Contact
  * @package Module
  */
-class Contacts implements Interfaces\ModuleInterface
+class Contact implements Interfaces\ModuleInterface
 {
     /**
-     * @var Contacts\Controller
+     * @var Contact\Controller
      */
     public $Controller;
 
@@ -29,7 +28,7 @@ class Contacts implements Interfaces\ModuleInterface
      */
     public function __construct()
     {
-        $this->Controller = new Contacts\Controller();
+        $this->Controller = new Contact\Controller();
     }
 }
 

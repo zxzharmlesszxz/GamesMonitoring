@@ -1,24 +1,29 @@
 <?php
 
-/**
- * Class Controller_Contacts
- */
-class Controller_Contacts extends Controller
-{
+namespace Module\Contact;
 
+use Core\Interfaces;
+
+/**
+ * Class Controller
+ * @package Module\Contact
+ */
+class Controller implements Interfaces\ControllerInterface
+{
     /**
-     * Controller_Contacts constructor.
+     * Controller constructor.
      */
     public function __construct()
     {
-        parent::__construct();
+
     }
 
     /**
-     *
+     * @param string $action
+     * @return mixed|void
      */
-    public function action_index()
+    public function action($action = 'index')
     {
-        $this->view->generate('module.php', 'template_view.php');
+
     }
 }
