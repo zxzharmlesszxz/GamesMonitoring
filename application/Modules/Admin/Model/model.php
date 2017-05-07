@@ -2,13 +2,13 @@
 
 namespace Module\Admin;
 
-use Core\Interfaces\ModelInterface;
+use Core\Interfaces;
 
 /**
  * Class Model
  * @package Module\Admin
  */
-class Model implements ModelInterface
+class Model implements Interfaces\ModelInterface
 {
     /**
      *
