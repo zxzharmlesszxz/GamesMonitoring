@@ -12,9 +12,9 @@ $config = array(
  'DEFAULT_THEME' => 'Default',
  'CLASS_PATH' => 'application/classes',
  'INCLUDES_PATH' => 'application/includes',
- 'MODULES_PATH' => 'application/Modules',
+ 'MODULE_PATH' => 'application/Module',
  'CORE_PATH' => 'application/Core',
- 'CORE_MODULES_PATH' => 'application/Core/Modules',
+ 'CORE_MODULE_PATH' => 'application/Core/Module',
 
  'mysql' => array(
   'host' => 'localhost',

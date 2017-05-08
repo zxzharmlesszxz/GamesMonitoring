@@ -36,7 +36,7 @@ class Core
         $this->Router = new Router();
         $this->Modules = new Collection();
         $this->CoreModules = new Collection();
-        $modulesDir = dir($this->Config->PROJECT_ROOT . '/' . $this->Config->CORE_MODULES_PATH);
+        $modulesDir = dir($this->Config->PROJECT_ROOT . '/' . $this->Config->CORE_MODULE_PATH);
         while (false !== ($module = $modulesDir->read()))
         {
             switch ($module) {
@@ -44,7 +44,7 @@ class Core
                 case '..':
                     break;
                 default:
-                    include_once $this->Config->PROJECT_ROOT . '/' . $this->Config->CORE_MODULES_PATH . '/' . $module . '/module.php';
+                    include_once $this->Config->PROJECT_ROOT . '/' . $this->Config->CORE_MODULE_PATH . '/' . $module . '/module.php';
                     $moduleName = "Module\\$module";
                     $this->registerCoreModule($module, new $moduleName);
                     break;

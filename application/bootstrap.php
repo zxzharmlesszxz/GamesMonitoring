@@ -9,7 +9,7 @@ Core\Registry::_set('config', Core\Config::getInstance());
 
 $core = Core\Core::getInstance();
 
-$modulesDir = dir($core->Config->PROJECT_ROOT . '/' . $core->Config->MODULES_PATH);
+$modulesDir = dir($core->Config->PROJECT_ROOT . '/' . $core->Config->MODULE_PATH);
 while (false !== ($module = $modulesDir->read()))
 {
     switch ($module) {
@@ -17,7 +17,7 @@ while (false !== ($module = $modulesDir->read()))
         case '..':
             break;
         default:
-            include_once $core->Config->PROJECT_ROOT . '/' . $core->Config->MODULES_PATH . '/' . $module . '/module.php';
+            include_once $core->Config->PROJECT_ROOT . '/' . $core->Config->MODULE_PATH . '/' . $module . '/module.php';
             $moduleName = "Module\\$module";
             $core->registerModule($module, new $moduleName);
             break;
