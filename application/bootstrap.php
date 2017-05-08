@@ -4,8 +4,6 @@ require_once 'Core/index.php';
 require_once 'includes/functions.inc.php';
 $core = Core\Core::getInstance();
 
-#Registry::_set('database', new MySQL_Database);
-
 $modulesDir = dir($core->Config->PROJECT_ROOT . '/' . $core->Config->MODULE_PATH);
 while (false !== ($module = $modulesDir->read())) {
     switch ($module) {
