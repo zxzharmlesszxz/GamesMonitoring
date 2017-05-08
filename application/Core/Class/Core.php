@@ -8,6 +8,7 @@
 
 namespace Core;
 use Core\Interfaces\ModuleInterface;
+use Core\Module;
 
 /**
  * Class Core
@@ -27,11 +28,17 @@ class Core
 
     protected $CoreModules;
 
+    public $Session;
+
+    public $Error;
+
     /**
      * Config constructor.
      */
     private function __construct()
     {
+        $this->Error = new Module\Error();
+        $this->Session = new Module\Session();
         $this->Config = Config::getInstance();
         $this->Router = new Router();
         $this->Modules = new Collection();
