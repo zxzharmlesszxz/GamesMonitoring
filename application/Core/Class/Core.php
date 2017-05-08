@@ -26,10 +26,19 @@ class Core
      */
     protected $Modules;
 
+    /**
+     * @var Collection
+     */
     protected $CoreModules;
 
+    /**
+     * @var Module\Session
+     */
     public $Session;
 
+    /**
+     * @var Module\Error
+     */
     public $Error;
 
     /**

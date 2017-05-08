@@ -7,8 +7,7 @@ $core = Core\Core::getInstance();
 #Registry::_set('database', new MySQL_Database);
 
 $modulesDir = dir($core->Config->PROJECT_ROOT . '/' . $core->Config->MODULE_PATH);
-while (false !== ($module = $modulesDir->read()))
-{
+while (false !== ($module = $modulesDir->read())) {
     switch ($module) {
         case '.':
         case '..':
@@ -39,22 +38,28 @@ function __autoload($class)
 /**
  * @return mixed|null
  */
-function config(){
- return Core\Registry::_get('config');
+function config()
+{
+    global $core;
+    return $core->Config;
 }
 
 /**
  * @return mixed|null
  */
-function db(){
- return Core\Registry::_get('database');
+function db()
+{
+    global $core;
+    return $core->getCoreModule('Database');
 }
 
 /**
  * @return mixed|null
  */
-function session() {
- return Core\Registry::_get('session');
+function session()
+{
+    global $core;
+    return $core->getCoreModule('Session');
 }
 
 Core\Router::start();
