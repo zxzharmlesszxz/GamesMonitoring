@@ -25,7 +25,7 @@ var_dump($core->CoreModules);
 var_dump($core->getCoreModule('Error'));
 var_dump($core->Modules);
 var_dump($core->getModule('Admin'));
-var_dump(config());
+var_dump($core->Config);
 
 /**
  * @param $class
@@ -35,31 +35,4 @@ function __autoload($class)
     @include_once __DIR__ . "/classes/${class}.class.php";
 }
 
-/**
- * @return mixed|null
- */
-function config()
-{
-    global $core;
-    return $core->Config;
-}
-
-/**
- * @return mixed|null
- */
-function db()
-{
-    global $core;
-    return $core->getCoreModule('Database');
-}
-
-/**
- * @return mixed|null
- */
-function session()
-{
-    global $core;
-    return $core->getCoreModule('Session');
-}
-
-Core\Router::start();
+$core->Router->start();
