@@ -6,7 +6,7 @@
  * Time: 17:37
  */
 
-namespace Core\Module\Session;
+namespace Core\Module;
 
 use Core\Interfaces;
 
@@ -20,7 +20,7 @@ require_once 'Model/model.php';
 class Session implements Interfaces\ModuleInterface
 {
     /**
-     * @var Controller
+     * @var Session\Controller
      */
     public $Controller;
 
@@ -29,7 +29,7 @@ class Session implements Interfaces\ModuleInterface
      */
     public function __construct()
     {
-        $this->Controller = new Controller();
+        $this->Controller = new Session\Controller();
     }
 }
 

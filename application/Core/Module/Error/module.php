@@ -6,7 +6,7 @@
  * Time: 17:37
  */
 
-namespace Core\Module\Error;
+namespace Core\Module;
 
 use Core\Interfaces;
 
@@ -19,7 +19,7 @@ require_once 'Controller/controller.php';
 class Error implements Interfaces\ModuleInterface
 {
     /**
-     * @var Controller
+     * @var Error\Controller
      */
     public $Controller;
 
@@ -28,7 +28,7 @@ class Error implements Interfaces\ModuleInterface
      */
     public function __construct()
     {
-        $this->Controller = new Controller();
+        $this->Controller = new Error\Controller();
     }
 }
 
