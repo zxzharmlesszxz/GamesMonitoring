@@ -77,7 +77,7 @@ class Core
 
 
     /**
-     * @return Config
+     * @return Core
      */
     static public function getInstance()
     {
@@ -115,17 +115,19 @@ class Core
 
     /**
      * @param $name
+     * @return mixed
      */
     public function getModule($name)
     {
-        $this->Modules->getItem($name);
+        return $this->Modules->getItem($name);
     }
 
     /**
      * @param $name
+     * @return mixed
      */
     public function getCoreModule($name)
     {
-        $this->CoreModules->getItem($name);
+       return  $this->CoreModules->getItem($name);
     }
 }
