@@ -20,13 +20,6 @@ while (false !== ($module = $modulesDir->read())) {
     }
 }
 
-var_dump($core);
-var_dump($core->CoreModules);
-var_dump($core->getCoreModule('Error'));
-var_dump($core->Modules);
-var_dump($core->getModule('Admin'));
-var_dump($core->Config);
-
 /**
  * @param $class
  */
@@ -35,4 +28,4 @@ function __autoload($class)
     @include_once __DIR__ . "/classes/${class}.class.php";
 }
 
-$core->Router->start();
+var_dump($core->Router->start());
