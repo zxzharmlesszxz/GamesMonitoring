@@ -28,4 +28,4 @@ function __autoload($class)
     @include_once __DIR__ . "/classes/${class}.class.php";
 }
 
-var_dump($core->Router->start());
+$core->Router->start();
