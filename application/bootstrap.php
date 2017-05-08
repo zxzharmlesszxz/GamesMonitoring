@@ -2,12 +2,11 @@
 
 require_once 'Core/index.php';
 require_once 'includes/functions.inc.php';
+$core = Core\Core::getInstance();
 
 Core\Registry::_set('config', Core\Config::getInstance());
 #Registry::_set('database', new MySQL_Database);
 #Registry::_set('session', new Session);
-
-$core = Core\Core::getInstance();
 
 $modulesDir = dir($core->Config->PROJECT_ROOT . '/' . $core->Config->MODULE_PATH);
 while (false !== ($module = $modulesDir->read()))
