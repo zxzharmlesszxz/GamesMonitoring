@@ -25,10 +25,16 @@ class Session implements Interfaces\ModuleInterface
     public $Controller;
 
     /**
+     * @var Session\Session
+     */
+    public $Session;
+
+    /**
      * Session constructor.
      */
     public function __construct()
     {
+        $this->Session = new Session\Session();
         $this->Controller = new Session\Controller();
     }
 }

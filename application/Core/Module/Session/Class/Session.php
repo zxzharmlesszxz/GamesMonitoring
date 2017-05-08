@@ -1,7 +1,10 @@
 <?php
 
+namespace Core\Module\Session;
+
 /**
  * Class Session
+ * @package Core\Module\Session
  */
 class Session
 {
@@ -12,7 +15,7 @@ class Session
     /**
      * @var
      */
-    public $userid;
+    public $id;
     /**
      * @var
      */
@@ -47,7 +50,7 @@ class Session
     public function login($user)
     {
         if ($user) {
-            $this->{$user->id()} = $_SESSION[$user->id()] = $user->{$user->id()};
+            $this->id = $_SESSION['id'] = $user->id;
             $this->logged_in = true;
         }
     }
@@ -57,8 +60,8 @@ class Session
      */
     public function logout()
     {
-        unset($_SESSION['userid']);
-        unset($this->userid);
+        unset($_SESSION['id']);
+        unset($this->id);
         $this->logged_in = false;
     }
 
@@ -80,11 +83,11 @@ class Session
      */
     private function check_login()
     {
-        if (isset($_SESSION['userid'])) {
-            $this->userid = $_SESSION['userid'];
+        if (isset($_SESSION['id'])) {
+            $this->id = $_SESSION['id'];
             $this->logged_in = true;
         } else {
-            unset($this->userid);
+            unset($this->id);
             $this->logged_in = false;
         }
     }
