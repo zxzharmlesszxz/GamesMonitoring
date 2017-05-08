@@ -13,6 +13,8 @@ $config = array(
  'CLASS_PATH' => 'application/classes',
  'INCLUDES_PATH' => 'application/includes',
  'MODULES_PATH' => 'application/Modules',
+ 'CORE_PATH' => 'application/Core',
+ 'CORE_MODULES_PATH' => 'application/Core/Modules',
 
  'mysql' => array(
   'host' => 'localhost',

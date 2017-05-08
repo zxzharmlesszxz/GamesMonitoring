@@ -7,10 +7,8 @@
  */
 
 namespace Core;
-require_once 'Controller/module.php';
-require_once 'Model/module.php';
-require_once 'Router/module.php';
-require_once 'View/module.php';
+require_once 'Controller/controller.php';
+require_once 'Model/model.php';
 
 
 spl_autoload_register(function ($class) {

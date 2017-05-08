@@ -25,6 +25,8 @@ class Core
      */
     protected $Modules;
 
+    protected $CoreModules;
+
     /**
      * Config constructor.
      */
@@ -33,6 +35,21 @@ class Core
         $this->Config = Config::getInstance();
         $this->Router = new Router();
         $this->Modules = new Collection();
+        $this->CoreModules = new Collection();
+        $modulesDir = dir($core->Config->PROJECT_ROOT . '/' . $core->Config->CORE_MODULES_PATH);
+        while (false !== ($module = $modulesDir->read()))
+        {
+            switch ($module) {
+                case '.':
+                case '..':
+                    break;
+                default:
+                    include_once $core->Config->PROJECT_ROOT . '/' . $core->Config->CORE_MODULES_PATH . '/' . $module . '/module.php';
+                    $moduleName = "Module\\$module";
+                    $core->registerCoreModule($module, new $moduleName);
+                    break;
+            }
+        }
     }
 
     /**
@@ -77,6 +94,11 @@ class Core
     public function registerModule($name, ModuleInterface $module)
     {
         $this->Modules->addItem($module, $name);
+    }
+
+    protected function registerCoreModule($name, ModuleInterface $module)
+    {
+        $this->CoreModules->addItem($module, $name);
     }
 
     /**
