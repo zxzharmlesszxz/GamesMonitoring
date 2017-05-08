@@ -1,63 +1,29 @@
 <?php
 
+namespace Module\Mode;
+
+use Core\Interfaces;
+
 /**
- * Class Controller_Modes
+ * Class Controller
+ * @package Module\Mode
  */
-class Controller_Modes extends Controller
+class Controller implements Interfaces\ControllerInterface
 {
     /**
-     *
+     * Controller constructor.
      */
-    public function action_index()
+    public function __construct()
     {
-        $this->view->generate('modes_view.php', 'template_view.php', $this->model->get_data());
+
     }
 
     /**
-     *
+     * @param string $action
+     * @return mixed|void
      */
-    public function action_edit()
+    public function action($action = 'index')
     {
-        $this->view->generate('mode_edit.php', 'template_view.php', $this->model->get(intval($this->query['modeid'])));
-    }
 
-    /**
-     *
-     */
-    public function action_create()
-    {
-        $this->view->ajax($this->model->create($this->query['mode']));
-    }
-
-    /**
-     *
-     */
-    public function action_delete()
-    {
-        $this->view->ajax($this->model->delete($this->model->get(intval($this->query['modeid']))->modeid));
-    }
-
-    /**
-     *
-     */
-    public function action_update()
-    {
-        $this->view->ajax($this->model->update($this->query['mode']));
-    }
-
-    /**
-     *
-     */
-    public function action_show()
-    {
-        $this->view->generate('mode_show.php', 'template_view.php', ($this->model->get_data()->keyExists($this->query['modeid'])) ? $this->model->get($this->query['modeid']) : NULL);
-    }
-
-    /**
-     *
-     */
-    public function action_getAll()
-    {
-        $this->view->ajax($this->model->getAjax());
     }
 }

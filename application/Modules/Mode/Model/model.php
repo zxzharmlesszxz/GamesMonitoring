@@ -1,45 +1,31 @@
 <?php
 
+namespace Module\Mode;
+use Core\Interfaces;
+
 /**
- * Class Model_Modes
+ * Class Model
+ * @package Module\Mode
  */
-class Model_Modes extends Model
+class Model implements Interfaces\ModelInterface
 {
     /**
-     * @param array $item
-     * @return bool|mixed
+     *
      */
-    public function update(array $item)
-    {
-        $item = array_map("trim", $item);
-
-        $old = $this->items->getItem($item['modeid']);
-        unset($item['modeid']);
-
-        if (!$old) {
-            return FALSE;
-        }
-        foreach ($item as $key => $value) {
-            $old->$key = $value;
-        }
-        return $old->save() ? $old : false;
-    }
+    public function create() {}
 
     /**
-     * @return array
+     *
      */
-    public function getAjax()
-    {
-        $items = parent::getAjax()['data'];
-        $result = array();
-        foreach ($items as $id => $item) {
-            $result[] = array(
-                'modeid' => $item->modeid,
-                'fullname' => $item->fullname,
-                'shortname' => $item->shortname,
-                'description' => $item->description
-            );
-        }
-        return array('data' => $result);
-    }
+    public function get() {}
+
+    /**
+     *
+     */
+    public function delete() {}
+
+    /**
+     *
+     */
+    public function save() {}
 }
