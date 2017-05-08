@@ -27,7 +27,7 @@ while (false !== ($module = $modulesDir->read()))
 var_dump($core);
 var_dump($core->CoreModules);
 var_dump($core->Modules);
-var_dump($core->getModule('Error'));
+var_dump($core->getModule('Admin'));
 
 /**
  * @param $class
