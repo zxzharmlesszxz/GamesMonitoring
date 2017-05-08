@@ -37,8 +37,6 @@ class Core
      */
     private function __construct()
     {
-        $this->Error = new Module\Error();
-        $this->Session = new Module\Session();
         $this->Config = Config::getInstance();
         $this->Router = new Router();
         $this->Modules = new Collection();
@@ -57,6 +55,8 @@ class Core
                     break;
             }
         }
+        $this->Error = new Module\Error();
+        $this->Session = new Module\Session();
     }
 
     /**
