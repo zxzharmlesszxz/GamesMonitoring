@@ -64,8 +64,8 @@ class Core
                     break;
             }
         }
-        $this->Error = new Module\Error();
-        $this->Session = new Module\Session();
+        $this->Error = $this->getCoreModule('Error');
+        $this->Session = $this->getCoreModule('Session');
     }
 
     /**
