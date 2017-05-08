@@ -16,9 +16,9 @@ class Router implements RouterInterface
     static public function start()
     {
         $routes = explode('/', $_SERVER['REQUEST_URI']);
-        $controller_name = 'Controller_' . (!empty($routes[1]) ? $routes[1] : 'Main');
-        $action_name = 'action_' . (!empty($routes[2]) ? $routes[2] : 'index');
-        $model_name = 'Model_' . (!empty($routes[1]) ? $routes[1] : 'Main');
+        $controller_name = 'Controller';
+        $action_name = (!empty($routes[2]) ? $routes[2] : 'index');
+        $model_name = 'Model';
 
         echo "Model: $model_name <br>";
         echo "Controller: $controller_name <br>";
