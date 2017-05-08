@@ -96,6 +96,10 @@ class Core
         $this->Modules->addItem($module, $name);
     }
 
+    /**
+     * @param $name
+     * @param ModuleInterface $module
+     */
     protected function registerCoreModule($name, ModuleInterface $module)
     {
         $this->CoreModules->addItem($module, $name);
@@ -115,5 +119,13 @@ class Core
     public function getModule($name)
     {
         $this->Modules->getItem($name);
+    }
+
+    /**
+     * @param $name
+     */
+    public function getCoreModule($name)
+    {
+        $this->CoreModules->getItem($name);
     }
 }
