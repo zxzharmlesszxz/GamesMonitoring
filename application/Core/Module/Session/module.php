@@ -6,11 +6,38 @@
  * Time: 17:37
  */
 
-namespace Core;
+namespace Core\Module\Session;
+
+use Core\Interfaces;
+
 require_once 'Controller/controller.php';
 require_once 'Model/model.php';
 
+/**
+ * Class Session
+ * @package Core\Module\Session
+ */
+class Session implements Interfaces\ModuleInterface
+{
+    /**
+     * @var Controller
+     */
+    public $Controller;
 
-spl_autoload_register(function ($class) {
-    @include_once __DIR__ . "/Class/${class}.php";
-});
+    /**
+     * Session constructor.
+     */
+    public function __construct()
+    {
+        $this->Controller = new Controller();
+    }
+}
+
+spl_autoload_register(
+/**
+ * @param $class
+ */
+    function ($class) {
+        $hierarchy = explode('\\', $class);
+        @include_once __DIR__ . '/Class/' . end($hierarchy) . '.php';
+    });
