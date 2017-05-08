@@ -45,7 +45,7 @@ class Core
                     break;
                 default:
                     include_once $this->Config->PROJECT_ROOT . '/' . $this->Config->CORE_MODULE_PATH . '/' . $module . '/module.php';
-                    $moduleName = "Module\\$module";
+                    $moduleName = "Core\\Module\\$module";
                     $this->registerCoreModule($module, new $moduleName);
                     break;
             }
