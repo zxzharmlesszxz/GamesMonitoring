@@ -5,12 +5,12 @@
  */
 
 namespace Core;
-class Config
+final class Config
 {
     /**
      * @var
      */
-    static public $instance;
+    private static $instance;
     /**
      * @var
      */
