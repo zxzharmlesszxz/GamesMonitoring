@@ -13,6 +13,7 @@ require_once 'Interface/ModuleInterface.php';
 require_once 'Interface/ModelInterface.php';
 require_once 'Interface/ViewInterface.php';
 require_once 'Interface/WebPageInterface.php';
+require_once 'Interface/MemberInterface.php';
 
 spl_autoload_register(
 /**

@@ -1,13 +1,14 @@
 <?php
 
 namespace Core\Module\User;
+use Core\Interfaces;
 use Database;
 
 /**
  * Class User
  * @package Core\Module\User
  */
-class User extends DatabaseObject
+class User extends DatabaseObject implements Interfaces\MemberInterface
 {
     /**
      * @var string
