@@ -69,7 +69,7 @@ class Core
         $this->Error = $this->getCoreModule('Error');
         $this->Session = $this->getCoreModule('Session');
         $theme = (!is_null($this->Config->THEME) ? $this->Config->THEME : $this->Config->DEFAULT_THEME);
-        include_once $this->Config->THEME_PATH . "/" . $theme . "/index.php";
+        include_once $this->Config->PROJECT_ROOT . '/' .$this->Config->THEME_PATH . '/' . $theme . '/index.php';
         $themeClass = "\Theme\\$theme\Theme";
         $this->Theme = new $themeClass();
     }
