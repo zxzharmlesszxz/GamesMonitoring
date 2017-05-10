@@ -38,7 +38,7 @@ class Theme implements ThemeInterface
     public function __construct(string $theme)
     {
         $this->theme = $theme;
-        echo "$theme theme<br />";
+        echo "$this->theme theme<br />";
     }
 
     /**
