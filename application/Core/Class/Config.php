@@ -5,7 +5,9 @@
  */
 
 namespace Core;
-final class Config
+use Core\Interfaces\SingletonInterface;
+
+final class Config implements SingletonInterface
 {
     /**
      * @var
@@ -48,7 +50,6 @@ final class Config
     private function __wakeup()
     {
     }
-
 
     /**
      * @return Config

@@ -7,21 +7,26 @@
 namespace Core;
 
 use Core\Interfaces\RouterInterface;
+use Core\Interfaces\SingletonInterface;
 
-class Router implements RouterInterface
+class Router implements RouterInterface, SingletonInterface
 {
+    /**
+     * @var
+     */
+    private static $instance;
+
+    protected $routes;
+
     /**
      *
      */
-    static public function start()
+    public function start()
     {
+        $this->routes = new Collection();
         $routes = explode('/', $_SERVER['REQUEST_URI']);
-        $controller_name = 'Controller';
         $action_name = (!empty($routes[2]) ? $routes[2] : 'index');
-        $model_name = 'Model';
 
-        echo "Model: $model_name <br>";
-        echo "Controller: $controller_name <br>";
         echo "Action: $action_name <br>";
     }
 
@@ -32,5 +37,41 @@ class Router implements RouterInterface
     {
         header('HTTP/1.1 404 Not Found');
         header('Status: 404 Not Found');
+    }
+
+    /**
+     * @param $key
+     * @return mixed|void
+     */
+    public function __get($key)
+    {
+
+    }
+
+    /**
+     * @return Router
+     */
+    static public function getInstance()
+    {
+        if (is_null(self::$instance)) {
+            self::$instance = new self;
+        }
+        return self::$instance;
+    }
+
+    /**
+     *
+     */
+    public function __clone()
+    {
+
+    }
+
+    /**
+     *
+     */
+    public function __wakeup()
+    {
+
     }
 }

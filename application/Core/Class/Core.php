@@ -8,13 +8,14 @@
 
 namespace Core;
 use Core\Interfaces\ModuleInterface;
+use Core\Interfaces\SingletonInterface;
 use Core\Module;
 
 /**
  * Class Core
  * @package Core
  */
-class Core
+class Core implements SingletonInterface
 {
     /**
      * @var
@@ -47,7 +48,7 @@ class Core
     private function __construct()
     {
         $this->Config = Config::getInstance();
-        $this->Router = new Router();
+        $this->Router = Router::getInstance();
         $this->Modules = new Collection();
         $this->CoreModules = new Collection();
         $this->loadCoreModules();
