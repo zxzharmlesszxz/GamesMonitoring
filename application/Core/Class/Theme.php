@@ -38,7 +38,8 @@ class Theme implements ThemeInterface
 
     /**
      * Theme constructor.
-     * @param string $theme
+     * @param string $themeName
+     * @internal param string $theme
      */
     public function __construct(string $themeName)
     {
