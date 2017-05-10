@@ -28,7 +28,4 @@ function __autoload($class)
 
 $core->Router->start();
 
-
-var_dump($core);
-
 var_dump($core->getCoreModule('Admin'));
