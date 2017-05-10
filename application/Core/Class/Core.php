@@ -41,6 +41,8 @@ class Core
      */
     public $Error;
 
+    public $Theme;
+
     /**
      * Config constructor.
      */
@@ -66,6 +68,7 @@ class Core
         }
         $this->Error = $this->getCoreModule('Error');
         $this->Session = $this->getCoreModule('Session');
+        $this->Theme = new Theme($this->Config->DEFAULT_THEME);
     }
 
     /**
