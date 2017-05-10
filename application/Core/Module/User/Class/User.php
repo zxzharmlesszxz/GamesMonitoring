@@ -8,7 +8,7 @@ use Database;
  * Class User
  * @package Core\Module\User
  */
-class User extends DatabaseObject implements Interfaces\MemberInterface
+class User extends Database\DatabaseObject implements Interfaces\MemberInterface
 {
     /**
      * @var string

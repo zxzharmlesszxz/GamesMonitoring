@@ -3,11 +3,12 @@
 namespace Module\Admin;
 
 use Core\Interfaces;
+use Database;
 
 /***
  * Admin class
  ***/
-class Admin extends DatabaseObject implements Interfaces\MemberInterface
+class Admin extends Database\DatabaseObject implements Interfaces\MemberInterface
 {
     /**
      * @var string
