@@ -68,6 +68,10 @@ class Core
         }
         $this->Error = $this->getCoreModule('Error');
         $this->Session = $this->getCoreModule('Session');
+        var_dump($this->Config->DEFAULT_THEME);
+        var_dump($this->Config->THEME);
+        var_dump(!isset($this->Config->THEME) ? $this->Config->DEFAULT_THEME : $this->Config->THEME);
+        var_dump((!isset($this->Config->THEME) ? $this->Config->DEFAULT_THEME : $this->Config->THEME));
         $this->Theme = new Theme((!isset($this->Config->THEME) ? $this->Config->DEFAULT_THEME : $this->Config->THEME));
     }
 
