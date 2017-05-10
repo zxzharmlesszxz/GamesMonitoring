@@ -31,7 +31,7 @@ class Theme implements ThemeInterface
      */
     public function __construct()
     {
-        echo __CLASS__ ." theme<br />";
+        echo get_called_class() ." theme<br />";
     }
 
     /**
