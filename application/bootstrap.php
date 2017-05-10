@@ -30,3 +30,5 @@ $core->Router->start();
 
 
 var_dump($core);
+
+$core->getCoreModule('Test');
