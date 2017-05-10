@@ -15,7 +15,7 @@ use Database\DatabaseObject;
  * Class Member
  * @package Core
  */
-class Member extends DatabaseObject implements Interfaces\MemberInterface
+abstract class Member extends DatabaseObject implements Interfaces\MemberInterface
 {
     /**
      *
