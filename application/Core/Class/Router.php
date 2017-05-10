@@ -16,27 +16,17 @@ class Router implements RouterInterface, SingletonInterface
      */
     private static $instance;
 
-    protected $routes;
+    private static $routes;
 
     /**
      *
      */
-    public function start()
+    static public function start()
     {
-        $this->routes = new Collection();
         $routes = explode('/', $_SERVER['REQUEST_URI']);
         $action_name = (!empty($routes[2]) ? $routes[2] : 'index');
 
         echo "Action: $action_name <br>";
-    }
-
-    /**
-     *
-     */
-    protected function ErrorPage404()
-    {
-        header('HTTP/1.1 404 Not Found');
-        header('Status: 404 Not Found');
     }
 
     /**
@@ -55,6 +45,7 @@ class Router implements RouterInterface, SingletonInterface
     {
         if (is_null(self::$instance)) {
             self::$instance = new self;
+            self::$routes = new Collection();
         }
         return self::$instance;
     }
