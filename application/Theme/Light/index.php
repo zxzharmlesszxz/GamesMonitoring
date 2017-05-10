@@ -17,10 +17,10 @@ class Theme extends \Core\Theme
     /**
      * @var
      */
-    protected $styles;
+    protected $styles = 'light';
 
     /**
      * @var
      */
-    protected $jscripts;
+    protected $jscripts = 'light';
 }

@@ -15,6 +15,7 @@ $config = array(
  'MODULE_PATH' => 'application/Module',
  'CORE_PATH' => 'application/Core',
  'CORE_MODULE_PATH' => 'application/Core/Module',
+ 'THEME_PATH' => 'application/Theme',
 
  'mysql' => array(
   'host' => 'localhost',

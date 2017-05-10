@@ -27,26 +27,11 @@ class Theme implements ThemeInterface
     protected $jscripts;
 
     /**
-     * @var string
-     */
-    private $themeName;
-
-    /**
-     * @var
-     */
-    private $theme;
-
-    /**
      * Theme constructor.
-     * @param string $theme
-     * @internal param string $theme
      */
-    public function __construct(string $theme)
+    public function __construct()
     {
-        include_once __DIR__ . "/../../Theme/$theme/index.php";
-        $this->themeName = "Theme\\$theme\Theme";
-        $this->theme = new $this->themeName;
-        echo "$this->themeName theme<br />";
+        echo __CLASS__ ." theme<br />";
     }
 
     /**
