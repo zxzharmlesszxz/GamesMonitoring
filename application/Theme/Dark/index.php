@@ -17,7 +17,7 @@ class Theme extends \Core\Theme
     /**
      * @var
      */
-    protected $styles = array(__DIR__ . 'style/style.less');
+    protected $styles = array('style/style.less');
 
     /**
      * @var
