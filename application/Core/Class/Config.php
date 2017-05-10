@@ -11,6 +11,7 @@ final class Config
      * @var
      */
     private static $instance;
+
     /**
      * @var
      */
