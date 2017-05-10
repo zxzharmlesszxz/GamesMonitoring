@@ -15,5 +15,7 @@ namespace Core\Interfaces;
  */
 interface WebPageInterface
 {
+    public function generate();
 
+    public function output();
 }

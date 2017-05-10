@@ -14,7 +14,7 @@ use Core\Interfaces\ThemeInterface;
  * Class Theme
  * @package Core
  */
-class Theme implements ThemeInterface
+abstract class Theme implements ThemeInterface
 {
     /**
      * @var
