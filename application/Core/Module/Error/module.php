@@ -24,11 +24,24 @@ class Error implements Interfaces\ModuleInterface
     public $Controller;
 
     /**
+     * @var
+     */
+    public $message;
+
+    /**
      * Error constructor.
      */
     public function __construct()
     {
         $this->Controller = new Error\Controller();
+    }
+
+    /**
+     * @param string $message
+     */
+    public function message(string $message)
+    {
+        $this->message = $message;
     }
 }
 

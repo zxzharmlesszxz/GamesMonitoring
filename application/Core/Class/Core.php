@@ -91,7 +91,6 @@ class Core
     {
     }
 
-
     /**
      * @return Core
      */
