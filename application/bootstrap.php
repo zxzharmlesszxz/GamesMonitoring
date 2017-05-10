@@ -32,3 +32,4 @@ $core->Router->start();
 var_dump($core);
 
 $core->getCoreModule('Test');
+var_dump($core->getCoreModule('Admin'));
