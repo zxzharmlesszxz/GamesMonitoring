@@ -44,7 +44,7 @@ class Theme implements ThemeInterface
     public function __construct(string $theme)
     {
         include_once __DIR__ . "/../../Theme/$theme/index.php";
-        $this->themeName = "Theme\\$theme";
+        $this->themeName = "Theme\\$theme\Theme";
         $this->theme = new $this->themeName;
         echo "$this->themeName theme<br />";
     }
