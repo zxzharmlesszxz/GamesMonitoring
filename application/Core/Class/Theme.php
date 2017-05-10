@@ -38,12 +38,12 @@ class Theme implements ThemeInterface
 
     /**
      * Theme constructor.
-     * @param string $themeName
+     * @param string $theme
      * @internal param string $theme
      */
-    public function __construct(string $themeName)
+    public function __construct(string $theme)
     {
-        $this->themeName = "Theme\$theme";
+        $this->themeName = "Theme\\$theme";
         $this->theme = new $this->themeName;
         echo "$this->themeName theme<br />";
     }
