@@ -50,21 +50,7 @@ class Core
         $this->Router = new Router();
         $this->Modules = new Collection();
         $this->CoreModules = new Collection();
-        $modulesDir = dir($this->Config->PROJECT_ROOT . '/' . $this->Config->CORE_MODULE_PATH);
-        while (false !== ($module = $modulesDir->read()))
-        {
-            switch ($module) {
-                case '.':
-                case '..':
-                    break;
-                default:
-                    include_once $this->Config->PROJECT_ROOT . '/' . $this->Config->CORE_MODULE_PATH . '/' . $module . '/module.php';
-                    $moduleName = "Core\\Module\\$module";
-                    $this->registerCoreModule($module, new $moduleName);
-                    break;
-            }
-        }
-        $this->Error = $this->getCoreModule('Error');
+        $this->loadCoreModules();
         $this->Session = $this->getCoreModule('Session');
         $theme = (!is_null($this->Config->THEME) ? $this->Config->THEME : $this->Config->DEFAULT_THEME);
         include_once $this->Config->PROJECT_ROOT . '/' .$this->Config->THEME_PATH . '/' . $theme . '/index.php';
@@ -122,6 +108,28 @@ class Core
     protected function registerCoreModule($name, ModuleInterface $module)
     {
         $this->CoreModules->addItem($module, $name);
+    }
+
+    /**
+     *
+     */
+    protected function loadCoreModules()
+    {
+        $modulesDir = dir($this->Config->PROJECT_ROOT . '/' . $this->Config->CORE_MODULE_PATH);
+
+        while (false !== ($module = $modulesDir->read()))
+        {
+            switch ($module) {
+                case '.':
+                case '..':
+                    break;
+                default:
+                    include_once $this->Config->PROJECT_ROOT . '/' . $this->Config->CORE_MODULE_PATH . '/' . $module . '/module.php';
+                    $moduleName = "Core\\Module\\$module";
+                    $this->registerCoreModule($module, new $moduleName);
+                    break;
+            }
+        }
     }
 
     /**
