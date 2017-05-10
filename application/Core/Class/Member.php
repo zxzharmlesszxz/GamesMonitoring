@@ -1,0 +1,35 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: harmless
+ * Date: 10.05.17
+ * Time: 12:31
+ */
+
+namespace Core;
+
+use Core\Interfaces;
+use Database\DatabaseObject;
+
+/**
+ * Class Member
+ * @package Core
+ */
+class Member extends DatabaseObject implements Interfaces\MemberInterface
+{
+    /**
+     *
+     */
+    public function login()
+    {
+        // TODO: Implement login() method.
+    }
+
+    /**
+     *
+     */
+    public function logout()
+    {
+        // TODO: Implement logout() method.
+    }
+}

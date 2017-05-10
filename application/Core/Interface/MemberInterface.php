@@ -8,12 +8,19 @@
 
 namespace Core\Interfaces;
 
-
 /**
  * Interface MemberInterface
  * @package Core\Interfaces
  */
 interface MemberInterface
 {
+    /**
+     * @return mixed
+     */
+    public function login();
 
+    /**
+     * @return mixed
+     */
+    public function logout();
 }
