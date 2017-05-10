@@ -37,10 +37,8 @@ class Core
     public $Session;
 
     /**
-     * @var Module\Error
+     * @var
      */
-    public $Error;
-
     public $Theme;
 
     /**
