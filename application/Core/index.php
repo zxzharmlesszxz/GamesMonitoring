@@ -14,7 +14,11 @@ require_once 'Interface/ModelInterface.php';
 require_once 'Interface/ViewInterface.php';
 require_once 'Interface/WebPageInterface.php';
 
-spl_autoload_register(function ($class) {
-    $hierarchy = explode('\\', $class);
-    @include_once __DIR__ . '/Class/' . end($hierarchy) . '.php';
-});
+spl_autoload_register(
+/**
+ * @param $class
+ */
+    function ($class) {
+        $hierarchy = explode('\\', $class);
+        @include_once __DIR__ . '/Class/' . end($hierarchy) . '.php';
+    });
