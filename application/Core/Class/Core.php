@@ -73,7 +73,7 @@ class Core
         var_dump(is_null($this->Config->THEME));
         var_dump(!is_null($this->Config->THEME) ? $this->Config->THEME : $this->Config->DEFAULT_THEME);
         var_dump((!is_null($this->Config->THEME) ? $this->Config->THEME : $this->Config->DEFAULT_THEME));
-        $this->Theme = new Theme((is_null($this->Config->THEME) ? $this->Config->DEFAULT_THEME : $this->Config->DEFAULT_THEME));
+        $this->Theme = new Theme((!is_null($this->Config->THEME) ? $this->Config->THEME : $this->Config->DEFAULT_THEME));
     }
 
     /**
