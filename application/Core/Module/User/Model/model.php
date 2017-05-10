@@ -1,12 +1,11 @@
 <?php
 
-namespace Module\Admin;
-
+namespace Core\Module\User;
 use Core\Interfaces;
 
 /**
  * Class Model
- * @package Module\Admin
+ * @package Core\Module\User
  */
 class Model implements Interfaces\ModelInterface
 {

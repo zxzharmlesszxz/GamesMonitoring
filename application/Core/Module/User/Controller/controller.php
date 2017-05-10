@@ -1,12 +1,12 @@
 <?php
 
-namespace Module\User;
+namespace Core\Module\User;
 
 use Core\Interfaces;
 
 /**
  * Class Controller
- * @package Module\User
+ * @package Core\Module\User
  */
 class Controller implements Interfaces\ControllerInterface
 {

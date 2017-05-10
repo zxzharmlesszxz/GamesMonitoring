@@ -11,11 +11,16 @@ use Core\Interfaces;
 class Controller implements Interfaces\ControllerInterface
 {
     /**
+     * @var Model
+     */
+    public $Model;
+
+    /**
      * Controller constructor.
      */
     public function __construct()
     {
-
+        $this->Model = new Model();
     }
 
     /**

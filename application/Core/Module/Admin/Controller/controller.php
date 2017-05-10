@@ -1,12 +1,11 @@
 <?php
 
-namespace Module\Admin;
+namespace Core\Module\Admin;
 use Core\Interfaces\ControllerInterface;
-use Module\Admin;
 
 /**
  * Class Controller
- * @package Module\Admin
+ * @package Core\Module\Admin
  */
 class Controller implements ControllerInterface
 {
@@ -25,7 +24,7 @@ class Controller implements ControllerInterface
      */
     public function __construct()
     {
-        $this->Model = new Admin\Model();
+        $this->Model = new Model();
     }
 
     /**

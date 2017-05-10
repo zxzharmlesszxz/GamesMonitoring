@@ -1,10 +1,11 @@
 <?php
 
-namespace Module\User;
+namespace Core\Module\User;
 use Database;
 
 /**
  * Class User
+ * @package Core\Module\User
  */
 class User extends DatabaseObject
 {

@@ -6,7 +6,7 @@
  * Time: 17:37
  */
 
-namespace Module;
+namespace Core\Module;
 
 use Core\Interfaces;
 
@@ -14,22 +14,22 @@ require_once 'Controller/controller.php';
 require_once 'Model/model.php';
 
 /**
- * Class User
- * @package Module
+ * Class Admin
+ * @package Core\Module\Admin
  */
-class User implements Interfaces\ModuleInterface
+class Admin implements Interfaces\ModuleInterface
 {
     /**
-     * @var User\Controller
+     * @var Admin\Controller
      */
     public $Controller;
 
     /**
-     * User constructor.
+     * Admin constructor.
      */
     public function __construct()
     {
-        $this->Controller = new User\Controller();
+        $this->Controller = new Admin\Controller();
     }
 }
 
