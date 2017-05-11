@@ -8,6 +8,7 @@
 
 namespace Core;
 
+use Core\Interfaces\ModuleInterface;
 use Core\Interfaces\SingletonInterface;
 
 /**
@@ -103,7 +104,7 @@ class Core //implements SingletonInterface
      * @param $name
      * @param Module $module
      */
-    public function registerModule($name, \Module $module)
+    public function registerModule($name, ModuleInterface $module)
     {
         $this->Modules->addItem($module, $name);
     }
