@@ -15,7 +15,7 @@ use Core\Interfaces\SingletonInterface;
  * Class Core
  * @package Core
  */
-class Core //implements SingletonInterface
+class Core implements SingletonInterface
 {
     /**
      * @var
