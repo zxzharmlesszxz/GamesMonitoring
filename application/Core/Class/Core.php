@@ -103,7 +103,7 @@ class Core //implements SingletonInterface
      * @param $name
      * @param Module $module
      */
-    public function registerModule($name, Module $module)
+    public function registerModule($name, \Module $module)
     {
         $this->Modules->addItem($module, $name);
     }
