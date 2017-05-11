@@ -104,7 +104,7 @@ class Core implements SingletonInterface
      * @param $name
      * @param Module $module
      */
-    public function registerModule($name, ModuleInterface $module)
+    public function registerModule($name, \Module $module)
     {
         $this->Modules->addItem($module, $name);
     }
@@ -113,7 +113,7 @@ class Core implements SingletonInterface
      * @param $name
      * @param Module $module
      */
-    protected function registerCoreModule($name, Module $module)
+    protected function registerCoreModule($name, Core\Module $module)
     {
         $this->CoreModules->addItem($module, $name);
     }

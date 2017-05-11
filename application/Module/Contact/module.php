@@ -8,15 +8,13 @@
 
 namespace Module;
 
-use Core\Interfaces;
-
 require_once 'Controller/controller.php';
 
 /**
  * Class Contact
  * @package Module
  */
-class Contact implements Interfaces\ModuleInterface
+class Contact extends \Module
 {
     /**
      * @var Contact\Controller
