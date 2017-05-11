@@ -53,7 +53,7 @@ class Core implements SingletonInterface
     public $Theme;
 
     /**
-     * Config constructor.
+     * Core constructor.
      */
     private function __construct()
     {
