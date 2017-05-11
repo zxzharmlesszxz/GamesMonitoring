@@ -17,6 +17,7 @@ while (false !== ($module = $modulesDir->read())) {
             break;
     }
 }
+var_dump($core);
 
 /**
  * @param $class
@@ -26,6 +27,6 @@ function __autoload($class)
     @include_once __DIR__ . "/classes/${class}.class.php";
 }
 
-var_dump($core->Router->start());
+var_dump($core->Router);
 
 var_dump($core->getCoreModule('Admin'));
