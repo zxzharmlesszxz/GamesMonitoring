@@ -27,6 +27,3 @@ function __autoload($class)
 }
 
 var_dump($core->Router);
-var_dump($core->Config);
-var_dump($core->getCoreModule('Admin'));
-var_dump($core->getModule('Cron'));
