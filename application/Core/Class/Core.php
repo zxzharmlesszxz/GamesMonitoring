@@ -7,7 +7,7 @@
  */
 
 namespace Core;
-use Core\Interfaces\ModuleInterface;
+
 use Core\Interfaces\SingletonInterface;
 
 /**
