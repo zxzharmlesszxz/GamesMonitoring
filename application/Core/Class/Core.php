@@ -56,6 +56,7 @@ class Core implements SingletonInterface
      */
     private function __construct()
     {
+        var_dump(__CLASS__);
         $this->Config = Config::getInstance();
         $this->Router = Router::getInstance();
         $this->Modules = new Collection();
@@ -101,7 +102,7 @@ class Core implements SingletonInterface
 
     /**
      * @param $name
-     * @param ModuleInterface $module
+     * @param Module $module
      */
     public function registerModule($name, Module $module)
     {
@@ -110,7 +111,7 @@ class Core implements SingletonInterface
 
     /**
      * @param $name
-     * @param ModuleInterface $module
+     * @param Module $module
      */
     protected function registerCoreModule($name, Module $module)
     {
