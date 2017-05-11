@@ -58,6 +58,7 @@ class Core implements SingletonInterface
     {
         var_dump(__CLASS__);
         $this->Config = Config::getInstance();
+        var_dump($this);
         $this->Router = Router::getInstance();
         $this->Modules = new Collection();
         $this->CoreModules = new Collection();
@@ -94,12 +95,9 @@ class Core implements SingletonInterface
      */
     static public function getInstance()
     {
-        var_dump(__METHOD__);
-        var_dump(is_null(static::$instance));
         if (is_null(static::$instance)) {
-            var_dump(static::$instance = new static());
+            static::$instance = new static();
         }
-        var_dump(static::$instance);
         return static::$instance;
     }
 
