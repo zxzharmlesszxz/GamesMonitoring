@@ -6,6 +6,8 @@
  * Time: 11:14
  */
 
+namespace Core;
+
 use Core\Interfaces\ModuleInterface;
 
 /**
