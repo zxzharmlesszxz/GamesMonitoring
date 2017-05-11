@@ -2,13 +2,11 @@
 
 namespace Core\Module\Session;
 
-use Core\Interfaces;
-
 /**
  * Class Controller
  * @package Core\Module\Session
  */
-class Controller implements Interfaces\ControllerInterface
+class Controller extends \Core\Controller
 {
     /**
      * @var Model
@@ -21,14 +19,5 @@ class Controller implements Interfaces\ControllerInterface
     public function __construct()
     {
         $this->Model = new Model();
-    }
-
-    /**
-     * @param string $action
-     * @return mixed|void
-     */
-    public function action($action = 'index')
-    {
-
     }
 }

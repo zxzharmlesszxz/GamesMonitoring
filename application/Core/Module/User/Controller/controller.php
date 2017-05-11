@@ -2,13 +2,11 @@
 
 namespace Core\Module\User;
 
-use Core\Interfaces;
-
 /**
  * Class Controller
  * @package Core\Module\User
  */
-class Controller implements Interfaces\ControllerInterface
+class Controller extends \Core\Controller
 {
     /**
      * Controller constructor.
