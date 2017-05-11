@@ -16,7 +16,12 @@ class Router implements RouterInterface, SingletonInterface
      */
     private static $instance;
 
-    private static $routes;
+    protected $routes;
+
+    private function __construct()
+    {
+        $this->routes = new Collection();
+    }
 
     /**
      *
@@ -45,7 +50,6 @@ class Router implements RouterInterface, SingletonInterface
     {
         if (is_null(self::$instance)) {
             self::$instance = new self;
-            self::$routes = new Collection();
         }
         return self::$instance;
     }
