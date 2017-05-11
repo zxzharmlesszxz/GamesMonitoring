@@ -8,7 +8,7 @@
 
 namespace Core\Module;
 
-use Core\Interfaces;
+use Core\Module;
 
 require_once 'Controller/controller.php';
 require_once 'Model/model.php';
@@ -17,12 +17,12 @@ require_once 'Model/model.php';
  * Class Session
  * @package Core\Module\Session
  */
-class Session implements Interfaces\ModuleInterface
+class Session extends Module
 {
     /**
      * @var Session\Controller
      */
-    public $Controller;
+    private $Controller;
 
     /**
      * @var Session\Session

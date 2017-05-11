@@ -8,7 +8,7 @@
 
 namespace Core\Module;
 
-use Core\Interfaces;
+use Core\Module;
 
 require_once 'Controller/controller.php';
 
@@ -16,12 +16,12 @@ require_once 'Controller/controller.php';
  * Class Database
  * @package Core\Module\Database
  */
-class Database implements Interfaces\ModuleInterface
+class Database extends Module
 {
     /**
      * @var Database\Controller
      */
-    public $Controller;
+    private $Controller;
 
     /**
      * Database constructor.

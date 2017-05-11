@@ -8,7 +8,7 @@
 
 namespace Core\Module;
 
-use Core\Interfaces;
+use Core\Module;
 
 require_once 'Controller/controller.php';
 require_once 'Model/model.php';
@@ -17,12 +17,12 @@ require_once 'Model/model.php';
  * Class Admin
  * @package Core\Module\Admin
  */
-class Admin implements Interfaces\ModuleInterface
+class Admin extends Module
 {
     /**
      * @var Admin\Controller
      */
-    public $Controller;
+    private $Controller;
 
     /**
      * Admin constructor.

@@ -8,7 +8,7 @@
 
 namespace Core\Module;
 
-use Core\Interfaces;
+use Core\Module;
 
 require_once 'Controller/controller.php';
 require_once 'Model/model.php';
@@ -17,12 +17,12 @@ require_once 'Model/model.php';
  * Class User
  * @package Module
  */
-class User implements Interfaces\ModuleInterface
+class User extends Module
 {
     /**
      * @var User\Controller
      */
-    public $Controller;
+    private $Controller;
 
     /**
      * User constructor.
