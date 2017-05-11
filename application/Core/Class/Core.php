@@ -95,6 +95,7 @@ class Core implements SingletonInterface
     static public function getInstance()
     {
         var_dump(__METHOD__);
+        var_dump(is_null(static::$instance));
         if (is_null(static::$instance)) {
             static::$instance = new static();
         }
