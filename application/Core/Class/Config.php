@@ -11,7 +11,7 @@ use Core\Interfaces\SingletonInterface;
  * Class Config
  * @package Core
  */
-final class Config //implements SingletonInterface
+final class Config implements SingletonInterface
 {
     /**
      * @var
@@ -28,7 +28,6 @@ final class Config //implements SingletonInterface
      */
     private function __construct()
     {
-        var_dump(__CLASS__);
         $this->_configuration = $this->loadConfigFile();
     }
 
