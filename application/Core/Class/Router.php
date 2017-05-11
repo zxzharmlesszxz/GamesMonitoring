@@ -26,7 +26,7 @@ class Router implements RouterInterface, SingletonInterface
     /**
      *
      */
-    static public function start()
+    final public function start()
     {
         $routes = explode('/', $_SERVER['REQUEST_URI']);
         $action_name = (!empty($routes[2]) ? $routes[2] : 'index');

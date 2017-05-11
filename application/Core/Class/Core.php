@@ -38,7 +38,17 @@ class Core implements SingletonInterface
     public $Session;
 
     /**
-     * @var
+     * @var Router
+     */
+    protected $Router;
+
+    /**
+     * @var Config
+     */
+    protected $Config;
+
+    /**
+     * @var Theme
      */
     public $Theme;
 
@@ -68,14 +78,14 @@ class Core implements SingletonInterface
     /**
      *
      */
-    private function __clone()
+    final public function __clone()
     {
     }
 
     /**
      *
      */
-    private function __wakeup()
+    final public function __wakeup()
     {
     }
 
