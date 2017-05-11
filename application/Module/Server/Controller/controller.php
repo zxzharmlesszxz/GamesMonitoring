@@ -2,28 +2,17 @@
 
 namespace Module\Server;
 
-use Core\Interfaces;
-
 /**
  * Class Controller
  * @package Module\Server
  */
-class Controller implements Interfaces\ControllerInterface
+class Controller extends \Core\Controller
 {
     /**
      * Controller constructor.
      */
     public function __construct()
     {
-
-    }
-
-    /**
-     * @param string $action
-     * @return mixed|void
-     */
-    public function action($action = 'index')
-    {
-
+        parent::__construct();
     }
 }

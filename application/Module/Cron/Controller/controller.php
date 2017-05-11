@@ -1,7 +1,6 @@
 <?php
 
 namespace Module\Cron;
-use Core\Collection;
 use Module\Cron;
 
 /**
