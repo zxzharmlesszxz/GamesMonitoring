@@ -94,10 +94,12 @@ class Core implements SingletonInterface
      */
     static public function getInstance()
     {
-        if (is_null(self::$instance)) {
-            self::$instance = new self();
+        var_dump(__METHOD__);
+        if (is_null(static::$instance)) {
+            static::$instance = new static();
         }
-        return self::$instance;
+        var_dump(static::$instance);
+        return static::$instance;
     }
 
     /**
