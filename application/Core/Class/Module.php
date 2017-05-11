@@ -19,5 +19,5 @@ class Module implements ModuleInterface
     /**
      * @var
      */
-    private $Controller;
+    protected $Controller;
 }

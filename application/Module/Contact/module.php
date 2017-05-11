@@ -21,7 +21,7 @@ class Contact extends Module
     /**
      * @var Contact\Controller
      */
-    private $Controller;
+    protected $Controller;
 
     /**
      * Contacts constructor.
