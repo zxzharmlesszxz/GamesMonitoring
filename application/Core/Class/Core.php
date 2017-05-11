@@ -19,7 +19,7 @@ class Core implements SingletonInterface
     /**
      * @var
      */
-    static public $instance;
+    static public $instance = null;
 
     /**
      * @var Collection

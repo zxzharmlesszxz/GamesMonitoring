@@ -18,7 +18,7 @@ class Router implements RouterInterface, SingletonInterface
     /**
      * @var
      */
-    private static $instance;
+    private static $instance = null;
 
     /**
      * @var Collection

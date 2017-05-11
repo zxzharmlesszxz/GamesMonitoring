@@ -16,7 +16,7 @@ final class Config implements SingletonInterface
     /**
      * @var
      */
-    private static $instance;
+    private static $instance = null;
 
     /**
      * @var
