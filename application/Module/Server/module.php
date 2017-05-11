@@ -8,7 +8,7 @@
 
 namespace Module;
 
-use Core\Interfaces;
+use Core\Module;
 
 require_once 'Controller/controller.php';
 require_once 'Model/model.php';
@@ -17,7 +17,7 @@ require_once 'Model/model.php';
  * Class Server
  * @package Module
  */
-class Server implements Interfaces\ModuleInterface
+class Server extends Module
 {
     /**
      * @var Server\Controller

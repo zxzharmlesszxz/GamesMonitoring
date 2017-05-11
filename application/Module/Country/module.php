@@ -8,7 +8,7 @@
 
 namespace Module;
 
-use Core\Interfaces;
+use Core\Module;
 
 require_once 'Controller/controller.php';
 require_once 'Model/model.php';
@@ -17,7 +17,7 @@ require_once 'Model/model.php';
  * Class Country
  * @package Module
  */
-class Country implements Interfaces\ModuleInterface
+class Country extends Module
 {
     /**
      * @var Country\Controller
