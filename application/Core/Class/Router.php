@@ -47,10 +47,10 @@ class Router implements RouterInterface, SingletonInterface
      */
     static public function getInstance()
     {
-        if (is_null(self::$instance)) {
-            self::$instance = new self;
+        if (is_null(static::$instance)) {
+            static::$instance = new static();
         }
-        return self::$instance;
+        return static::$instance;
     }
 
     /**
