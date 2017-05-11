@@ -7,6 +7,7 @@
  */
 
 namespace Core\Interfaces;
+use Core\Route;
 
 /**
  * Interface RouterInterface
@@ -15,7 +16,14 @@ namespace Core\Interfaces;
 interface RouterInterface
 {
     /**
+     * @param Route $route
      * @return mixed
      */
-    public function start();
+    public function getRoute(Route $route);
+
+    /**
+     * @param Route $route
+     * @return mixed
+     */
+    public function setRoute(Route $route);
 }

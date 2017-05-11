@@ -9,6 +9,10 @@ namespace Core;
 use Core\Interfaces\RouterInterface;
 use Core\Interfaces\SingletonInterface;
 
+/**
+ * Class Router
+ * @package Core
+ */
 class Router implements RouterInterface, SingletonInterface
 {
     /**
@@ -16,23 +20,17 @@ class Router implements RouterInterface, SingletonInterface
      */
     private static $instance;
 
+    /**
+     * @var Collection
+     */
     protected $routes;
 
+    /**
+     * Router constructor.
+     */
     private function __construct()
     {
         $this->routes = new Collection();
-        $this->start();
-    }
-
-    /**
-     *
-     */
-    final public function start()
-    {
-        $routes = explode('/', $_SERVER['REQUEST_URI']);
-        $action_name = (!empty($routes[2]) ? $routes[2] : 'index');
-
-        echo "Action: $action_name <br>";
     }
 
     /**
@@ -69,5 +67,31 @@ class Router implements RouterInterface, SingletonInterface
     public function __wakeup()
     {
 
+    }
+
+    /**
+     * @param Route $route
+     * @return mixed|void
+     */
+    public function setRoute(Route $route)
+    {
+        $this->routes->addItem($route, $route);
+    }
+
+    /**
+     * @param Route $route
+     * @return mixed
+     */
+    public function getRoute(Route $route)
+    {
+        return $this->routes->getItem($route);
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getRoutes()
+    {
+        return $this->routes;
     }
 }
