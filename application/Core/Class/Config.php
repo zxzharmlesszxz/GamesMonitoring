@@ -7,6 +7,10 @@
 namespace Core;
 use Core\Interfaces\SingletonInterface;
 
+/**
+ * Class Config
+ * @package Core
+ */
 final class Config implements SingletonInterface
 {
     /**
@@ -60,7 +64,10 @@ final class Config implements SingletonInterface
         }
         return static::$instance;
     }
-    
+
+    /**
+     * @return mixed
+     */
     private function loadConfigFile()
     {
         include_once(__DIR__ . '/../../config/config.inc.php');
