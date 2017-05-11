@@ -2,7 +2,7 @@
 
 require_once 'Core/index.php';
 require_once 'includes/functions.inc.php';
-var_dump($core = Core\Core::getInstance());
+$core = Core\Core::getInstance();
 
 var_dump($core);
 

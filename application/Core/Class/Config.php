@@ -24,8 +24,7 @@ final class Config implements SingletonInterface
      */
     private function __construct()
     {
-        include_once(__DIR__ . '/../../config/config.inc.php');
-        $this->_configuration = $config;
+        $this->_configuration = $this->loadConfigFile();
     }
 
     /**
@@ -56,9 +55,15 @@ final class Config implements SingletonInterface
      */
     static public function getInstance()
     {
-        if (is_null(self::$instance)) {
-            self::$instance = new self;
+        if (is_null(static::$instance)) {
+            static::$instance = new static;
         }
-        return self::$instance;
+        return static::$instance;
+    }
+    
+    private function loadConfigFile()
+    {
+        include_once(__DIR__ . '/../../config/config.inc.php');
+        return $config;
     }
 }
