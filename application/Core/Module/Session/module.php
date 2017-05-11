@@ -22,7 +22,7 @@ class Session extends Module
     /**
      * @var Session\Controller
      */
-    private $Controller;
+    protected $Controller;
 
     /**
      * @var Session\Session

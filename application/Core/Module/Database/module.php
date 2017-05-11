@@ -21,7 +21,7 @@ class Database extends Module
     /**
      * @var Database\Controller
      */
-    private $Controller;
+    protected $Controller;
 
     /**
      * Database constructor.

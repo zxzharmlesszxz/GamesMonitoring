@@ -22,7 +22,7 @@ class User extends Module
     /**
      * @var User\Controller
      */
-    private $Controller;
+    protected $Controller;
 
     /**
      * User constructor.

@@ -22,7 +22,7 @@ class Admin extends Module
     /**
      * @var Admin\Controller
      */
-    private $Controller;
+    protected $Controller;
 
     /**
      * Admin constructor.
