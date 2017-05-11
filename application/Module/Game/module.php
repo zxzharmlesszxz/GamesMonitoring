@@ -22,7 +22,7 @@ class Game extends Module
     /**
      * @var Game\Controller
      */
-    public $Controller;
+    protected $Controller;
 
     /**
      * Game constructor.

@@ -22,7 +22,7 @@ class Mode extends Module
     /**
      * @var Mode\Controller
      */
-    public $Controller;
+    protected $Controller;
 
     /**
      * Mode constructor.

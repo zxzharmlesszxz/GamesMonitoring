@@ -22,7 +22,7 @@ class Server extends Module
     /**
      * @var Server\Controller
      */
-    public $Controller;
+    protected $Controller;
 
     /**
      * Server constructor.

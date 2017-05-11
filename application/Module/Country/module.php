@@ -22,7 +22,7 @@ class Country extends Module
     /**
      * @var Country\Controller
      */
-    public $Controller;
+    protected $Controller;
 
     /**
      * Country constructor.

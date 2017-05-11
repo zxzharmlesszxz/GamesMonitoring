@@ -22,7 +22,7 @@ class Cron extends Module
     /**
      * @var Cron\Controller
      */
-    public $Controller;
+    protected $Controller;
 
     /**
      * Cron constructor.
