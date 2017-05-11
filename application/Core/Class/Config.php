@@ -11,7 +11,7 @@ use Core\Interfaces\SingletonInterface;
  * Class Config
  * @package Core
  */
-final class Config //implements SingletonInterface
+final class Config implements SingletonInterface
 {
     /**
      * @var
@@ -43,14 +43,14 @@ final class Config //implements SingletonInterface
     /**
      *
      */
-    private function __clone()
+    public function __clone()
     {
     }
 
     /**
      *
      */
-    private function __wakeup()
+    public function __wakeup()
     {
     }
 
