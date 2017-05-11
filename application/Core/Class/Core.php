@@ -56,8 +56,8 @@ class Core implements SingletonInterface
      */
     private function __construct()
     {
-        $this->Config = Config::getInstance();
-        $this->Router = Router::getInstance();
+        #$this->Config = Config::getInstance();
+        #$this->Router = Router::getInstance();
         $this->Modules = new Collection();
         $this->CoreModules = new Collection();
         $this->loadCoreModules();
