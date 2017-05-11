@@ -13,7 +13,7 @@ use Core\Interfaces\SingletonInterface;
  * Class Router
  * @package Core
  */
-class Router implements RouterInterface, SingletonInterface
+class Router implements RouterInterface//, SingletonInterface
 {
     /**
      * @var
