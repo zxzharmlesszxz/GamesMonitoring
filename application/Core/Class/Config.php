@@ -28,6 +28,7 @@ final class Config implements SingletonInterface
      */
     private function __construct()
     {
+        var_dump(__CLASS__);
         $this->_configuration = $this->loadConfigFile();
     }
 
