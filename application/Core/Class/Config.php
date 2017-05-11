@@ -21,7 +21,7 @@ final class Config implements SingletonInterface
     /**
      * @var
      */
-    protected $_configuration;
+    private $_configuration;
 
     /**
      * Config constructor.
