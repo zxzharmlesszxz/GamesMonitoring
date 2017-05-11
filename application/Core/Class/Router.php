@@ -21,6 +21,7 @@ class Router implements RouterInterface, SingletonInterface
     private function __construct()
     {
         $this->routes = new Collection();
+        $this->start();
     }
 
     /**
