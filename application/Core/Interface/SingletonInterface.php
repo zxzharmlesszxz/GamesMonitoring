@@ -8,7 +8,6 @@
 
 namespace Core\Interfaces;
 
-
 /**
  * Interface SingletonInterface
  * @package Core\Interfaces
