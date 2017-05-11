@@ -12,7 +12,20 @@ namespace Core;
  * Class Route
  * @package Core
  */
-class Route
+abstract class Route
 {
+    /**
+     * @var
+     */
+    public $Module;
 
+    /**
+     * @var
+     */
+    public $Action;
+
+    /**
+     * @var
+     */
+    public $Query;
 }
