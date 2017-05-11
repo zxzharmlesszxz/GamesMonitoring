@@ -12,7 +12,7 @@ namespace Core;
  * Class Route
  * @package Core
  */
-abstract class Route
+class Route
 {
     /**
      * @var
@@ -25,7 +25,14 @@ abstract class Route
     public $Action;
 
     /**
-     * @var
+     * Route constructor.
+     * @param $Module
+     * @param $Action
+     * @param null $Query
      */
-    public $Query;
+    public function __construct($Module, $Action)
+    {
+        $this->Module = $Module;
+        $this->Action = $Action;
+    }
 }

@@ -20,8 +20,9 @@ interface ControllerInterface
     public function __construct();
 
     /**
-     * @param string $action
+     * @param $Module
+     * @param $Action
      * @return mixed
      */
-    public function action($action = 'index');
+    public function addRoute($Module, $Action);
 }

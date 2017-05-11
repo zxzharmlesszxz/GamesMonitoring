@@ -23,14 +23,14 @@ class Router implements RouterInterface, SingletonInterface
     /**
      * @var Collection
      */
-    protected $routes;
+    protected $Routes;
 
     /**
      * Router constructor.
      */
     private function __construct()
     {
-        $this->routes = new Collection();
+        $this->Routes = new Collection();
     }
 
     /**
@@ -75,7 +75,7 @@ class Router implements RouterInterface, SingletonInterface
      */
     public function setRoute(Route $route)
     {
-        $this->routes->addItem($route, $route);
+        $this->Routes->addItem($route, $route);
     }
 
     /**
@@ -84,7 +84,7 @@ class Router implements RouterInterface, SingletonInterface
      */
     public function getRoute(Route $route)
     {
-        return $this->routes->getItem($route);
+        return $this->Routes->getItem($route);
     }
 
     /**
@@ -92,6 +92,6 @@ class Router implements RouterInterface, SingletonInterface
      */
     public function getRoutes()
     {
-        return $this->routes;
+        return $this->Routes;
     }
 }

@@ -1,7 +1,9 @@
 <?php
 
 namespace Module\Cron;
+use Core\Collection;
 use Core\Interfaces\ControllerInterface;
+use Core\Route;
 use Module\Cron;
 
 /**
@@ -10,22 +12,32 @@ use Module\Cron;
  */
 class Controller implements ControllerInterface
 {
+    /**
+     * @var Model
+     */
     public $Model;
-    public $View;
+
+    /**
+     * @var Collection
+     */
+    protected $Routes;
+
     /**
      * Controller constructor.
      */
     public function __construct()
     {
         $this->Model = new Cron\Model();
+        $this->Routes = new Collection();
     }
 
     /**
-     * @param string $action
+     * @param $Module
+     * @param $Action
      * @return mixed|void
      */
-    public function action($action = 'index')
+    public function addRoute($Module, $Action)
     {
-        $this->view->generate('cron_view.php', 'cron_template.php', $this->Model->get_data());
+        $this->Routes->addItem($Action, new Route($Module,$Action));
     }
 }

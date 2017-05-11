@@ -13,19 +13,19 @@ class Collection
     private $items = array();
 
     /**
-     * @param $obj
+     * @param $item
      * @param null $key
      * @throws \Exception
      */
-    public function addItem($obj, $key = null)
+    public function addItem($item, $key = null)
     {
         if ($key == null) {
-            $this->items[] = $obj;
+            $this->items[] = $item;
         } else {
             if (isset($this->items[$key])) {
                 throw new \Exception("Key $key already in use.");
             } else {
-                $this->items[$key] = $obj;
+                $this->items[$key] = $item;
             }
         }
     }
