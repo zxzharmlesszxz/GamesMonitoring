@@ -11,7 +11,7 @@ use Core\Interfaces\SingletonInterface;
  * Class Config
  * @package Core
  */
-final class Config implements SingletonInterface
+final class Config //implements SingletonInterface
 {
     /**
      * @var
