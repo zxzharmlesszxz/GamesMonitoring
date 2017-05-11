@@ -27,3 +27,4 @@ function __autoload($class)
 }
 
 var_dump($core->Router);
+var_dump($core->Modules);
