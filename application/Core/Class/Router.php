@@ -108,7 +108,7 @@ class Router implements RouterInterface, SingletonInterface
 
         $module = $core->getModule(ucfirst($Module_name));
         var_dump($module);
-        //var_dump($module->);
+        var_dump($module->action($Action_name));
 
     }
 }
