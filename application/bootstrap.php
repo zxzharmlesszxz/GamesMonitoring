@@ -26,5 +26,7 @@ function __autoload($class)
     @include_once __DIR__ . "/classes/${class}.class.php";
 }
 
+$core->Session->data->addItem('test', 'message');
+
 var_dump($core->Router);
 var_dump($core->Modules);
