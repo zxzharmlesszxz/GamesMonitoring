@@ -1,6 +1,7 @@
 <?php
 
 namespace Core\Module\Session;
+use Core\Collection;
 
 /**
  * Class Session
@@ -22,11 +23,17 @@ class Session
     public $message;
 
     /**
+     * @var Collection
+     */
+    public $data;
+
+    /**
      * Session constructor.
      */
     public function __construct()
     {
         session_start();
+        $this->data = new Collection();
         $this->check_message();
         $this->check_login();
         if ($this->logged_in) {
@@ -41,7 +48,7 @@ class Session
      */
     public function is_logged_in()
     {
-        return $this->logged_in;
+        return $this->data->getItem('logged_in');
     }
 
     /**
@@ -51,7 +58,7 @@ class Session
     {
         if ($user) {
             $this->id = $_SESSION['id'] = $user->id;
-            $this->logged_in = true;
+            $this->data->addItem(true,'logged_in');
         }
     }
 
@@ -61,8 +68,8 @@ class Session
     public function logout()
     {
         unset($_SESSION['id']);
-        unset($this->id);
-        $this->logged_in = false;
+        $this->data->deleteItem('id');
+        $this->data->deleteItem('logged_in');
     }
 
     /**
@@ -74,7 +81,7 @@ class Session
         if (!empty($msg)) {
             $_SESSION['message'] = $msg;
         } else {
-            return $this->message;
+            return $this->data->getItem('message');
         }
     }
 
@@ -84,11 +91,11 @@ class Session
     private function check_login()
     {
         if (isset($_SESSION['id'])) {
-            $this->id = $_SESSION['id'];
-            $this->logged_in = true;
+            $this->data->addItem($_SESSION['id'], 'id');
+            $this->data->addItem(true,'logged_in');
         } else {
-            unset($this->id);
-            $this->logged_in = false;
+            $this->data->deleteItem('id');
+            $this->data->deleteItem('logged_in');
         }
     }
 
@@ -98,10 +105,10 @@ class Session
     private function check_message()
     {
         if (isset($_SESSION['message'])) {
-            $this->message = $_SESSION['message'];
+            $this->data->addItem($_SESSION['message'], 'message');
             unset($_SESSION['message']);
         } else {
-            $this->message = "";
+            $this->data->deleteItem('message');
         }
     }
 }
