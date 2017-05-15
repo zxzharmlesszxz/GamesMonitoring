@@ -107,6 +107,6 @@ class Router implements RouterInterface, SingletonInterface
         echo "Action: $Action_name<br>";
 
         $module = $core->getModule(ucfirst($Module_name));
-        $module->action($Action_name);
+        echo $module->action($Action_name);
     }
 }
