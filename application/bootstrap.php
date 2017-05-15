@@ -30,3 +30,4 @@ function __autoload($class)
 $core->Session->set('Theme', $core->Config->THEME);
 
 print_r($core->Router);
+$core->Router->startRouting();
