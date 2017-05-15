@@ -31,3 +31,5 @@ $core->Session->set('Theme', $core->Config->THEME);
 
 //print_r($core->Router);
 $core->Router->startRouting();
+
+var_dump($_SESSION);
