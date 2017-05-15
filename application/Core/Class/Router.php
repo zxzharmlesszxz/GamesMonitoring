@@ -75,7 +75,8 @@ class Router implements RouterInterface, SingletonInterface
      */
     public function setRoute(Route $route)
     {
-        $this->Routes->addItem($route, "$route->Module/$route->Action");
+        $module = strtolower(explode('\\', $route->Module))[1];
+        $this->Routes->addItem($route, "$module/$route->Action");
     }
 
     /**
