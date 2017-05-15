@@ -28,7 +28,6 @@ class Route
      * Route constructor.
      * @param $Module
      * @param $Action
-     * @param null $Query
      */
     public function __construct($Module, $Action)
     {
