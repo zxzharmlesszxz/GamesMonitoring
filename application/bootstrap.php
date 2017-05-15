@@ -27,6 +27,6 @@ function __autoload($class)
     @include_once __DIR__ . "/classes/${class}.class.php";
 }
 
-$core->Session->set('Theme', $core->Theme);
+$core->Session->set('Theme', explode('\\', $core->Theme)[1]);
 
 print_r($core->Router);
