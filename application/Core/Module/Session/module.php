@@ -89,6 +89,15 @@ class Session extends Module
     }
 
     /**
+     * @param $key
+     * @return mixed|null
+     */
+    public function get($key)
+    {
+        return $this->Session->get($key);
+    }
+
+    /**
      *
      */
     public function login()
