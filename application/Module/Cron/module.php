@@ -31,11 +31,6 @@ class Cron extends Module
     {
         $this->Controller = new Cron\Controller();
     }
-
-    public function action($action)
-    {
-        return $this->Controller->action($action);
-    }
 }
 
 spl_autoload_register(

@@ -14,10 +14,27 @@ use Core\Interfaces\ModuleInterface;
  * Class Module
  * @package Core
  */
-class Module implements ModuleInterface
+abstract class Module implements ModuleInterface
 {
     /**
      * @var
      */
     protected $Controller;
+
+    /**
+     * Module constructor.
+     */
+    public function __construct()
+    {
+
+    }
+
+    /**
+     * @param $action
+     * @return mixed
+     */
+    public function action($action)
+    {
+        return $this->Controller->action($action);
+    }
 }

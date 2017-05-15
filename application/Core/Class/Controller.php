@@ -44,4 +44,14 @@ abstract class Controller implements ControllerInterface
     {
         $this->Routes->addItem("/$Module/$Action", $Action);
     }
+
+    /**
+     * @param string $action
+     * @return mixed
+     */
+    public function action($action = 'index')
+    {
+        echo __METHOD__ . " doin $action<br>";
+        return $this->$action();
+    }
 }

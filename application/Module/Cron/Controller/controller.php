@@ -18,12 +18,9 @@ class Controller extends \Core\Controller
         $this->Model = new Cron\Model();
     }
 
-    public function action($action = 'index')
-    {
-        echo __METHOD__ . " doin $action<br>";
-        return $this->$action();
-    }
-
+    /**
+     * @return mixed|string
+     */
     protected function index()
     {
         echo __METHOD__ . " working<br>";
