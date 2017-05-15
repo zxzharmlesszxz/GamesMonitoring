@@ -17,4 +17,9 @@ class Controller extends \Core\Controller
         parent::__construct();
         $this->Model = new Cron\Model();
     }
+
+    public function action($action = 'index')
+    {
+        echo __CLASS__ . __METHOD__ . " doin $action<br>";
+    }
 }
