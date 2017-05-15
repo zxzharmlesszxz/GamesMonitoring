@@ -31,5 +31,7 @@ $core->Session->set('Theme', $core->Theme);
 
 var_dump($core->Session->Data);
 
+var_dump($core->Session->check_login());
+
 var_dump($core->Router);
 var_dump($core->Modules);
