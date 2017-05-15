@@ -52,6 +52,35 @@ class Session extends Module
     {
         $this->Session->message($msg);
     }
+
+    /**
+     * @return bool
+     */
+    public function is_logged_in()
+    {
+        return $this->logged_in;
+    }
+
+    /**
+     *
+     */
+    private function check_login()
+    {
+        return (isset($_SESSION['id'])) ? true : false;
+    }
+
+    /**
+     *
+     */
+    private function check_message()
+    {
+        if (isset($_SESSION['message'])) {
+            $this->message = $_SESSION['message'];
+            unset($_SESSION['message']);
+        } else {
+            $this->message = "";
+        }
+    }
 }
 
 spl_autoload_register(
