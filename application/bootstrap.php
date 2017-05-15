@@ -27,7 +27,7 @@ function __autoload($class)
 }
 
 $core->Session->message('test');
-$core->Session->set('Theme', $core->Theme);
+var_dump($core->Session->set('Theme', $core->Theme));
 
 var_dump($core->Router);
 var_dump($core->Modules);
