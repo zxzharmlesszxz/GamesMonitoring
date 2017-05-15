@@ -26,7 +26,8 @@ function __autoload($class)
     @include_once __DIR__ . "/classes/${class}.class.php";
 }
 
-var_dump($core->Session->message('test'));
+$core->Session->message('test');
+$core->Session->set('Theme', $core->Theme);
 
 var_dump($core->Router);
 var_dump($core->Modules);

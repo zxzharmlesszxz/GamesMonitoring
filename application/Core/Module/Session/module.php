@@ -83,6 +83,11 @@ class Session extends Module
         }
     }
 
+    public function set($key, $value)
+    {
+        $this->Data->addItem($value, $key);
+    }
+
     /**
      * @param $key
      * @param $value
