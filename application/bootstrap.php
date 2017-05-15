@@ -29,6 +29,8 @@ function __autoload($class)
 $core->Session->message('test');
 $core->Session->set('Theme', $core->Theme);
 
+$core->Session->login();
+
 var_dump($core->Session);
 
 var_dump($core->Session->check_login());
