@@ -30,6 +30,9 @@ class Session extends Module
      */
     public $Session;
 
+    /**
+     * @var Collection
+     */
     public $Data;
 
     /**
@@ -42,6 +45,9 @@ class Session extends Module
         $this->Data = new Collection();
     }
 
+    /**
+     * @param string $msg
+     */
     public function message($msg = '')
     {
         $this->Session->message($msg);
