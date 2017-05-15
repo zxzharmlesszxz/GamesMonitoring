@@ -50,7 +50,7 @@ class Session extends Module
      */
     public function message($msg = '')
     {
-        $this->Session->message($msg);
+        $this->Session->set('message', $msg);
     }
 
     /**
@@ -58,28 +58,55 @@ class Session extends Module
      */
     public function is_logged_in()
     {
-        return $this->logged_in;
+        return $this->Session->get('logged_in');
     }
 
     /**
      *
      */
-    private function check_login()
+    public function check_login()
     {
-        return (isset($_SESSION['id'])) ? true : false;
+        return $this->Session->get('logged_in');
     }
 
     /**
      *
      */
-    private function check_message()
+    public function check_message()
     {
-        if (isset($_SESSION['message'])) {
-            $this->message = $_SESSION['message'];
-            unset($_SESSION['message']);
+        $message = $this->Session->get('message');
+        if ($message) {
+            $this->change('message', $message);
+            $this->Session->set('message', null);
         } else {
-            $this->message = "";
+            $this->change('message', '');
         }
+    }
+
+    /**
+     * @param $key
+     * @param $value
+     */
+    private function change($key, $value)
+    {
+        $this->Data->deleteItem($key);
+        $this->Data->addItem($value, $key);
+    }
+
+    /**
+     *
+     */
+    public function login()
+    {
+        $this->Session->set('logged_in', true);
+    }
+
+    /**
+     *
+     */
+    public function logout()
+    {
+        $this->Session->set('logged_in', false);
     }
 }
 
