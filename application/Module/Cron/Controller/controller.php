@@ -20,13 +20,13 @@ class Controller extends \Core\Controller
 
     public function action($action = 'index')
     {
-        echo __CLASS__ . __METHOD__ . " doin $action<br>";
+        echo __CLASS__ . ' ' . __METHOD__ . " doin $action<br>";
         return $this->$action();
     }
 
     protected function index()
     {
-        echo __CLASS__ . __METHOD__ . " working<br>";
+        echo __CLASS__ .' ' . __METHOD__ . " working<br>";
         return $this->Model->get();
     }
 }
