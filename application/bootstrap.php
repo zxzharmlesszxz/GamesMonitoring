@@ -26,16 +26,6 @@ function __autoload($class)
     @include_once __DIR__ . "/classes/${class}.class.php";
 }
 
-$core->Session->message('test');
 $core->Session->set('Theme', $core->Theme);
 
-$core->Session->login();
-
-var_dump($core->Session);
-
-var_dump($core->Session->check_login());
-
 var_dump($core->Router);
-var_dump($core->Modules);
-
-$core->Session->logout();
