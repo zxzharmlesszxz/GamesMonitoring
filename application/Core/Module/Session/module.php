@@ -31,9 +31,9 @@ class Session extends Module
     public $Session;
 
     /**
-     * @var Collection
+     * @var
      */
-    public $Data;
+    public $message;
 
     /**
      * Session constructor.
@@ -42,7 +42,6 @@ class Session extends Module
     {
         $this->Session = new Session\Session();
         $this->Controller = new Session\Controller();
-        $this->Data = new Collection();
     }
 
     /**
@@ -75,27 +74,18 @@ class Session extends Module
     public function check_message()
     {
         $message = $this->Session->get('message');
-        if ($message) {
-            $this->change('message', $message);
-            $this->Session->set('message', null);
-        } else {
-            $this->change('message', '');
-        }
-    }
-
-    public function set($key, $value)
-    {
-        $this->Data->addItem($value, $key);
+        if ($message)
+            $this->message = $message;
+        $this->Session->set('message', '');
     }
 
     /**
      * @param $key
      * @param $value
      */
-    private function change($key, $value)
+    public function set($key, $value)
     {
-        $this->Data->deleteItem($key);
-        $this->Data->addItem($value, $key);
+        $this->Session->set($key, $value);
     }
 
     /**
