@@ -21,7 +21,7 @@ class Controller extends \Core\Controller
     public function action($action = 'index')
     {
         echo __CLASS__ . __METHOD__ . " doin $action<br>";
-        $this->$action();
+        return $this->$action();
     }
 
     protected function index()
