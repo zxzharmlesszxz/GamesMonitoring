@@ -52,6 +52,6 @@ abstract class Controller implements ControllerInterface
     public function action($action = 'index')
     {
         echo __METHOD__ . " doin $action<br>";
-        return $this->$action();
+        return $this->Model->$action();
     }
 }

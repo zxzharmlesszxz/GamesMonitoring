@@ -21,9 +21,9 @@ class Controller extends \Core\Controller
     /**
      * @return mixed|string
      */
-    protected function index()
+    protected function action($action = 'index')
     {
         echo __METHOD__ . " working<br>";
-        return $this->Model->get();
+        return $this->Model->$action();
     }
 }

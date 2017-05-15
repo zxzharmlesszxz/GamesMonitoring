@@ -1,6 +1,7 @@
 <?php
 
 namespace Module\Cron;
+
 use Core\Interfaces\ModelInterface;
 
 /**
@@ -12,12 +13,17 @@ class Model implements ModelInterface
     /**
      *
      */
-    public function create() {}
+    public function create()
+    {
+        echo __METHOD__ . " working<br>";
+        return "Cron create page";
+    }
 
     /**
      *
      */
-    public function get() {
+    public function get()
+    {
         echo __METHOD__ . " working<br>";
         return "Cron index page";
     }
@@ -25,10 +31,18 @@ class Model implements ModelInterface
     /**
      *
      */
-    public function delete() {}
+    public function delete()
+    {
+        echo __METHOD__ . " working<br>";
+        return "Cron delete page";
+    }
 
     /**
      *
      */
-    public function save() {}
+    public function save()
+    {
+        echo __METHOD__ . " working<br>";
+        return "Cron save page";
+    }
 }
