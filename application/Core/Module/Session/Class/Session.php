@@ -25,13 +25,13 @@ class Session
         $this->data->addItem('', 'message');
         $this->data->addItem(null, 'id');
         $this->check_message();
-        $this->check_login();
+        //$this->check_login();
         var_dump($this);
-        if ($this->data->getItem('id')) {
+        //if ($this->data->getItem('id')) {
             // actions to take right away if user is logged in
-        } else {
+        //} else {
             // actions to take right away if user is not logged in
-        }
+        //}
     }
 
     /**
