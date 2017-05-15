@@ -83,6 +83,8 @@ class Session
     private function check_login()
     {
         if (isset($_SESSION['id'])) {
+            $this->data->deleteItem('id');
+            $this->data->deleteItem('logged_in');
             $this->data->addItem($_SESSION['id'], 'id');
             $this->data->addItem(true,'logged_in');
         } else {
