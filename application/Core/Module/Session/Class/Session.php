@@ -27,11 +27,11 @@ class Session
         $this->check_message();
         $this->check_login();
         var_dump($this);
-        //if ($this->data->getItem('id')) {
+        if ($this->data->getItem('id')) {
             // actions to take right away if user is logged in
-        //} else {
+        } else {
             // actions to take right away if user is not logged in
-        //}
+        }
     }
 
     /**
@@ -63,6 +63,9 @@ class Session
         unset($_SESSION['id']);
         $this->data->deleteItem('id');
         $this->data->deleteItem('logged_in');
+        $this->data->addItem(false, 'logged_in');
+        $this->data->addItem('logout', 'message');
+        $this->data->addItem(null, 'id');
     }
 
     /**
