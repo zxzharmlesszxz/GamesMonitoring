@@ -14,6 +14,7 @@ class Session
     public function __construct()
     {
         session_start();
+        $_SESSION['logged_in'] = $this->get('logged_in');
     }
 
     /**
