@@ -21,7 +21,7 @@ class Controller extends \Core\Controller
     /**
      * @return mixed|string
      */
-    protected function action($action = 'index')
+    public function action($action = 'index')
     {
         echo __METHOD__ . " working<br>";
         return $this->Model->$action();
