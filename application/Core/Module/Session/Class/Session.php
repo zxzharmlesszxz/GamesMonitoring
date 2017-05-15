@@ -21,6 +21,9 @@ class Session
     {
         session_start();
         $this->data = new Collection();
+        $this->data->addItem(false, 'logged_in');
+        $this->data->addItem('', 'message');
+        $this->data->addItem(null, 'id');
         $this->check_message();
         $this->check_login();
         if ($this->data->getItem('id')) {
@@ -44,6 +47,8 @@ class Session
     public function login($user)
     {
         if ($user) {
+            $this->data->deleteItem('id');
+            $this->data->deleteItem('logged_in');
             $this->data->addItem($_SESSION['id'] = $user->id, 'id');
             $this->data->addItem(true,'logged_in');
         }
@@ -95,7 +100,7 @@ class Session
             $this->data->addItem($_SESSION['message'], 'message');
             unset($_SESSION['message']);
         } else {
-            //$this->data->deleteItem('message');
+            $this->data->deleteItem('message');
         }
     }
 }
