@@ -25,6 +25,15 @@ class Model implements ModelInterface
     public function get()
     {
         echo __METHOD__ . " working<br>";
+        return "Cron get page";
+    }
+
+    /**
+     *
+     */
+    public function index()
+    {
+        echo __METHOD__ . " working<br>";
         return "Cron index page";
     }
 
