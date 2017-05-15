@@ -42,6 +42,6 @@ abstract class Controller implements ControllerInterface
      */
     public function addRoute($Module, $Action)
     {
-        // TODO: Implement addRoute() method.
+        $this->Routes->addItem("/$Module/$Action", $Action);
     }
 }
