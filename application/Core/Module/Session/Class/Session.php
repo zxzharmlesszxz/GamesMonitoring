@@ -10,19 +10,6 @@ use Core\Collection;
 class Session
 {
     /**
-     * @var bool
-     */
-    private $logged_in = false;
-    /**
-     * @var
-     */
-    public $id;
-    /**
-     * @var
-     */
-    public $message;
-
-    /**
      * @var Collection
      */
     public $data;
@@ -36,7 +23,7 @@ class Session
         $this->data = new Collection();
         $this->check_message();
         $this->check_login();
-        if ($this->logged_in) {
+        if ($this->data->getItem('id')) {
             // actions to take right away if user is logged in
         } else {
             // actions to take right away if user is not logged in
@@ -57,7 +44,7 @@ class Session
     public function login($user)
     {
         if ($user) {
-            $this->id = $_SESSION['id'] = $user->id;
+            $this->data->addItem($_SESSION['id'] = $user->id, 'id');
             $this->data->addItem(true,'logged_in');
         }
     }
@@ -108,7 +95,7 @@ class Session
             $this->data->addItem($_SESSION['message'], 'message');
             unset($_SESSION['message']);
         } else {
-            $this->data->deleteItem('message');
+            //$this->data->deleteItem('message');
         }
     }
 }
