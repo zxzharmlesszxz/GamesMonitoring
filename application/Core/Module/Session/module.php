@@ -8,6 +8,7 @@
 
 namespace Core\Module;
 
+use Core\Collection;
 use Core\Module;
 
 require_once 'Controller/controller.php';
@@ -29,6 +30,8 @@ class Session extends Module
      */
     public $Session;
 
+    public $Data;
+
     /**
      * Session constructor.
      */
@@ -36,6 +39,12 @@ class Session extends Module
     {
         $this->Session = new Session\Session();
         $this->Controller = new Session\Controller();
+        $this->Data = new Collection();
+    }
+
+    public function message($msg = '')
+    {
+        $this->Session->message($msg);
     }
 }
 

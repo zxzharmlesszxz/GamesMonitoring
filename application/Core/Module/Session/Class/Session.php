@@ -1,7 +1,6 @@
 <?php
 
 namespace Core\Module\Session;
-use Core\Collection;
 
 /**
  * Class Session
@@ -10,9 +9,17 @@ use Core\Collection;
 class Session
 {
     /**
-     * @var Collection
+     * @var bool
      */
-    public $data;
+    private $logged_in = false;
+    /**
+     * @var
+     */
+    public $id;
+    /**
+     * @var
+     */
+    public $message;
 
     /**
      * Session constructor.
@@ -20,18 +27,13 @@ class Session
     public function __construct()
     {
         session_start();
-        $this->data = new Collection();
-        $this->data->addItem(false, 'logged_in');
-        $this->data->addItem('', 'message');
-        $this->data->addItem(null, 'id');
         $this->check_message();
-        //$this->check_login();
-        var_dump($this);
-        //if ($this->data->getItem('id')) {
+        $this->check_login();
+        if ($this->logged_in) {
             // actions to take right away if user is logged in
-        //} else {
+        } else {
             // actions to take right away if user is not logged in
-        //}
+        }
     }
 
     /**
@@ -39,7 +41,7 @@ class Session
      */
     public function is_logged_in()
     {
-        return $this->data->getItem('logged_in');
+        return $this->logged_in;
     }
 
     /**
@@ -48,10 +50,8 @@ class Session
     public function login($user)
     {
         if ($user) {
-            $this->data->deleteItem('id');
-            $this->data->deleteItem('logged_in');
-            $this->data->addItem($_SESSION['id'] = $user->id, 'id');
-            $this->data->addItem(true,'logged_in');
+            $this->id = $_SESSION['id'] = $user->id;
+            $this->logged_in = true;
         }
     }
 
@@ -61,11 +61,8 @@ class Session
     public function logout()
     {
         unset($_SESSION['id']);
-        $this->data->deleteItem('id');
-        $this->data->deleteItem('logged_in');
-        $this->data->addItem(false, 'logged_in');
-        $this->data->addItem('logout', 'message');
-        $this->data->addItem(null, 'id');
+        unset($this->id);
+        $this->logged_in = false;
     }
 
     /**
@@ -77,7 +74,7 @@ class Session
         if (!empty($msg)) {
             $_SESSION['message'] = $msg;
         } else {
-            return $this->data->getItem('message');
+            return $this->message;
         }
     }
 
@@ -87,13 +84,11 @@ class Session
     private function check_login()
     {
         if (isset($_SESSION['id'])) {
-            $this->data->deleteItem('id');
-            $this->data->deleteItem('logged_in');
-            $this->data->addItem($_SESSION['id'], 'id');
-            $this->data->addItem(true,'logged_in');
+            $this->id = $_SESSION['id'];
+            $this->logged_in = true;
         } else {
-            $this->data->deleteItem('id');
-            $this->data->deleteItem('logged_in');
+            unset($this->id);
+            $this->logged_in = false;
         }
     }
 
@@ -103,10 +98,10 @@ class Session
     private function check_message()
     {
         if (isset($_SESSION['message'])) {
-            $this->data->addItem($_SESSION['message'], 'message');
+            $this->message = $_SESSION['message'];
             unset($_SESSION['message']);
         } else {
-            $this->data->deleteItem('message');
+            $this->message = "";
         }
     }
 }
