@@ -27,6 +27,6 @@ class Controller extends \Core\Controller
     protected function index()
     {
         echo __CLASS__ . __METHOD__ . " working<br>";
-        return "Cron index page";
+        return $this->Model->get();
     }
 }
