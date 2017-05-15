@@ -21,5 +21,12 @@ class Controller extends \Core\Controller
     public function action($action = 'index')
     {
         echo __CLASS__ . __METHOD__ . " doin $action<br>";
+        $this->$action();
+    }
+
+    protected function index()
+    {
+        echo __CLASS__ . __METHOD__ . " working<br>";
+        return "Cron index page";
     }
 }
