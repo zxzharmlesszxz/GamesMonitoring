@@ -98,12 +98,17 @@ class Router implements RouterInterface, SingletonInterface
 
     public function startRouting()
     {
+        global $core;
         $routes = explode('/', $_SERVER['REQUEST_URI']);
-        $Module_name = 'Controller_' . (!empty($routes[1]) ? $routes[1] : 'Main');
-        $Action_name = 'action_' . (!empty($routes[2]) ? $routes[2] : 'index');
+        $Module_name = (!empty($routes[1]) ? $routes[1] : 'Main');
+        $Action_name = (!empty($routes[2]) ? $routes[2] : 'index');
 
         echo "Module: $Module_name<br>";
         echo "Action: $Action_name<br>";
+
+        $module = $core->getModule($Module_name);
+        var_dump($module);
+        //var_dump($module->);
 
     }
 }
