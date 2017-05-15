@@ -31,7 +31,7 @@ abstract class Theme implements ThemeInterface
      */
     public function __construct()
     {
-        echo get_called_class() ." theme<br />";
+        #echo get_called_class() ." theme<br />";
     }
 
     /**
