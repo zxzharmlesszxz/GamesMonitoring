@@ -46,10 +46,10 @@ abstract class Controller implements ControllerInterface
     }
 
     /**
-     * @param Model $model
+     * @param ModelInterface|Model $model
      * @return mixed|void
      */
-    public function addModel(Model $model)
+    public function addModel($model)
     {
         $this->Model = $model;
     }
