@@ -25,11 +25,12 @@ abstract class Model
     public function __construct($class = NULL)
     {
         $this->items = new Collection;
-        $this->class = empty($class) ? substr(explode("_", static::class)[1], 0, -1) : $class;
+    /*    $this->class = empty($class) ? substr(explode("_", static::class)[1], 0, -1) : $class;
         foreach (($this->class)::find_all() as $item) {
             $id = $item->id();
             $this->items->addItem($item, $item->$id);
         }
+    */
     }
 
     /**
