@@ -31,20 +31,12 @@ abstract class Model
     }
 
     /**
-     * @return Collection
+     * @param null $id
+     * @return Collection|mixed
      */
-    public function get_data()
+    public function get($id = null)
     {
-        return $this->items;
-    }
-
-    /**
-     * @param $id
-     * @return mixed
-     */
-    public function get($id)
-    {
-        return $this->items->getItem($id);
+        return !empty($id) ? $this->items->getItem($id) : $this->items;
     }
 
     /**
