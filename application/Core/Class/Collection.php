@@ -1,10 +1,12 @@
 <?php
 
+namespace Core;
+
 /**
  * Class Collection
+ * @package Core
  */
 
-namespace Core;
 class Collection implements \IteratorAggregate
 {
     /**
@@ -12,6 +14,9 @@ class Collection implements \IteratorAggregate
      */
     private $items = array();
 
+    /**
+     * @var int
+     */
     private $count = 0;
 
     /**
@@ -97,6 +102,9 @@ class Collection implements \IteratorAggregate
         return isset($this->items[$key]);
     }
 
+    /**
+     * @return \ArrayIterator
+     */
     public function getIterator()
     {
         return new \ArrayIterator($this->items);
