@@ -18,8 +18,8 @@ use Core\Interfaces\ControllerInterface;
 abstract class Controller implements ControllerInterface
 {
     /**
- * @var Model
- */
+     * @var Model
+     */
     public $Model;
 
     /**
@@ -32,10 +32,6 @@ abstract class Controller implements ControllerInterface
      */
     public function __construct()
     {
-        $class = explode('\\', get_called_class());
-        $model = get_called_class() . "\Model";
-        echo end($class) . "<br>";
-        $this->Model = new $model();
         $this->Routes = new Collection();
     }
 
@@ -47,6 +43,15 @@ abstract class Controller implements ControllerInterface
     public function addRoute($Module, $Action)
     {
         $this->Routes->addItem("/$Module/$Action", $Action);
+    }
+
+    /**
+     * @param Model $model
+     * @return mixed|void
+     */
+    public function addModel(Model $model)
+    {
+        $this->Model = $model;
     }
 
     /**

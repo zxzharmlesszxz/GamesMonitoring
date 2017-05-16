@@ -8,6 +8,8 @@
 
 namespace Core\Interfaces;
 
+use Core\Model;
+
 /**
  * Interface ControllerInterface
  * @package Core\Interfaces
@@ -25,4 +27,10 @@ interface ControllerInterface
      * @return mixed
      */
     public function addRoute($Module, $Action);
+
+    /**
+     * @param Model $model
+     * @return mixed
+     */
+    public function addModel(Model $model);
 }

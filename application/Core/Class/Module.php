@@ -28,8 +28,19 @@ abstract class Module implements ModuleInterface
     {
         $class = explode('\\', get_called_class());
         $controller = get_called_class() . "\Controller";
+        $model = get_called_class() . "\Model";
         echo end($class) . "<br>";
+        $this->addModel(new $model());
         $this->Controller = new $controller();
+    }
+
+    /**
+     * @param Model $model
+     * @return mixed|void
+     */
+    public function addModel(Model $model)
+    {
+        $this->Controller->addModel($model);
     }
 
     /**

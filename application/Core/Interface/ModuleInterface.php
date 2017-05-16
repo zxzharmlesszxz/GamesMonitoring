@@ -8,11 +8,22 @@
 
 namespace Core\Interfaces;
 
+use Core\Model;
+
 /**
  * Interface ModuleInterface
  * @package Core\Interfaces
  */
 interface ModuleInterface
 {
+    /**
+     * ModuleInterface constructor.
+     */
+    public function __construct();
 
+    /**
+     * @param Model $model
+     * @return mixed
+     */
+    public function addModel(Model $model);
 }
