@@ -26,7 +26,9 @@ abstract class Module implements ModuleInterface
      */
     public function __construct()
     {
-        echo get_called_class() . "<br>";
+        $class = end(explode('\\', get_called_class()));
+        echo "$class<br>";
+        $this->Controller = new $class\Controller();
     }
 
     /**
