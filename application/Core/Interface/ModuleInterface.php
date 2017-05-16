@@ -26,4 +26,10 @@ interface ModuleInterface
      * @return mixed
      */
     public function addModel($model);
+
+    /**
+     * @param $class
+     * @return mixed
+     */
+    public function addClass($class);
 }

@@ -4,6 +4,7 @@ namespace Core;
 
 /**
  * Class Model
+ * @package Core
  */
 abstract class Model
 {
@@ -13,10 +14,9 @@ abstract class Model
     protected $items;
 
     /**
-     * @var bool|null|string
+     * @var array
      */
-
-    protected $class;
+    protected $class = array();
 
     /**
      * Model constructor.
@@ -80,5 +80,13 @@ abstract class Model
     {
         $item = ($this->class)::add($item);
         return $item->save() ? $item : false;
+    }
+
+    /**
+     * @param $class
+     */
+    public function addClass($class)
+    {
+
     }
 }
