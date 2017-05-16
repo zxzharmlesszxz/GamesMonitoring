@@ -10,6 +10,8 @@ namespace Core\Module;
 
 use Core\Module;
 
+echo __FILE__ . '<br>';
+
 require_once 'Controller/controller.php';
 require_once 'Model/model.php';
 
@@ -19,11 +21,6 @@ require_once 'Model/model.php';
  */
 class Admin extends Module
 {
-    public function __construct()
-    {
-        echo __METHOD__ . '<br>';
-        parent::__construct();
-    }
 
 }
 
