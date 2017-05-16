@@ -9,6 +9,7 @@
 namespace Module;
 
 use Core\Module;
+use Module\Example\Model;
 
 require_once 'Controller/controller.php';
 require_once 'Model/model.php';
@@ -22,7 +23,7 @@ class Example extends Module
     public function __construct()
     {
         parent::__construct();
-        $this->addClass('Example');
+        var_dump(new \Module\Example\Example());
     }
 }
 
