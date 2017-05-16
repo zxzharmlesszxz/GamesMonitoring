@@ -28,7 +28,7 @@ class Contact extends Module
      */
     public function __construct()
     {
-        $this->Controller = new Contact\Controller();
+        parent::__construct();
     }
 }
 

@@ -35,3 +35,5 @@ $core->Router->startRouting();
 //var_dump($_SESSION);
 
 var_dump($core->getCoreModule('Admin'));
+
+var_dump($core->getModule('Contact'));
