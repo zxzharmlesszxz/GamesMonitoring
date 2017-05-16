@@ -2,11 +2,13 @@
 
 namespace Core;
 
+use Core\Interfaces\ModelInterface;
+
 /**
  * Class Model
  * @package Core
  */
-abstract class Model
+abstract class Model implements ModelInterface
 {
     /**
      * @var Collection
@@ -80,6 +82,11 @@ abstract class Model
     {
         $item = ($this->class)::add($item);
         return $item->save() ? $item : false;
+    }
+
+    public function index()
+    {
+        echo "index";
     }
 
     /**

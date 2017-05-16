@@ -36,6 +36,11 @@ interface ModelInterface
     public function create();
 
     /**
+     * @return mixed
+     */
+    public function index();
+
+    /**
      * @param $class
      * @return mixed
      */

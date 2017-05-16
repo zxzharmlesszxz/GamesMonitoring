@@ -46,7 +46,7 @@ abstract class Controller implements ControllerInterface
     }
 
     /**
-     * @param ModelInterface|Model $model
+     * @param Model $model
      * @return mixed|void
      */
     public function addModel($model)
