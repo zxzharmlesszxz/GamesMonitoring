@@ -17,13 +17,4 @@ class Controller extends \Core\Controller
         parent::__construct();
         $this->Model = new Cron\Model();
     }
-
-    /**
-     * @return mixed|string
-     */
-    public function action($action = 'index')
-    {
-        echo __METHOD__ . " working<br>";
-        return $this->Model->$action();
-    }
 }
