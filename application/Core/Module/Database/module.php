@@ -18,19 +18,7 @@ require_once 'Controller/controller.php';
  */
 class Database extends Module
 {
-    /**
-     * @var Database\Controller
-     */
-    protected $Controller;
 
-    /**
-     * Database constructor.
-     */
-    public function __construct()
-    {
-        parent::__construct();
-        $this->Controller = new Database\Controller();
-    }
 }
 
 spl_autoload_register(
