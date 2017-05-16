@@ -33,8 +33,6 @@ abstract class Module implements ModuleInterface
         echo end($class) . "<br>";
         $this->Controller = new $controller();
         if (class_exists($model))
-            var_dump($model);
-            var_dump(class_exists($model));
             $this->addModel(new $model());
     }
 
