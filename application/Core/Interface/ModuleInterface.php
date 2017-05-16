@@ -8,6 +8,8 @@
 
 namespace Core\Interfaces;
 
+echo __FILE__ . '<br>';
+
 /**
  * Interface ModuleInterface
  * @package Core\Interfaces
