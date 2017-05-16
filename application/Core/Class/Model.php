@@ -85,7 +85,8 @@ abstract class Model implements ModelInterface
 
     public function index()
     {
-        echo "index";
+        echo "index<br>";
+        var_dump($this->class);
     }
 
     /**
