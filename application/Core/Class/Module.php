@@ -28,10 +28,10 @@ abstract class Module implements ModuleInterface
     public function __construct()
     {
         $class = explode('\\', get_called_class());
-        $controller = get_called_class() . "\Controller";
-        $model = get_called_class() . "\Model";
-        $classs = get_called_class() . "\\" . end($class);
-        echo end($class) . "<br>";
+        $controller = get_called_class() . '\Controller';
+        $model = get_called_class() . '\Model';
+        $classs = get_called_class() . '\\' . end($class);
+        echo end($class) . '<br>';
         $this->addController(new $controller);
         if (class_exists($model))
             $this->addModel(new $model);
@@ -45,6 +45,7 @@ abstract class Module implements ModuleInterface
      */
     public function addModel($model)
     {
+        echo __METHOD__ . '<br>';
         $this->Controller->addModel($model);
     }
 
@@ -54,6 +55,7 @@ abstract class Module implements ModuleInterface
      */
     public function addClass($class)
     {
+        echo __METHOD__ . '<br>';
         $this->Controller->Model->addClass($class);
     }
 
@@ -63,6 +65,7 @@ abstract class Module implements ModuleInterface
      */
     public function addController($controller)
     {
+        echo __METHOD__ . '<br>';
         $this->Controller = $controller;
     }
 
@@ -72,6 +75,7 @@ abstract class Module implements ModuleInterface
      */
     public function action($action)
     {
+        echo __METHOD__ . '<br>';
         return $this->Controller->action($action);
     }
 }
