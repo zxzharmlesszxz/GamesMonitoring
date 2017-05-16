@@ -22,8 +22,8 @@ interface ModuleInterface
     public function __construct();
 
     /**
-     * @param ModelInterface $model
+     * @param Model $model
      * @return mixed
      */
-    public function addModel(ModelInterface $model);
+    public function addModel(Model $model);
 }
