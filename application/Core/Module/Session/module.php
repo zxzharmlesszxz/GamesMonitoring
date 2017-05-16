@@ -21,11 +21,6 @@ require_once 'Model/model.php';
 class Session extends Module
 {
     /**
-     * @var Session\Controller
-     */
-    protected $Controller;
-
-    /**
      * @var Session\Session
      */
     public $Session;
@@ -42,7 +37,6 @@ class Session extends Module
     {
         parent::__construct();
         $this->Session = new Session\Session();
-        $this->Controller = new Session\Controller();
     }
 
     /**
