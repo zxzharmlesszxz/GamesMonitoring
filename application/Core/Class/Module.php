@@ -26,10 +26,10 @@ abstract class Module implements ModuleInterface
      */
     public function __construct()
     {
-        $class = explode('\\', get_called_class());
+        //$class = explode('\\', get_called_class());
         $controller = get_called_class() . '\Controller';
         $model = get_called_class() . '\Model';
-        $classs = get_called_class() . '\\' . end($class);
+        //$classs = get_called_class() . '\\' . end($class);
         $this->Controller = new $controller(new $model);
     }
 
