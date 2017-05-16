@@ -28,10 +28,4 @@ interface ControllerInterface
      * @return mixed
      */
     public function addRoute($Module, $Action);
-
-    /**
-     * @param ModelInterface|Model $model
-     * @return mixed
-     */
-    public function addModel($model);
 }

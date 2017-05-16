@@ -30,9 +30,10 @@ abstract class Controller implements ControllerInterface
     /**
      * Controller constructor.
      */
-    public function __construct()
+    public function __construct(Model $model)
     {
         $this->Routes = new Collection();
+        $this->Model = $model;
     }
 
     /**
@@ -43,15 +44,6 @@ abstract class Controller implements ControllerInterface
     public function addRoute($Module, $Action)
     {
         $this->Routes->addItem("/$Module/$Action", $Action);
-    }
-
-    /**
-     * @param Model $model
-     * @return mixed|void
-     */
-    public function addModel($model)
-    {
-        $this->Model = $model;
     }
 
     /**
