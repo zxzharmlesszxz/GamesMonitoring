@@ -19,18 +19,7 @@ require_once 'Model/model.php';
  */
 class Server extends Module
 {
-    /**
-     * @var Server\Controller
-     */
-    protected $Controller;
 
-    /**
-     * Server constructor.
-     */
-    public function __construct()
-    {
-        $this->Controller = new Server\Controller();
-    }
 }
 
 spl_autoload_register(

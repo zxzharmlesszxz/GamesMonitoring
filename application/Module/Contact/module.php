@@ -18,18 +18,7 @@ require_once 'Controller/controller.php';
  */
 class Contact extends Module
 {
-    /**
-     * @var Contact\Controller
-     */
-    protected $Controller;
 
-    /**
-     * Contacts constructor.
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
 }
 
 spl_autoload_register(
