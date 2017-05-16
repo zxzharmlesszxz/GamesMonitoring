@@ -32,6 +32,7 @@ abstract class Controller implements ControllerInterface
      */
     public function __construct()
     {
+        echo get_called_class() . "<br>";
         $this->Routes = new Collection();
     }
 
