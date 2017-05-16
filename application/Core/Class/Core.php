@@ -56,6 +56,7 @@ class Core implements SingletonInterface
      */
     private function __construct()
     {
+        echo __METHOD__ . '<br>';
         $this->Config = Config::getInstance();
         $this->Router = Router::getInstance();
         $this->Modules = new Collection();
@@ -122,6 +123,7 @@ class Core implements SingletonInterface
      */
     protected function loadCoreModules()
     {
+        echo __METHOD__ . '<br>';
         $modulesDir = dir($this->Config->PROJECT_ROOT . '/' . $this->Config->CORE_MODULE_PATH);
 
         while (false !== ($module = $modulesDir->read()))
