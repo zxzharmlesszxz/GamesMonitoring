@@ -8,6 +8,7 @@
 
 namespace Core;
 
+use Core\Interfaces\ModelInterface;
 use Core\Interfaces\ModuleInterface;
 
 /**
@@ -41,7 +42,7 @@ abstract class Module implements ModuleInterface
      * @param Model $model
      * @return mixed|void
      */
-    public function addModel(Model $model)
+    public function addModel(ModelInterface $model)
     {
         $this->Controller->addModel($model);
     }
