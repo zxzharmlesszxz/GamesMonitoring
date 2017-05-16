@@ -61,7 +61,7 @@ class Core implements SingletonInterface
         $this->Modules = new Collection();
         $this->CoreModules = new Collection();
         $this->loadCoreModules();
-        //$this->Session = $this->getCoreModule('Session');
+        $this->Session = $this->getCoreModule('Session');
         $this->Theme = $this->getTheme();
     }
 
