@@ -5,6 +5,8 @@ require_once 'includes/functions.inc.php';
 
 $core = Core\Core::getInstance();
 
+var_dump($core);
+
 $modulesDir = dir($core->Config->PROJECT_ROOT . '/' . $core->Config->MODULE_PATH);
 while (false !== ($module = $modulesDir->read())) {
     switch ($module) {
