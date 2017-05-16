@@ -141,6 +141,7 @@ class Core implements SingletonInterface
                     var_dump($this->Config->PROJECT_ROOT . '/' . $this->Config->CORE_MODULE_PATH . '/' . $module . '/module.php');
                     include_once $this->Config->PROJECT_ROOT . '/' . $this->Config->CORE_MODULE_PATH . '/' . $module . '/module.php';
                     $moduleName = "Core\\Module\\$module";
+                    var_dump($moduleName);
                     var_dump(class_exists($moduleName));
                     if (class_exists($moduleName))
                         $this->registerCoreModule($module, new $moduleName);
