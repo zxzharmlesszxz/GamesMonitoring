@@ -26,7 +26,7 @@ abstract class Module implements ModuleInterface
      */
     public function __construct()
     {
-
+        echo __CLASS__ . "<br>";
     }
 
     /**
