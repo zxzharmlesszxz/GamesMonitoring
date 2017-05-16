@@ -13,6 +13,8 @@ function __autoload($class)
 
 $core = Core\Core::getInstance();
 
+var_dump($core);
+
 $modulesDir = dir($core->Config->PROJECT_ROOT . '/' . $core->Config->MODULE_PATH);
 
 while (false !== ($module = $modulesDir->read())) {
