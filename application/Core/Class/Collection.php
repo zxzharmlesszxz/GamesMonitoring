@@ -95,7 +95,7 @@ class Collection implements \IteratorAggregate
     /**
      * Check if key exists in array $items
      * Input: string
-     * Output: bulean
+     * Output: boolean
      **/
     public function keyExists($key)
     {
