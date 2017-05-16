@@ -11,11 +11,6 @@ use Core\Interfaces\ModelInterface;
 abstract class Model implements ModelInterface
 {
     /**
-     * @var Collection
-     */
-    protected $items;
-
-    /**
      * @var array
      */
     protected $class = array();
@@ -25,22 +20,15 @@ abstract class Model implements ModelInterface
      */
     public function __construct()
     {
-        $this->items = new Collection;
-    /*    $this->class = empty($class) ? substr(explode("_", static::class)[1], 0, -1) : $class;
-        foreach (($this->class)::find_all() as $item) {
-            $id = $item->id();
-            $this->items->addItem($item, $item->$id);
-        }
-    */
+
     }
 
     /**
-     * @param null $id
-     * @return Collection|mixed
+     *
      */
     public function get()
     {
-        return !empty($id) ? $this->items->getItem($id) : $this->items;
+
     }
 
     /**
