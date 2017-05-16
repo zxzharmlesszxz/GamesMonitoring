@@ -1,31 +1,12 @@
 <?php
 
 namespace Module\Server;
-use Core\Interfaces;
 
 /**
  * Class Model
  * @package Module\Server
  */
-class Model implements Interfaces\ModelInterface
+class Model extends \Core\Model
 {
-    /**
-     *
-     */
-    public function create() {}
 
-    /**
-     *
-     */
-    public function get() {}
-
-    /**
-     *
-     */
-    public function delete() {}
-
-    /**
-     *
-     */
-    public function save() {}
 }

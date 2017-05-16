@@ -2,56 +2,11 @@
 
 namespace Module\Cron;
 
-use Core\Interfaces\ModelInterface;
-
 /**
  * Class Model
  * @package Module\Cron
  */
-class Model implements ModelInterface
+class Model extends \Core\Model
 {
-    /**
-     *
-     */
-    public function create()
-    {
-        echo __METHOD__ . " working<br>";
-        return "Cron create page";
-    }
 
-    /**
-     *
-     */
-    public function get()
-    {
-        echo __METHOD__ . " working<br>";
-        return "Cron get page";
-    }
-
-    /**
-     *
-     */
-    public function index()
-    {
-        echo __METHOD__ . " working<br>";
-        return "Cron index page";
-    }
-
-    /**
-     *
-     */
-    public function delete()
-    {
-        echo __METHOD__ . " working<br>";
-        return "Cron delete page";
-    }
-
-    /**
-     *
-     */
-    public function save()
-    {
-        echo __METHOD__ . " working<br>";
-        return "Cron save page";
-    }
 }

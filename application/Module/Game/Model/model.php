@@ -2,31 +2,11 @@
 
 namespace Module\Game;
 
-use Core\Interfaces\ModelInterface;
-
 /**
  * Class Model
  * @package Module\Game
  */
-class Model implements ModelInterface
+class Model extends \Core\Model
 {
-    /**
-     *
-     */
-    public function create() {}
 
-    /**
-     *
-     */
-    public function get() {}
-
-    /**
-     *
-     */
-    public function delete() {}
-
-    /**
-     *
-     */
-    public function save() {}
 }
