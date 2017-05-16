@@ -54,7 +54,7 @@ abstract class Module implements ModuleInterface
      */
     public function addClass($class)
     {
-        $this->Model->addClass($class);
+        $this->Controller->Model->addClass($class);
     }
 
     /**
