@@ -103,7 +103,7 @@ class Router implements RouterInterface, SingletonInterface
     {
         global $core;
         $routes = explode('/', $_SERVER['REQUEST_URI']);
-        $Module_name = (!empty($routes[1]) ? $routes[1] : 'main');
+        $Module_name = (!empty($routes[1]) ? $routes[1] : 'default');
         $Action_name = (!empty($routes[2]) ? $routes[2] : 'index');
 
         echo "Module: $Module_name<br>";
