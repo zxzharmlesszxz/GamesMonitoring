@@ -28,6 +28,7 @@ class Database extends Module
      */
     public function __construct()
     {
+        echo __CLASS__ . "<br>";
         $this->Controller = new Database\Controller();
     }
 }

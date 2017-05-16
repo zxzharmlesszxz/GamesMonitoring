@@ -3,10 +3,10 @@
 namespace Core\Module\Database;
 
 /**
- * Class Controller
+ * Class Model
  * @package Core\Module\Database
  */
-class Controller extends \Core\Controller
+class Model extends \Core\Model
 {
 
 }
