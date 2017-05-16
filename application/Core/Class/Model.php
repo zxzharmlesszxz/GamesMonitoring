@@ -11,9 +11,11 @@ abstract class Model
      * @var Collection
      */
     protected $items;
+
     /**
      * @var bool|null|string
      */
+
     protected $class;
 
     /**
@@ -52,10 +54,10 @@ abstract class Model
     }
 
     /**
-     * @param DatabaseObject $item
-     * @return bool|DatabaseObject
+     * @param Object $item
+     * @return bool|Object
      */
-    public function save(DatabaseObject $item)
+    public function save(Object $item)
     {
         return $item->save() ? $item : false;
     }
