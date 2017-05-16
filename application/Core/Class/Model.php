@@ -91,6 +91,7 @@ abstract class Model implements ModelInterface
 
     /**
      * @param $class
+     * @return mixed|void
      */
     public function addClass($class)
     {
