@@ -21,6 +21,7 @@ class Example extends Module
 {
     public function __construct()
     {
+        parent::__construct();
         $this->addClass('Example');
     }
 }
