@@ -94,6 +94,6 @@ abstract class Model implements ModelInterface
      */
     public function addClass($class)
     {
-
+        $this->class = $class;
     }
 }
