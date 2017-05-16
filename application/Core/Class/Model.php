@@ -48,11 +48,6 @@ abstract class Model implements ModelInterface
      */
     public function getAjax()
     {
-        $array = array('data' => array());
-        foreach ($this->items->getItems() as $key => $item) {
-            $array['data'][$key] = $item;
-        }
-        return $array;
     }
 
     /**
@@ -61,7 +56,6 @@ abstract class Model implements ModelInterface
      */
     public function save()
     {
-        return $item->save() ? $item : false;
     }
 
     /**
@@ -70,7 +64,6 @@ abstract class Model implements ModelInterface
      */
     public function delete()
     {
-        return $this->items->getItem($id)->delete();
     }
 
     /**
@@ -79,8 +72,6 @@ abstract class Model implements ModelInterface
      */
     public function create()
     {
-        $item = ($this->class)::add($item);
-        return $item->save() ? $item : false;
     }
 
     public function index()
