@@ -33,3 +33,5 @@ $core->Session->set('Theme', $core->Config->THEME);
 $core->Router->startRouting();
 
 //var_dump($_SESSION);
+
+var_dump($core->getModule('Admin'));
