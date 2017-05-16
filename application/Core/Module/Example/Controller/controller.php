@@ -1,10 +1,10 @@
 <?php
 
-namespace Core\Module\Default;
+namespace Core\Module\Example;
 
 /**
  * Class Controller
- * @package Core\Module\Default
+ * @package Core\Module\Example
  */
 class Controller extends \Core\Controller
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Core\Module\Default;
+namespace Core\Module\Example;
 
 /**
  * Class Model
- * @package Core\Module\Default
+ * @package Core\Module\Example
  */
 class Model extends \Core\Model
 {
