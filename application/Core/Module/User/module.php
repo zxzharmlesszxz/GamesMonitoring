@@ -19,19 +19,7 @@ require_once 'Model/model.php';
  */
 class User extends Module
 {
-    /**
-     * @var User\Controller
-     */
-    protected $Controller;
 
-    /**
-     * User constructor.
-     */
-    public function __construct()
-    {
-        parent::__construct();
-        $this->Controller = new User\Controller();
-    }
 }
 
 spl_autoload_register(
