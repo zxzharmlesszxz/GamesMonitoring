@@ -32,31 +32,28 @@ abstract class Model implements ModelInterface
     }
 
     /**
-     * @return array
+     *
      */
     public function getAjax()
     {
     }
 
     /**
-     * @param Object $item
-     * @return bool|Object
+     *
      */
     public function save()
     {
     }
 
     /**
-     * @param $id
-     * @return mixed
+     *
      */
     public function delete()
     {
     }
 
     /**
-     * @param array $item
-     * @return bool
+     *
      */
     public function create()
     {
