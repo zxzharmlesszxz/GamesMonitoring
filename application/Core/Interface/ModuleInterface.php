@@ -8,8 +8,6 @@
 
 namespace Core\Interfaces;
 
-use Core\Model;
-
 /**
  * Interface ModuleInterface
  * @package Core\Interfaces
@@ -32,4 +30,10 @@ interface ModuleInterface
      * @return mixed
      */
     public function addClass($class);
+
+    /**
+     * @param $controller
+     * @return mixed
+     */
+    public function addController($controller);
 }
