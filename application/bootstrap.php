@@ -2,9 +2,9 @@
 
 require_once 'Core/index.php';
 require_once 'includes/functions.inc.php';
-echo 'test';
-$core = Core\Core::getInstance();
-var_dump($core);
+
+var_dump($core = Core\Core::getInstance());
+
 $modulesDir = dir($core->Config->PROJECT_ROOT . '/' . $core->Config->MODULE_PATH);
 while (false !== ($module = $modulesDir->read())) {
     switch ($module) {
