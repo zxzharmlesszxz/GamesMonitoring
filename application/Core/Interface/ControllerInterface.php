@@ -18,8 +18,9 @@ interface ControllerInterface
 {
     /**
      * ControllerInterface constructor.
+     * @param Model $model
      */
-    public function __construct();
+    public function __construct(Model $model);
 
     /**
      * @param $Module

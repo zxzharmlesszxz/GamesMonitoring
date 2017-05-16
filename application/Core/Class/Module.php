@@ -30,39 +30,7 @@ abstract class Module implements ModuleInterface
         $controller = get_called_class() . '\Controller';
         $model = get_called_class() . '\Model';
         $classs = get_called_class() . '\\' . end($class);
-        if (class_exists($controller))
-            $this->addController(new $controller);
-        if (class_exists($model))
-            $this->addModel(new $model);
-        //if (class_exists($classs))
-        //    $this->addClass($classs);
-    }
-
-    /**
-     * @param Model $model
-     * @return mixed|void
-     */
-    public function addModel($model)
-    {
-        $this->Controller->addModel($model);
-    }
-
-    /**
-     * @param $class
-     * @return mixed|void
-     */
-    public function addClass($class)
-    {
-        $this->Controller->Model->addClass($class);
-    }
-
-    /**
-     * @param $controller
-     * @return mixed|void
-     */
-    public function addController($controller)
-    {
-        $this->Controller = $controller;
+        $this->Controller = new $controller(new $model);
     }
 
     /**

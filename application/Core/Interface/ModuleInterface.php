@@ -14,21 +14,5 @@ namespace Core\Interfaces;
  */
 interface ModuleInterface
 {
-    /**
-     * @param $model
-     * @return mixed
-     */
-    public function addModel($model);
 
-    /**
-     * @param $class
-     * @return mixed
-     */
-    public function addClass($class);
-
-    /**
-     * @param $controller
-     * @return mixed
-     */
-    public function addController($controller);
 }
