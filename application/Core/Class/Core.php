@@ -132,6 +132,7 @@ class Core implements SingletonInterface
 
         while (false !== ($module = $modulesDir->read()))
         {
+            var_dump($module);
             switch ($module) {
                 case '.':
                 case '..':
