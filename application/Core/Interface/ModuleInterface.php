@@ -15,11 +15,6 @@ namespace Core\Interfaces;
 interface ModuleInterface
 {
     /**
-     * ModuleInterface constructor.
-     */
-    public function __construct();
-
-    /**
      * @param $model
      * @return mixed
      */
