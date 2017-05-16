@@ -8,7 +8,6 @@
 
 namespace Core\Module;
 
-use Core\Collection;
 use Core\Module;
 
 require_once 'Controller/controller.php';
