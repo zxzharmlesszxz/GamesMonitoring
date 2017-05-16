@@ -11,6 +11,7 @@ namespace Module;
 use Core\Module;
 
 require_once 'Controller/controller.php';
+require_once 'Model/model.php';
 
 /**
  * Class Contact
