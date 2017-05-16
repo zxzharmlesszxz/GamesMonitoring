@@ -35,7 +35,7 @@ abstract class Module implements ModuleInterface
         if (class_exists($model))
             $this->addModel(new $model);
         if (class_exists($classs))
-            $this->addClass(new $classs);
+            $this->addClass($classs);
     }
 
     /**
