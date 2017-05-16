@@ -19,7 +19,9 @@ require_once 'Model/model.php';
  */
 class Admin extends Module
 {
-
+    public function __construct()
+    {
+    }
 }
 
 spl_autoload_register(
