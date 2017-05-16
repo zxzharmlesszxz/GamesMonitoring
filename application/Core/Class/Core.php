@@ -8,7 +8,6 @@
 
 namespace Core;
 
-use Core\Interfaces\ModuleInterface;
 use Core\Interfaces\SingletonInterface;
 
 /**
@@ -143,7 +142,7 @@ class Core implements SingletonInterface
     /**
      * @param $name
      */
-    public function unregisterModule($name)
+    public function unRegisterModule($name)
     {
         $this->Modules->deleteItem($name);
     }
