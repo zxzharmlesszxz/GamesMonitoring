@@ -22,9 +22,8 @@ abstract class Model implements ModelInterface
 
     /**
      * Model constructor.
-     * @param null $class
      */
-    public function __construct($class = NULL)
+    public function __construct()
     {
         $this->items = new Collection;
     /*    $this->class = empty($class) ? substr(explode("_", static::class)[1], 0, -1) : $class;
@@ -39,7 +38,7 @@ abstract class Model implements ModelInterface
      * @param null $id
      * @return Collection|mixed
      */
-    public function get($id = null)
+    public function get()
     {
         return !empty($id) ? $this->items->getItem($id) : $this->items;
     }
@@ -60,7 +59,7 @@ abstract class Model implements ModelInterface
      * @param Object $item
      * @return bool|Object
      */
-    public function save(Object $item)
+    public function save()
     {
         return $item->save() ? $item : false;
     }
@@ -69,7 +68,7 @@ abstract class Model implements ModelInterface
      * @param $id
      * @return mixed
      */
-    public function delete($id)
+    public function delete()
     {
         return $this->items->getItem($id)->delete();
     }
@@ -78,7 +77,7 @@ abstract class Model implements ModelInterface
      * @param array $item
      * @return bool
      */
-    public function create(array $item)
+    public function create()
     {
         $item = ($this->class)::add($item);
         return $item->save() ? $item : false;
