@@ -19,18 +19,7 @@ require_once 'Model/model.php';
  */
 class Cron extends Module
 {
-    /**
-     * @var Cron\Controller
-     */
-    protected $Controller;
 
-    /**
-     * Cron constructor.
-     */
-    public function __construct()
-    {
-        $this->Controller = new Cron\Controller();
-    }
 }
 
 spl_autoload_register(

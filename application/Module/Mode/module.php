@@ -19,18 +19,7 @@ require_once 'Model/model.php';
  */
 class Mode extends Module
 {
-    /**
-     * @var Mode\Controller
-     */
-    protected $Controller;
 
-    /**
-     * Mode constructor.
-     */
-    public function __construct()
-    {
-        $this->Controller = new Mode\Controller();
-    }
 }
 
 spl_autoload_register(

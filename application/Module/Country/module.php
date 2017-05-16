@@ -19,18 +19,7 @@ require_once 'Model/model.php';
  */
 class Country extends Module
 {
-    /**
-     * @var Country\Controller
-     */
-    protected $Controller;
 
-    /**
-     * Country constructor.
-     */
-    public function __construct()
-    {
-        $this->Controller = new Country\Controller();
-    }
 }
 
 spl_autoload_register(

@@ -19,18 +19,7 @@ require_once 'Model/model.php';
  */
 class Game extends Module
 {
-    /**
-     * @var Game\Controller
-     */
-    protected $Controller;
 
-    /**
-     * Game constructor.
-     */
-    public function __construct()
-    {
-        $this->Controller = new Game\Controller();
-    }
 }
 
 spl_autoload_register(

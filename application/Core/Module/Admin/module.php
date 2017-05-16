@@ -19,18 +19,7 @@ require_once 'Model/model.php';
  */
 class Admin extends Module
 {
-    /**
-     * @var Admin\Controller
-     */
-    protected $Controller;
 
-    /**
-     * Admin constructor.
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
 }
 
 spl_autoload_register(
