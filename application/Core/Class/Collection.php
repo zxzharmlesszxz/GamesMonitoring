@@ -5,12 +5,14 @@
  */
 
 namespace Core;
-class Collection
+class Collection implements \IteratorAggregate
 {
     /**
      * @var array
      */
     private $items = array();
+
+    private $count = 0;
 
     /**
      * @param $item
@@ -20,7 +22,7 @@ class Collection
     public function addItem($item, $key = null)
     {
         if ($key == null) {
-            $this->items[] = $item;
+            $this->items[$this->count++] = $item;
         } else {
             if (isset($this->items[$key])) {
                 throw new \Exception("Key $key already in use.");
@@ -93,5 +95,10 @@ class Collection
     public function keyExists($key)
     {
         return isset($this->items[$key]);
+    }
+
+    public function getIterator()
+    {
+        return new \ArrayIterator($this->items);
     }
 }
