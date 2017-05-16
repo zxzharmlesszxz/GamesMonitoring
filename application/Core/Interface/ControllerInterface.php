@@ -29,8 +29,8 @@ interface ControllerInterface
     public function addRoute($Module, $Action);
 
     /**
-     * @param Model $model
+     * @param ModelInterface|Model $model
      * @return mixed
      */
-    public function addModel(Model $model);
+    public function addModel($model);
 }
