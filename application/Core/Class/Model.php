@@ -34,13 +34,6 @@ abstract class Model implements ModelInterface
     /**
      *
      */
-    public function getAjax()
-    {
-    }
-
-    /**
-     *
-     */
     public function save()
     {
     }
