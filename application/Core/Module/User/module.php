@@ -29,6 +29,7 @@ class User extends Module
      */
     public function __construct()
     {
+        parent::__construct();
         $this->Controller = new User\Controller();
     }
 }

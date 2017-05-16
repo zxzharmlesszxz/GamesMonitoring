@@ -40,6 +40,7 @@ class Session extends Module
      */
     public function __construct()
     {
+        parent::__construct();
         $this->Session = new Session\Session();
         $this->Controller = new Session\Controller();
     }

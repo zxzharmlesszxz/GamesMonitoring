@@ -29,6 +29,7 @@ class Admin extends Module
      */
     public function __construct()
     {
+        parent::__construct();
         $this->Controller = new Admin\Controller();
     }
 }

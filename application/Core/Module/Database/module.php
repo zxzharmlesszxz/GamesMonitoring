@@ -28,6 +28,7 @@ class Database extends Module
      */
     public function __construct()
     {
+        parent::__construct();
         $this->Controller = new Database\Controller();
     }
 }
