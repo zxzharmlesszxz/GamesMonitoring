@@ -60,8 +60,8 @@ class Core implements SingletonInterface
         $this->Router = Router::getInstance();
         $this->Modules = new Collection();
         $this->CoreModules = new Collection();
-        //$this->loadCoreModules();
-        $this->Session = $this->getCoreModule('Session');
+        $this->loadCoreModules();
+        //$this->Session = $this->getCoreModule('Session');
         $this->Theme = $this->getTheme();
     }
 
