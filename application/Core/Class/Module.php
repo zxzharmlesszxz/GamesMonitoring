@@ -42,7 +42,7 @@ abstract class Module implements ModuleInterface
      * @param ModelInterface|Model $model
      * @return mixed|void
      */
-    public function addModel(ModelInterface $model)
+    public function addModel(Model $model)
     {
         $this->Controller->addModel($model);
     }
