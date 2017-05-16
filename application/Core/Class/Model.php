@@ -74,18 +74,12 @@ abstract class Model implements ModelInterface
     {
     }
 
+    /**
+     *
+     */
     public function index()
     {
         echo "index<br>";
         var_dump($this->class);
-    }
-
-    /**
-     * @param $class
-     * @return mixed|void
-     */
-    public function addClass($class)
-    {
-        $this->class[] = $class;
     }
 }

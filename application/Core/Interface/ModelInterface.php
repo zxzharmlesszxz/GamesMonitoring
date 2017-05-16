@@ -39,10 +39,4 @@ interface ModelInterface
      * @return mixed
      */
     public function index();
-
-    /**
-     * @param $class
-     * @return mixed
-     */
-    public function addClass($class);
 }
