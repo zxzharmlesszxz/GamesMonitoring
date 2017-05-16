@@ -30,7 +30,6 @@ abstract class Module implements ModuleInterface
         $controller = get_called_class() . '\Controller';
         $model = get_called_class() . '\Model';
         $classs = get_called_class() . '\\' . end($class);
-        echo end($class) . '<br>';
         if (class_exists($controller))
             $this->addController(new $controller);
         if (class_exists($model))
