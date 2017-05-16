@@ -39,7 +39,7 @@ abstract class Module implements ModuleInterface
     }
 
     /**
-     * @param Model $model
+     * @param ModelInterface|Model $model
      * @return mixed|void
      */
     public function addModel(ModelInterface $model)
