@@ -96,6 +96,9 @@ class Router implements RouterInterface, SingletonInterface
         return $this->Routes;
     }
 
+    /**
+     *
+     */
     public function startRouting()
     {
         global $core;
