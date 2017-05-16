@@ -10,12 +10,9 @@ namespace Core\Module;
 
 use Core\Module;
 
-echo __FILE__ . '<br>';
-
 require_once 'Controller/controller.php';
 require_once 'Model/model.php';
 
-echo __FILE__ . ' after inclusion<br>';
 /**
  * Class Admin
  * @package Core\Module\Admin

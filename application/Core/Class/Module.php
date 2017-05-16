@@ -10,8 +10,6 @@ namespace Core;
 
 use Core\Interfaces\ModuleInterface;
 
-echo __FILE__ . '<br>';
-
 /**
  * Class Module
  * @package Core
