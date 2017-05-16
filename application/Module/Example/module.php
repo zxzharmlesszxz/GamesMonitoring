@@ -6,7 +6,7 @@
  * Time: 17:37
  */
 
-namespace Core\Module;
+namespace Module;
 
 use Core\Module;
 
