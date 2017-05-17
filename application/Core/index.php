@@ -10,6 +10,7 @@ namespace Core;
 require_once 'Interface/SingletonInterface.php';
 require_once 'Interface/ControllerInterface.php';
 require_once 'Interface/RouterInterface.php';
+require_once 'Interface/CoreModuleInterface.php';
 require_once 'Interface/ModuleInterface.php';
 require_once 'Interface/ModelInterface.php';
 require_once 'Interface/ViewInterface.php';
