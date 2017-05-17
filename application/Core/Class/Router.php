@@ -30,7 +30,6 @@ class Router implements RouterInterface, SingletonInterface
      */
     private function __construct()
     {
-        $this->Core = $core;
         $this->Routes = new Collection();
     }
 
