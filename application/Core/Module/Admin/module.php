@@ -8,7 +8,7 @@
 
 namespace Core\Module;
 
-use Core\Module;
+use Core\CoreModule;
 
 require_once 'Controller/controller.php';
 require_once 'Model/model.php';
@@ -17,7 +17,7 @@ require_once 'Model/model.php';
  * Class Admin
  * @package Core\Module\Admin
  */
-class Admin extends Module
+class Admin extends CoreModule
 {
 
 }

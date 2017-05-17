@@ -8,7 +8,7 @@
 
 namespace Core\Module;
 
-use Core\Module;
+use Core\CoreModule;
 
 require_once 'Controller/controller.php';
 require_once 'Model/model.php';
@@ -17,7 +17,7 @@ require_once 'Model/model.php';
  * Class Database
  * @package Core\Module\Database
  */
-class Database extends Module
+class Database extends CoreModule
 {
 
 }
