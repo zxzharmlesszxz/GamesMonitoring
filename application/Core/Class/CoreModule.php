@@ -22,7 +22,7 @@ abstract class CoreModule implements CoreModuleInterface
     protected $Controller;
 
     /**
-     * Module constructor.
+     * CoreModule constructor.
      */
     public function __construct()
     {
