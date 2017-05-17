@@ -114,9 +114,9 @@ class Core implements SingletonInterface
 
     /**
      * @param $name
-     * @param Module $module
+     * @param CoreModule $module
      */
-    protected function registerCoreModule($name, Module $module)
+    protected function registerCoreModule($name, CoreModule $module)
     {
         //echo __METHOD__ . '<br>';
         static::$CoreModules->addItem($module, $name);
