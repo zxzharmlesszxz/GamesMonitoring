@@ -13,6 +13,8 @@ function __autoload($class)
 
 $core = Core\Core::getInstance();
 
+var_dump($core);
+
 $modulesDir = dir(\Core\Core::$Config->PROJECT_ROOT . '/' . \Core\Core::$Config->MODULE_PATH);
 
 while (false !== ($module = $modulesDir->read())) {
@@ -31,3 +33,5 @@ while (false !== ($module = $modulesDir->read())) {
 
 \Core\Core::$Session->set('Theme', \Core\Core::$Config->THEME);
 \Core\Core::$Router->startRouting();
+
+var_dump($core);
