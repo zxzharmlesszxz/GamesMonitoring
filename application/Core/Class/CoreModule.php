@@ -31,6 +31,7 @@ abstract class CoreModule implements CoreModuleInterface
         $model = get_called_class() . '\Model';
         //$classs = get_called_class() . '\\' . end($class);
         $this->Controller = new $controller(new $model);
+        unset($this->Controller->Router);
     }
 
     /**
