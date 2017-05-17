@@ -29,5 +29,5 @@ while (false !== ($module = $modulesDir->read())) {
     }
 }
 
-\Core\Core::$Session->set('Theme', $core->Config->THEME);
+\Core\Core::$Session->set('Theme', \Core\Core::$Config->THEME);
 \Core\Core::$Router->startRouting();
