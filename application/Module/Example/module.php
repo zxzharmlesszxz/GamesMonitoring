@@ -9,7 +9,6 @@
 namespace Module;
 
 use Core\Module;
-use Module\Example\Model;
 
 require_once 'Controller/controller.php';
 require_once 'Model/model.php';
@@ -20,11 +19,7 @@ require_once 'Model/model.php';
  */
 class Example extends Module
 {
-    public function __construct()
-    {
-        parent::__construct();
-        var_dump(new \Module\Example\Example());
-    }
+
 }
 
 spl_autoload_register(
