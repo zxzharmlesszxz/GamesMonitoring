@@ -35,3 +35,5 @@ while (false !== ($module = $modulesDir->read())) {
 \Core\Core::$Router->startRouting();
 
 var_dump($core);
+
+var_dump(\Core\Core::$Session);
