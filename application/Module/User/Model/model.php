@@ -1,10 +1,10 @@
 <?php
 
-namespace Core\Module\Admin;
+namespace Module\User;
 
 /**
  * Class Model
- * @package Core\Module\Admin
+ * @package Module\User
  */
 class Model extends \Core\Model
 {

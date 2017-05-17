@@ -6,18 +6,18 @@
  * Time: 17:37
  */
 
-namespace Core\Module;
+namespace Module;
 
-use Core\CoreModule;
+use Core\Module;
 
 require_once 'Controller/controller.php';
 require_once 'Model/model.php';
 
 /**
  * Class Admin
- * @package Core\Module\Admin
+ * @package Module
  */
-class Admin extends CoreModule
+class Admin extends Module
 {
 
 }

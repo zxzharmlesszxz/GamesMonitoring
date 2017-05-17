@@ -1,10 +1,10 @@
 <?php
 
-namespace Core\Module\User;
+namespace Module\User;
 
 /**
  * Class Controller
- * @package Core\Module\User
+ * @package Module\User
  */
 class Controller extends \Core\Controller
 {
