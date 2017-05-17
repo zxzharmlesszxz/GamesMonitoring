@@ -13,7 +13,7 @@ function __autoload($class)
 
 $core = Core\Core::getInstance();
 
-$modulesDir = dir($core->Config->PROJECT_ROOT . '/' . $core->Config->MODULE_PATH);
+$modulesDir = dir(\Core\Core::$Config->PROJECT_ROOT . '/' . \Core\Core::$Config->MODULE_PATH);
 
 while (false !== ($module = $modulesDir->read())) {
     switch ($module) {
@@ -21,13 +21,13 @@ while (false !== ($module = $modulesDir->read())) {
         case '..':
             break;
         default:
-            include_once $core->Config->PROJECT_ROOT . '/' . $core->Config->MODULE_PATH . '/' . $module . '/module.php';
+            include_once \Core\Core::$Config->PROJECT_ROOT . '/' . \Core\Core::$Config->MODULE_PATH . '/' . $module . '/module.php';
             $moduleName = "Module\\$module";
             $core->registerModule($module, new $moduleName);
-            $core->Router->setRoute(new \Core\Route($moduleName, 'index'));
+            \Core\Core::$Router->setRoute(new \Core\Route($moduleName, 'index'));
             break;
     }
 }
 
-$core->Session->set('Theme', $core->Config->THEME);
-$core->Router->startRouting();
+\Core\Core::$Session->set('Theme', $core->Config->THEME);
+\Core\Core::$Router->startRouting();

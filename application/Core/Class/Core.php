@@ -39,12 +39,12 @@ class Core implements SingletonInterface
     /**
      * @var Router
      */
-    static protected $Router;
+    static public $Router;
 
     /**
      * @var Config
      */
-    static protected $Config;
+    static public $Config;
 
     /**
      * @var Theme
