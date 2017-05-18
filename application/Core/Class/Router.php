@@ -109,6 +109,8 @@ class Router implements RouterInterface, SingletonInterface
         $Action_name = (!empty($route[2]) ? $route[2] : 'index');
 
         var_dump($_SERVER);
+        var_dump($_REQUEST);
+        var_dump($_GET);
         echo "Module: $Module_name<br>";
         echo "Action: $Action_name<br>";
 
