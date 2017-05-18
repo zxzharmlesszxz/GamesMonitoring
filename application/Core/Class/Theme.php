@@ -17,19 +17,19 @@ use Core\Interfaces\ThemeInterface;
 abstract class Theme implements ThemeInterface
 {
     /**
-     * @var
+     * @var array
      */
-    protected $styles;
+    protected $styles = array();
 
     /**
-     * @var
+     * @var array
      */
-    protected $lesses;
+    protected $lesses = array();
 
     /**
-     * @var
+     * @var array
      */
-    protected $jscripts;
+    protected $jscripts = array();
 
     /**
      * @var
