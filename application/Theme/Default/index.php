@@ -14,13 +14,5 @@ namespace Theme\Default;
  */
 class Theme extends \Core\Theme
 {
-    /**
-     * @var
-     */
-    protected $styles = array('style/style.less');
 
-    /**
-     * @var
-     */
-    protected $jscripts;
 }
