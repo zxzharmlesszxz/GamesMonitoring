@@ -124,13 +124,14 @@ abstract class Theme implements ThemeInterface
     public function findFiles($dir)
     {
         $path = dir($this->dir . '/' . $dir);
+        $webpath = "/application/Theme/" . end(explode('/', $this->dir));
         while (false !== ($file = $path->read())) {
             switch ($file) {
                 case '.':
                 case '..':
                     break;
                 default:
-                    $files[] = $file;
+                    $files[] = "$dir/$file";
                     break;
             }
         }
