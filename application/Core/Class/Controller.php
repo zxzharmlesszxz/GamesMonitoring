@@ -32,6 +32,7 @@ abstract class Controller implements ControllerInterface
      */
     public function __construct(Model $model)
     {
+        echo __METHOD__;
         $this->Routes = new Collection();
         $this->Model = $model;
     }
@@ -43,6 +44,7 @@ abstract class Controller implements ControllerInterface
      */
     public function addRoute($Module, $Action)
     {
+        echo __METHOD__;
         $this->Routes->addItem("/$Module/$Action", $Action);
     }
 

@@ -20,6 +20,7 @@ abstract class Model implements ModelInterface
      */
     public function __construct()
     {
+        echo __METHOD__;
 
     }
 
@@ -28,6 +29,7 @@ abstract class Model implements ModelInterface
      */
     public function get()
     {
+        echo __METHOD__;
 
     }
 
@@ -36,6 +38,7 @@ abstract class Model implements ModelInterface
      */
     public function save()
     {
+        echo __METHOD__;
     }
 
     /**
@@ -43,6 +46,7 @@ abstract class Model implements ModelInterface
      */
     public function delete()
     {
+        echo __METHOD__;
     }
 
     /**
@@ -50,6 +54,7 @@ abstract class Model implements ModelInterface
      */
     public function create()
     {
+        echo __METHOD__;
     }
 
     /**
@@ -57,6 +62,7 @@ abstract class Model implements ModelInterface
      */
     public function index()
     {
+        echo __METHOD__;
         echo "index<br>";
         var_dump($this->class);
     }
