@@ -32,3 +32,5 @@ while (false !== ($module = $modulesDir->read())) {
 $core->run();
 
 $core->Session->set('Theme', $core->Config->THEME);
+
+var_dump($core->Theme);
