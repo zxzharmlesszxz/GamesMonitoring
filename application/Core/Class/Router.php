@@ -25,12 +25,15 @@ class Router implements RouterInterface, SingletonInterface
      */
     protected $Routes;
 
+    protected $Query;
+
     /**
      * Router constructor.
      */
     private function __construct()
     {
         $this->Routes = new Collection();
+        $this->Query = new Query();
     }
 
     /**
@@ -101,14 +104,15 @@ class Router implements RouterInterface, SingletonInterface
      */
     public function startRouting(Core $core)
     {
-        $routes = explode('/', $_SERVER['REQUEST_URI']);
-        $Module_name = (!empty($routes[1]) ? $routes[1] : 'example');
-        $Action_name = (!empty($routes[2]) ? $routes[2] : 'index');
+        $route = explode('/', $_SERVER['REQUEST_URI']);
+        $Module_name = (!empty($route[1]) ? $route[1] : 'example');
+        $Action_name = (!empty($route[2]) ? $route[2] : 'index');
 
         echo "Module: $Module_name<br>";
         echo "Action: $Action_name<br>";
 
         $module = $core->getModule(ucfirst($Module_name));
+        var_dump($this->Query);
         echo $module->action($Action_name);
         var_dump($module);
     }
