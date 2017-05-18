@@ -97,9 +97,9 @@ class Router implements RouterInterface, SingletonInterface
     }
 
     /**
-     *
+     * @param Core $core
      */
-    public function startRouting()
+    public function startRouting(Core $core)
     {
         $routes = explode('/', $_SERVER['REQUEST_URI']);
         $Module_name = (!empty($routes[1]) ? $routes[1] : 'example');
@@ -108,7 +108,7 @@ class Router implements RouterInterface, SingletonInterface
         echo "Module: $Module_name<br>";
         echo "Action: $Action_name<br>";
 
-        $module = Core::getModule(ucfirst($Module_name));
+        $module = $core->getModule(ucfirst($Module_name));
         echo $module->action($Action_name);
         var_dump($module);
     }

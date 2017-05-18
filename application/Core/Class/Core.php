@@ -24,32 +24,32 @@ class Core implements SingletonInterface
     /**
      * @var Collection
      */
-    static protected $Modules;
+    protected $Modules;
 
     /**
      * @var Collection
      */
-    static protected $CoreModules;
+    protected $CoreModules;
 
     /**
      * @var Module\Session
      */
-    static public $Session;
+    protected $Session;
 
     /**
      * @var Router
      */
-    static public $Router;
+    protected $Router;
 
     /**
      * @var Config
      */
-    static public $Config;
+    protected $Config;
 
     /**
      * @var Theme
      */
-    static public $Theme;
+    protected $Theme;
 
     /**
      * Core constructor.
@@ -57,13 +57,10 @@ class Core implements SingletonInterface
     private function __construct()
     {
         //echo __METHOD__ . '<br>';
-        static::$Config = Config::getInstance();
-        static::$Router = Router::getInstance();
-        static::$Modules = new Collection();
-        static::$CoreModules = new Collection();
-        $this->loadCoreModules();
-        static::$Session = $this->getCoreModule('Session');
-        static::$Theme = $this->getTheme();
+        $this->Config = Config::getInstance();
+        $this->Router = Router::getInstance();
+        $this->Modules = new Collection();
+        $this->CoreModules = new Collection();
     }
 
     /**
@@ -109,7 +106,7 @@ class Core implements SingletonInterface
     public function registerModule($name, Module $module)
     {
         //echo __METHOD__ . '<br>';
-        static::$Modules->addItem($module, $name);
+        $this->Modules->addItem($module, $name);
     }
 
     /**
@@ -119,7 +116,7 @@ class Core implements SingletonInterface
     protected function registerCoreModule($name, CoreModule $module)
     {
         //echo __METHOD__ . '<br>';
-        static::$CoreModules->addItem($module, $name);
+        $this->CoreModules->addItem($module, $name);
     }
 
     /**
@@ -128,7 +125,7 @@ class Core implements SingletonInterface
     protected function loadCoreModules()
     {
         //echo __METHOD__ . '<br>';
-        $modulesDir = dir(static::$Config->PROJECT_ROOT . '/' . static::$Config->CORE_MODULE_PATH);
+        $modulesDir = dir($this->Config->PROJECT_ROOT . '/' . $this->Config->CORE_MODULE_PATH);
 
         while (false !== ($module = $modulesDir->read())) {
             switch ($module) {
@@ -136,7 +133,7 @@ class Core implements SingletonInterface
                 case '..':
                     break;
                 default:
-                    include_once static::$Config->PROJECT_ROOT . '/' . static::$Config->CORE_MODULE_PATH . '/' . $module . '/module.php';
+                    include_once $this->Config->PROJECT_ROOT . '/' . $this->Config->CORE_MODULE_PATH . '/' . $module . '/module.php';
                     $moduleName = "Core\\Module\\$module";
                     if (class_exists($moduleName))
                         $this->registerCoreModule($module, new $moduleName);
@@ -151,42 +148,53 @@ class Core implements SingletonInterface
     public function unRegisterModule($name)
     {
         //echo __METHOD__ . '<br>';
-        static::$Modules->deleteItem($name);
+        $this->Modules->deleteItem($name);
     }
 
     /**
      * @param $name
      * @return mixed
      */
-    static public function getModule($name)
+    public function getModule($name)
     {
         //echo __METHOD__ . '<br>';
-        return static::$Modules->getItem($name);
+        return $this->Modules->getItem($name);
     }
 
     /**
      * @param $name
      * @return mixed
      */
-    static public function getCoreModule($name)
+    public function getCoreModule($name)
     {
         //echo __METHOD__ . '<br>';
-        return static::$CoreModules->getItem($name);
+        return $this->CoreModules->getItem($name);
     }
 
     /**
      * @return mixed
      * @throws \Exception
      */
-    static protected function getTheme()
+    protected function getTheme()
     {
         //echo __METHOD__ . '<br>';
-        $theme = (!is_null(static::$Config->THEME) ? static::$Config->THEME : static::$Config->DEFAULT_THEME);
-        @include_once static::$Config->PROJECT_ROOT . '/' . static::$Config->THEME_PATH . '/' . $theme . '/index.php';
+        $theme = (!is_null($this->Config->THEME) ? $this->Config->THEME : $this->Config->DEFAULT_THEME);
+        @include_once $this->Config->PROJECT_ROOT . '/' . $this->Config->THEME_PATH . '/' . $theme . '/index.php';
         $themeClass = "\Theme\\$theme\Theme";
         if (!class_exists($themeClass)) {
             throw new \Exception("Theme $theme not found!");
         }
         return new $themeClass();
+    }
+
+    /**
+     *
+     */
+    public function run()
+    {
+        $this->loadCoreModules();
+        $this->Session = $this->getCoreModule('Session');
+        $this->Theme = $this->getTheme();
+        $this->Router->startRouting($this);
     }
 }

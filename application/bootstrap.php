@@ -13,9 +13,7 @@ function __autoload($class)
 
 $core = Core\Core::getInstance();
 
-var_dump($core);
-
-$modulesDir = dir(\Core\Core::$Config->PROJECT_ROOT . '/' . \Core\Core::$Config->MODULE_PATH);
+$modulesDir = dir($core->Config->PROJECT_ROOT . '/' . $core->Config->MODULE_PATH);
 
 while (false !== ($module = $modulesDir->read())) {
     switch ($module) {
@@ -23,17 +21,16 @@ while (false !== ($module = $modulesDir->read())) {
         case '..':
             break;
         default:
-            include_once \Core\Core::$Config->PROJECT_ROOT . '/' . \Core\Core::$Config->MODULE_PATH . '/' . $module . '/module.php';
+            include_once $core->Config->PROJECT_ROOT . '/' . $core->Config->MODULE_PATH . '/' . $module . '/module.php';
             $moduleName = "Module\\$module";
             $core->registerModule($module, new $moduleName);
-            \Core\Core::$Router->setRoute(new \Core\Route($moduleName, 'index'));
+            $core->Router->setRoute(new \Core\Route($moduleName, 'index'));
             break;
     }
 }
 
-\Core\Core::$Session->set('Theme', \Core\Core::$Config->THEME);
-\Core\Core::$Router->startRouting();
+$core->run();
 
-var_dump($core);
+$core->Session->set('Theme', $core->Config->THEME);
 
-var_dump(\Core\Core::$Session);
+var_dump($core->Session);
