@@ -37,17 +37,25 @@ abstract class Theme implements ThemeInterface
     protected $content;
 
     /**
+     * @var string
+     */
+    protected $dir;
+
+    /**
      * Theme constructor.
      */
     public function __construct()
     {
         echo get_called_class() . " theme<br />";
+        $this->dir = dirname((new \ReflectionClass($this))->getFileName());
         foreach ($this->findFiles('style') as $file)
             $this->setStyle($file);
         foreach ($this->findFiles('less') as $file)
             $this->setLess($file);
         foreach ($this->findFiles('js') as $file)
             $this->setJscript($file);
+
+        $this->content = "";
     }
 
     /**
@@ -111,12 +119,11 @@ abstract class Theme implements ThemeInterface
 
     /**
      * @param $dir
-     * @return mixed|void
+     * @return mixed
      */
     public function findFiles($dir)
     {
-        $info = new \ReflectionClass($this);
-        $path = dir(dirname($info->getFileName()) . '/' . $dir);
+        $path = dir($this->dir . '/' . $dir);
         while (false !== ($file = $path->read())) {
             switch ($file) {
                 case '.':
