@@ -8,14 +8,15 @@
 
 namespace Core\Interfaces;
 
-
 /**
  * Interface WebPageInterface
  * @package Core\Interfaces
  */
 interface WebPageInterface
 {
-    public function generate();
-
-    public function output();
+    /**
+     * @param string $content
+     * @return mixed
+     */
+    public function output(string $content);
 }

@@ -16,22 +16,8 @@ namespace Core\Interfaces;
 interface ViewInterface
 {
     /**
-     * @param $content_view
-     * @param $template_view
-     * @param null $data
+     * @param $content
      * @return mixed
      */
-    public function generate($content_view, $template_view, $data = null);
-
-    /**
-     * @param null $data
-     * @return mixed
-     */
-    public function ajax($data = null);
-
-    /**
-     * @param null $data
-     * @return mixed
-     */
-    public function debug($data = null);
+    public function generate($content);
 }

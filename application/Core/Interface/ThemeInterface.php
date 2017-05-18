@@ -18,12 +18,12 @@ interface ThemeInterface
     /**
      * @return mixed
      */
-    public function setStyles($styles);
+    public function setStyle($style);
 
     /**
      * @return mixed
      */
-    public function setJscripts($jscripts);
+    public function setJscript($jscript);
 
     /**
      * @return mixed
@@ -34,4 +34,9 @@ interface ThemeInterface
      * @return mixed
      */
     public function getJscripts();
+
+    /**
+     * @return mixed
+     */
+    public function generate();
 }

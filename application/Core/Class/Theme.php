@@ -27,29 +27,43 @@ abstract class Theme implements ThemeInterface
     protected $jscripts;
 
     /**
+     * @var
+     */
+    protected $content;
+
+    /**
      * Theme constructor.
      */
     public function __construct()
     {
-        #echo get_called_class() ." theme<br />";
+        echo get_called_class() . " theme<br />";
+        foreach ($this->styles as $style)
+        {
+            $this->setStyle($style);
+        }
+
+        foreach ($this->jscripts as $script)
+        {
+            $this->setJscript($script);
+        }
     }
 
     /**
-     * @param mixed $styles
+     * @param mixed $style
      * @return mixed|void
      */
-    public function setStyles($styles)
+    public function setStyle($style)
     {
-        $this->styles = $styles;
+        $this->styles[] = $style;
     }
 
     /**
      * @param mixed $jscripts
      * @return mixed|void
      */
-    public function setJscripts($jscripts)
+    public function setJscript($jscript)
     {
-        $this->jscripts = $jscripts;
+        $this->jscripts[] = $jscript;
     }
 
     /**
@@ -66,5 +80,13 @@ abstract class Theme implements ThemeInterface
     public function getJscripts()
     {
         return $this->jscripts;
+    }
+
+    /**
+     * @return View
+     */
+    public function generate()
+    {
+        return new View($this->content);
     }
 }
