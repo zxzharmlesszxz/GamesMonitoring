@@ -27,4 +27,12 @@ class Query
     {
         $this->Query = $_REQUEST;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getQuery()
+    {
+        return $this->Query;
+    }
 }

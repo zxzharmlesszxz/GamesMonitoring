@@ -111,7 +111,7 @@ class Router implements RouterInterface, SingletonInterface
         echo "Module: $Module_name<br>";
         echo "Action: $Action_name<br>";
         echo "Query: <br>";
-        print_r($this->Query);
+        print_r($this->Query->getQuery());
 
         $module = $core->getModule(ucfirst($Module_name));
         echo $module->action($Action_name);
