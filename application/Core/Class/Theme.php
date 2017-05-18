@@ -132,7 +132,7 @@ abstract class Theme implements ThemeInterface
                 case '..':
                     break;
                 default:
-                    $files[] = "$dir/$file";
+                    $files[] = "$webpath/$dir/$file";
                     break;
             }
         }
