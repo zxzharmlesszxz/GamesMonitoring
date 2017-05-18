@@ -58,12 +58,12 @@ abstract class Theme implements ThemeInterface
     }
 
     /**
-     * @param mixed $jscripts
+     * @param mixed $script
      * @return mixed|void
      */
-    public function setJscript($jscript)
+    public function setJscript($script)
     {
-        $this->jscripts[] = $jscript;
+        $this->jscripts[] = $script;
     }
 
     /**
