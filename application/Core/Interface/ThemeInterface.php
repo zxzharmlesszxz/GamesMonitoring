@@ -26,6 +26,12 @@ interface ThemeInterface
     public function setJscript($jscript);
 
     /**
+     * @param $less
+     * @return mixed
+     */
+    public function setLess($less);
+
+    /**
      * @return mixed
      */
     public function getStyles();
@@ -35,8 +41,20 @@ interface ThemeInterface
      */
     public function getJscripts();
 
+
+    /**
+     * @return mixed
+     */
+    public function getLesses();
+
     /**
      * @return mixed
      */
     public function generate();
+
+    /**
+     * @param $dir
+     * @return mixed
+     */
+    public function findFiles($dir);
 }

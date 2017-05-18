@@ -24,6 +24,11 @@ abstract class Theme implements ThemeInterface
     /**
      * @var
      */
+    protected $lesses;
+
+    /**
+     * @var
+     */
     protected $jscripts;
 
     /**
@@ -37,16 +42,12 @@ abstract class Theme implements ThemeInterface
     public function __construct()
     {
         echo get_called_class() . " theme<br />";
-        if (!empty($this->styles)) {
-            foreach ($this->styles as $style) {
-                $this->setStyle($style);
-            }
-        }
-        if (!empty($this->jscripts)) {
-            foreach ($this->jscripts as $script) {
-                $this->setJscript($script);
-            }
-        }
+        foreach ($this->findFiles('style') as $file)
+            $this->setStyle($file);
+        foreach ($this->findFiles('less') as $file)
+            $this->setLess($file);
+        foreach ($this->findFiles('js') as $file)
+            $this->setJscript($file);
     }
 
     /**
@@ -68,6 +69,15 @@ abstract class Theme implements ThemeInterface
     }
 
     /**
+     * @param mixed $less
+     * @return mixed|void
+     */
+    public function setLess($less)
+    {
+        $this->lesses[] = $less;
+    }
+
+    /**
      * @return mixed
      */
     public function getStyles()
@@ -84,10 +94,38 @@ abstract class Theme implements ThemeInterface
     }
 
     /**
+     * @return mixed
+     */
+    public function getLesses()
+    {
+        return $this->lesses;
+    }
+
+    /**
      * @return View
      */
     public function generate()
     {
         return new View($this->content);
+    }
+
+    /**
+     * @param $dir
+     * @return mixed|void
+     */
+    public function findFiles($dir)
+    {
+        $path = dir(__DIR__ . '/' . $dir);
+        while (false !== ($file = $path->read())) {
+            switch ($file) {
+                case '.':
+                case '..':
+                    break;
+                default:
+                    $files[] = $file;
+                    break;
+            }
+        }
+        return $files;
     }
 }
