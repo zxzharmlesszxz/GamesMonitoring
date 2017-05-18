@@ -37,14 +37,15 @@ abstract class Theme implements ThemeInterface
     public function __construct()
     {
         echo get_called_class() . " theme<br />";
-        foreach ($this->styles as $style)
-        {
-            $this->setStyle($style);
+        if (!empty($this->styles)) {
+            foreach ($this->styles as $style) {
+                $this->setStyle($style);
+            }
         }
-
-        foreach ($this->jscripts as $script)
-        {
-            $this->setJscript($script);
+        if (!empty($this->jscripts)) {
+            foreach ($this->jscripts as $script) {
+                $this->setJscript($script);
+            }
         }
     }
 
