@@ -115,7 +115,8 @@ abstract class Theme implements ThemeInterface
      */
     public function findFiles($dir)
     {
-        $path = dir(__DIR__ . '/' . $dir);
+        $info = new \ReflectionClass($this);
+        $path = dir(dirname($info->getFileName()) . '/' . $dir);
         while (false !== ($file = $path->read())) {
             switch ($file) {
                 case '.':
