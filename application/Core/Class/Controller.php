@@ -33,11 +33,12 @@ abstract class Controller implements ControllerInterface
 
     /**
      * @param string $action
+     * @param Query $query
      * @return mixed
      */
-    public function action($action = 'index')
+    public function action($action = 'index', Query $query)
     {
         //echo __METHOD__ . " doin $action<br>";
-        return $this->Model->$action();
+        return $this->Model->$action($query);
     }
 }

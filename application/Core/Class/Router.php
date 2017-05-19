@@ -121,7 +121,7 @@ class Router implements RouterInterface, SingletonInterface
             echo "<br>";
 
             $module = $core->getModule(ucfirst($Module_name));
-            echo $module->action($Action_name);
+            echo $module->action($Action_name, $this->Query);
             var_dump($module);
         } else {
             throw new \Exception("Route /$Module_name/$Action_name: not found!");

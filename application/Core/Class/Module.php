@@ -46,10 +46,11 @@ abstract class Module implements ModuleInterface
 
     /**
      * @param $action
+     * @param $query
      * @return mixed
      */
-    public function action($action)
+    public function action($action, Query $query)
     {
-        return $this->Controller->action($action);
+        return $this->Controller->action($action, $query);
     }
 }

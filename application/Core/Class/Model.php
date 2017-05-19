@@ -29,7 +29,9 @@ abstract class Model implements ModelInterface
      */
     public function get()
     {
-        //echo get_called_class() . __METHOD__ . '<br>';
+        echo get_called_class() . __METHOD__ . '<br>';
+        echo "Input args:<br>";
+        print_r(func_get_args());
 
     }
 
