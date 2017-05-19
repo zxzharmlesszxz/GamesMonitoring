@@ -40,7 +40,9 @@ abstract class Model implements ModelInterface
      */
     public function save()
     {
-        //echo get_called_class() . __METHOD__ . '<br>';
+        echo get_called_class() . __METHOD__ . '<br>';
+        echo "Input args:<br>";
+        print_r(func_get_args());
     }
 
     /**
@@ -48,7 +50,9 @@ abstract class Model implements ModelInterface
      */
     public function delete()
     {
-        //echo get_called_class() . __METHOD__ . '<br>';
+        echo get_called_class() . __METHOD__ . '<br>';
+        echo "Input args:<br>";
+        print_r(func_get_args());
     }
 
     /**
@@ -56,7 +60,9 @@ abstract class Model implements ModelInterface
      */
     public function create()
     {
-        //echo get_called_class() . __METHOD__ . '<br>';
+        echo get_called_class() . __METHOD__ . '<br>';
+        echo "Input args:<br>";
+        print_r(func_get_args());
     }
 
     /**
@@ -64,8 +70,8 @@ abstract class Model implements ModelInterface
      */
     public function index()
     {
-        //echo get_called_class() . __METHOD__ . '<br>';
-        echo "index<br>";
-        var_dump($this->class);
+        echo get_called_class() . __METHOD__ . '<br>';
+        echo "Input args:<br>";
+        print_r(func_get_args());
     }
 }
