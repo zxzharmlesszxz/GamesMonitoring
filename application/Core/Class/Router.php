@@ -88,7 +88,7 @@ class Router implements RouterInterface, SingletonInterface
      */
     public function getRoute(Route $route)
     {
-        return ($this->Routes->keyExists($route)) ? $this->Routes->getItem($route) : false;
+        return ($this->Routes->keyExists("$route->Module/$route->Action")) ? $this->Routes->getItem("$route->Module/$route->Action") : false;
     }
 
     /**
