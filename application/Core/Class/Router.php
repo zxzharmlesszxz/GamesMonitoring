@@ -88,7 +88,7 @@ class Router implements RouterInterface, SingletonInterface
      */
     public function getRoute(Route $route)
     {
-        return $this->Routes->getItem($route);
+        return ($this->Routes->keyExists($route)) ? $this->Routes->getItem($route) : false;
     }
 
     /**
@@ -107,16 +107,21 @@ class Router implements RouterInterface, SingletonInterface
         $route = explode('/', explode('?', $_SERVER['REQUEST_URI'])[0]);
         $Module_name = (!empty($route[1]) ? $route[1] : 'example');
         $Action_name = (!empty($route[2]) ? $route[2] : 'index');
+        $croute = $this->getRoute(new Route(ucfirst($Module_name), $Action_name));
 
-        echo "Try to get route: $route[1]/$route[1]<br>";
-        echo "Module: $Module_name<br>";
-        echo "Action: $Action_name<br>";
-        echo "Query: <br>";
-        print_r($this->Query->getQuery());
-        echo "<br>";
+        echo "Try to get route: $route[1]/$route[2]<br>";
+        if ($croute) {
+            echo "Module: $Module_name<br>";
+            echo "Action: $Action_name<br>";
+            echo "Query: <br>";
+            print_r($this->Query->getQuery());
+            echo "<br>";
 
-        $module = $core->getModule(ucfirst($Module_name));
-        echo $module->action($Action_name);
-        var_dump($module);
+            $module = $core->getModule(ucfirst($Module_name));
+            echo $module->action($Action_name);
+            var_dump($module);
+        } else {
+            echo "Route /$Module_name/$Action_name: not found!<br>";
+        }
     }
 }
