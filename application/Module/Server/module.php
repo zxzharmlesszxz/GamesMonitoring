@@ -25,7 +25,7 @@ class Server extends Module
     public function __construct()
     {
         parent::__construct();
-        $this->addRoute('server', 'get');
+        $this->addRoute('get');
     }
 
 }
