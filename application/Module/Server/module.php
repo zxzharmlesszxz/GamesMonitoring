@@ -19,6 +19,14 @@ require_once 'Model/model.php';
  */
 class Server extends Module
 {
+    /**
+     * Server constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->addRoute('server', 'get');
+    }
 
 }
 
