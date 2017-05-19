@@ -26,11 +26,14 @@ abstract class Module implements ModuleInterface
      */
     public function __construct()
     {
-        //$class = explode('\\', get_called_class());
         $controller = get_called_class() . '\Controller';
         $model = get_called_class() . '\Model';
-        //$classs = get_called_class() . '\\' . end($class);
         $this->Controller = new $controller(new $model);
+        $this->addRoute('index');
+        $this->addRoute('get');
+        $this->addRoute('delete');
+        $this->addRoute('create');
+        $this->addRoute('save');
     }
 
     /**

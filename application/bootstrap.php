@@ -24,7 +24,7 @@ while (false !== ($module = $modulesDir->read())) {
             include_once $core->Config->PROJECT_ROOT . '/' . $core->Config->MODULE_PATH . '/' . $module . '/module.php';
             $moduleName = "Module\\$module";
             $core->registerModule($module, new $moduleName);
-            $core->Router->setRoute(new \Core\Route($moduleName, 'index'));
+            //$core->Router->setRoute(new \Core\Route($moduleName, 'index'));
             break;
     }
 }
