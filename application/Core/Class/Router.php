@@ -101,13 +101,14 @@ class Router implements RouterInterface, SingletonInterface
 
     /**
      * @param Core $core
+     * @throws \Exception
      */
     public function startRouting(Core $core)
     {
         $route = explode('/', explode('?', $_SERVER['REQUEST_URI'])[0]);
         $Module_name = (!empty($route[1]) ? $route[1] : 'example');
         $Action_name = (!empty($route[2]) ? $route[2] : 'index');
-        $croute = $this->getRoute(new Route(ucfirst($Module_name), $Action_name));
+        $croute = $this->getRoute(new Route('Module\\' . ucfirst($Module_name), $Action_name));
 
         echo "Try to get route: /$Module_name/$Action_name<br>";
         if ($croute) {
