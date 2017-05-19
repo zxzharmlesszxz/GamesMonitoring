@@ -25,6 +25,9 @@ class Router implements RouterInterface, SingletonInterface
      */
     protected $Routes;
 
+    /**
+     * @var Query
+     */
     protected $Query;
 
     /**
