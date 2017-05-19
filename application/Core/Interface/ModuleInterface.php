@@ -14,5 +14,11 @@ namespace Core\Interfaces;
  */
 interface ModuleInterface
 {
+    /**
+     * @param $Module
+     * @param $Action
+     * @return mixed|void
+     */
+    public function addRoute(string $Module, string $Action);
 
 }

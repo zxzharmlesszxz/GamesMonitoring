@@ -23,29 +23,12 @@ abstract class Controller implements ControllerInterface
     public $Model;
 
     /**
-     * @var Collection
-     */
-    protected $Routes;
-
-    /**
      * Controller constructor.
      */
     public function __construct(Model $model)
     {
         //echo get_called_class() . __METHOD__ . '<br>';
-        $this->Routes = new Collection();
         $this->Model = $model;
-    }
-
-    /**
-     * @param $Module
-     * @param $Action
-     * @return mixed|void
-     */
-    public function addRoute($Module, $Action)
-    {
-        //echo get_called_class() . __METHOD__ . '<br>';
-        $this->Routes->addItem("/$Module/$Action", $Action);
     }
 
     /**

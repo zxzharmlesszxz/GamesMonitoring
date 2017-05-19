@@ -21,11 +21,4 @@ interface ControllerInterface
      * @param Model $model
      */
     public function __construct(Model $model);
-
-    /**
-     * @param $Module
-     * @param $Action
-     * @return mixed
-     */
-    public function addRoute($Module, $Action);
 }

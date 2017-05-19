@@ -22,6 +22,11 @@ abstract class Module implements ModuleInterface
     protected $Controller;
 
     /**
+     * @var Collection
+     */
+    protected $Routes;
+
+    /**
      * Module constructor.
      */
     public function __construct()
@@ -31,6 +36,18 @@ abstract class Module implements ModuleInterface
         $model = get_called_class() . '\Model';
         //$classs = get_called_class() . '\\' . end($class);
         $this->Controller = new $controller(new $model);
+        $this->Routes = new Collection();
+    }
+
+    /**
+     * @param $Module
+     * @param $Action
+     * @return mixed|void
+     */
+    public function addRoute(string $Module, string $Action)
+    {
+        //echo get_called_class() . __METHOD__ . '<br>';
+        $this->Routes->addItem("/$Module/$Action", $Action);
     }
 
     /**
