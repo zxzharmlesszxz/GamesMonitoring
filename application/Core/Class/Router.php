@@ -109,7 +109,7 @@ class Router implements RouterInterface, SingletonInterface
         $Action_name = (!empty($route[2]) ? $route[2] : 'index');
         $croute = $this->getRoute(new Route(ucfirst($Module_name), $Action_name));
 
-        echo "Try to get route: $route[1]/$route[2]<br>";
+        echo "Try to get route: /$Module_name/$Action_name<br>";
         if ($croute) {
             echo "Module: $Module_name<br>";
             echo "Action: $Action_name<br>";
