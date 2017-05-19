@@ -32,7 +32,7 @@ abstract class Controller implements ControllerInterface
      */
     public function __construct(Model $model)
     {
-        echo get_called_class() . __METHOD__ . '<br>';
+        //echo get_called_class() . __METHOD__ . '<br>';
         $this->Routes = new Collection();
         $this->Model = $model;
     }
@@ -44,7 +44,7 @@ abstract class Controller implements ControllerInterface
      */
     public function addRoute($Module, $Action)
     {
-        echo get_called_class() . __METHOD__ . '<br>';
+        //echo get_called_class() . __METHOD__ . '<br>';
         $this->Routes->addItem("/$Module/$Action", $Action);
     }
 
@@ -54,7 +54,7 @@ abstract class Controller implements ControllerInterface
      */
     public function action($action = 'index')
     {
-        echo __METHOD__ . " doin $action<br>";
+        //echo __METHOD__ . " doin $action<br>";
         return $this->Model->$action();
     }
 }
