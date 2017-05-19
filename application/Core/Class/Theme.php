@@ -125,7 +125,7 @@ abstract class Theme implements ThemeInterface
     {
         $path = dir($this->dir . '/' . $dir);
         $parsedpath = explode('/', $this->dir);
-        $webpath = "/application/Theme/" . end($parsedpath);
+        $webpath = "../application/Theme/" . end($parsedpath);
         while (false !== ($file = $path->read())) {
             switch ($file) {
                 case '.':
