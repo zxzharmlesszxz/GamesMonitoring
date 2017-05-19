@@ -46,7 +46,7 @@ abstract class Theme implements ThemeInterface
      */
     public function __construct()
     {
-        echo get_called_class() . " theme<br />";
+        //echo get_called_class() . " theme<br />";
         $this->dir = dirname((new \ReflectionClass($this))->getFileName());
         foreach ($this->findFiles('style') as $file)
             $this->setStyle($file);
