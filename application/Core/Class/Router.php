@@ -78,7 +78,6 @@ class Router implements RouterInterface, SingletonInterface
      */
     public function setRoute(Route $route)
     {
-        //$module = explode('\\', strtolower($route->Module))[1];
         $this->Routes->addItem($route, "$route->Module/$route->Action");
     }
 
@@ -88,7 +87,6 @@ class Router implements RouterInterface, SingletonInterface
      */
     public function getRoute(Route $route)
     {
-        $key = strtolower("$route->Module/$route->Action");
         return ($this->Routes->keyExists("$route->Module/$route->Action")) ? $this->Routes->getItem("$route->Module/$route->Action") : false;
     }
 
@@ -111,8 +109,6 @@ class Router implements RouterInterface, SingletonInterface
         $Action_name = (!empty($route[2]) ? $route[2] : 'index');
         $croute = $this->getRoute(new Route('Module\\' . ucfirst($Module_name), $Action_name));
 
-        var_dump($this->getRoutes());
-        var_dump($croute);
         echo "Try to get route: /$Module_name/$Action_name<br>";
         if ($croute) {
             echo "Module: $Module_name<br>";

@@ -33,6 +33,5 @@ class Route
     {
         $this->Module = $Module;
         $this->Action = $Action;
-        var_dump($this);
     }
 }
