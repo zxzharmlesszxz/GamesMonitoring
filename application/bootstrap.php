@@ -35,6 +35,7 @@ $core->Session->set('Theme', $core->Config->THEME);
 
 var_dump($core->Theme->generate($core->content));
 
+var_dump($core->Theme);
 var_dump($core->content);
 
 //var_dump($core->Router->getRoutes());
