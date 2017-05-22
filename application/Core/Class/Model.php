@@ -70,8 +70,9 @@ abstract class Model implements ModelInterface
      */
     public function index()
     {
-        echo get_called_class() . __METHOD__ . '<br>';
-        echo "Input args:<br>";
-        print_r(func_get_args());
+        $str = get_called_class() . __METHOD__ . '<br>';
+        $str .= "Input args:<br>";
+        $str .= print_r(func_get_args());
+        return $str;
     }
 }
