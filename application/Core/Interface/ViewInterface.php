@@ -8,6 +8,7 @@
 
 namespace Core\Interfaces;
 
+use Core\Theme;
 
 /**
  * Interface ViewInterface
@@ -16,8 +17,9 @@ namespace Core\Interfaces;
 interface ViewInterface
 {
     /**
+     * @param Theme $theme
      * @param $content
      * @return mixed
      */
-    public function generate($content);
+    public function generate(Theme $theme, $content);
 }

@@ -11,12 +11,36 @@ use Core\Interfaces\ViewInterface;
 class View implements ViewInterface
 {
     /**
+     * @param Theme $theme
      * @param $content
      * @return mixed|void
      */
-    public function generate($content)
+    public function generate(Theme $theme, $content)
     {
         $page = file_get_contents(__DIR__ . "/../../Template/template_view.php");
+        $lesses = $theme->getLesses();
+        $csses = $theme->getStyles();
+        $jses = $theme->getJscripts();
+        $less_files = '';
+        $css_files = '';
+        $js_files = '';
+        foreach ($lesses as $less)
+        {
+            $less_files .= "<link rel='stylesheet/less' type='text/css' href='$less'>";
+        }
+        foreach ($csses as $css)
+        {
+            $css_files .= "<link rel='stylesheet/css' type='text/css' href='$css'>";
+        }
+        foreach ($jses as $js)
+        {
+            $js_files .= "<script type='text/javascript' src='$js'></script>";
+        }
+
+        $page = str_replace("%less%", $less_files, $page);
+        $page = str_replace("%css%", $css_files, $page);
+        $page = str_replace("%js%", $js_files, $page);
+
         $page = str_replace('%content%', $content, $page);
         return $page;
     }

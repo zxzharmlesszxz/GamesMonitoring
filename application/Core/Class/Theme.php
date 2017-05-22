@@ -117,7 +117,7 @@ abstract class Theme implements ThemeInterface
     {
         $this->content = $content;
         $page= new View();
-        print_r($page->generate($this->content));
+        print_r($page->generate($this, $this->content));
     }
 
     /**
