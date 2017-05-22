@@ -110,9 +110,10 @@ abstract class Theme implements ThemeInterface
     }
 
     /**
+     * @param string $content
      * @return View
      */
-    public function generate()
+    public function generate(string $content)
     {
         return new View($this->content);
     }

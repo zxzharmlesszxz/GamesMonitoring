@@ -48,9 +48,10 @@ interface ThemeInterface
     public function getLesses();
 
     /**
+     * @param string $content
      * @return mixed
      */
-    public function generate();
+    public function generate(string $content);
 
     /**
      * @param $dir
