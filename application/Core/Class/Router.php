@@ -116,7 +116,7 @@ class Router implements RouterInterface, SingletonInterface
         if ($croute) {
             $content .= "Module: $Module_name<br>";
             $content .= "Action: $Action_name<br>";
-            $content .= "Query: <br>";
+            $content .= "Query: ";
             $content .=serialize($this->Query->getQuery());
             $content .= "<br>";
 
