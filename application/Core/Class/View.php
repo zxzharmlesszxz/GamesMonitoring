@@ -40,7 +40,7 @@ class View implements ViewInterface
         $page = str_replace("%less%", $less_files, $page);
         $page = str_replace("%css%", $css_files, $page);
         $page = str_replace("%js%", $js_files, $page);
-        $page = str_replace("%copyright%", Core::getInstance()->Config->PROJECT_VERSION, $page);
+        $page = str_replace("%copyright%", Core::getInstance()->Config->PROJECT_NAME . " - " . Core::getInstance()->Config->PROJECT_VERSION, $page);
         $page = str_replace("%title%", Core::getInstance()->Config->PROJECT_NAME, $page);
         $page = str_replace("%date%", date("Y"), $page);
 
