@@ -16,6 +16,6 @@ class View implements ViewInterface
      */
     public function generate($content)
     {
-        print $content;
+        return $content;
     }
 }
