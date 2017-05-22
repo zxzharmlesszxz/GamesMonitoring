@@ -63,7 +63,7 @@
 </div>
 <footer id="footer">
     <a href="https://github.com/zxzharmlesszxz/"></a>
-    - %copyright% &copy; 2015-<?php echo date("Y"); ?>
+    - %copyright% &copy; 2015-%date%
 </footer>
 </body>
 <script type="application/javascript" src="/js/implementations.js"></script>
