@@ -52,6 +52,11 @@ class Core implements SingletonInterface
     protected $Theme;
 
     /**
+     * @var
+     */
+    public $content;
+
+    /**
      * Core constructor.
      */
     private function __construct()
@@ -196,5 +201,13 @@ class Core implements SingletonInterface
         $this->Session = $this->getCoreModule('Session');
         $this->Theme = $this->getTheme();
         $this->Router->startRouting($this);
+    }
+
+    /**
+     * @param string $content
+     */
+    public function setContent(string $content)
+    {
+        $this->content = $content;
     }
 }

@@ -112,17 +112,18 @@ class Router implements RouterInterface, SingletonInterface
         $Action_name = (!empty($route[2]) ? $route[2] : 'index');
         $croute = $this->getRoute(new Route('Module\\' . ucfirst($Module_name), $Action_name));
 
-        echo "Try to get route: /$Module_name/$Action_name<br>";
+        $content = "Try to get route: /$Module_name/$Action_name<br>";
         if ($croute) {
-            echo "Module: $Module_name<br>";
-            echo "Action: $Action_name<br>";
-            echo "Query: <br>";
-            print_r($this->Query->getQuery());
-            echo "<br>";
+            $content .= "Module: $Module_name<br>";
+            $content .= "Action: $Action_name<br>";
+            $content .= "Query: <br>";
+            $content .=print_r($this->Query->getQuery());
+            $content .= "<br>";
 
             $module = $core->getModule(ucfirst($Module_name));
-            echo $module->action($Action_name, $this->Query);
-            var_dump($module);
+            $content .= $module->action($Action_name, $this->Query);
+            $content .= print_r($module);
+            $core->setContent($content);
         } else {
             throw new \Exception("Route /$Module_name/$Action_name: not found!");
         }
