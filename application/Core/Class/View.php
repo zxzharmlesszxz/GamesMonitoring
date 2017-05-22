@@ -18,7 +18,7 @@ class View implements ViewInterface
     {
         echo __DIR__;
         $page = file_get_contents("../../Template/template_view.php");
-        $page = str_replace('%content%', $content);
+        $page = str_replace('%content%', $content, $page);
         return $page;
     }
 }
