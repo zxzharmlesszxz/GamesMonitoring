@@ -33,4 +33,4 @@ $core->run();
 
 $core->Session->set('Theme', $core->Config->THEME);
 
-//var_dump($core->Router->getRoutes());
+var_dump($core->Router->getRoutes());
