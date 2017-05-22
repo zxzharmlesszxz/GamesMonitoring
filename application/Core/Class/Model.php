@@ -72,7 +72,7 @@ abstract class Model implements ModelInterface
     {
         $str = get_called_class() . __METHOD__ . '<br>';
         $str .= "Input args:<br>";
-        $str .= print_r(func_get_args());
+        $str .= serialize(func_get_args());
         return $str;
     }
 }
