@@ -4,7 +4,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
-    <title><?php echo config()->PROJECT_NAME; ?></title>
+    <title></title>
     <link rel="stylesheet" type="text/css" href="/css/jquery.dataTables.min.css"/>
     <link rel="stylesheet/less" type="text/css" href="/less/style.less">
     <script type="text/javascript" src="/js/jquery-2.1.3.min.js"></script>
@@ -17,7 +17,7 @@
 <body>
 <header id="header">
     <div id="logo">
-        <a href="/"><?php echo config()->PROJECT_NAME; ?></a>
+        <a href="/"></a>
     </div>
     <nav id="menu">
         <menu>
@@ -37,7 +37,7 @@
     <div id="page">
         <div id="content">
             <div class="box">
-                <?php if (!empty($content_view)) include file_exists(config()->PROJECT_ROOT . '/' . config()->VIEWS_PATH . '/' . Registry::_get('dir') . '/' . $content_view) ? config()->PROJECT_ROOT . '/' . config()->VIEWS_PATH . '/' . Registry::_get('dir') . '/' . $content_view : config()->PROJECT_ROOT . '/' . config()->VIEWS_PATH . '/' . config()->DEFAULT . '/' . $content_view; ?>
+                %content%
             </div>
             <br class="clearfix"/>
         </div>
@@ -60,8 +60,8 @@
     </div>
 </div>
 <footer id="footer">
-    <a href="https://github.com/zxzharmlesszxz/"><?php echo config()->PROJECT_NAME; ?></a>
-    - <?php echo config()->PROJECT_VERSION; ?> &copy; 2015-<?php echo date("Y"); ?>
+    <a href="https://github.com/zxzharmlesszxz/"></a>
+    - &copy; 2015-<?php echo date("Y"); ?>
 </footer>
 </body>
 <script type="application/javascript" src="/js/implementations.js"></script>

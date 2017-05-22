@@ -16,6 +16,8 @@ class View implements ViewInterface
      */
     public function generate($content)
     {
-        return $content;
+        $page = file_get_contents("../../Template/template_view.php");
+        $page = str_replace('%content%', $content);
+        return $page;
     }
 }
