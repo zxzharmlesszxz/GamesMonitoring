@@ -26,15 +26,15 @@ class View implements ViewInterface
         $js_files = '';
         foreach ($lesses as $less)
         {
-            $less_files .= "<link rel='stylesheet/less' type='text/css' href='$less'>";
+            $less_files .= "<link rel='stylesheet/less' type='text/css' href='$less'>\n";
         }
         foreach ($csses as $css)
         {
-            $css_files .= "<link rel='stylesheet/css' type='text/css' href='$css'>";
+            $css_files .= "<link rel='stylesheet/css' type='text/css' href='$css'>\n";
         }
         foreach ($jses as $js)
         {
-            $js_files .= "<script type='text/javascript' src='$js'></script>";
+            $js_files .= "<script type='text/javascript' src='$js'></script>\n";
         }
 
         $page = str_replace("%less%", $less_files, $page);
