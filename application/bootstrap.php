@@ -33,7 +33,7 @@ $core->run();
 
 $core->Session->set('Theme', $core->Config->THEME);
 
-$core->Theme->generate($core->content);
+var_dump($core->Theme->generate($core->content));
 
 //var_dump($core->content);
 
