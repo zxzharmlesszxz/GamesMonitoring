@@ -30,7 +30,7 @@ class View implements ViewInterface
         }
         foreach ($csses as $css)
         {
-            $css_files .= "<link rel='stylesheet/css' type='text/css' href='$css'>\n";
+            $css_files .= "<link rel='stylesheet' type='text/css' href='$css'>\n";
         }
         foreach ($jses as $js)
         {
