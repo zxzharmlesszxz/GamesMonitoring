@@ -8,5 +8,16 @@ namespace Module\Example;
  */
 class Model extends \Core\Model
 {
+    protected $class;
 
+    public function __construct()
+    {
+        parent::__construct();
+        $this->class = new Example();
+    }
+
+    public function get()
+    {
+        return serialize($this->class);
+    }
 }
