@@ -198,6 +198,7 @@ class Core implements SingletonInterface
      */
     public function run()
     {
+        echo __METHOD__ . '<br>';
         $this->loadCoreModules();
         $this->Session = $this->getCoreModule('Session');
         $this->Theme = $this->getTheme();
