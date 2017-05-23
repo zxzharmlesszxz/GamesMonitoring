@@ -13,7 +13,6 @@ function __autoload($class)
 
 $core = Core\Core::getInstance();
 
-var_dump($core);
 $modulesDir = dir($core->Config->PROJECT_ROOT . '/' . $core->Config->MODULE_PATH);
 
 while (false !== ($module = $modulesDir->read())) {
@@ -22,7 +21,6 @@ while (false !== ($module = $modulesDir->read())) {
         case '..':
             break;
         default:
-            var_dump($module);
             include_once $core->Config->PROJECT_ROOT . '/' . $core->Config->MODULE_PATH . '/' . $module . '/module.php';
             $moduleName = "Module\\$module";
             $core->registerModule($module, new $moduleName);

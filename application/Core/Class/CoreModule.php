@@ -32,12 +32,4 @@ abstract class CoreModule implements CoreModuleInterface
         $this->Controller = new $controller(new $model);
     }
 
-    /**
-     * @param $action
-     * @return mixed
-     */
-    public function action($action)
-    {
-        return $this->Controller->action($action);
-    }
 }
