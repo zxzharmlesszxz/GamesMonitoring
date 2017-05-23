@@ -61,7 +61,7 @@ class Core implements SingletonInterface
      */
     private function __construct()
     {
-        //echo __METHOD__ . '<br>';
+        echo __METHOD__ . '<br>';
         $this->Config = Config::getInstance();
         $this->Router = Router::getInstance();
         $this->Modules = new Collection();
@@ -97,7 +97,7 @@ class Core implements SingletonInterface
      */
     static public function getInstance()
     {
-        //echo __METHOD__ . '<br>';
+        echo __METHOD__ . '<br>';
         if (is_null(self::$instance)) {
             self::$instance = new self();
         }
@@ -110,7 +110,9 @@ class Core implements SingletonInterface
      */
     public function registerModule($name, Module $module)
     {
-        //echo __METHOD__ . '<br>';
+        echo __METHOD__ . '<br>';
+        var_dump($name);
+        var_dump($module);
         $this->Modules->addItem($module, $name);
     }
 
@@ -120,7 +122,9 @@ class Core implements SingletonInterface
      */
     protected function registerCoreModule($name, CoreModule $module)
     {
-        //echo __METHOD__ . '<br>';
+        echo __METHOD__ . '<br>';
+        var_dump($name);
+        var_dump($module);
         $this->CoreModules->addItem($module, $name);
     }
 
