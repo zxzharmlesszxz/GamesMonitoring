@@ -22,6 +22,7 @@ while (false !== ($module = $modulesDir->read())) {
         case '..':
             break;
         default:
+            var_dump($module);
             include_once $core->Config->PROJECT_ROOT . '/' . $core->Config->MODULE_PATH . '/' . $module . '/module.php';
             $moduleName = "Module\\$module";
             $core->registerModule($module, new $moduleName);
