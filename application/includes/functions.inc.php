@@ -4,6 +4,12 @@
  * @param null $servergame
  * @return string
  */
+
+function db()
+{
+    return \Core\Core::getInstance()->getCoreModule('Database')->Controller->Model->class;
+}
+
 function games_select_list($servergame = NULL)
 {
     $str = '<select name="server[game]">';
