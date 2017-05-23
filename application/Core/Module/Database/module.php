@@ -20,7 +20,10 @@ require_once 'Driver/MySQL/driver.php';
  */
 class Database extends CoreModule
 {
-
+    public function __get($key)
+    {
+        return $this->$key;
+    }
 }
 
 spl_autoload_register(
