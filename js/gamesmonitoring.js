@@ -119,7 +119,7 @@ $(document).ready(function () {
         });
 
         $.ajax({
-            url: '/' + type + 's/create/',
+            url: '/' + type + '/create/',
             dataType: 'json',
             data: send,
             type: 'post',
