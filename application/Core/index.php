@@ -17,6 +17,7 @@ require_once 'Interface/ViewInterface.php';
 require_once 'Interface/WebPageInterface.php';
 require_once 'Interface/MemberInterface.php';
 require_once 'Interface/ThemeInterface.php';
+require_once 'Interface/DataBaseInterface.php';
 
 spl_autoload_register(
 /**
