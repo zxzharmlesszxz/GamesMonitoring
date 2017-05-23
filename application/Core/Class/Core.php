@@ -61,7 +61,7 @@ class Core implements SingletonInterface
      */
     private function __construct()
     {
-        echo __METHOD__ . '<br>';
+        //echo __METHOD__ . '<br>';
         $this->Config = Config::getInstance();
         $this->Router = Router::getInstance();
         $this->Modules = new Collection();
@@ -98,7 +98,7 @@ class Core implements SingletonInterface
      */
     static public function getInstance()
     {
-        echo __METHOD__ . '<br>';
+        //echo __METHOD__ . '<br>';
         if (is_null(self::$instance)) {
             self::$instance = new self();
         }
@@ -111,9 +111,9 @@ class Core implements SingletonInterface
      */
     public function registerModule($name, Module $module)
     {
-        echo __METHOD__ . '<br>';
-        var_dump($name);
-        var_dump($module);
+        //echo __METHOD__ . '<br>';
+        //var_dump($name);
+        //var_dump($module);
         $this->Modules->addItem($module, $name);
     }
 
@@ -123,9 +123,9 @@ class Core implements SingletonInterface
      */
     protected function registerCoreModule($name, CoreModule $module)
     {
-        echo __METHOD__ . '<br>';
-        var_dump($name);
-        var_dump($module);
+        //echo __METHOD__ . '<br>';
+        //var_dump($name);
+        //var_dump($module);
         $this->CoreModules->addItem($module, $name);
     }
 
@@ -134,11 +134,11 @@ class Core implements SingletonInterface
      */
     protected function loadCoreModules()
     {
-        echo __METHOD__ . '<br>';
+        //echo __METHOD__ . '<br>';
         $modulesDir = dir($this->Config->PROJECT_ROOT . '/' . $this->Config->CORE_MODULE_PATH);
 
         while (false !== ($module = $modulesDir->read())) {
-            var_dump($module);
+            //var_dump($module);
             switch ($module) {
                 case '.':
                 case '..':
@@ -158,7 +158,7 @@ class Core implements SingletonInterface
      */
     public function unRegisterModule($name)
     {
-        echo __METHOD__ . '<br>';
+        //echo __METHOD__ . '<br>';
         $this->Modules->deleteItem($name);
     }
 
@@ -168,7 +168,7 @@ class Core implements SingletonInterface
      */
     public function getModule($name)
     {
-        echo __METHOD__ . '<br>';
+        //echo __METHOD__ . '<br>';
         return $this->Modules->getItem($name);
     }
 
@@ -178,7 +178,7 @@ class Core implements SingletonInterface
      */
     public function getCoreModule($name)
     {
-        echo __METHOD__ . '<br>';
+        //echo __METHOD__ . '<br>';
         return $this->CoreModules->getItem($name);
     }
 
@@ -188,7 +188,7 @@ class Core implements SingletonInterface
      */
     protected function getTheme()
     {
-        echo __METHOD__ . '<br>';
+        //echo __METHOD__ . '<br>';
         $theme = (!is_null($this->Config->THEME) ? $this->Config->THEME : $this->Config->DEFAULT_THEME);
         @include_once $this->Config->PROJECT_ROOT . '/' . $this->Config->THEME_PATH . '/' . $theme . '/index.php';
         $themeClass = "\Theme\\$theme\Theme";
@@ -203,7 +203,7 @@ class Core implements SingletonInterface
      */
     public function run()
     {
-        echo __METHOD__ . '<br>';
+        //echo __METHOD__ . '<br>';
         $this->Session = $this->getCoreModule('Session');
         $this->Theme = $this->getTheme();
         $this->Router->startRouting($this);
