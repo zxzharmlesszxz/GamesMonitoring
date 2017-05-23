@@ -13,11 +13,11 @@ class Model extends \Core\Model
     public function __construct()
     {
         parent::__construct();
-        $this->class = new Game();
+        //$this->class = new Game();
     }
 
     public function get()
     {
-        return serialize($this->class::find_all());
+        return serialize(Game::find_all());
     }
 }

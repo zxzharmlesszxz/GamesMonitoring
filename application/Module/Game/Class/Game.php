@@ -47,8 +47,4 @@ class Game extends DatabaseObject
         $new->description = trim($item['description']);
         return $new;
     }
-
-    public function __construct()
-    {
-    }
 }
