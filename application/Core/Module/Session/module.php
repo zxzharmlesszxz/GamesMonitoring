@@ -8,6 +8,7 @@
 
 namespace Core\Module;
 
+use Core\Core;
 use Core\CoreModule;
 
 require_once 'Controller/controller.php';
@@ -31,10 +32,11 @@ class Session extends CoreModule
 
     /**
      * Session constructor.
+     * @param Core $core
      */
-    public function __construct()
+    public function __construct(Core $core)
     {
-        parent::__construct();
+        parent::__construct($core);
         $this->Session = new Session\Session();
     }
 

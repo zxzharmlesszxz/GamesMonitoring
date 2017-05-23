@@ -23,8 +23,9 @@ abstract class CoreModule implements CoreModuleInterface
 
     /**
      * CoreModule constructor.
+     * @param Core $core
      */
-    public function __construct()
+    public function __construct(Core $core)
     {
         $controller = get_called_class() . '\Controller';
         $model = get_called_class() . '\Model';

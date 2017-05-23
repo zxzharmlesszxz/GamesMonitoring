@@ -8,11 +8,17 @@
 
 namespace Core\Interfaces;
 
+use Core\Core;
+
 /**
  * Interface CoreModuleInterface
  * @package Core\Interfaces
  */
 interface CoreModuleInterface
 {
-
+    /**
+     * CoreModuleInterface constructor.
+     * @param Core $core
+     */
+    public function __construct(Core $core);
 }
