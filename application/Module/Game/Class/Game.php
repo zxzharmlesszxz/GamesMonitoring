@@ -52,4 +52,8 @@ class Game extends DatabaseObject
     {
         return serialize(static::find_all());
     }
+
+    public function __construct()
+    {
+    }
 }
