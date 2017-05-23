@@ -48,11 +48,6 @@ class Game extends DatabaseObject
         return $new;
     }
 
-    public static function display()
-    {
-        return static::find_all();
-    }
-
     public function __construct()
     {
     }
