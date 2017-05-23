@@ -18,7 +18,7 @@ class Model extends \Core\Model
 
     public function get()
     {
-        $template = file_get_contents('../View/games_view.php');
+        $template = file_get_contents(__DIR__ . '../View/games_view.php');
         $content = Game::find_all();
         return str_replace('%content%', $content, $template);
     }
