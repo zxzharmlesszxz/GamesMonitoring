@@ -153,7 +153,7 @@ class Core implements SingletonInterface
      */
     public function unRegisterModule($name)
     {
-        //echo __METHOD__ . '<br>';
+        echo __METHOD__ . '<br>';
         $this->Modules->deleteItem($name);
     }
 
@@ -163,7 +163,7 @@ class Core implements SingletonInterface
      */
     public function getModule($name)
     {
-        //echo __METHOD__ . '<br>';
+        echo __METHOD__ . '<br>';
         return $this->Modules->getItem($name);
     }
 
@@ -173,7 +173,7 @@ class Core implements SingletonInterface
      */
     public function getCoreModule($name)
     {
-        //echo __METHOD__ . '<br>';
+        echo __METHOD__ . '<br>';
         return $this->CoreModules->getItem($name);
     }
 
@@ -183,7 +183,7 @@ class Core implements SingletonInterface
      */
     protected function getTheme()
     {
-        //echo __METHOD__ . '<br>';
+        echo __METHOD__ . '<br>';
         $theme = (!is_null($this->Config->THEME) ? $this->Config->THEME : $this->Config->DEFAULT_THEME);
         @include_once $this->Config->PROJECT_ROOT . '/' . $this->Config->THEME_PATH . '/' . $theme . '/index.php';
         $themeClass = "\Theme\\$theme\Theme";
