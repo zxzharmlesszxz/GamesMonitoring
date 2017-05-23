@@ -7,7 +7,7 @@ use Core\Module\Database\DatabaseObject;
 /**
  * Class Game
  */
-class Game extends DatabaseObject
+class Game
 {
     /**
      * @var string
