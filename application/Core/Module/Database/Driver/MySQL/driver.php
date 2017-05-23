@@ -2,10 +2,12 @@
 
 namespace Core\Module\Database;
 
+use Core\Interfaces\DataBaseInterface;
+
 /**
  * Class MySQL_Database
  */
-class MySQL_Database extends Database
+class MySQL_Database implements DataBaseInterface
 {
     /**
      * @var
@@ -150,7 +152,7 @@ class MySQL_Database extends Database
      * @param $result
      * @return string
      */
-    protected function confirm_query($result)
+    final public function confirm_query($result)
     {
         if (!$result) {
             $output = "Database query failed: " . mysqli_error($this->connection) . "<br />";
