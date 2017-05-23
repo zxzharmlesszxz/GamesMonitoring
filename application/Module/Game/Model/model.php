@@ -18,6 +18,8 @@ class Model extends \Core\Model
 
     public function get()
     {
-        return serialize(Game::find_all());
+        $template = file_get_contents('../View/games_view.php');
+        $content = Game::find_all();
+        return str_replace('%content%', $content, $template);
     }
 }
