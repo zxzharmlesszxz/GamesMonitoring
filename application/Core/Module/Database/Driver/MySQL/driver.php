@@ -1,5 +1,8 @@
 <?php
 
+namespace Core\Module\Database;
+use Core\Core;
+
 /**
  * Class MySQL_Database
  */
@@ -42,7 +45,7 @@ class MySQL_Database extends Database
      */
     public function open_connection()
     {
-        $config = config()->mysql;
+        $config = (Core::getInstance())->Config->mysql;
         $this->connection = mysqli_connect($config['host'], $config['user'], $config['password']);
         if (!$this->connection) {
             die("Database connection failed: " . mysqli_error($this->connection));

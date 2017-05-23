@@ -1,5 +1,9 @@
 <?php
 
+namespace Module\Game;
+
+use Core\Module\Database\DatabaseObject;
+
 /**
  * Class Game
  */
@@ -12,12 +16,12 @@ class Game extends DatabaseObject
     /**
      * @var array
      */
-    protected static $db_fields = array('gameid', 'shortname', 'fullname', 'description');
+    protected static $db_fields = array('id', 'shortname', 'fullname', 'description');
 
     /**
      * @var
      */
-    protected $gameid;
+    protected $id;
     /**
      * @var
      */

@@ -12,6 +12,7 @@ use Core\CoreModule;
 
 require_once 'Controller/controller.php';
 require_once 'Model/model.php';
+require_once 'Driver/MySQL/driver.php';
 
 /**
  * Class Database

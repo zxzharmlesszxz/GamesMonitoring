@@ -1,6 +1,6 @@
 <?php
 
-namespace Database;
+namespace Core\Module\Database;
 
 /**
  * Class DatabaseObject
