@@ -116,7 +116,7 @@ abstract class Theme implements ThemeInterface
     public function generate(string $content)
     {
         $this->content = $content;
-        $this->content .= serialize(Core::getInstance()->Session);
+        #$this->content .= serialize(Core::getInstance()->Session);
         $output= new View();
         print_r($output->generate($this, $this->content));
     }
