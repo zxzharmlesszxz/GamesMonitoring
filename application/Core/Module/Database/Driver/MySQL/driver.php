@@ -11,22 +11,26 @@ class MySQL_Database extends Database
      * @var
      */
     private $connection;
+
     /**
      * @var
      */
     public $last_query;
+
     /**
      * @var int
      */
     private $magic_quotes_active;
+
     /**
      * @var bool
      */
     private $real_escape_string_exists;
 
+    /**
+     * @var array
+     */
     public $config;
-
-// Create a object
 
     /**
      * MySQL_Database constructor.
@@ -40,8 +44,6 @@ class MySQL_Database extends Database
         $this->real_escape_string_exists = function_exists("mysqli_real_escape_string");
 
     }
-
-// Create a database connection function
 
     /**
      *
@@ -61,8 +63,6 @@ class MySQL_Database extends Database
         }
     }
 
-// Close a database connection function
-
     /**
      *
      */
@@ -73,8 +73,6 @@ class MySQL_Database extends Database
             unset($this->connection);
         }
     }
-
-// Perform database query function
 
     /**
      * @param $sql
@@ -88,8 +86,6 @@ class MySQL_Database extends Database
 
         return $result;
     }
-
-// hz
 
     /**
      * @param $value
@@ -114,8 +110,6 @@ class MySQL_Database extends Database
         }
         return $value;
     }
-
-// "database-neutral" methods
 
     /**
      * @param $result_set
@@ -151,8 +145,6 @@ class MySQL_Database extends Database
     {
         return mysqli_affected_rows($this->connection);
     }
-
-// Confirm database query function
 
     /**
      * @param $result
