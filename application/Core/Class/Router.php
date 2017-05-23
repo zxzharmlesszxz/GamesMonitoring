@@ -122,7 +122,7 @@ class Router implements RouterInterface, SingletonInterface
 
             $module = $core->getModule(ucfirst($Module_name));
             $content .= $module->action($Action_name, $this->Query);
-            $content .= serialize($module);
+            #$content .= serialize($module);
             $core->setContent($content);
         } else {
             throw new \Exception("Route /$Module_name/$Action_name: not found!");
