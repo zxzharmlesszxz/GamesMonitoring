@@ -36,7 +36,7 @@ abstract class Controller implements ControllerInterface
      * @param Query $query
      * @return mixed
      */
-    public function action($action = 'index', Query $query)
+    public function action($action = 'get', Query $query)
     {
         //echo __METHOD__ . " doin $action<br>";
         return $this->Model->$action($query);
