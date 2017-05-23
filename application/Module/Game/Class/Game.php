@@ -7,7 +7,7 @@ use Core\Module\Database\DatabaseObject;
 /**
  * Class Game
  */
-class Game
+class Game extends DatabaseObject
 {
     /**
      * @var string
@@ -46,5 +46,10 @@ class Game
         $new->fullname = trim($item['fullname']);
         $new->description = trim($item['description']);
         return $new;
+    }
+
+    public function display()
+    {
+        return serialize(static::find_all());
     }
 }
