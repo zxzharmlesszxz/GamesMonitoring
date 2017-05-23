@@ -48,7 +48,7 @@ class Game extends DatabaseObject
         return $new;
     }
 
-    public function display()
+    public static function display()
     {
         return serialize(static::find_all());
     }
