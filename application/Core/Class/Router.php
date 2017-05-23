@@ -109,7 +109,7 @@ class Router implements RouterInterface, SingletonInterface
     {
         $route = explode('/', explode('?', $_SERVER['REQUEST_URI'])[0]);
         $Module_name = (!empty($route[1]) ? $route[1] : 'example');
-        $Action_name = (!empty($route[2]) ? $route[2] : 'index');
+        $Action_name = (!empty($route[2]) ? $route[2] : 'get');
         $croute = $this->getRoute(new Route('Module\\' . ucfirst($Module_name), $Action_name));
 
         $content = "Try to get route: /$Module_name/$Action_name<br>";
