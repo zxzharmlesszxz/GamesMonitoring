@@ -18,6 +18,6 @@ class Model extends \Core\Model
 
     public function get()
     {
-        return serialize($this->class);
+        return $this->class->display();
     }
 }
