@@ -29,11 +29,7 @@ abstract class Module implements ModuleInterface
         $controller = get_called_class() . '\Controller';
         $model = get_called_class() . '\Model';
         $this->Controller = new $controller(new $model);
-        $this->addRoute('index');
         $this->addRoute('get');
-        $this->addRoute('delete');
-        $this->addRoute('create');
-        $this->addRoute('save');
     }
 
     /**

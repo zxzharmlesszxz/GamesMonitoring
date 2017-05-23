@@ -64,15 +64,4 @@ abstract class Model implements ModelInterface
         echo "Input args:<br>";
         print_r(func_get_args());
     }
-
-    /**
-     *
-     */
-    public function index()
-    {
-        $str = get_called_class() . __METHOD__ . '<br>';
-        $str .= "Input args: ";
-        $str .= serialize(func_get_args());
-        return $str;
-    }
 }

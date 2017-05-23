@@ -34,9 +34,4 @@ interface ModelInterface
      * @return mixed
      */
     public function create();
-
-    /**
-     * @return mixed
-     */
-    public function index();
 }
