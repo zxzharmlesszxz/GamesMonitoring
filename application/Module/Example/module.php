@@ -19,10 +19,7 @@ require_once 'Model/model.php';
  */
 class Example extends Module
 {
-    public function __construct()
-    {
-        parent::__construct();
-    }
+
 }
 
 spl_autoload_register(

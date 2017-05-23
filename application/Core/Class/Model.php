@@ -11,17 +11,11 @@ use Core\Interfaces\ModelInterface;
 abstract class Model implements ModelInterface
 {
     /**
-     * @var array
-     */
-    protected $class = array();
-
-    /**
      * Model constructor.
      */
     public function __construct()
     {
         //echo get_called_class() . __METHOD__ . '<br>';
-
     }
 
     /**

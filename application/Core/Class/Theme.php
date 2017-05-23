@@ -117,8 +117,8 @@ abstract class Theme implements ThemeInterface
     {
         $this->content = $content;
         $this->content .= serialize(Core::getInstance()->Session);
-        $page= new View();
-        print_r($page->generate($this, $this->content));
+        $output= new View();
+        print_r($output->generate($this, $this->content));
     }
 
     /**
