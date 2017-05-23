@@ -25,7 +25,7 @@ abstract class Model implements ModelInterface
     }
 
     /**
-     *
+     * @return string
      */
     public function get()
     {
@@ -36,32 +36,35 @@ abstract class Model implements ModelInterface
     }
 
     /**
-     *
+     * @return string
      */
     public function save()
     {
-        echo get_called_class() . __METHOD__ . '<br>';
-        echo "Input args:<br>";
-        print_r(func_get_args());
+        $str = get_called_class() . __METHOD__ . '<br>';
+        $str .= "Input args:<br>";
+        $str .= serialize(func_get_args());
+        return $str;
     }
 
     /**
-     *
+     * @return string
      */
     public function delete()
     {
-        echo get_called_class() . __METHOD__ . '<br>';
-        echo "Input args:<br>";
-        print_r(func_get_args());
+        $str = get_called_class() . __METHOD__ . '<br>';
+        $str .= "Input args:<br>";
+        $str .= serialize(func_get_args());
+        return $str;
     }
 
     /**
-     *
+     * @return string
      */
     public function create()
     {
-        echo get_called_class() . __METHOD__ . '<br>';
-        echo "Input args:<br>";
-        print_r(func_get_args());
+        $str = get_called_class() . __METHOD__ . '<br>';
+        $str .= "Input args:<br>";
+        $str .= serialize(func_get_args());
+        return $str;
     }
 }
