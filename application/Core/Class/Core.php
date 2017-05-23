@@ -141,7 +141,7 @@ class Core implements SingletonInterface
                     include_once $this->Config->PROJECT_ROOT . '/' . $this->Config->CORE_MODULE_PATH . '/' . $module . '/module.php';
                     $moduleName = "Core\\Module\\$module";
                     if (class_exists($moduleName))
-                        $this->registerCoreModule($module, new $moduleName);
+                        $this->registerCoreModule($module, new $moduleName($this));
                     break;
             }
         }
