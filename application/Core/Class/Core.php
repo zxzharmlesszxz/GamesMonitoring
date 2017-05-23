@@ -133,6 +133,7 @@ class Core implements SingletonInterface
         $modulesDir = dir($this->Config->PROJECT_ROOT . '/' . $this->Config->CORE_MODULE_PATH);
 
         while (false !== ($module = $modulesDir->read())) {
+            var_dump($module);
             switch ($module) {
                 case '.':
                 case '..':
