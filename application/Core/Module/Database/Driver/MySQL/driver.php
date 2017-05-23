@@ -1,7 +1,6 @@
 <?php
 
 namespace Core\Module\Database;
-use Core\Core;
 
 /**
  * Class MySQL_Database
@@ -25,13 +24,17 @@ class MySQL_Database extends Database
      */
     private $real_escape_string_exists;
 
+    public $config;
+
 // Create a object
 
     /**
      * MySQL_Database constructor.
+     * @param array $config
      */
-    public function __construct()
+    public function __construct(array $config)
     {
+        $this->config = $config;
         $this->open_connection();
         $this->magic_quotes_active = get_magic_quotes_gpc();
         $this->real_escape_string_exists = function_exists("mysqli_real_escape_string");
@@ -45,14 +48,13 @@ class MySQL_Database extends Database
      */
     public function open_connection()
     {
-        $config = (Core::getInstance())->Config->mysql;
-        $this->connection = mysqli_connect($config['host'], $config['user'], $config['password']);
+        $this->connection = mysqli_connect($this->config['host'], $this->config['user'], $this->config['password']);
         if (!$this->connection) {
             die("Database connection failed: " . mysqli_error($this->connection));
         } else {
             // 2. Select a database to use
-            mysqli_set_charset($this->connection, $config['charset']);
-            $db_select = mysqli_select_db($this->connection, $config['database']);
+            mysqli_set_charset($this->connection, $this->config['charset']);
+            $db_select = mysqli_select_db($this->connection, $this->config['database']);
             if (!$db_select) {
                 die("Database selection failed: " . mysqli_error($this->connection));
             }
