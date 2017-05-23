@@ -129,7 +129,7 @@ class Core implements SingletonInterface
      */
     protected function loadCoreModules()
     {
-        //echo __METHOD__ . '<br>';
+        echo __METHOD__ . '<br>';
         $modulesDir = dir($this->Config->PROJECT_ROOT . '/' . $this->Config->CORE_MODULE_PATH);
 
         while (false !== ($module = $modulesDir->read())) {
