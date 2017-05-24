@@ -24,6 +24,7 @@
     <nav id="menu">
         <menu>
             <li><a href="/">Main</a></li>
+            <li><a href="/country">Countries</a></li>
             <li><a href="/admin">Admins</a></li>
             <li><a href="/user">Users</a></li>
             <li><a href="/server">Servers</a></li>
