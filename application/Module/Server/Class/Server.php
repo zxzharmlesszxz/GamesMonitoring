@@ -1,5 +1,9 @@
 <?php
 
+namespace Module\Server;
+
+use Core\Module\Database\DatabaseObject;
+
 /***
  * Server class
  ***/
@@ -12,14 +16,14 @@ class Server extends DatabaseObject
     /**
      * @var array
      */
-    protected static $db_fields = array('serverid', 'servername', 'addr', 'status', 'regdate', 'game', 'mode', 'map',
+    protected static $db_fields = array('id', 'servername', 'addr', 'status', 'regdate', 'game', 'mode', 'map',
         'players', 'maxplayers', 'location', 'steam', 'new', 'site', 'about', 'vip', 'top', 'secureServer',
         'passwordProtected', 'operatingSystem', 'botNumber', 'version');
 
     /**
      * @var
      */
-    protected $serverid;
+    protected $id;
     /**
      * @var
      */
