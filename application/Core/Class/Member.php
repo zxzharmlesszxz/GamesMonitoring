@@ -9,7 +9,7 @@
 namespace Core;
 
 use Core\Interfaces;
-use Database\DatabaseObject;
+use Core\Module\Database\DatabaseObject;
 
 /**
  * Class Member

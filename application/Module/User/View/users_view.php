@@ -9,39 +9,6 @@
 <p>
  <button title="Add new user" id="show">Add new user</button>
 </p>
-<script type="text/javascript">
- $(document).ready(function() {
-  $('#table').DataTable({
-   "processing": true,
-   "ajax": {
-    "url": "/users/getAll/",
-    "dataSrc": function (json) {
-     var return_data = [];
-     for(var i=0;i< json.data.length; i++){
-      var item = json.data[i];
-      return_data.push({
-       'user': '<a href="/users/show/?login='+item.login+'">'+item.login+'</a>'+
-        '<span class="actions">'+
-        '<button class="delete" title="Delete" data-id="'+item.userid+'" data-type="user"></button>'+
-        '<button class="edit" title="Edit" onclick="location.href=\'/users/edit/?userid='+item.userid+'\'"></button>'+
-        '</span>',
-       'username': item.username,
-       'email': item.email,
-       'status': '<input class="status" type="checkbox" data-id="'+item.userid+'" value="'+item.status+'" data-type="user" />'
-      })
-     }
-     return return_data;
-    }
-   },
-   "columns": [
-    { "data": "user"},
-    { "data": "username"},
-    { "data": "email" },
-    { "data": "status"}
-   ]
-  });
- });
-</script>
 <table id='table' class='display'>
  <thead>
   <tr>
@@ -60,5 +27,6 @@
   </tr>
  </tfoot>
  <tbody>
+ %content%
  </tbody>
 </table>
