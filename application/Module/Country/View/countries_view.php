@@ -1,4 +1,4 @@
-<h1>Games</h1>
+<h1>Countries</h1>
 <p class="form hide">
     <input type="text" value="" placeholder="code" name="country[code]"/>
     <input type="text" value="" placeholder="name" name="country[name]"/>
