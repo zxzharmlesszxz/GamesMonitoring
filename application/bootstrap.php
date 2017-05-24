@@ -37,9 +37,4 @@ $core->Theme->generate($core->content);
 
 //var_dump($core->Theme);
 //var_dump($core->content);
-
-include __DIR__ . '/Module/Country/Class/Country.php';
-use \Module\Country\Country as Country;
-var_dump(Country::find_all());
-
-//var_dump($core->Router->getRoutes());
+var_dump($core->Router->getRoutes());
