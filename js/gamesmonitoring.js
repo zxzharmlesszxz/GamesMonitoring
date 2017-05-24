@@ -35,7 +35,7 @@ $(document).ready(function () {
             el.attr('value', 0);
         }
         $.ajax({
-            url: '/' + type + 's/changeStatus/',
+            url: '/' + type + '/changeStatus/',
             data: type + "id=" + id,
             type: 'post',
             success: function () {
@@ -54,7 +54,7 @@ $(document).ready(function () {
                 id = el.data('id'),
                 type = el.data('type'),
                 result = type + " #" + id + " has been removed.";
-            link = '/' + type + 's/delete/';
+            link = '/' + type + '/delete/';
 
             $.ajax({
                 url: link,
@@ -90,7 +90,7 @@ $(document).ready(function () {
         });
 
         $.ajax({
-            url: '/' + type + 's/update/',
+            url: '/' + type + '/update/',
             dataType: 'json',
             data: send,
             type: 'post',

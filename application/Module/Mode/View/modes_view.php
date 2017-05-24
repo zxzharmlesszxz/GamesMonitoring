@@ -55,5 +55,6 @@
   </tr>
  </tfoot>
  <tbody>
+ %content%
  </tbody>
 </table>

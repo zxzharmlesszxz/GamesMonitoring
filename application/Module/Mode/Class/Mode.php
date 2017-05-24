@@ -1,5 +1,9 @@
 <?php
 
+namespace Module\Mode;
+
+use Core\Module\Database\DatabaseObject;
+
 /**
  * Class Mode
  */
@@ -12,12 +16,12 @@ class Mode extends DatabaseObject
     /**
      * @var array
      */
-    protected static $db_fields = array('modeid', 'shortname', 'fullname', 'description');
+    protected static $db_fields = array('id', 'shortname', 'fullname', 'description');
 
     /**
      * @var
      */
-    protected $modeid;
+    protected $id;
     /**
      * @var
      */
