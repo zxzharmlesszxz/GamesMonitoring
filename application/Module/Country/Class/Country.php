@@ -12,7 +12,8 @@ class Country extends DatabaseObject
     /**
      * @var string
      */
-    protected static $table_name = "countrys";
+    protected static $table_name = "country";
+
     /**
      * @var array
      */
@@ -22,10 +23,12 @@ class Country extends DatabaseObject
      * @var
      */
     protected $id;
+
     /**
      * @var
      */
     public $code;
+
     /**
      * @var
      */
