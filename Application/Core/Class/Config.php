@@ -28,7 +28,7 @@ final class Config implements SingletonInterface
      */
     private function __construct()
     {
-        $this->_configuration = $this->loadConfigFile();
+        $this->loadConfigFile();
     }
 
     /**
@@ -66,11 +66,11 @@ final class Config implements SingletonInterface
     }
 
     /**
-     * @return mixed
+     *
      */
     private function loadConfigFile()
     {
         include_once(__DIR__ . '/../../config/config.inc.php');
-        return $config;
+        $this->_configuration = $config;
     }
 }
