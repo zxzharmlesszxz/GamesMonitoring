@@ -10,7 +10,7 @@ class Model extends \Core\Model
 {
     public function get()
     {
-        echo __METHOD__;
+        //echo __METHOD__;
         var_dump(new \ReflectionClass(Country::find_all()));
         $template = file_get_contents(__DIR__ . '/../View/countries_view.php');
         $content = "";
