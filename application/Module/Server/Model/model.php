@@ -13,7 +13,7 @@ class Model extends \Core\Model
         $template = file_get_contents(__DIR__ . '/../View/servers_view.php');
         $content = "";
         foreach (Server::find_all() as $item) {
-            $content .= "<tr><td>$item->servername</td><td>$item->address</td><td>$item->steam</td>
+            $content .= "<tr><td>$item->servername</td><td>$item->addr</td><td>$item->steam</td>
 <td>$item->players/$item->botNumber/$item->maxplayers</td>
 <td>$item->map</td><td>$item->game</td><td>$item->mode</td>
 <td>$item->location</td><td>$item->regdate</td><td>$item->site</td>
