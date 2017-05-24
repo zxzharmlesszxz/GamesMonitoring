@@ -12,7 +12,7 @@ class Server extends DatabaseObject
     /**
      * @var string
      */
-    protected static $table_name = "servers";
+    protected static $table_name = "server";
     /**
      * @var array
      */

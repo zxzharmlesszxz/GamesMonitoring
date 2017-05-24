@@ -12,7 +12,7 @@ class Admin extends Member
     /**
      * @var string
      */
-    protected static $table_name = "admins";
+    protected static $table_name = "admin";
     /**
      * @var array
      */

@@ -19,7 +19,16 @@ require_once 'Model/model.php';
  */
 class Country extends Module
 {
-
+    /**
+     * Country constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->addRoute('delete');
+        $this->addRoute('create');
+        $this->addRoute('save');
+    }
 }
 
 spl_autoload_register(

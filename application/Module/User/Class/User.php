@@ -12,7 +12,7 @@ class User extends Member
     /**
      * @var string
      */
-    protected static $table_name = "users";
+    protected static $table_name = "user";
     /**
      * @var array
      */

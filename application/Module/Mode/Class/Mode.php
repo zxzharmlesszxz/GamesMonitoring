@@ -12,7 +12,7 @@ class Mode extends DatabaseObject
     /**
      * @var string
      */
-    protected static $table_name = "modes";
+    protected static $table_name = "mode";
     /**
      * @var array
      */

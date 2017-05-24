@@ -12,7 +12,7 @@ class Game extends DatabaseObject
     /**
      * @var string
      */
-    protected static $table_name = "games";
+    protected static $table_name = "game";
     /**
      * @var array
      */
