@@ -13,6 +13,7 @@ class Model extends \Core\Model
         echo __METHOD__;
         var_dump(Country::add(array('code'=>'tst','name'=>'test')));
         $template = file_get_contents(__DIR__ . '/../View/countries_view.php');
+        var_dump($template);
         $content = "";
         foreach (Country::find_all() as $item) {
             $content .= "<tr><td>$item->code</td><td>$item->name</td></tr>\n";
