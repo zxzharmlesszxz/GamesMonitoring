@@ -11,7 +11,7 @@ class Model extends \Core\Model
     public function get()
     {
         echo __METHOD__;
-        var_dump(Country::count_all());
+        var_dump(new Country);
         $template = file_get_contents(__DIR__ . '/../View/countries_view.php');
         $content = "";
         foreach (Country::find_all() as $item) {
