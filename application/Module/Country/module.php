@@ -28,6 +28,7 @@ class Country extends Module
         $this->addRoute('delete');
         $this->addRoute('create');
         $this->addRoute('save');
+        var_dump(new \ReflectionClass('Module\Country\Country'));
     }
 }
 
