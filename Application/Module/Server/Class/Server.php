@@ -17,7 +17,7 @@ class Server extends DatabaseObject
      * @var array
      */
     protected static $db_fields = array('id', 'servername', 'addr', 'status', 'regdate', 'game', 'mode', 'map',
-        'players', 'maxplayers', 'location', 'steam', 'new', 'site', 'about', 'vip', 'top', 'secureServer',
+        'players', 'maxplayers', 'location', 'steam', 'new', 'Site', 'about', 'vip', 'top', 'secureServer',
         'passwordProtected', 'operatingSystem', 'botNumber', 'version');
 
     /**
@@ -128,7 +128,7 @@ class Server extends DatabaseObject
         $new->location = empty($item['location']) ? NULL : trim($item['location']);
         $new->steam = empty($item['steam']) ? NULL : intval(trim($item['steam']));
         $new->new = 1;
-        $new->site = empty($item['site']) ? NULL : trim($item['site']);
+        $new->site = empty($item['Site']) ? NULL : trim($item['Site']);
         $new->about = empty($item['about']) ? NULL : trim($item['about']);
         $new->vip = NULL;
         $new->top = NULL;
