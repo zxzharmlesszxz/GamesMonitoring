@@ -13,11 +13,9 @@ class Model extends \Core\Model
         //echo __METHOD__;
         $template = file_get_contents(__DIR__ . '/../View/countries_view.php');
         $content = "";
-/*        foreach (Country::find_all() as $item) {
+        foreach (Country::find_all() as $item) {
             $content .= "<tr><td>$item->code</td><td>$item->name</td></tr>\n";
         }
-*/
-        $content .= serialize(Country::find_all());
         return str_replace('%content%', $content, $template);
     }
 }

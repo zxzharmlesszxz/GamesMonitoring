@@ -46,3 +46,4 @@ class Country extends DatabaseObject
         return $new;
     }
 }
+
