@@ -30,9 +30,7 @@ while (false !== ($module = $modulesDir->read())) {
 }
 
 $core->run();
-var_dump($core->getModule('Country'));
 $core->Session->set('Theme', $core->Config->THEME);
-
 $core->Theme->generate($core->content);
 
 //var_dump($core->Theme);
