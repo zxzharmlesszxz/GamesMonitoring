@@ -5,7 +5,7 @@
     <button class="create" title="Create" data-type="country">Create</button>
 </p>
 <p>
-    <button title="Add new coyntry" id="show">Add new country</button>
+    <button title="Add new country" id="show">Add new country</button>
 </p>
 <table id='table' class='display'>
     <thead>
