@@ -32,6 +32,7 @@ class Collection implements \IteratorAggregate
             if (isset($this->items[$key])) {
                 throw new \Exception("Key $key already in use.");
             } else {
+                $this->count++;
                 $this->items[$key] = $item;
             }
         }
@@ -45,6 +46,7 @@ class Collection implements \IteratorAggregate
     {
         if ($this->keyExists($key)) {
             unset($this->items[$key]);
+            $this->count--;
         } else {
             throw new \Exception("Invalid key $key.");
         }
