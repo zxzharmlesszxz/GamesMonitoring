@@ -16,6 +16,8 @@ class Model extends \Core\Model
 /*        foreach (Country::find_all() as $item) {
             $content .= "<tr><td>$item->code</td><td>$item->name</td></tr>\n";
         }
-*/        return str_replace('%content%', $content, $template);
+*/
+        $content .= serialize(Country::find_all());
+        return str_replace('%content%', $content, $template);
     }
 }
