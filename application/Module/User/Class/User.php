@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Module\User;
+namespace Module\User;
 use Core\Member;
 
 /**
