@@ -1,5 +1,7 @@
 <?php
 
+namespace Core;
+
 require_once 'Core/index.php';
 require_once 'includes/functions.inc.php';
 
@@ -11,7 +13,7 @@ function __autoload($class)
     @include_once __DIR__ . "/classes/${class}.class.php";
 }
 
-$core = Core\Core::getInstance();
+$core = Core::getInstance();
 
 $modulesDir = dir($core->Config->PROJECT_ROOT . '/' . $core->Config->MODULE_PATH);
 
