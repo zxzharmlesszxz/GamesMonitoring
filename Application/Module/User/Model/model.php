@@ -36,9 +36,9 @@ class Model extends \Core\Model
         } else {
             // Output error and display login form
             $template = file_get_contents(__DIR__ . '/../View/user_login.php');
-            $content .= serialize($session);
-            $content .= serialize($_SESSION);
         }
+        $content .= serialize($session);
+        $content .= serialize($_SESSION);
         return str_replace('%content%', $content, $template);
     }
 
