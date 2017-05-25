@@ -33,8 +33,22 @@ while (false !== ($module = $modulesDir->read())) {
 
 $core->run();
 $core->Session->set('Theme', $core->Config->THEME);
+$menu = $core->getCoreModule('Menu');
+
+$menu->add('main', '/', 'Main', 'Main');
+$menu->add('servers', '/server', 'Servers', 'Servers');
+$menu->add('contacts', '/contact', 'Contacts', 'Contacts');
+$menu->add('login', '/user/login', 'Login', 'Login');
+$menu->add('logout', '/user/logout', 'Logout', 'Logout');
+if ($core->Session->get('type') == 'admin') {
+    $menu->add('admins', '/admin', 'Admins', 'Admins');
+    $menu->add('users', '/user', 'Users', 'Users');
+    $menu->add('modes', '/mode', 'Modes', 'Modes');
+    $menu->add('games', '/game', 'Games', 'Games');
+    $menu->add('logout', '/admin/logout', 'Logout', 'Logout');
+}
 $core->Theme->generate($core->content);
-var_dump($core->getCoreModule('Menu'));
+var_dump($menu);
 //var_dump($core->Theme);
 //var_dump($core->content);
 //var_dump($core->Router->getRoutes());

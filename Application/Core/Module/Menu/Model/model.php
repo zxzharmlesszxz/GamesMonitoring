@@ -8,8 +8,28 @@ namespace Core\Module\Menu;
  */
 class Model extends \Core\Model
 {
-    public function add()
+    /**
+     * @var Menu
+     */
+    protected $Menu;
+
+    /**
+     * Menu constructor.
+     */
+    public function __construct()
     {
-        return;
+        parent::__construct();
+        $this->Menu = new Menu();
+    }
+
+    /**
+     * @param $name
+     * @param $url
+     * @param $title
+     * @param string $description
+     */
+    public function add($name, $url, $title, $description = '')
+    {
+        $this->Menu->add($name, $url, $title,$description);
     }
 }

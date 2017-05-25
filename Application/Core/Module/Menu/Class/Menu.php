@@ -17,22 +17,24 @@ class Menu
      */
     public function show()
     {
+        $content = '';
         foreach ($this->pages as $page) {
-            echo "<li><a href='{$page['url']}' title='{$page['descr']}'>{$page['title']}</a></li>";
+            $content .= "<li><a href='{$page['url']}' title='{$page['description']}'>{$page['title']}</a></li>";
         }
+        return $content;
     }
 
     /**
      * @param $name
      * @param $url
      * @param $title
-     * @param string $descr
+     * @param string $description
      */
-    public function add($name, $url, $title, $descr = '')
+    public function add($name, $url, $title, $description = '')
     {
         $this->pages[$name]['url'] = $url;
         $this->pages[$name]['title'] = $title;
-        $this->pages[$name]['descr'] = $descr;
+        $this->pages[$name]['description'] = $description;
         $this->pages[$name]['name'] = $name;
     }
 }
