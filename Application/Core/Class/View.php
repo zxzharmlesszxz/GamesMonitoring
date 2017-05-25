@@ -42,14 +42,18 @@ class View implements ViewInterface
         $menu->Controller->add('main', '/', 'Main', 'Main');
         $menu->Controller->add('servers', '/server', 'Servers', 'Servers');
         $menu->Controller->add('contacts', '/contact', 'Contacts', 'Contacts');
-        $menu->Controller->add('login', '/user/login', 'Login', 'Login');
-        $menu->Controller->add('logout', '/user/logout', 'Logout', 'Logout');
+
         if (Core::getInstance()->Session->get('type') == 'admin') {
             $menu->Controller->add('admins', '/admin', 'Admins', 'Admins');
             $menu->Controller->add('users', '/user', 'Users', 'Users');
             $menu->Controller->add('modes', '/mode', 'Modes', 'Modes');
             $menu->Controller->add('games', '/game', 'Games', 'Games');
-            $menu->Controller->add('logout', '/admin/logout', 'Logout', 'Logout');
+        }
+
+        if (Core::getInstance()->Session->get('logged_in') != null) {
+            $menu->Controller->add('logout', '/' . Core::getInstance()->Session->get('type') . '/logout', 'Logout', 'Logout');
+        } else {
+            $menu->Controller->add('login', '/user/login', 'Login', 'Login');
         }
 
         $page = str_replace("%less%", $less_files, $page);
