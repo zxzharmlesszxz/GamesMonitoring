@@ -33,6 +33,18 @@ class Menu extends CoreModule
     {
         parent::__construct($core);
         $this->Menu = new Menu\Menu();
+        $this->Menu->add('main', '/', 'Main', 'Main');
+        $this->Menu->add('servers', '/server', 'Servers', 'Servers');
+        $this->Menu->add('contacts', '/contact', 'Contacts', 'Contacts');
+        $this->Menu->add('login', '/user/login', 'Login', 'Login');
+        $this->Menu->add('logout', '/user/logout', 'Logout', 'Logout');
+        if ($core->Session->get('type') == 'admin') {
+            $this->Menu->add('admins', '/admin', 'Admins', 'Admins');
+            $this->Menu->add('users', '/user', 'Users', 'Users');
+            $this->Menu->add('modes', '/mode', 'Modes', 'Modes');
+            $this->Menu->add('games', '/game', 'Games', 'Games');
+            $this->Menu->add('logout', '/admin/logout', 'Logout', 'Logout');
+        }
     }
 }
 
