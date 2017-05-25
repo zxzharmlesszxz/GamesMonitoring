@@ -32,4 +32,12 @@ class Model extends \Core\Model
     {
         $this->Menu->add($name, $url, $title,$description);
     }
+
+    /**
+     * @return string
+     */
+    public function show()
+    {
+        return $this->Menu->show();
+    }
 }

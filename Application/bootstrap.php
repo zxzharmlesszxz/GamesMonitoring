@@ -49,7 +49,7 @@ if ($core->Session->get('type') == 'admin') {
 }
 $core->Theme->generate($core->content);
 var_dump($menu);
-$menu->Controller->Model->Menu->show();
+$menu->Controller->Model->show();
 //var_dump($core->Theme);
 //var_dump($core->content);
 //var_dump($core->Router->getRoutes());
