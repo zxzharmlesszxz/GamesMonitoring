@@ -47,5 +47,7 @@ class Model extends \Core\Model
     public function logout()
     {
         Core::getInstance()->Session->logout();
+        Core::getInstance()->Session->set('login', null);
+        Core::getInstance()->Session->set('type', null);
     }
 }

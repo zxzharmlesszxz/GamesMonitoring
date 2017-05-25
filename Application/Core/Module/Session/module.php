@@ -106,7 +106,7 @@ class Session extends CoreModule
      */
     public function logout()
     {
-        $this->set('logged_in', false);
+        $this->set('logged_in', null);
     }
 }
 
