@@ -1,5 +1,7 @@
 <?php
 
+namespace Core\Module\Menu;
+
 /**
  * Class Menu
  */
