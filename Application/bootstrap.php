@@ -48,8 +48,8 @@ if ($core->Session->get('type') == 'admin') {
     $menu->Controller->add('logout', '/admin/logout', 'Logout', 'Logout');
 }
 $core->Theme->generate($core->content);
-var_dump($menu);
-$menu->Controller->Model->show();
+
+print $menu->Controller->Model->show();
 //var_dump($core->Theme);
 //var_dump($core->content);
 //var_dump($core->Router->getRoutes());
