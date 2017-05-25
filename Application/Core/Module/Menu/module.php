@@ -38,7 +38,7 @@ class Menu extends CoreModule
         $this->Menu->add('contacts', '/contact', 'Contacts', 'Contacts');
         $this->Menu->add('login', '/user/login', 'Login', 'Login');
         $this->Menu->add('logout', '/user/logout', 'Logout', 'Logout');
-        if ($core->Session->get('type') == 'admin') {
+        if ($_SESSION['type'] == 'admin') {
             $this->Menu->add('admins', '/admin', 'Admins', 'Admins');
             $this->Menu->add('users', '/user', 'Users', 'Users');
             $this->Menu->add('modes', '/mode', 'Modes', 'Modes');
