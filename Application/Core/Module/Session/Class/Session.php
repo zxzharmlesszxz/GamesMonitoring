@@ -24,7 +24,7 @@ class Session
      */
     public function get($key)
     {
-        return isset($_SESSION[$key]) ?? null;
+        return $_SESSION[$key] ?? null;
     }
 
     /**
