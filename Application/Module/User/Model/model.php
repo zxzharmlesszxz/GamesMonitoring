@@ -20,9 +20,9 @@ class Model extends \Core\Model
 
     public function login()
     {
-        $query = func_get_args();
+        $query = func_get_arg(0)->getQuery();
         var_dump($query);
-        $user = User::find_by_scope(array('login' => '', 'password' => ''));
+        $user = User::find_by_scope(array('login' => $query['login'], 'password' => $query['password']));
         if ($user) {
             // Try to authentificate user
         } else {
@@ -31,6 +31,7 @@ class Model extends \Core\Model
         $template = file_get_contents(__DIR__ . '/../View/user_login.php');
         $content = "";
         $content .= serialize($query);
+        $content .= serialize($user);
         return str_replace('%content%', $content, $template);
     }
 
