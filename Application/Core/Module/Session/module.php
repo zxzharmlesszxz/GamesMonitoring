@@ -45,7 +45,7 @@ class Session extends CoreModule
      */
     public function message($msg = '')
     {
-        $this->Session->set('message', $msg);
+        $this->set('message', $msg);
     }
 
     /**
@@ -53,7 +53,7 @@ class Session extends CoreModule
      */
     public function is_logged_in()
     {
-        return $this->Session->get('logged_in');
+        return $this->get('logged_in');
     }
 
     /**
@@ -61,7 +61,7 @@ class Session extends CoreModule
      */
     public function check_login()
     {
-        return $this->Session->get('logged_in');
+        return $this->get('logged_in');
     }
 
     /**
@@ -69,10 +69,10 @@ class Session extends CoreModule
      */
     public function check_message()
     {
-        $message = $this->Session->get('message');
+        $message = $this->get('message');
         if ($message)
             $this->message = $message;
-        $this->Session->set('message', '');
+        $this->set('message', '');
     }
 
     /**
@@ -98,7 +98,7 @@ class Session extends CoreModule
      */
     public function login()
     {
-        $this->Session->set('logged_in', true);
+        $this->set('logged_in', true);
     }
 
     /**
@@ -106,7 +106,7 @@ class Session extends CoreModule
      */
     public function logout()
     {
-        $this->Session->set('logged_in', false);
+        $this->set('logged_in', false);
     }
 }
 
