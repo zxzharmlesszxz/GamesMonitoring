@@ -22,7 +22,7 @@ class Model extends \Core\Model
     {
         $query = func_get_arg(0)->getQuery();
         var_dump($query);
-        $user = User::find_by_scope(array('login' => $query['login'], 'password' => $query['password']));
+        $user = User::find_by_scope(array('login' => $query['login'], 'password' => md5($query['password'])));
         if ($user) {
             // Try to authentificate user
         } else {
