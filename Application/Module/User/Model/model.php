@@ -34,6 +34,7 @@ class Model extends \Core\Model
             $template = "<b>Welcome %content%.</b>";
             $session->login();
             $session->set('login', $user->login);
+            $session->set('type', 'user');
         } else {
             // Output error and display login form
             $template = file_get_contents(__DIR__ . '/../View/user_login.php');
