@@ -8,5 +8,8 @@ namespace Core\Module\Menu;
  */
 class Controller extends \Core\Controller
 {
-
+    public function add()
+    {
+        $this->Model->add(func_get_args());
+    }
 }

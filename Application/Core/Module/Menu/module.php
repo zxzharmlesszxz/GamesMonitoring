@@ -38,13 +38,13 @@ class Menu extends CoreModule
         $this->Menu->add('contacts', '/contact', 'Contacts', 'Contacts');
         $this->Menu->add('login', '/user/login', 'Login', 'Login');
         $this->Menu->add('logout', '/user/logout', 'Logout', 'Logout');
-        if ($_SESSION['type'] == 'admin') {
+        //if ($core->Session->get('type') == 'admin') {
             $this->Menu->add('admins', '/admin', 'Admins', 'Admins');
             $this->Menu->add('users', '/user', 'Users', 'Users');
             $this->Menu->add('modes', '/mode', 'Modes', 'Modes');
             $this->Menu->add('games', '/game', 'Games', 'Games');
             $this->Menu->add('logout', '/admin/logout', 'Logout', 'Logout');
-        }
+        //}
     }
 }
 

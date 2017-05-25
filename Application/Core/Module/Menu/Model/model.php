@@ -8,5 +8,8 @@ namespace Core\Module\Menu;
  */
 class Model extends \Core\Model
 {
-
+    public function add()
+    {
+        return;
+    }
 }
