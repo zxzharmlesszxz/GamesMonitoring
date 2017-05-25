@@ -46,6 +46,6 @@ class Model extends \Core\Model
 
     public function logout()
     {
-
+        Core::getInstance()->Session->logout();
     }
 }
