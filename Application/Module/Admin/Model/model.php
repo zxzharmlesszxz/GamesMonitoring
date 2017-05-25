@@ -2,6 +2,8 @@
 
 namespace Module\Admin;
 
+use Core\Core;
+
 /**
  * Class Model
  * @package Module\Admin
@@ -20,6 +22,7 @@ class Model extends \Core\Model
 
     public function login()
     {
+        $session = Core::getInstance()->Session;
         $query = func_get_arg(0)->getQuery();
         $content = "";
         if (!empty($query) && isset($query['login']) && isset($query['password'])) {
@@ -29,10 +32,15 @@ class Model extends \Core\Model
             // Try to authentificate user
             $content = $user->login;
             $template = "<b>Welcome %content%.</b>";
+            $session->login();
+            $session->set('login', $user->login);
+            $session->set('type', 'admin');
         } else {
             // Output error and display login form
             $template = file_get_contents(__DIR__ . '/../View/admin_login.php');
         }
+        $content .= serialize($session);
+        $content .= serialize($_SESSION);
         return str_replace('%content%', $content, $template);
     }
 
