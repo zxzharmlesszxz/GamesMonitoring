@@ -21,9 +21,10 @@ class Model extends \Core\Model
     public function login()
     {
         $query = func_get_arg(0)->getQuery();
-        var_dump($query);
         $content = "";
-        $user = User::find_by_scope(array('login' => $query['login'], 'password' => md5($query['password'])));
+        if (!empty($query) && isset($query['login']) && isset($query['password'])) {
+            $user = User::find_by_scope(array('login' => $query['login'], 'password' => md5($query['password'])));
+        }
         if ($user) {
             // Try to authentificate user
         } else {
