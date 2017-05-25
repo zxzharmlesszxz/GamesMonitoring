@@ -19,7 +19,10 @@ require_once 'Model/model.php';
  */
 class Menu extends CoreModule
 {
-
+    public function __get($key)
+    {
+        return $this->$key;
+    }
 }
 
 spl_autoload_register(
