@@ -25,7 +25,7 @@ class Model extends \Core\Model
         if (!empty($query) && isset($query['login']) && isset($query['password'])) {
             $user = User::find_by_scope(array('login' => $query['login'], 'password' => md5($query['password'])));
         }
-        if ($user) {
+        if (isset($user)) {
             // Try to authentificate user
         } else {
             // Output error and display login form
