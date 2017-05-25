@@ -19,3 +19,4 @@
   </table>
  </form>
 </p>
+%content%

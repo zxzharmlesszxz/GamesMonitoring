@@ -20,8 +20,15 @@ class Model extends \Core\Model
 
     public function login()
     {
+        $user = User::find_by_scope(array('login' => '', 'password' => ''));
+        if ($user) {
+            // Try to authentificate user
+        } else {
+            // Output error and display login form
+        }
         $template = file_get_contents(__DIR__ . '/../View/user_login.php');
         $content = "";
+        $content .= serialize(func_get_args());
         return str_replace('%content%', $content, $template);
     }
 
