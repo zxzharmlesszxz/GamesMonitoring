@@ -15,6 +15,7 @@ class Session
     {
         session_start();
         $_SESSION['logged_in'] = $this->get('logged_in');
+        $_SESSION['type'] = $this->get('type');
     }
 
     /**
@@ -23,7 +24,7 @@ class Session
      */
     public function get($key)
     {
-        return isset($_SESSION[$key]) ? $_SESSION[$key] : null;
+        return isset($_SESSION[$key]) ?? null;
     }
 
     /**
