@@ -23,15 +23,7 @@
     </div>
     <nav id="menu">
         <menu>
-            <li><a href="/">Main</a></li>
-            <li><a href="/country">Countries</a></li>
-            <li><a href="/admin">Admins</a></li>
-            <li><a href="/user">Users</a></li>
-            <li><a href="/server">Servers</a></li>
-            <li><a href="/mode">Modes</a></li>
-            <li><a href="/game">Games</a></li>
-            <li><a href="/contact">Contacts</a></li>
-            <li><a href="/user/login">Login</a></li>
+            %menu%
         </menu>
         <br class="clearfix">
     </nav>
