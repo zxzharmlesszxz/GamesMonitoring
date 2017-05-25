@@ -20,7 +20,7 @@ class Model extends \Core\Model
 
     public function login()
     {
-        $template = file_get_contents(__DIR__ . '/../View/');
+        $template = file_get_contents(__DIR__ . '/../View/user_login.php');
         $content = "";
         return str_replace('%content%', $content, $template);
     }
