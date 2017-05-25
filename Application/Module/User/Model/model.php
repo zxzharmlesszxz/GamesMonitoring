@@ -23,16 +23,16 @@ class Model extends \Core\Model
         $query = func_get_arg(0)->getQuery();
         $content = "";
         if (!empty($query) && isset($query['login']) && isset($query['password'])) {
-            $user = User::find_by_scope(array('login' => $query['login'], 'password' => md5($query['password'])));
+            $user = User::find_by_scope(array('login' => $query['login'], 'password' => md5($query['password'])))[0];
         }
         if (isset($user)) {
             // Try to authentificate user
+            $content = $user->login;
+            $template = "<b>Welcome %content%.</b>";
         } else {
             // Output error and display login form
+            $template = file_get_contents(__DIR__ . '/../View/user_login.php');
         }
-        $template = file_get_contents(__DIR__ . '/../View/user_login.php');
-        $content .= serialize($query);
-        $content .= serialize($user);
         return str_replace('%content%', $content, $template);
     }
 
