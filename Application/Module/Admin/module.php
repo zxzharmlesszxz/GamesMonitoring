@@ -28,6 +28,8 @@ class Admin extends Module
         $this->addRoute('delete');
         $this->addRoute('create');
         $this->addRoute('save');
+        $this->addRoute('login');
+        $this->addRoute('logout');
     }
 }
 
