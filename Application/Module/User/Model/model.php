@@ -20,6 +20,8 @@ class Model extends \Core\Model
 
     public function login()
     {
+        $query = func_get_args();
+        var_dump($query);
         $user = User::find_by_scope(array('login' => '', 'password' => ''));
         if ($user) {
             // Try to authentificate user
@@ -28,7 +30,7 @@ class Model extends \Core\Model
         }
         $template = file_get_contents(__DIR__ . '/../View/user_login.php');
         $content = "";
-        $content .= serialize(func_get_args());
+        $content .= serialize($query);
         return str_replace('%content%', $content, $template);
     }
 
