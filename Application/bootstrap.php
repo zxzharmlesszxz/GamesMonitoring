@@ -34,7 +34,7 @@ while (false !== ($module = $modulesDir->read())) {
 $core->run();
 $core->Session->set('Theme', $core->Config->THEME);
 $core->Theme->generate($core->content);
-
+var_dump($core->getCoreModule('Menu'));
 //var_dump($core->Theme);
 //var_dump($core->content);
 //var_dump($core->Router->getRoutes());
