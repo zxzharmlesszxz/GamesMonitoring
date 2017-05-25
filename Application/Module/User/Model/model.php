@@ -22,6 +22,7 @@ class Model extends \Core\Model
     {
         $query = func_get_arg(0)->getQuery();
         var_dump($query);
+        $content = "";
         $user = User::find_by_scope(array('login' => $query['login'], 'password' => md5($query['password'])));
         if ($user) {
             // Try to authentificate user
@@ -29,7 +30,6 @@ class Model extends \Core\Model
             // Output error and display login form
         }
         $template = file_get_contents(__DIR__ . '/../View/user_login.php');
-        $content = "";
         $content .= serialize($query);
         $content .= serialize($user);
         return str_replace('%content%', $content, $template);
