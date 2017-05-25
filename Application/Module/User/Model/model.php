@@ -17,4 +17,16 @@ class Model extends \Core\Model
         }
         return str_replace('%content%', $content, $template);
     }
+
+    public function login()
+    {
+        $template = file_get_contents(__DIR__ . '/../View/');
+        $content = "";
+        return str_replace('%content%', $content, $template);
+    }
+
+    public function logout()
+    {
+
+    }
 }
