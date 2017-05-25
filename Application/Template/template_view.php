@@ -31,7 +31,7 @@
             <li><a href="/mode">Modes</a></li>
             <li><a href="/game">Games</a></li>
             <li><a href="/contact">Contacts</a></li>
-            <li><a href="/login">Login</a></li>
+            <li><a href="/user/login">Login</a></li>
         </menu>
         <br class="clearfix">
     </nav>
@@ -64,7 +64,7 @@
 </div>
 <footer id="footer">
     <a href="https://github.com/zxzharmlesszxz/"></a>
-    - %copyright% &copy; 2015-%date%
+    - %copyright% &copy; 2015-%date% <a href="/admin/login">Admin Panel</a>
 </footer>
 </body>
 <script type="application/javascript" src="/js/implementations.js"></script>
