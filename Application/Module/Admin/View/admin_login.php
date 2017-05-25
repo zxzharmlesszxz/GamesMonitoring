@@ -1,6 +1,6 @@
 <h1>Страница авторизации</h1>
 <p>
- <form action="/admins/login" method="post">
+ <form action="/admin/login" method="post">
   <table class="login">
    <tr>
     <th colspan="2">Авторизация</th>
@@ -19,5 +19,4 @@
   </table>
  </form>
 </p>
-<?php
-var_dump($data);
+

@@ -17,4 +17,27 @@ class Model extends \Core\Model
         }
         return str_replace('%content%', $content, $template);
     }
+
+    public function login()
+    {
+        $query = func_get_arg(0)->getQuery();
+        $content = "";
+        if (!empty($query) && isset($query['login']) && isset($query['password'])) {
+            $user = Admin::find_by_scope(array('login' => $query['login'], 'password' => md5($query['password'])))[0];
+        }
+        if (isset($user)) {
+            // Try to authentificate user
+            $content = $user->login;
+            $template = "<b>Welcome %content%.</b>";
+        } else {
+            // Output error and display login form
+            $template = file_get_contents(__DIR__ . '/../View/admin_login.php');
+        }
+        return str_replace('%content%', $content, $template);
+    }
+
+    public function logout()
+    {
+
+    }
 }
