@@ -17,6 +17,9 @@ class View implements ViewInterface
      */
     public function generate(Theme $theme, $content)
     {
+        if (is_array($content)) {
+            return json_encode($content);
+        }
         $page = file_get_contents(__DIR__ . "/../../Template/template_view.php");
         $lesses = $theme->getLesses();
         $csses = $theme->getStyles();
