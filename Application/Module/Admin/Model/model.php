@@ -75,4 +75,10 @@ class Model extends \Core\Model
         Core::getInstance()->Session->set('login', null);
         Core::getInstance()->Session->set('type', null);
     }
+
+    public function create()
+    {
+        $query = func_get_arg(0)->getQuery();
+        var_dump($query);
+    }
 }
