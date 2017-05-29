@@ -8,21 +8,35 @@ namespace Module\Game;
  */
 class Model extends \Core\Model
 {
-    protected $class;
-
-    public function __construct()
+    protected function ajax(array $items)
     {
-        parent::__construct();
-        //$this->class = new Game();
+        $content = array();
+        foreach ($items as $item) {
+            $content['data'][] = array('id' => $item->id, 'fullname' => $item->fullname, 'shortname' => $item->shortname, 'description' => $item->description);
+        }
+        return $content;
     }
 
-    public function get()
+    protected function str(array $items)
     {
-        $template = file_get_contents(__DIR__ . '/../View/games_view.php');
         $content = "";
-        foreach (Game::find_all() as $item) {
+        foreach ($items as $item) {
             $content .= "<tr><td>$item->fullname</td><td>$item->shortname</td><td>$item->description</td></tr>\n";
         }
-        return str_replace('%content%', $content, $template);
+        return $content;
+    }
+
+    /**
+     * @return array|mixed|string
+     */
+    public function get()
+    {
+        $query = func_get_arg(0)->getQuery();
+        $template = file_get_contents(__DIR__ . '/../View/modes_view.php');
+        if (isset($query['ajax']) and $query['ajax'] == true) {
+            return $this->ajax(Game::find_all());
+        } else {
+            return str_replace('%content%', $this->str(Game::find_all()), $template);
+        }
     }
 }
