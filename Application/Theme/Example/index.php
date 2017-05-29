@@ -6,11 +6,11 @@
  * Time: 13:04
  */
 
-namespace Theme\Default;
+namespace Theme\Example;
 
 /**
  * Class Theme
- * @package Theme\Default
+ * @package Theme\Example
  */
 class Theme extends \Core\Theme
 {
