@@ -110,10 +110,10 @@ abstract class Theme implements ThemeInterface
     }
 
     /**
-     * @param string $content
+     * @param $content
      * @return View
      */
-    public function generate(string $content)
+    public function generate($content)
     {
         $this->content = $content;
         #$this->content .= serialize(Core::getInstance()->Session);
