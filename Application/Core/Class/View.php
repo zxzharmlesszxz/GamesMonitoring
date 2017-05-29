@@ -13,10 +13,15 @@ class View implements ViewInterface
     /**
      * @param Theme $theme
      * @param $content
-     * @return mixed|void
+     * @param bool $ajax
+     * @return mixed
      */
-    public function generate(Theme $theme, $content)
+    public function generate(Theme $theme, $content, $ajax = false)
     {
+        if ($ajax) {
+            $json = json_encode($content);
+            return $json;
+        }
         $page = file_get_contents(__DIR__ . "/../../Template/template_view.php");
         $lesses = $theme->getLesses();
         $csses = $theme->getStyles();
@@ -24,16 +29,13 @@ class View implements ViewInterface
         $less_files = '';
         $css_files = '';
         $js_files = '';
-        foreach ($lesses as $less)
-        {
+        foreach ($lesses as $less) {
             $less_files .= "<link rel='stylesheet/less' type='text/css' href='$less'>\n";
         }
-        foreach ($csses as $css)
-        {
+        foreach ($csses as $css) {
             $css_files .= "<link rel='stylesheet' type='text/css' href='$css'>\n";
         }
-        foreach ($jses as $js)
-        {
+        foreach ($jses as $js) {
             $js_files .= "<script type='text/javascript' src='$js'></script>\n";
         }
 

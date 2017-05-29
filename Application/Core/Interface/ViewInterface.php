@@ -19,7 +19,8 @@ interface ViewInterface
     /**
      * @param Theme $theme
      * @param $content
+     * @param bool $ajax
      * @return mixed
      */
-    public function generate(Theme $theme, $content);
+    public function generate(Theme $theme, $content, $ajax = false);
 }

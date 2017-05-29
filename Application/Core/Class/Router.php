@@ -112,16 +112,16 @@ class Router implements RouterInterface, SingletonInterface
         $Action_name = (!empty($route[2]) ? $route[2] : 'get');
         $croute = $this->getRoute(new Route('Module\\' . ucfirst($Module_name), $Action_name));
 
-        $content = "Try to get route: /$Module_name/$Action_name<br>";
+        //$content = "Try to get route: /$Module_name/$Action_name<br>";
         if ($croute) {
-            $content .= "Module: $Module_name<br>";
-            $content .= "Action: $Action_name<br>";
-            $content .= "Query: ";
-            $content .=serialize($this->Query->getQuery());
-            $content .= "<br>";
+            //$content .= "Module: $Module_name<br>";
+            //$content .= "Action: $Action_name<br>";
+            //$content .= "Query: ";
+            //$content .=serialize($this->Query->getQuery());
+            //$content .= "<br>";
 
             $module = $core->getModule(ucfirst($Module_name));
-            $content .= $module->action($Action_name, $this->Query);
+            $content = $module->action($Action_name, $this->Query);
             #$content .= serialize($module);
             $core->setContent($content);
         } else {
