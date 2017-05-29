@@ -37,4 +37,4 @@ $core->Theme->generate($core->content);
 
 //var_dump($core->Theme);
 //var_dump($core->content);
-//var_dump($core->Router->getRoutes());
+var_dump($core->Router->getRoutes());
