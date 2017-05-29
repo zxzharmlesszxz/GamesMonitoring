@@ -58,7 +58,7 @@ class Model extends \Core\Model
             $session->login();
             $session->set('login', $user->login);
             $session->set('type', 'admin');
-        } elseif ($session->check_login()) {
+        } elseif ($session->check_login() and $session->get('type') == 'admin') {
             $template = "<b>You already logged in.</b>";
         } else {
             // Output error and display login form
