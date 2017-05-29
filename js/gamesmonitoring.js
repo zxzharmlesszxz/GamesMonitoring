@@ -58,7 +58,7 @@ $(document).ready(function () {
 
             $.ajax({
                 url: link,
-                data: type + "id=" + id,
+                data: "id=" + id,
                 type: 'post',
                 success: function () {
                     alert(result);
@@ -76,7 +76,7 @@ $(document).ready(function () {
             id = el.data('id'),
             type = el.data('type'),
             form = $(this).parent().parent().parent(),
-            send = type + '[' + type + 'id]=' + id + '&',
+            send = type + '[id]=' + id + '&',
             p = form.parent().parent();
 
         form.children().find('input').each(function () {
