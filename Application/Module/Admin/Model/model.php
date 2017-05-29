@@ -10,14 +10,23 @@ use Core\Core;
  */
 class Model extends \Core\Model
 {
+    /**
+     * @return array|mixed|string
+     */
     public function get()
     {
+        $query = func_get_arg(0)->getQuery();
         $template = file_get_contents(__DIR__ . '/../View/admins_view.php');
         $content = "";
         foreach (Admin::find_all() as $item) {
-            $content .= "<tr><td>$item->login</td><td>$item->username</td><td>$item->email</td><td>$item->status</td></tr>\n";
+            if (isset($query['ajax']) and $query['ajax'] == true) {
+                $content[] = array($item->login, $item->username, $item->email, $item->status);
+                return $content;
+            } else {
+                $content .= "<tr><td>$item->login</td><td>$item->username</td><td>$item->email</td><td>$item->status</td></tr>\n";
+                return str_replace('%content%', $content, $template);
+            }
         }
-        return str_replace('%content%', $content, $template);
     }
 
     public function login()
@@ -35,7 +44,7 @@ class Model extends \Core\Model
             $session->login();
             $session->set('login', $user->login);
             $session->set('type', 'admin');
-        } elseif ($session->check_login()){
+        } elseif ($session->check_login()) {
             $template = "<b>You already logged in.</b>";
         } else {
             // Output error and display login form
