@@ -30,6 +30,7 @@ class Admin extends Module
         $this->addRoute('save');
         $this->addRoute('login');
         $this->addRoute('logout');
+        $this->addRoute('changeStatus');
     }
 }
 
