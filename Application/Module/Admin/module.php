@@ -24,13 +24,16 @@ class Admin extends Module
      */
     public function __construct()
     {
+        global $core;
         parent::__construct();
-        $this->addRoute('delete');
-        $this->addRoute('create');
-        $this->addRoute('save');
         $this->addRoute('login');
-        $this->addRoute('logout');
-        $this->addRoute('changeStatus');
+        if ($core->Session->get('type') == 'admin') {
+            $this->addRoute('delete');
+            $this->addRoute('create');
+            $this->addRoute('save');
+            $this->addRoute('logout');
+            $this->addRoute('changeStatus');
+        }
     }
 }
 
