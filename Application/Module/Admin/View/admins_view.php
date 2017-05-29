@@ -61,6 +61,7 @@
     </tr>
     </tfoot>
     <tbody>
+    %content%
     </tbody>
 </table>
 </p>
