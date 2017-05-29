@@ -10,6 +10,25 @@ use Core\Core;
  */
 class Model extends \Core\Model
 {
+
+    protected function ajax(array $items)
+    {
+        $content = array();
+        foreach ($items as $item) {
+            $content[] = array($item->login, $item->username, $item->email, $item->status);
+        }
+        return $content;
+    }
+
+    protected function str(array $items)
+    {
+        $content = "";
+        foreach ($items as $item) {
+            $content .= "<tr><td>$item->login</td><td>$item->username</td><td>$item->email</td><td>$item->status</td></tr>\n";
+        }
+        return $content;
+    }
+
     /**
      * @return array|mixed|string
      */
@@ -17,15 +36,10 @@ class Model extends \Core\Model
     {
         $query = func_get_arg(0)->getQuery();
         $template = file_get_contents(__DIR__ . '/../View/admins_view.php');
-        $content = "";
-        foreach (Admin::find_all() as $item) {
-            if (isset($query['ajax']) and $query['ajax'] == true) {
-                $content[] = array($item->login, $item->username, $item->email, $item->status);
-                return $content;
-            } else {
-                $content .= "<tr><td>$item->login</td><td>$item->username</td><td>$item->email</td><td>$item->status</td></tr>\n";
-                return str_replace('%content%', $content, $template);
-            }
+        if (isset($query['ajax']) and $query['ajax'] == true) {
+            return $this->ajax(Admin::find_all());
+        } else {
+            return str_replace('%content%', $this->str(Admin::find_all()), $template);
         }
     }
 
