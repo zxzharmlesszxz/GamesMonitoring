@@ -15,7 +15,7 @@ class Model extends \Core\Model
     {
         $content = array();
         foreach ($items as $item) {
-            $content[] = array($item->login, $item->username, $item->email, $item->status);
+            $content['data'][] = array($item->login, $item->username, $item->email, $item->status);
         }
         return $content;
     }
