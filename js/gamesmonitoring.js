@@ -36,7 +36,7 @@ $(document).ready(function () {
         }
         $.ajax({
             url: '/' + type + '/changeStatus/',
-            data: type + "id=" + id,
+            data: "id=" + id,
             type: 'post',
             success: function () {
             }

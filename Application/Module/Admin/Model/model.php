@@ -11,6 +11,10 @@ use Core\Core;
 class Model extends \Core\Model
 {
 
+    /**
+     * @param array $items
+     * @return array
+     */
     protected function ajax(array $items)
     {
         $content = array();
@@ -20,6 +24,10 @@ class Model extends \Core\Model
         return $content;
     }
 
+    /**
+     * @param array $items
+     * @return string
+     */
     protected function str(array $items)
     {
         $content = "";
@@ -43,6 +51,9 @@ class Model extends \Core\Model
         }
     }
 
+    /**
+     * @return mixed
+     */
     public function login()
     {
         $session = Core::getInstance()->Session;
@@ -52,7 +63,6 @@ class Model extends \Core\Model
             $user = Admin::find_by_scope(array('login' => $query['login'], 'password' => md5($query['password'])))[0];
         }
         if (isset($user)) {
-            // Try to authentificate user
             $content = $user->login;
             $template = "<b>Welcome %content%.</b>";
             $session->login();
@@ -61,14 +71,14 @@ class Model extends \Core\Model
         } elseif ($session->check_login() and $session->get('type') == 'admin') {
             $template = "<b>You already logged in.</b>";
         } else {
-            // Output error and display login form
             $template = file_get_contents(__DIR__ . '/../View/admin_login.php');
         }
-        //$content .= serialize($session);
-        //$content .= serialize($_SESSION);
         return str_replace('%content%', $content, $template);
     }
 
+    /**
+     *
+     */
     public function logout()
     {
         Core::getInstance()->Session->logout();
@@ -76,10 +86,20 @@ class Model extends \Core\Model
         Core::getInstance()->Session->set('type', null);
     }
 
+    /**
+     * @return bool
+     */
     public function create()
     {
         $query = func_get_arg(0)->getQuery()['admin'];
         $new = Admin::add($query);
         return $new->save();
+    }
+
+    public function changeStatus()
+    {
+        $query = func_get_arg(0)->getQuery()['id'];
+        $new = Admin::find_by_id($query);
+        return $new->changeStatus();
     }
 }

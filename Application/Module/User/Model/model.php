@@ -51,7 +51,6 @@ class Model extends \Core\Model
             $user = User::find_by_scope(array('login' => $query['login'], 'password' => md5($query['password'])))[0];
         }
         if (isset($user)) {
-            // Try to authentificate user
             $content = $user->login;
             $template = "<b>Welcome %content%.</b>";
             $session->login();
@@ -60,11 +59,8 @@ class Model extends \Core\Model
         } elseif ($session->check_login() and $session->get('type') == 'user'){
             $template = "<b>You already logged in.</b>";
         } else {
-            // Output error and display login form
             $template = file_get_contents(__DIR__ . '/../View/user_login.php');
         }
-        //$content .= serialize($session);
-        //$content .= serialize($_SESSION);
         return str_replace('%content%', $content, $template);
     }
 
