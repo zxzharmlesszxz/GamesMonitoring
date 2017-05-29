@@ -13,7 +13,7 @@ class Model extends \Core\Model
         $content = array();
         foreach ($items as $item) {
             $content['data'][] = array('id' => $item->id, 'servername' => $item->servername, 'addr' => $item->addr,
-                'steam' => $item->steam, 'players' => $item->players/$item->botNumber/$item->maxplayers,
+                'steam' => $item->steam, 'players' => "$item->players/$item->botNumber/$item->maxplayers",
                 'map' => $item->map, 'game' => $item->game, 'mode' => $item->mode, 'location' => $item->location,
                 'regdate' => $item->regdate, 'site' => $item->site, 'status' => $item->status, 'vip' => $item->vip,
                 'top' => $item->top);
