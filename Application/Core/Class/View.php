@@ -13,15 +13,10 @@ class View implements ViewInterface
     /**
      * @param Theme $theme
      * @param $content
-     * @param bool $ajax
      * @return mixed
      */
-    public function generate(Theme $theme, $content, $ajax = false)
+    public function generate(Theme $theme, $content)
     {
-        if ($ajax) {
-            $json = json_encode($content);
-            return $json;
-        }
         $page = file_get_contents(__DIR__ . "/../../Template/template_view.php");
         $lesses = $theme->getLesses();
         $csses = $theme->getStyles();
