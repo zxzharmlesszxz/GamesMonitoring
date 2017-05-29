@@ -17,7 +17,7 @@
         $('#table').DataTable({
             "processing": true,
             "ajax": {
-                "url": "/servers/get/?ajax=true",
+                "url": "/server/get/?ajax=true",
                 "dataSrc": function (json) {
                     var return_data = [];
                     for (var i = 0; i < json.data.length; i++) {
