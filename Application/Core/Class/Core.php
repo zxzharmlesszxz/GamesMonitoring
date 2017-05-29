@@ -198,7 +198,7 @@ class Core implements SingletonInterface
     }
 
     /**
-     *
+     * @return $this
      */
     public function init()
     {
@@ -206,6 +206,7 @@ class Core implements SingletonInterface
         $this->loadCoreModules();
         $this->Session = $this->getCoreModule('Session');
         $this->Theme = $this->getTheme();
+        return $this;
     }
 
     /**
