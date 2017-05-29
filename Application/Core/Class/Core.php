@@ -210,9 +210,9 @@ class Core implements SingletonInterface
     }
 
     /**
-     * @param string $content
+     * @param $content
      */
-    public function setContent(string $content)
+    public function setContent($content)
     {
         $this->content = $content;
     }
