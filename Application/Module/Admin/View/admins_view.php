@@ -20,14 +20,14 @@
                     for (var i = 0; i < json.data.length; i++) {
                         var item = json.data[i];
                         return_data.push({
-                            'admin': '<a href="/admins/show/?login=' + item.login + '">' + item.login + '</a>' +
+                            'admin': '<a href="/admin/show/?login=' + item.login + '">' + item.login + '</a>' +
                             '<span class="actions">' +
-                            '<button class="delete" title="Delete" data-id="' + item.adminid + '" data-type="admin"></button>' +
-                            '<button class="edit" title="Edit" onclick="location.href=\'/admins/edit/?adminid=' + item.adminid + '\'"></button>' +
+                            '<button class="delete" title="Delete" data-id="' + item.id + '" data-type="admin"></button>' +
+                            '<button class="edit" title="Edit" onclick="location.href=\'/admin/edit/?id=' + item.id + '\'"></button>' +
                             '</span>',
                             'username': item.username,
                             'email': item.email,
-                            'status': '<input class="status" type="checkbox" data-id="' + item.adminid + '" value="' + item.status + '" data-type="admin" />'
+                            'status': '<input class="status" type="checkbox" data-id="' + item.id + '" value="' + item.status + '" data-type="admin" />'
                         })
                     }
                     return return_data;
