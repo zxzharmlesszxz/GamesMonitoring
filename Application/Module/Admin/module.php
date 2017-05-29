@@ -27,14 +27,14 @@ class Admin extends Module
         global $core;
         parent::__construct();
         $this->addRoute('login');
-        //var_dump($core->Session);
-        //if ($core->getCoreModule('Session')->Session->get('type') == 'admin') {
+
+        if ($core->Session->get('type') == 'admin') {
             $this->addRoute('delete');
             $this->addRoute('create');
             $this->addRoute('save');
             $this->addRoute('logout');
             $this->addRoute('changeStatus');
-        //}
+        }
     }
 }
 

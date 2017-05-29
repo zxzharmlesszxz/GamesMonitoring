@@ -200,12 +200,19 @@ class Core implements SingletonInterface
     /**
      *
      */
-    public function run()
+    public function init()
     {
         //echo __METHOD__ . '<br>';
         $this->loadCoreModules();
         $this->Session = $this->getCoreModule('Session');
         $this->Theme = $this->getTheme();
+    }
+
+    /**
+     *
+     */
+    public function run()
+    {
         $this->Router->startRouting($this);
     }
 
