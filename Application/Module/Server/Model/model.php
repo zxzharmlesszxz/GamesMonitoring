@@ -8,6 +8,10 @@ namespace Module\Server;
  */
 class Model extends \Core\Model
 {
+    /**
+     * @param array $items
+     * @return array
+     */
     protected function ajax(array $items)
     {
         $content = array();
@@ -21,6 +25,10 @@ class Model extends \Core\Model
         return $content;
     }
 
+    /**
+     * @param array $items
+     * @return string
+     */
     protected function str(array $items)
     {
         $content = "";
