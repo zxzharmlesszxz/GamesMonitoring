@@ -32,7 +32,7 @@ class Model extends \Core\Model
     public function get()
     {
         $query = func_get_arg(0)->getQuery();
-        $template = file_get_contents(__DIR__ . '/../View/modes_view.php');
+        $template = file_get_contents(__DIR__ . '/../View/games_view.php');
         if (isset($query['ajax']) and $query['ajax'] == true) {
             return $this->ajax(Game::find_all());
         } else {
