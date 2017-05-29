@@ -78,7 +78,7 @@ class Model extends \Core\Model
 
     public function create()
     {
-        $query = func_get_arg(0)->getQuery();
+        $query = func_get_arg(0)->getQuery()['admin'];
         var_dump($query);
     }
 }
