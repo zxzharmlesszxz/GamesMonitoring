@@ -56,7 +56,8 @@ abstract class Model implements ModelInterface
      */
     public function create()
     {
-        $str = get_called_class() . __METHOD__ . '<br>';
+        $str = new \ReflectionClass(get_called_class());
+        $str .= '<br>' . get_called_class() . __METHOD__ . '<br>';
         $str .= "Input args:<br>";
         $str .= serialize(func_get_args());
         return $str;
