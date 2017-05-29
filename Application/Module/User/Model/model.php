@@ -10,14 +10,36 @@ use Core\Core;
  */
 class Model extends \Core\Model
 {
-    public function get()
+    protected function ajax(array $items)
     {
-        $template = file_get_contents(__DIR__ . '/../View/users_view.php');
+        $content = array();
+        foreach ($items as $item) {
+            $content['data'][] = array('id' => $item->id, 'login' => $item->login, 'username' => $item->username, 'email' => $item->email, 'status' => $item->status);
+        }
+        return $content;
+    }
+
+    protected function str(array $items)
+    {
         $content = "";
-        foreach (User::find_all() as $item) {
+        foreach ($items as $item) {
             $content .= "<tr><td>$item->login</td><td>$item->username</td><td>$item->email</td><td>$item->status</td></tr>\n";
         }
-        return str_replace('%content%', $content, $template);
+        return $content;
+    }
+
+    /**
+     * @return array|mixed|string
+     */
+    public function get()
+    {
+        $query = func_get_arg(0)->getQuery();
+        $template = file_get_contents(__DIR__ . '/../View/admins_view.php');
+        if (isset($query['ajax']) and $query['ajax'] == true) {
+            return $this->ajax(User::find_all());
+        } else {
+            return str_replace('%content%', $this->str(User::find_all()), $template);
+        }
     }
 
     public function login()
