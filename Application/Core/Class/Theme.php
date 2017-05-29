@@ -116,9 +116,13 @@ abstract class Theme implements ThemeInterface
     public function generate($content)
     {
         $this->content = $content;
+        $query = Core::getInstance()->Router->Query->getQuery();
+        $ajax = false;
+        if (isset($query['ajax']) and $query['ajax'] == true)
+            $ajax = true;
         #$this->content .= serialize(Core::getInstance()->Session);
         $output= new View();
-        print_r($output->generate($this, $this->content));
+        print_r($output->generate($this, $this->content, $ajax));
     }
 
     /**
