@@ -100,7 +100,7 @@ class Model extends \Core\Model
     {
         $query = func_get_arg(0)->getQuery()['id'];
         $new = Admin::find_by_id($query);
-        var_dump($new);
+        var_dump($query);
         return $new->changeStatus();
     }
 }
