@@ -80,6 +80,6 @@ class Model extends \Core\Model
     {
         $query = func_get_arg(0)->getQuery()['admin'];
         $new = Admin::add($query);
-        var_dump($new);
+        return $new->save();
     }
 }
