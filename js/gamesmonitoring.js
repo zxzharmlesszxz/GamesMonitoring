@@ -76,7 +76,7 @@ $(document).ready(function () {
             id = el.data('id'),
             type = el.data('type'),
             form = $(this).parent().parent().parent(),
-            send = type + '[id]=' + id + '&',
+            send = '[id]=' + id + '&',
             p = form.parent().parent();
 
         form.children().find('input').each(function () {
