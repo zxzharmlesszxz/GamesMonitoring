@@ -45,19 +45,23 @@
 <p>
 <table id='table' class='display'>
     <thead>
+    <tr>
         <th>Login</th>
         <th>Username</th>
         <th>Email</th>
         <th>Status</th>
+    </tr>
     </thead>
     <tbody>
     %content%
     </tbody>
     <tfoot>
+    <tr>
         <th>Login</th>
         <th>Username</th>
         <th>Email</th>
         <th>Status</th>
+    </tr>
     </tfoot>
 </table>
 </p>
