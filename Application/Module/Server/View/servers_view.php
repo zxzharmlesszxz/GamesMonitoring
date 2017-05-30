@@ -35,7 +35,7 @@
                             'game': item.game,
                             'mode': item.mode,
                             'location': item.location,
-                            'regDate': item.regdate,
+                            'regDate': item.regDate,
                             'site': item.site,
                             'status': '<input class="status" type="checkbox" data-id="' + item.id + '" value="' + item.status + '" data-type="server" disabled readonly />',
                             'vip': '<input class="vip" type="checkbox" data-id="' + item.id + '" value="' + item.vip + '" data-type="server" disabled readonly />',
