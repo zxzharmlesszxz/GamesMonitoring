@@ -59,6 +59,8 @@ class Model extends \Core\Model
         $content = str_replace('%passwordProtected%', $server->passwordProtected, $template);
         $content = str_replace('%operatingSystem%', $server->operatingSystem, $template);
         $content = str_replace('%about%', $server->about, $template);
+        var_dump($content);
+        var_dump($server);
         return $content;
     }
 
