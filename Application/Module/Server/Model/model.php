@@ -46,6 +46,9 @@ class Model extends \Core\Model
         $query = func_get_arg(0)->getQuery();
         if (isset($query['ajax']) and $query['ajax'] == true) {
             return $this->ajax(Server::find_all());
+        } elseif (isset($query['id'])) {
+            $template = file_get_contents(__DIR__ . '/../View/server_view.php');
+            return str_replace('%content%', $this->str(Server::find_by_id($query['id'])), $template);
         } else {
             $template = file_get_contents(__DIR__ . '/../View/servers_view.php');
             return str_replace('%content%', $this->str(Server::find_all()), $template);
