@@ -16,10 +16,10 @@ class Model extends \Core\Model
     {
         $content = array();
         foreach ($items as $item) {
-            $content['data'][] = array('id' => $item->id, 'servername' => $item->servername, 'addr' => $item->addr,
-                'steam' => $item->steam, 'players' => $item->players, 'botNumber' => $item->botNumber, 'maxplayers' => $item->maxplayers,
+            $content['data'][] = array('id' => $item->id, 'serverName' => $item->servername, 'address' => $item->addr,
+                'steam' => $item->steam, 'players' => $item->players, 'botNumber' => $item->botNumber, 'maxPlayers' => $item->maxplayers,
                 'map' => $item->map, 'game' => $item->game, 'mode' => $item->mode, 'location' => $item->location,
-                'regdate' => $item->regdate, 'site' => $item->site, 'status' => $item->status, 'vip' => $item->vip,
+                'regDate' => $item->regdate, 'site' => $item->site, 'status' => $item->status, 'vip' => $item->vip,
                 'top' => $item->top);
         }
         return $content;
@@ -44,10 +44,10 @@ class Model extends \Core\Model
     public function get()
     {
         $query = func_get_arg(0)->getQuery();
-        $template = file_get_contents(__DIR__ . '/../View/servers_view.php');
         if (isset($query['ajax']) and $query['ajax'] == true) {
             return $this->ajax(Server::find_all());
         } else {
+            $template = file_get_contents(__DIR__ . '/../View/servers_view.php');
             return str_replace('%content%', $this->str(Server::find_all()), $template);
         }
     }
