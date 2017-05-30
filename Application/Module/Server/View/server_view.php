@@ -1,4 +1,4 @@
-<h1>%servername%</h1>
+<h1>%serverName%</h1>
 <p>
     <button alt="Edit" title="Edit" onclick="location.href='/server/edit/?id=%id%'">Edit this server
     </button>
