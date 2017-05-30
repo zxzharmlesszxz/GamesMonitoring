@@ -71,7 +71,7 @@ class Model extends \Core\Model
         if (isset($query['ajax']) and $query['ajax'] == true) {
             return $this->ajax(Server::find_all());
         } elseif (isset($query['id'])) {
-            return str_replace('%content%', $this->show(Server::find_by_id(intval($query['id']))), $template);
+            return $this->show(Server::find_by_id(intval($query['id'])));
         } else {
             $template = file_get_contents(__DIR__ . '/../View/servers_view.php');
             return str_replace('%content%', $this->str(Server::find_all()), $template);
