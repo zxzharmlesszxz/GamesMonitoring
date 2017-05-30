@@ -76,12 +76,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>{$num}</td>
-                <td>{$player['name']}</td>
-                <td>{$player['score']}</td>
-                <td>{$player['time']}</td>
-            </tr>
+            %playersInfo%
             </tbody>
         </table>
     </div>
@@ -94,10 +89,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>{$key}</td>
-                <td>{$value}</td>
-            </tr>
+            %rules%
             </tbody>
         </table>
     </div>

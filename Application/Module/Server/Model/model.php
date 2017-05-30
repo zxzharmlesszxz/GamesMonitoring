@@ -55,10 +55,23 @@ class Model extends \Core\Model
         $template = str_replace('%game%', $server->game, $template);
         $template = str_replace('%map%', $server->map, $template);
         $template = str_replace('%version%', $server->version, $template);
+        $template = str_replace('%players%', $server->players, $template);
+        $template = str_replace('%botNumber%', $server->botNumber, $template);
+        $template = str_replace('%maxPlayers%', $server->maxplayers, $template);
         $template = str_replace('%secureServer%', $server->secureServer, $template);
         $template = str_replace('%passwordProtected%', $server->passwordProtected, $template);
         $template = str_replace('%operatingSystem%', $server->operatingSystem, $template);
         $template = str_replace('%about%', $server->about, $template);
+        $playersInfo = "";
+        foreach ($server->players_info as $num => $player) {
+            $playersInfo .= "<tr><td>{$num}</td><td>{$player['name']}</td><td>{$player['score']}</td><td>{$player['time']}</td></tr>";
+        }
+        $template = str_replace('%playersInfo%', $playersInfo, $template);
+        $rules = "";
+        foreach ($server->rules as $key => $value) {
+            $rules .= "<tr><td>{$key}</td><td>{$value}</td></tr>";
+        }
+        $template = str_replace('%rules%', $rules, $template);
         //var_dump($content);
         //var_dump($server);
         return $template;
