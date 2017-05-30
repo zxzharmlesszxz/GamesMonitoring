@@ -1,5 +1,7 @@
 <?php
 
+namespace Module\Server;
+
 /**
  * Class ServerQueries
  */

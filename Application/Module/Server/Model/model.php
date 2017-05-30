@@ -38,6 +38,19 @@ class Model extends \Core\Model
         return $content;
     }
 
+    protected function show(Server $server)
+    {
+        $content = $server;
+        $sq = new SourceServerQueries();
+        $address = explode(':', $server->addr);
+        $sq->connect($address[0], $address[1]);
+        $content->info = $sq->getInfo();
+        $content->players_info = $sq->getPlayers();
+        $content->rules = $sq->getRules();
+        $sq->disconnect();
+        return serialize($content);
+    }
+
     /**
      * @return array|mixed|string
      */
@@ -48,7 +61,7 @@ class Model extends \Core\Model
             return $this->ajax(Server::find_all());
         } elseif (isset($query['id'])) {
             $template = file_get_contents(__DIR__ . '/../View/server_view.php');
-            return str_replace('%content%', serialize(Server::find_by_id($query['id'])), $template);
+            return str_replace('%content%', $this->show(Server::find_by_id(intval($query['id']))), $template);
         } else {
             $template = file_get_contents(__DIR__ . '/../View/servers_view.php');
             return str_replace('%content%', $this->str(Server::find_all()), $template);
