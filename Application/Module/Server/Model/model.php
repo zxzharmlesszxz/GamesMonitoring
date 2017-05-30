@@ -40,15 +40,26 @@ class Model extends \Core\Model
 
     protected function show(Server $server)
     {
-        $content = $server;
+        $template = file_get_contents(__DIR__ . '/../View/server_view.php');
+        $content = "";
         $sq = new SourceServerQueries();
         $address = explode(':', $server->addr);
         $sq->connect($address[0], $address[1]);
-        $content->info = $sq->getInfo();
-        $content->players_info = $sq->getPlayers();
-        $content->rules = $sq->getRules();
+        $server->info = $sq->getInfo();
+        $server->players_info = $sq->getPlayers();
+        $server->rules = $sq->getRules();
         $sq->disconnect();
-        return serialize($content);
+        $content = str_replace('%serverName%', $server->servername, $template);
+        $content = str_replace('%id%', $server->id, $template);
+        $content = str_replace('%address%', $server->addr, $template);
+        $content = str_replace('%game%', $server->game, $template);
+        $content = str_replace('%map%', $server->map, $template);
+        $content = str_replace('%version%', $server->version, $template);
+        $content = str_replace('%secureServer%', $server->secureServer, $template);
+        $content = str_replace('%passwordProtected%', $server->passwordProtected, $template);
+        $content = str_replace('%operatingSystem%', $server->operatingSystem, $template);
+        $content = str_replace('%about%', $server->about, $template);
+        return $content;
     }
 
     /**
@@ -60,7 +71,6 @@ class Model extends \Core\Model
         if (isset($query['ajax']) and $query['ajax'] == true) {
             return $this->ajax(Server::find_all());
         } elseif (isset($query['id'])) {
-            $template = file_get_contents(__DIR__ . '/../View/server_view.php');
             return str_replace('%content%', $this->show(Server::find_by_id(intval($query['id']))), $template);
         } else {
             $template = file_get_contents(__DIR__ . '/../View/servers_view.php');
