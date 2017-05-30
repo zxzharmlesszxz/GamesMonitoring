@@ -72,8 +72,6 @@ class Model extends \Core\Model
             $rules .= "<tr><td>{$key}</td><td>{$value}</td></tr>";
         }
         $template = str_replace('%rules%', $rules, $template);
-        //var_dump($content);
-        //var_dump($server);
         return $template;
     }
 
