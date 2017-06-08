@@ -37,9 +37,10 @@ class Provider extends Threaded
             $config['mysql']['host'],
             $config['mysql']['user'],
             $config['mysql']['password'],
-            $config['mysql']['database'],
-            $config['mysql']['charset']);
+            $config['mysql']['database']
+        );
 
+        $connection->set_charset($config['mysql']['charset']);
         $query = $connection->query("SELECT * FROM server;");
 
         while ($r = $query->fetch_array($query)) {
