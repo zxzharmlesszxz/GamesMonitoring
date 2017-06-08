@@ -13,7 +13,6 @@ require_once __DIR__ . '/../Module/Server/Class/ServerQueries.php';
 require_once __DIR__ . '/../Module/Server/Class/SourceServerQueries.php';
 
 $core = Core::getInstance()->init();
-$core->run();
 
 $threads = 32;
 $provider = new \Provider();
