@@ -41,23 +41,9 @@ class Work extends Threaded
                 $this->worker->getConnection()->real_query(
                     "DELETE FROM server WHERE id = '{$server['id']}';"
                 );
-                //print "DELETE FROM " . DB_SERVERS . " WHERE server_id = '{$server['server_id']}';" . PHP_EOL;
                 continue;
             }
-
-            if ($server['status'] == 'off' || empty($server['servername'])) {
-                $this->worker->getConnection()->real_query(
-                    "UPDATE server SET
-                    status = '0',
-                    map = '',
-                    players = '',
-                    maxplayers = '' "
-                    . (($server['status'] == 1) ? ", status_change = " . time() : "")
-                    . " WHERE id='{$server['id']}';"
-                );
-                //print "UPDATE " . DB_SERVERS . " SET server_status = '0', server_map = '-', server_players = '-', server_maxplayers = '-' " . (($server['server_status'] == 1) ? ", status_change = " . time() : "") . " WHERE server_id='{$server['server_id']}';" . PHP_EOL;
-                continue;
-            }*/
+*/
 
             $name = $this->worker->getConnection()->real_escape_string(htmlspecialchars(trim($_server['serverName'])));
             $this->worker->getConnection()->real_query(
@@ -71,21 +57,10 @@ class Work extends Threaded
                 operatingSystem = '{$_server['operatingSystem']}',
                 passwordProtected = '{$_server['passwordProtected']}',
                 maxplayers = '{$_server['maxPlayers']}', "
-                . (empty($_server['serverName']) ? "status = '0', status_change = NOW()" : "status = '1', status_change = NOW()")
+                . (empty($_server['serverName']) ? "status = '0'" : "status = '1'")
+                . (((empty($_server['serverName']) and $value['status'] == 0) or $value['status'] == 1) ? "" : ", status_change = NOW()")
                 . " WHERE id='{$value['id']}';"
             );
-            print "UPDATE server SET
-                servername = '{$name}',
-                map = '{$_server['mapName']}',
-                players = '{$_server['playerNumber']}',
-                botNumber = '{$_server['botNumber']}',
-                version = '{$_server['version']}',
-                secureServer = '{$_server['secureServer']}',
-                operatingSystem = '{$_server['operatingSystem']}',
-                passwordProtected = '{$_server['passwordProtected']}',
-                maxplayers = '{$_server['maxPlayers']}', "
-                . (empty($_server['serverName']) ? "status = '0', status_change = NOW()" : "status = '1', status_change = NOW()")
-                . " WHERE id='{$value['id']}';" . PHP_EOL;
         } while ($value !== null);
     }
 
