@@ -65,7 +65,7 @@ echo <<<EOT
     <label for="Site">Server Site</label>
    </td>
    <td>
-    <input type="text" value="$data->site" name="server[Site]"/>
+    <input type="text" value="$data->site" name="server[site]"/>
    </td>
   </tr>
   <tr>

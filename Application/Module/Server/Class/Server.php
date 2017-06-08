@@ -17,7 +17,7 @@ class Server extends DatabaseObject
      * @var array
      */
     protected static $db_fields = array('id', 'servername', 'addr', 'status', 'regdate', 'game', 'mode', 'map',
-        'players', 'maxplayers', 'location', 'steam', 'new', 'Site', 'about', 'vip', 'top', 'secureServer',
+        'players', 'maxplayers', 'location', 'steam', 'new', 'site', 'about', 'vip', 'top', 'secureServer',
         'passwordProtected', 'operatingSystem', 'botNumber', 'version');
 
     /**
