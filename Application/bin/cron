@@ -31,11 +31,11 @@ for ($i = 0; $i < $workers; $i++) {
 }
 
 $pool->destruct(
-    $onfig['mysql']['host'],
-    $onfig['mysql']['user'],
-    $onfig['mysql']['password'],
-    $onfig['mysql']['database'],
-    $onfig['mysql']['charset']
+    $config['mysql']['host'],
+    $config['mysql']['user'],
+    $config['mysql']['password'],
+    $config['mysql']['database'],
+    $config['mysql']['charset']
 )->shutdown();
 
 printf("Done for %.2f seconds" . PHP_EOL, microtime(true) - $start);

@@ -43,7 +43,7 @@ class Provider extends Threaded
         $connection->set_charset($config['mysql']['charset']);
         $query = $connection->query("SELECT * FROM server;");
 
-        while ($r = $query->fetch_array($query)) {
+        while ($r = $query->fetch_array()) {
             $this->items[] = $r;
             $this->total++;
         }
