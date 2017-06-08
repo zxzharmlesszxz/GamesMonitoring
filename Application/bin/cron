@@ -1,8 +1,7 @@
 #!/usr/bin/env php
 <?php
-namespace Core;
 
-require_once __DIR__ . '/../Core/index.php';
+require_once __DIR__ . '/../config/config.inc.php';
 require_once __DIR__ . '/../includes/functions.inc.php';
 require_once __DIR__ . '/../bootstrap.php';
 require_once __DIR__ . '/../classes/CronPool.php';
@@ -12,8 +11,6 @@ require_once __DIR__ . '/../classes/Work.php';
 require_once __DIR__ . '/../Module/Server/Class/ServerQueries.php';
 require_once __DIR__ . '/../Module/Server/Class/SourceServerQueries.php';
 
-$core = Core::getInstance()->init();
-
 $threads = 32;
 $provider = new \Provider();
 
@@ -21,11 +18,11 @@ $pool = new \CronPool($threads,
     'CronWorker',
     [
         $provider,
-        $core->Config->mysql['host'],
-        $core->Config->mysql['user'],
-        $core->Config->mysql['password'],
-        $core->Config->mysql['database'],
-        $core->Config->mysql['charset']
+        $config['mysql']['host'],
+        $config['mysql']['user'],
+        $config['mysql']['password'],
+        $config['mysql']['database'],
+        $config['mysql']['charset']
     ]);
 $start = microtime(true);
 
@@ -36,11 +33,11 @@ for ($i = 0; $i < $workers; $i++) {
 }
 
 $pool->destruct(
-    $core->Config->mysql['host'],
-    $core->Config->mysql['user'],
-    $core->Config->mysql['password'],
-    $core->Config->mysql['database'],
-    $core->Config->mysql['charset']
+    $onfig['mysql']['host'],
+    $onfig['mysql']['user'],
+    $onfig['mysql']['password'],
+    $onfig['mysql']['database'],
+    $onfig['mysql']['charset']
 )->shutdown();
 
 printf("Done for %.2f seconds" . PHP_EOL, microtime(true) - $start);
