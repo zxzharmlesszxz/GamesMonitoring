@@ -75,7 +75,7 @@ class Work extends Threaded
                 secureServer = '{$server['secureServer']}',
                 operatingSystem = '{$server['operatingSystem']}',
                 passwordProtected = '{$server['passwordProtected']}',
-                maxplayers = '{$server['maxplayers']}',
+                maxplayers = '{$server['maxPlayers']}',
                 status = '1' "
                 . (($server['status'] == 0) ? ", status_change = " . time() : "")
                 . " WHERE id='{$server['id']}';"
