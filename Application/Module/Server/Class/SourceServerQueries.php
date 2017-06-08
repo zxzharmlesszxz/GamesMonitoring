@@ -9,7 +9,7 @@ namespace Module\Server;
 final class SourceServerQueries extends ServerQueries
 {
     /**
-     * @return array|bool
+     * @return array
      */
     public function getInfo()
     {
@@ -70,7 +70,6 @@ final class SourceServerQueries extends ServerQueries
             }
         } else {
             $this->disconnect();
-            return false;
         }
         return $return;
     }
