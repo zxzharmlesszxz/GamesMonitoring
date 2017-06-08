@@ -13,11 +13,25 @@ final class SourceServerQueries extends ServerQueries
      */
     public function getInfo()
     {
-        if (!$this->connected) return false;
-        $return = array();
+        $return = [
+            'serverName' => null,
+            'mapName' => null,
+            'gameDir' => null,
+            'gameDesc' => null,
+            'playerNumber' => 0,
+            'maxPlayers' => 0,
+            'version' => null,
+            'operatingSystem' => null,
+            'passwordProtected' => null,
+            'secureServer' => null,
+            'botNumber' => null,
+        ];
+
+        if (!$this->connected)
+            return $return;
+
         $this->send("\xFF\xFF\xFF\xFFTSource Engine Query\x00");
         if ($tmp = $this->read(true)) {
-            #if ($tmp = $this->read()) { // if server don't use dproto
             if ($tmp == 0x6d) {
                 $this->getString();
                 $return['serverName'] = $this->getString();
