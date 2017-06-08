@@ -69,7 +69,7 @@ class Work extends Threaded
                 "UPDATE server SET
                 servername = '{$name}',
                 map = '{$server['mapName']}',
-                players = '{$server['players']}',
+                players = '{$server['playerNumber']}',
                 botNumber = '{$server['botNumber']}',
                 version = '{$server['version']}',
                 secureServer = '{$server['secureServer']}',
@@ -83,7 +83,7 @@ class Work extends Threaded
             print "UPDATE server SET
                 servername = '{$name}',
                 map = '{$server['mapName']}',
-                players = '{$server['players']}',
+                players = '{$server['playerNumber']}',
                 botNumber = '{$server['botNumber']}',
                 version = '{$server['version']}',
                 secureServer = '{$server['secureServer']}',
