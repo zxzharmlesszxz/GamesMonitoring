@@ -63,7 +63,7 @@
         });
 
 
-        $('#table').on('page.dt', function () {
+        $('#table').on('draw.dt', function () {
             var list = document.querySelectorAll("div.map[data-icon]");
             for (var i = 0; i < list.length; i++) {
                 var url = list[i].getAttribute('data-icon');
