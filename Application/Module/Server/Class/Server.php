@@ -128,7 +128,7 @@ class Server extends DatabaseObject
         $new->location = empty($item['location']) ? NULL : trim($item['location']);
         $new->steam = empty($item['steam']) ? NULL : intval(trim($item['steam']));
         $new->new = 1;
-        $new->site = empty($item['Site']) ? NULL : trim($item['Site']);
+        $new->site = empty($item['site']) ? NULL : trim($item['site']);
         $new->about = empty($item['about']) ? NULL : trim($item['about']);
         $new->vip = NULL;
         $new->top = NULL;
