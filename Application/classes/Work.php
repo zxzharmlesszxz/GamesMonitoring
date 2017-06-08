@@ -62,19 +62,24 @@ class Work extends Threaded
                 );
                 //print "UPDATE " . DB_SERVERS . " SET server_status = '0', server_map = '-', server_players = '-', server_maxplayers = '-' " . (($server['server_status'] == 1) ? ", status_change = " . time() : "") . " WHERE server_id='{$server['server_id']}';" . PHP_EOL;
                 continue;
-            }
+            }*/
 
             $name = $this->worker->getConnection()->real_escape_string(htmlspecialchars(trim($server['servername'])));
             $this->worker->getConnection()->real_query(
                 "UPDATE server SET
                 servername = '{$name}',
-                map = '{$server['map']}',
+                map = '{$server['mapName']}',
                 players = '{$server['players']}',
+                botNumber = '{$server['botNumber']}',
+                version = '{$server['version']}',
+                secureServer = '{$server['secureServer']}',
+                operatingSystem = '{$server['operatingSystem']}',
+                passwordProtected = '{$server['passwordProtected']}',
                 maxplayers = '{$server['maxplayers']}',
                 status = '1' "
                 . (($server['status'] == 0) ? ", status_change = " . time() : "")
                 . " WHERE id='{$server['id']}';"
-            );*/
+            );
             //print "UPDATE " . DB_SERVERS . " SET server_name = '{$name}', server_map = '{$server['map']}', server_players = '{$server['players']}', server_maxplayers = '{$server['max_players']}', server_status = '1' " . (($server['server_status'] == 0) ? ", status_change = " . time() : "") . " WHERE server_id='{$server['server_id']}';" . PHP_EOL;
         } while ($value !== null);
     }
