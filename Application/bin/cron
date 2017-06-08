@@ -6,6 +6,8 @@ require_once __DIR__ . '/../classes/CronPool.php';
 require_once __DIR__ . '/../classes/CronWorker.php';
 require_once __DIR__ . '/../classes/Provider.php';
 require_once __DIR__ . '/../classes/Work.php';
+require_once __DIR__ . '/../Module/Server/Class/ServerQueries.php';
+require_once __DIR__ . '/../Module/Server/Class/SourceServerQueries.php';
 
 $threads = 32;
 $provider = new Provider();
