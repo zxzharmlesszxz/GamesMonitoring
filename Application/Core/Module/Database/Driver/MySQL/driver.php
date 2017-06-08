@@ -18,6 +18,11 @@ class MySQL_Database implements DataBaseInterface
     /**
      * @var
      */
+    private $sql;
+
+    /**
+     * @var
+     */
     public $last_query;
 
     /**
@@ -79,10 +84,10 @@ class MySQL_Database implements DataBaseInterface
     public function query($sql)
     {
         $this->last_query = $sql;
-        $result = $this->connection->query($sql);
-        $this->confirm_query($result);
+        $this->sql = $this->connection->query($sql);
+        $this->confirm_query($this->sql);
 
-        return $result;
+        return $this->sql;
     }
 
     /**
@@ -98,7 +103,7 @@ class MySQL_Database implements DataBaseInterface
             if ($this->magic_quotes_active) {
                 $value = stripslashes($value);
             }
-            $value = $this->connection->real_escape_string($value);
+            $value = $this->sql->real_escape_string($value);
         } else { // before PHP v4.3.0
             // if magic quotes aren't already on then add slashes manualy
             if (!$this->magic_quotes_active) {
@@ -115,7 +120,7 @@ class MySQL_Database implements DataBaseInterface
      */
     public function fetch_array($result_set)
     {
-        return $this->connection->fetch_array($result_set);
+        return $result_set->fetch_array();
     }
 
     /**
@@ -124,7 +129,7 @@ class MySQL_Database implements DataBaseInterface
      */
     public function num_rows($result_set)
     {
-        return $this->connection->num_rows($result_set);
+        return $this->connection->num_rows;
     }
 
     /**
