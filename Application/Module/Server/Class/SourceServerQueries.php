@@ -31,7 +31,7 @@ final class SourceServerQueries extends ServerQueries
             return $return;
 
         $this->send("\xFF\xFF\xFF\xFFTSource Engine Query\x00");
-        if ($tmp = $this->read(true)) {
+        if ($tmp = $this->read(true) or $tmp = $this->read()) {
             if ($tmp == 0x6d) {
                 $this->getString();
                 $return['serverName'] = $this->getString();
