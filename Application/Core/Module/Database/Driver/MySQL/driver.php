@@ -103,7 +103,7 @@ class MySQL_Database implements DataBaseInterface
             if ($this->magic_quotes_active) {
                 $value = stripslashes($value);
             }
-            $value = $this->sql->real_escape_string($value);
+            $value = $this->connection->real_escape_string($value);
         } else { // before PHP v4.3.0
             // if magic quotes aren't already on then add slashes manualy
             if (!$this->magic_quotes_active) {
