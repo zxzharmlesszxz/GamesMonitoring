@@ -9,6 +9,7 @@ use Core\Interfaces\DataBaseInterface;
  */
 class MySQL_Database implements DataBaseInterface
 {
+
     /**
      * @var
      */
@@ -52,16 +53,11 @@ class MySQL_Database implements DataBaseInterface
      */
     public function open_connection()
     {
-        $this->connection = mysqli_connect($this->config['host'], $this->config['user'], $this->config['password']);
+        $this->connection = new \mysqli($this->config['host'], $this->config['user'], $this->config['password'], $this->config['database']);
         if (!$this->connection) {
             throw new \Exception("Database connection failed: " . mysqli_error($this->connection));
         } else {
-            // 2. Select a database to use
-            mysqli_set_charset($this->connection, $this->config['charset']);
-            $db_select = mysqli_select_db($this->connection, $this->config['database']);
-            if (!$db_select) {
-                throw new \Exception("Database selection failed: " . mysqli_error($this->connection));
-            }
+            $this->connection->set_charset($this->config['charset']);
         }
     }
 
@@ -71,7 +67,7 @@ class MySQL_Database implements DataBaseInterface
     public function close_connection()
     {
         if (isset($this->connection)) {
-            mysqli_close($this->connection);
+            $this->connection->close();
             unset($this->connection);
         }
     }
@@ -83,7 +79,7 @@ class MySQL_Database implements DataBaseInterface
     public function query($sql)
     {
         $this->last_query = $sql;
-        $result = mysqli_query($this->connection, $sql);
+        $result = $this->connection->query($sql);
         $this->confirm_query($result);
 
         return $result;
@@ -102,7 +98,7 @@ class MySQL_Database implements DataBaseInterface
             if ($this->magic_quotes_active) {
                 $value = stripslashes($value);
             }
-            $value = mysqli_real_escape_string($this->connection, $value);
+            $value = $this->connection->real_escape_string($value);
         } else { // before PHP v4.3.0
             // if magic quotes aren't already on then add slashes manualy
             if (!$this->magic_quotes_active) {
@@ -119,7 +115,7 @@ class MySQL_Database implements DataBaseInterface
      */
     public function fetch_array($result_set)
     {
-        return mysqli_fetch_array($result_set);
+        return $this->connection->fetch_array($result_set);
     }
 
     /**
@@ -128,7 +124,7 @@ class MySQL_Database implements DataBaseInterface
      */
     public function num_rows($result_set)
     {
-        return mysqli_num_rows($result_set);
+        return $this->connection->num_rows($result_set);
     }
 
     /**
@@ -137,7 +133,7 @@ class MySQL_Database implements DataBaseInterface
     public function insert_id()
     {
         // get the last id inserted over the current db connection
-        return mysqli_insert_id($this->connection);
+        return $this->connection->insert_id;
     }
 
     /**
@@ -145,7 +141,7 @@ class MySQL_Database implements DataBaseInterface
      */
     public function affected_rows()
     {
-        return mysqli_affected_rows($this->connection);
+        return $this->connection->affected_rows;
     }
 
     /**
@@ -155,8 +151,8 @@ class MySQL_Database implements DataBaseInterface
     final public function confirm_query($result)
     {
         if (!$result) {
-            $output = "Database query failed: " . mysqli_error($this->connection) . "<br />";
-            $output .= "Last SQL query: " . $this->last_query;
+            $output = "Database query failed: {$this->connection->error}<br />";
+            $output .= "Last SQL query: {$this->last_query}<br />";
             return ($output);
         }
     }
