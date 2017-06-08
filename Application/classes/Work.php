@@ -36,14 +36,15 @@ class Work extends Threaded
             $address = explode(':', $value['addr']);
             $sq->connect($address[0], $address[1]);
             $_server = $sq->getInfo();
-/*
-            if ($server['status'] == 'off' and ($server['status'] == 0) and time() - $server['status_change'] > 86400) {
+            if ($value['addr'] == '91.211.116.27:27038')
+                var_dump($_server);
+
+            if ($value['status'] == '0' and (empty($_server['serverName'])) and date_diff(date_create(), date_create($value['status_change']))->days >= 1) {
                 $this->worker->getConnection()->real_query(
-                    "DELETE FROM server WHERE id = '{$server['id']}';"
+                    "DELETE FROM server WHERE id = '{$value['id']}';"
                 );
                 continue;
             }
-*/
 
             $name = $this->worker->getConnection()->real_escape_string(htmlspecialchars(trim($_server['serverName'])));
             $this->worker->getConnection()->real_query(
