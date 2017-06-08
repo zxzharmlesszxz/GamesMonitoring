@@ -80,7 +80,19 @@ class Work extends Threaded
                 . (($server['status'] == 0) ? ", status_change = " . time() : "")
                 . " WHERE id='{$server['id']}';"
             );
-            //print "UPDATE " . DB_SERVERS . " SET server_name = '{$name}', server_map = '{$server['map']}', server_players = '{$server['players']}', server_maxplayers = '{$server['max_players']}', server_status = '1' " . (($server['server_status'] == 0) ? ", status_change = " . time() : "") . " WHERE server_id='{$server['server_id']}';" . PHP_EOL;
+            print "UPDATE server SET
+                servername = '{$name}',
+                map = '{$server['mapName']}',
+                players = '{$server['players']}',
+                botNumber = '{$server['botNumber']}',
+                version = '{$server['version']}',
+                secureServer = '{$server['secureServer']}',
+                operatingSystem = '{$server['operatingSystem']}',
+                passwordProtected = '{$server['passwordProtected']}',
+                maxplayers = '{$server['maxPlayers']}',
+                status = '1' "
+                . (($server['status'] == 0) ? ", status_change = " . time() : "")
+                . " WHERE id='{$server['id']}';" . PHP_EOL;
         } while ($value !== null);
     }
 
