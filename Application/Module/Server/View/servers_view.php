@@ -69,6 +69,9 @@
                 var url = list[i].getAttribute('data-icon');
                 list[i].style.backgroundImage = "url('" + url + "')";
             }
+            $('input[type="checkbox"]').each(function () {
+                ($(this).val() == 1) ? $(this).prop('checked', true) : $(this).prop('checked', false);
+            });
         });
     });
 </script>
