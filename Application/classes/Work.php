@@ -77,7 +77,7 @@ class Work extends Threaded
                 passwordProtected = '{$server['passwordProtected']}',
                 maxplayers = '{$server['maxPlayers']}',
                 status = '1' "
-                . (($server['status'] == 0) ? ", status_change = " . time() : "")
+                . (($server['status'] == 0) ? ", status_change = NOW()" : "")
                 . " WHERE id='{$server['id']}';"
             );
             print "UPDATE server SET
@@ -91,7 +91,7 @@ class Work extends Threaded
                 passwordProtected = '{$server['passwordProtected']}',
                 maxplayers = '{$server['maxPlayers']}',
                 status = '1' "
-                . (($server['status'] == 0) ? ", status_change = " . time() : "")
+                . (($server['status'] == 0) ? ", status_change = NOW()" : "")
                 . " WHERE id='{$server['id']}';" . PHP_EOL;
         } while ($value !== null);
     }
