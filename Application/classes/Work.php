@@ -38,6 +38,8 @@ class Work extends Threaded
             $_server = $sq->getInfo();
             $server = array_merge((array)$value, $_server);
 
+            var_dump($value);
+            var_dump($_server);
             var_dump($server);
 /*
             if ($server['status'] == 'off' and ($server['status'] == 0) and time() - $server['status_change'] > 86400) {
