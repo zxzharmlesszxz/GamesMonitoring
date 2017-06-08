@@ -64,7 +64,7 @@ class Work extends Threaded
                 continue;
             }*/
 
-            $name = $this->worker->getConnection()->real_escape_string(htmlspecialchars(trim($server['servername'])));
+            $name = $this->worker->getConnection()->real_escape_string(htmlspecialchars(trim($server['serverName'])));
             $this->worker->getConnection()->real_query(
                 "UPDATE server SET
                 servername = '{$name}',
