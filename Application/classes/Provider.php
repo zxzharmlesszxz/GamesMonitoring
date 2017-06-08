@@ -32,9 +32,17 @@ class Provider extends Threaded
      */
     public function __construct()
     {
-        $query = db()->query("SELECT * FROM server;");
+        global $config;
+        $connection = new mysqli(
+            $config['mysql']['host'],
+            $config['mysql']['user'],
+            $config['mysql']['password'],
+            $config['mysql']['database'],
+            $config['mysql']['charset']);
 
-        while ($r = db()->fetch_array($query)) {
+        $query = $connection->query("SELECT * FROM server;");
+
+        while ($r = $query->fetch_array($query)) {
             $this->items[] = $r;
             $this->total++;
         }
