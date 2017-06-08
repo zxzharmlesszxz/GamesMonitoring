@@ -26,7 +26,7 @@ class CronPool extends Pool
         $online = 0;
         while ($r = $sql->fetch_array()) {
             $servers[] = $r;
-            if($r['server_status'] == 1)
+            if($r['status'] == 1)
                 $online++;
         }
 
