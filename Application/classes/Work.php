@@ -40,7 +40,7 @@ class Work extends Threaded
 
             var_dump($value);
             var_dump($_server);
-            var_dump($server);
+            print_r($server);
 /*
             if ($server['status'] == 'off' and ($server['status'] == 0) and time() - $server['status_change'] > 86400) {
                 $this->worker->getConnection()->real_query(
