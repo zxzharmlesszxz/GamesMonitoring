@@ -1,6 +1,9 @@
 #!/usr/bin/env php
 <?php
+namespace Core;
 
+require_once __DIR__ . '/../Core/index.php';
+require_once __DIR__ . '/../includes/functions.inc.php';
 require_once __DIR__ . '/../bootstrap.php';
 require_once __DIR__ . '/../classes/CronPool.php';
 require_once __DIR__ . '/../classes/CronWorker.php';
@@ -9,10 +12,13 @@ require_once __DIR__ . '/../classes/Work.php';
 require_once __DIR__ . '/../Module/Server/Class/ServerQueries.php';
 require_once __DIR__ . '/../Module/Server/Class/SourceServerQueries.php';
 
-$threads = 32;
-$provider = new Provider();
+$core = Core::getInstance()->init();
+$core->run();
 
-$pool = new CronPool($threads,
+$threads = 32;
+$provider = new \Provider();
+
+$pool = new \CronPool($threads,
     'CronWorker',
     [
         $provider,
@@ -27,7 +33,7 @@ $start = microtime(true);
 $workers = $threads;
 
 for ($i = 0; $i < $workers; $i++) {
-    $pool->submit(new Work());
+    $pool->submit(new \Work());
 }
 
 $pool->destruct(
