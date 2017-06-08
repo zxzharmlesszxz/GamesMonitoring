@@ -26,7 +26,7 @@ final class SourceServerQueries extends ServerQueries
                 $return['gameDesc'] = $this->getString();
                 $return['playerNumber'] = intval($this->getByte());
                 $return['maxPlayers'] = intval($this->getByte());
-                $return['version'] = $this->getByte();
+                $return['version'] = intval($this->getByte());
                 $this->getByte();
                 $tmp = chr($this->getByte());
                 $return['operatingSystem'] = ($tmp == 'l') ? 'Linux' : 'Windows';
@@ -39,7 +39,7 @@ final class SourceServerQueries extends ServerQueries
                 $return['secureServer'] = ($this->getByte() == 0x01) ? 1 : 0;
                 $return['botNumber'] = intval($this->getByte());
             } elseif ($tmp == 0x49) {
-                $return['version'] = $this->getByte();
+                $return['version'] = intval($this->getByte());
                 $return['serverName'] = $this->getString();
                 $return['mapName'] = $this->getString();
                 $return['gameDir'] = $this->getString();

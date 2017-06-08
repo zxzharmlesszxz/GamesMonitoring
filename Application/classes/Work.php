@@ -50,13 +50,13 @@ class Work extends Threaded
                 "UPDATE server SET
                 servername = '{$name}',
                 map = '{$_server['mapName']}',
-                players = '{$_server['playerNumber']}',
-                botNumber = '{$_server['botNumber']}',
-                version = '{$_server['version']}',
-                secureServer = '{$_server['secureServer']}',
+                players = '" . intval($_server['playerNumber']) . "',
+                botNumber = '" . intval($_server['botNumber']) . "',
+                version = '" . intval($_server['version']) . "',
+                secureServer = '" . intval($_server['secureServer']) . "',
                 operatingSystem = '{$_server['operatingSystem']}',
-                passwordProtected = '{$_server['passwordProtected']}',
-                maxplayers = '{$_server['maxPlayers']}', "
+                passwordProtected = '" . intval($_server['passwordProtected']) . "',
+                maxplayers = '" . intval($_server['maxPlayers']) . "', "
                 . (empty($_server['serverName']) ? "status = '0'" : "status = '1'")
                 . (((empty($_server['serverName']) and $value['status'] == 0) or $value['status'] == 1) ? "" : ", status_change = NOW()")
                 . " WHERE id='{$value['id']}';"
