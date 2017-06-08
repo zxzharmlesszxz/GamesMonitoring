@@ -34,6 +34,8 @@ class Work extends Threaded
             // Некая ресурсоемкая операция
             $sq = new \Module\Server\SourceServerQueries();
             $address = explode(':', $value['addr']);
+            if ($value['addr'] == '91.211.116.27:27038')
+                var_dump($value);
             $sq->connect($address[0], $address[1]);
             $_server = $sq->getInfo();
             if ($value['addr'] == '91.211.116.27:27038')
