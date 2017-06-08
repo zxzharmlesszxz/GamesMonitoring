@@ -1,0 +1,39 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . '/../bootstrap.php';
+require_once __DIR__ . '/../classes/CronPool.php';
+require_once __DIR__ . '/../classes/CronWorker.php';
+require_once __DIR__ . '/../classes/Provider.php';
+require_once __DIR__ . '/../classes/Work.php';
+
+$threads = 32;
+$provider = new Provider();
+
+$pool = new CronPool($threads,
+    'CronWorker',
+    [
+        $provider,
+        $core->Config->mysql['host'],
+        $core->Config->mysql['user'],
+        $core->Config->mysql['password'],
+        $core->Config->mysql['database'],
+        $core->Config->mysql['charset']
+    ]);
+$start = microtime(true);
+
+$workers = $threads;
+
+for ($i = 0; $i < $workers; $i++) {
+    $pool->submit(new Work());
+}
+
+$pool->destruct(
+    $core->Config->mysql['host'],
+    $core->Config->mysql['user'],
+    $core->Config->mysql['password'],
+    $core->Config->mysql['database'],
+    $core->Config->mysql['charset']
+)->shutdown();
+
+printf("Done for %.2f seconds" . PHP_EOL, microtime(true) - $start);
