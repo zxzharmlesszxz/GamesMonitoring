@@ -24,20 +24,20 @@ final class SourceServerQueries extends ServerQueries
                 $return['mapName'] = $this->getString();
                 $return['gameDir'] = $this->getString();
                 $return['gameDesc'] = $this->getString();
-                $return['playerNumber'] = $this->getByte();
-                $return['maxPlayers'] = $this->getByte();
+                $return['playerNumber'] = intval($this->getByte());
+                $return['maxPlayers'] = intval($this->getByte());
                 $return['version'] = $this->getByte();
                 $this->getByte();
                 $tmp = chr($this->getByte());
                 $return['operatingSystem'] = ($tmp == 'l') ? 'Linux' : 'Windows';
-                $return['passwordProtected'] = ($this->getByte() == 0x01) ? true : false;
+                $return['passwordProtected'] = ($this->getByte() == 0x01) ? 1 : 0;
                 if ($this->getByte() == 0x01) {
                     $this->getString();
                     $this->getString();
                     $this->raw = substr($this->raw, 11);
                 }
-                $return['secureServer'] = ($this->getByte() == 0x01) ? true : false;
-                $return['botNumber'] = $this->getByte();
+                $return['secureServer'] = ($this->getByte() == 0x01) ? 1 : 0;
+                $return['botNumber'] = intval($this->getByte());
             } elseif ($tmp == 0x49) {
                 $return['version'] = $this->getByte();
                 $return['serverName'] = $this->getString();
@@ -45,14 +45,14 @@ final class SourceServerQueries extends ServerQueries
                 $return['gameDir'] = $this->getString();
                 $return['gameDesc'] = $this->getString();
                 $this->raw = substr($this->raw, 2);
-                $return['playerNumber'] = $this->getByte();
-                $return['maxPlayers'] = $this->getByte();
-                $return['botNumber'] = $this->getByte();
+                $return['playerNumber'] = intval($this->getByte());
+                $return['maxPlayers'] = intval($this->getByte());
+                $return['botNumber'] = intval($this->getByte());
                 $this->getByte();
                 $tmp = chr($this->getByte());
                 $return['operatingSystem'] = ($tmp == 'l') ? 'Linux' : 'Windows';
-                $return['passwordProtected'] = ($this->getByte() == 0x01) ? true : false;
-                $return['secureServer'] = ($this->getByte() == 0x01) ? true : false;
+                $return['passwordProtected'] = ($this->getByte() == 0x01) ? 1 : 0;
+                $return['secureServer'] = ($this->getByte() == 0x01) ? 1 : 0;
             }
         } else {
             $this->disconnect();
