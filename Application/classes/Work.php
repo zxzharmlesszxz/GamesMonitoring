@@ -34,12 +34,10 @@ class Work extends Threaded
             // Некая ресурсоемкая операция
             $sq = new \Module\Server\SourceServerQueries();
             $address = explode(':', $value['addr']);
-            if ($value['addr'] == '91.211.116.27:27038')
-                var_dump($value);
+            var_dump($value);
             $sq->connect($address[0], $address[1]);
             $_server = $sq->getInfo();
-            if ($value['addr'] == '91.211.116.27:27038')
-                var_dump($_server);
+            var_dump($_server);
 
             if ($value['status'] == '0' and (empty($_server['serverName'])) and date_diff(date_create(), date_create($value['status_change']))->days >= 1) {
                 $this->worker->getConnection()->real_query(
@@ -64,6 +62,13 @@ class Work extends Threaded
                 . (((empty($_server['serverName']) and $value['status'] == 0) or $value['status'] == 1) ? "" : ", status_change = NOW()")
                 . " WHERE id='{$value['id']}';"
             );
+            print "UPDATE server SET servername = '{$name}', map = '{$_server['mapName']}', players = '" . intval($_server['playerNumber']) . "',
+                botNumber = '" . intval($_server['botNumber']) . "', version = '" . intval($_server['version']) . "', secureServer = '" . intval($_server['secureServer']) . "',
+                operatingSystem = '{$_server['operatingSystem']}', passwordProtected = '" . intval($_server['passwordProtected']) . "',
+                maxplayers = '" . intval($_server['maxPlayers']) . "', "
+                . (empty($_server['serverName']) ? "status = '0'" : "status = '1'")
+                . (((empty($_server['serverName']) and $value['status'] == 0) or $value['status'] == 1) ? "" : ", status_change = NOW()")
+                . " WHERE id='{$value['id']}';";
         } while ($value !== null);
     }
 
