@@ -26,7 +26,7 @@ class Work extends Threaded
             $provider->synchronized(function ($provider) use (&$value) {
                 $value = $provider->getNext();
             }, $provider);
-
+            var_dump($value);
             if ($value === null) {
                 continue;
             }
@@ -34,7 +34,6 @@ class Work extends Threaded
             // Некая ресурсоемкая операция
             $sq = new \Module\Server\SourceServerQueries();
             $address = explode(':', $value['addr']);
-            var_dump($value);
             $sq->connect($address[0], $address[1]);
             $_server = $sq->getInfo();
             var_dump($_server);
