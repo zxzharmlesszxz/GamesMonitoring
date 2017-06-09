@@ -26,7 +26,7 @@ class Work extends Threaded
             $provider->synchronized(function ($provider) use (&$value) {
                 $value = $provider->getNext();
             }, $provider);
-            var_dump($value);
+
             if ($value === null) {
                 continue;
             }
@@ -36,13 +36,11 @@ class Work extends Threaded
             $address = explode(':', $value['addr']);
             $sq->connect($address[0], $address[1]);
             $_server = $sq->getInfo();
-            var_dump($_server);
 
             if ($value['status'] == '0' and (empty($_server['serverName'])) and date_diff(date_create(), date_create($value['status_change']))->days >= 1) {
                 $this->worker->getConnection()->real_query(
                     "DELETE FROM server WHERE id = '{$value['id']}';"
                 );
-                print "DELETE FROM server WHERE id = '{$value['id']}';" . PHP_EOL;
                 continue;
             }
 
@@ -62,13 +60,6 @@ class Work extends Threaded
                 . (((empty($_server['serverName']) and $value['status'] == 0) or $value['status'] == 1) ? "" : ", status_change = NOW()")
                 . " WHERE id='{$value['id']}';"
             );
-            print "UPDATE server SET servername = '{$name}', map = '{$_server['mapName']}', players = '" . intval($_server['playerNumber']) . "',
-                botNumber = '" . intval($_server['botNumber']) . "', version = '" . intval($_server['version']) . "', secureServer = '" . intval($_server['secureServer']) . "',
-                operatingSystem = '{$_server['operatingSystem']}', passwordProtected = '" . intval($_server['passwordProtected']) . "',
-                maxplayers = '" . intval($_server['maxPlayers']) . "', "
-                . (empty($_server['serverName']) ? "status = '0'" : "status = '1'")
-                . (((empty($_server['serverName']) and $value['status'] == 0) or $value['status'] == 1) ? "" : ", status_change = NOW()")
-                . " WHERE id='{$value['id']}';" . PHP_EOL;
         } while ($value !== null);
     }
 

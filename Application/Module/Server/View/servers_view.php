@@ -22,6 +22,8 @@
                     var return_data = [];
                     for (var i = 0; i < json.data.length; i++) {
                         var item = json.data[i];
+                        if (item.status == 0)
+                            continue;
                         return_data.push({
                             'server': '<a href="/server/get/?id=' + item.id + '">' + item.serverName + '</a>' +
                             '<span class="actions">' +
