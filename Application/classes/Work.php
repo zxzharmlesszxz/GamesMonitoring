@@ -68,7 +68,7 @@ class Work extends Threaded
                 maxplayers = '" . intval($_server['maxPlayers']) . "', "
                 . (empty($_server['serverName']) ? "status = '0'" : "status = '1'")
                 . (((empty($_server['serverName']) and $value['status'] == 0) or $value['status'] == 1) ? "" : ", status_change = NOW()")
-                . " WHERE id='{$value['id']}';";
+                . " WHERE id='{$value['id']}';" . PHP_EOL;
         } while ($value !== null);
     }
 
