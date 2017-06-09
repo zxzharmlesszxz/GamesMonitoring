@@ -45,6 +45,7 @@ class Provider extends Threaded
 
         while ($r = $query->fetch_array(MYSQLI_ASSOC)) {
             $this->items[] = $r;
+            var_dump($r);
             $this->total++;
         }
     }
