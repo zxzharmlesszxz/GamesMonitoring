@@ -124,7 +124,7 @@ $(document).ready(function () {
             data: send,
             type: 'post',
             success: function (data) {
-                if (data != false) {
+                if (data !== false) {
                     location.reload();
                 } else {
                     alert('Error in ' + type + ' create!');
