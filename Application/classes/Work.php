@@ -43,6 +43,7 @@ class Work extends Threaded
                 $this->worker->getConnection()->real_query(
                     "DELETE FROM server WHERE id = '{$value['id']}';"
                 );
+                print "DELETE FROM server WHERE id = '{$value['id']}';" . PHP_EOL;
                 continue;
             }
 
