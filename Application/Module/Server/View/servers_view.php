@@ -14,56 +14,7 @@
 </p>
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#table').DataTable({
-            "processing": true,
-            "ajax": {
-                "url": "/server/get/?ajax=true",
-                "dataSrc": function (json) {
-                    var return_data = [];
-                    for (var i = 0; i < json.data.length; i++) {
-                        var item = json.data[i];
-                        if (item.status == 0)
-                            continue;
-                        return_data.push({
-                            'server': '<a href="/server/get/?id=' + item.id + '">' + item.serverName + '</a>' +
-                            '<span class="actions">' +
-                            '<button class="delete" title="Delete" data-id="' + item.id + '" data-type="server"></button>' +
-                            '<button class="edit" title="Edit" onclick="location.href=\'/server/edit/?id=' + item.id + '\'"></button>' +
-                            '</span>',
-                            'address': item.address,
-                            'steam': '<input class="steam" type="checkbox" data-id="' + item.id + '" value="' + item.steam + '" data-type="server" disabled readonly />',
-                            'players': item.players + "/" + item.botNumber + "/" + item.maxPlayers,
-                            'map': '<div class="map" data-icon="/images/maps/' + item.game + '/' + item.map + '.png"><span>' + item.map + '</span></div>',
-                            'game': item.game,
-                            'mode': item.mode,
-                            'location': item.location,
-                            'regDate': item.regDate,
-                            'site': item.site,
-                            'status': '<input class="status" type="checkbox" data-id="' + item.id + '" value="' + item.status + '" data-type="server" disabled readonly />',
-                            'vip': '<input class="vip" type="checkbox" data-id="' + item.id + '" value="' + item.vip + '" data-type="server" disabled readonly />',
-                            'top': item.top
-                        })
-                    }
-                    return return_data;
-                }
-            },
-            "columns": [
-                {"data": "server"},
-                {"data": "address"},
-                {"data": "steam"},
-                {"data": "players"},
-                {"data": "map"},
-                {"data": "game"},
-                {"data": "mode"},
-                {"data": "location"},
-                {"data": "regDate"},
-                {"data": "site"},
-                {"data": "status"},
-                {"data": "vip"},
-                {"data": "top"}
-            ]
-        });
-
+        %access%
 
         $('#table').on('draw.dt', function () {
             var list = document.querySelectorAll("div.map[data-icon]");
