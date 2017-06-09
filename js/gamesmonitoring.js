@@ -1,7 +1,7 @@
 $(document).ready(function () {
     // Autocheck checkbox if value = 1
     $('input[type="checkbox"]').each(function () {
-        ($(this).val() == 1) ? $(this).prop('checked', true) : $(this).prop('checked', false);
+        ($(this).val() === 1) ? $(this).prop('checked', true) : $(this).prop('checked', false);
     });
     $(document).on('change', "input[type=checkbox]", function (event) {
         if (!$(this).attr('readonly')) {
@@ -11,7 +11,7 @@ $(document).ready(function () {
 
     // Colored nav menu
     $('nav#menu').children('menu').children('li').each(function () {
-        if ($(this).children('a').attr('href') == location.pathname) {
+        if ($(this).children('a').attr('href') === location.pathname) {
             $(this).toggleClass('active');
         }
     });
@@ -28,7 +28,7 @@ $(document).ready(function () {
         var el = $(this),
             id = el.data('id'),
             type = el.data('type');
-        if (type == undefined) return;
+        if (type === undefined) return;
         if (el.is(':checked')) {
             el.attr('value', 1);
         } else {
@@ -53,8 +53,8 @@ $(document).ready(function () {
             var el = $(this),
                 id = el.data('id'),
                 type = el.data('type'),
-                result = type + " #" + id + " has been removed.";
-            link = '/' + type + '/delete/';
+                result = type + " #" + id + " has been removed.",
+                link = '/' + type + '/delete/';
 
             $.ajax({
                 url: link,
