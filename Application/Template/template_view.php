@@ -5,6 +5,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <title>%title%</title>
+    <link href="/images/favicon.ico" rel="icon">
     <link rel="stylesheet" type="text/css" href="/css/jquery.dataTables.min.css">
     %less%
     %css%
